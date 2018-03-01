@@ -151,7 +151,7 @@ class ServiceHelper: NSObject {
             let pageAccount = AccountPaginated()
             pageAccount.account = account
             pageAccount.offset = 0
-            pageAccount.limit = 100
+            pageAccount.limit = 20
             
             self.solidityService.getTransactionsFromThis(withRequest: pageAccount, handler: { (list, error) in
                 if let list = list?.transactionArray as? [TronTransaction] {
@@ -169,7 +169,7 @@ class ServiceHelper: NSObject {
             let pageAccount = AccountPaginated()
             pageAccount.account = account
             pageAccount.offset = 0
-            pageAccount.limit = 100
+            pageAccount.limit = 20
             self.solidityService.getTransactionsToThis(withRequest: pageAccount, handler: { (list, error) in
                 if let list = list?.transactionArray as? [TronTransaction] {
                     observer.onNext(list)

@@ -49,7 +49,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6K6-KH-3Wu">
                                 <rect key="frame" x="20" y="50.5" width="250" height="27"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2d-n7-px1" customClass="WebsiteLabel" customModule="TRXWallet" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2d-n7-px1" customClass="WebsiteLabel" customModule="TRXWallet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="5" width="250" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <color key="textColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,7 +129,7 @@
                                                             <constraint firstAttribute="width" constant="40" id="fS5-OT-wgc"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vote" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9T-Nf-SpP">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9T-Nf-SpP">
                                                         <rect key="frame" x="42.5" y="9" width="40" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="K8d-14-MBv"/>
@@ -138,6 +138,12 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ve4-De-w3s">
+                                                        <rect key="frame" x="47.5" y="9" width="29.5" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-GY-OG6">
                                                         <rect key="frame" x="42.5" y="25.5" width="40" height="0.5"/>
                                                         <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,7 +158,9 @@
                                                     <constraint firstItem="njB-dR-0Lj" firstAttribute="bottom" secondItem="Qz9-9d-3Qv" secondAttribute="top" constant="10" id="9Tv-LL-jP3"/>
                                                     <constraint firstItem="njB-dR-0Lj" firstAttribute="centerX" secondItem="Qz9-9d-3Qv" secondAttribute="trailing" constant="-5" id="BA7-fa-zxe"/>
                                                     <constraint firstItem="ZbC-GY-OG6" firstAttribute="leading" secondItem="w9T-Nf-SpP" secondAttribute="leading" id="Gly-HP-DPb"/>
+                                                    <constraint firstItem="ve4-De-w3s" firstAttribute="centerX" secondItem="w9T-Nf-SpP" secondAttribute="centerX" id="IMB-3a-m5H"/>
                                                     <constraint firstItem="Qz9-9d-3Qv" firstAttribute="centerY" secondItem="qxz-O2-5MI" secondAttribute="centerY" id="SdY-j6-t9F"/>
+                                                    <constraint firstItem="ve4-De-w3s" firstAttribute="centerY" secondItem="w9T-Nf-SpP" secondAttribute="centerY" id="Z8c-hK-zuF"/>
                                                     <constraint firstItem="ZbC-GY-OG6" firstAttribute="trailing" secondItem="w9T-Nf-SpP" secondAttribute="trailing" id="eQV-9D-4sa"/>
                                                     <constraint firstItem="Qz9-9d-3Qv" firstAttribute="trailing" secondItem="w9T-Nf-SpP" secondAttribute="leading" constant="-5" id="rLC-yE-PNs"/>
                                                     <constraint firstItem="Qz9-9d-3Qv" firstAttribute="centerY" secondItem="w9T-Nf-SpP" secondAttribute="centerY" constant="2" id="sf8-4p-IRH"/>
@@ -231,6 +239,7 @@
                 <outlet property="tipView" destination="njB-dR-0Lj" id="SJw-6G-T4O"/>
                 <outlet property="voteImageView" destination="Qz9-9d-3Qv" id="0gw-XK-hlC"/>
                 <outlet property="voteNumberLabel" destination="STL-Cw-GXT" id="1h9-mv-Cnk"/>
+                <outlet property="votePlaceholderLabel" destination="ve4-De-w3s" id="3Oq-az-h2M"/>
                 <outlet property="websiteLabel" destination="A2d-n7-px1" id="2uQ-uC-qoB"/>
             </connections>
             <point key="canvasLocation" x="-32" y="36.5"/>

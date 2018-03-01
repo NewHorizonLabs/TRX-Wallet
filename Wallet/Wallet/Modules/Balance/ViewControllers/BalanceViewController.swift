@@ -106,6 +106,7 @@ class BalanceViewController: UIViewController {
                 self?.walletModeChange(state: state)
             })
         .disposed(by: disposeBag)
+        
     }
     
     func walletModeChange(state: WalletModeState) {

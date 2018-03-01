@@ -23,6 +23,7 @@ class VoteTableViewCell: UITableViewCell {
     @IBOutlet weak var voteNumberLabel: UILabel!
     var model: Witness?
     
+    @IBOutlet weak var votePlaceholderLabel: UILabel!
     @IBOutlet weak var voteImageView: UIImageView!
     var disposeBag = DisposeBag()
     
@@ -35,6 +36,12 @@ class VoteTableViewCell: UITableViewCell {
         configureUI()
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapTipImageView(_:)))
         voteImageView.addGestureRecognizer(tap)
+        
+        let inputSignal = (inputTextField.rx.text).orEmpty.asObservable()
+        inputSignal
+            .map { return $0.count > 0 }
+            .bind(to: votePlaceholderLabel.rx.isHidden)
+            .disposed(by: disposeBag)
     }
     
     override func prepareForReuse() {
