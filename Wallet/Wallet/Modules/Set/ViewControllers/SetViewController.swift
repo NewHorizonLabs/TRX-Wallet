@@ -29,6 +29,8 @@ class SetViewController: UIViewController, Coordinator {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.backgroundColor
+        self.tableView.backgroundColor = UIColor.backgroundColor
         title = R.string.tron.settingNavTitle()
         //配置tableView
         tableView.register(R.nib.setTableViewCell)
@@ -155,7 +157,7 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
             return view
         }
         let view = UIView()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.backgroundColor
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.text = R.string.tron.settingSecionPasswordTitle()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CDC-Of-pml">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CDC-Of-pml">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,17 +28,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="283"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-U6-jxC" customClass="GradientView" customModule="TRXWallet" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-U6-jxC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="283"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                                    <color key="value" red="0.30196078431372547" green="0.20000000000000001" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                                    <color key="value" red="0.15686274509803921" green="0.53725490196078429" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balance_bg" translatesAutoresizingMaskIntoConstraints="NO" id="c45-0l-k1I">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="283"/>
@@ -462,7 +454,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="balance_bg" width="375" height="210"/>
+        <image name="balance_bg" width="375" height="252"/>
         <image name="ic_arrow" width="7" height="9"/>
         <image name="ic_freeze" width="40" height="40"/>
         <image name="ic_tron_power" width="40" height="40"/>

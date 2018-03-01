@@ -24,7 +24,6 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="H1C-Jo-QiA">
                                     <rect key="frame" x="0.0" y="72" width="375" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uC0-Ld-DMW">

@@ -14,7 +14,7 @@ extension UIColor {
     
     //主题色
     class var mainNormalColor: UIColor {
-        return UIColor.colorWithHex(hex: "#4533E5")
+        return UIColor.colorWithHex(hex: "#C23631")
     }
     
     //高亮状态主题色
@@ -108,7 +108,7 @@ extension UIColor {
     //背景色
     class var backgroundColor: UIColor {
         //242 242 245
-        return UIColor.rgb(r: 247, g: 247, b: 247)
+        return UIColor.colorWithHex(hex: "#f3f3f3")
     }
     
     //数据为空时，提示标题颜色
