@@ -147,12 +147,15 @@ class BalanceViewController: UIViewController {
         headerView.frame = frame
         tableView.tableHeaderView = headerView
         let contentOffsetY = tableView.contentOffset.y
+        let height = self.headerView.pheight
+        print(contentOffsetY)
         if (contentOffsetY > 0) {
             
         } else {
-            let frame = CGRect(x: contentOffsetY, y: contentOffsetY, width: view.frame.size.width + (-contentOffsetY) * 2, height: headerViewHeight + (-contentOffsetY))
+            let frame = CGRect(x: contentOffsetY, y: contentOffsetY, width: view.frame.size.width + (-contentOffsetY) * 2, height: height + (-contentOffsetY))
             backgroundImageView.frame = frame
             gradientView.frame = frame
+            headerView.clipsToBounds = false
         }
     }
 
@@ -164,11 +167,12 @@ extension BalanceViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffsetY = scrollView.contentOffset.y
+        let height = self.headerView.pheight
         print(contentOffsetY)
         if (contentOffsetY > 0) {
             
         } else {
-            let frame = CGRect(x: contentOffsetY, y: contentOffsetY, width: view.frame.size.width + (-contentOffsetY) * 2, height: headerViewHeight + (-contentOffsetY))
+            let frame = CGRect(x: contentOffsetY, y: contentOffsetY, width: view.frame.size.width + (-contentOffsetY) * 2, height: height + (-contentOffsetY))
             backgroundImageView.frame = frame
             gradientView.frame = frame
             headerView.clipsToBounds = false
