@@ -32,6 +32,7 @@ CF_EXTERN_C_BEGIN
 @class AssetIssueContract;
 @class Block;
 @class Node;
+@class TimeMessage;
 @class TronTransaction;
 @class Witness;
 
@@ -126,20 +127,6 @@ typedef GPB_ENUM(BlockReference_FieldNumber) {
 @property(nonatomic, readwrite) int64_t blockNum;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *blockHash;
-
-@end
-
-#pragma mark - AccountList
-
-typedef GPB_ENUM(AccountList_FieldNumber) {
-  AccountList_FieldNumber_AccountsArray = 1,
-};
-
-@interface AccountList : GPBMessage
-
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TronAccount*> *accountsArray;
-/** The number of items in @c accountsArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger accountsArray_Count;
 
 @end
 
@@ -323,6 +310,77 @@ typedef GPB_ENUM(TransactionLimit_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSData *transactionId;
 
 @property(nonatomic, readwrite) int64_t limitNum;
+
+@end
+
+#pragma mark - AccountPaginated
+
+typedef GPB_ENUM(AccountPaginated_FieldNumber) {
+  AccountPaginated_FieldNumber_Account = 1,
+  AccountPaginated_FieldNumber_Offset = 2,
+  AccountPaginated_FieldNumber_Limit = 3,
+};
+
+@interface AccountPaginated : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) TronAccount *account;
+/** Test to see if @c account has been set. */
+@property(nonatomic, readwrite) BOOL hasAccount;
+
+@property(nonatomic, readwrite) int64_t offset;
+
+@property(nonatomic, readwrite) int64_t limit;
+
+@end
+
+#pragma mark - TimePaginatedMessage
+
+typedef GPB_ENUM(TimePaginatedMessage_FieldNumber) {
+  TimePaginatedMessage_FieldNumber_TimeMessage = 1,
+  TimePaginatedMessage_FieldNumber_Offset = 2,
+  TimePaginatedMessage_FieldNumber_Limit = 3,
+};
+
+@interface TimePaginatedMessage : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) TimeMessage *timeMessage;
+/** Test to see if @c timeMessage has been set. */
+@property(nonatomic, readwrite) BOOL hasTimeMessage;
+
+@property(nonatomic, readwrite) int64_t offset;
+
+@property(nonatomic, readwrite) int64_t limit;
+
+@end
+
+#pragma mark - AccountNetMessage
+
+typedef GPB_ENUM(AccountNetMessage_FieldNumber) {
+  AccountNetMessage_FieldNumber_FreeNetUsed = 1,
+  AccountNetMessage_FieldNumber_FreeNetLimit = 2,
+  AccountNetMessage_FieldNumber_NetUsed = 3,
+  AccountNetMessage_FieldNumber_NetLimit = 4,
+  AccountNetMessage_FieldNumber_AssetNetUsed = 5,
+  AccountNetMessage_FieldNumber_AssetNetLimit = 6,
+};
+
+@interface AccountNetMessage : GPBMessage
+
+@property(nonatomic, readwrite) int64_t freeNetUsed;
+
+@property(nonatomic, readwrite) int64_t freeNetLimit;
+
+@property(nonatomic, readwrite) int64_t netUsed;
+
+@property(nonatomic, readwrite) int64_t netLimit;
+
+@property(nonatomic, readwrite, strong, null_resettable) GPBStringInt64Dictionary *assetNetUsed;
+/** The number of items in @c assetNetUsed without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger assetNetUsed_Count;
+
+@property(nonatomic, readwrite, strong, null_resettable) GPBStringInt64Dictionary *assetNetLimit;
+/** The number of items in @c assetNetLimit without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger assetNetLimit_Count;
 
 @end
 

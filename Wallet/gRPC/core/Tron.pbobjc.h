@@ -36,6 +36,7 @@ CF_EXTERN_C_BEGIN
 @class ChainInventory_BlockId;
 @class Endpoint;
 @class GPBAny;
+@class HelloMessage_BlockId;
 @class TXInput_raw;
 @class TXOutput;
 @class TronTransaction;
@@ -135,6 +136,7 @@ typedef GPB_ENUM(Transaction_Contract_ContractType) {
   Transaction_Contract_ContractType_UnfreezeBalanceContract = 12,
   Transaction_Contract_ContractType_WithdrawBalanceContract = 13,
   Transaction_Contract_ContractType_UnfreezeAssetContract = 14,
+  Transaction_Contract_ContractType_UpdateAssetContract = 15,
   Transaction_Contract_ContractType_CustomContract = 20,
 };
 
@@ -296,7 +298,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_VotesArray = 5,
   Account_FieldNumber_Asset = 6,
   Account_FieldNumber_FrozenArray = 7,
-  Account_FieldNumber_Bandwidth = 8,
+  Account_FieldNumber_NetUsage = 8,
   Account_FieldNumber_CreateTime = 9,
   Account_FieldNumber_LatestOprationTime = 10,
   Account_FieldNumber_Allowance = 11,
@@ -307,6 +309,10 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_FrozenSupplyArray = 16,
   Account_FieldNumber_AssetIssuedName = 17,
   Account_FieldNumber_LatestAssetOperationTime = 18,
+  Account_FieldNumber_FreeNetUsage = 19,
+  Account_FieldNumber_FreeAssetNetUsage = 20,
+  Account_FieldNumber_LatestConsumeTime = 21,
+  Account_FieldNumber_LatestConsumeFreeTime = 22,
 };
 
 /**
@@ -318,7 +324,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
 
 @property(nonatomic, readwrite) AccountType type;
 
-/** the create adress */
+/** the create address */
 @property(nonatomic, readwrite, copy, null_resettable) NSData *address;
 
 /** the trx balance */
@@ -334,23 +340,21 @@ typedef GPB_ENUM(Account_FieldNumber) {
 /** The number of items in @c asset without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger asset_Count;
 
-/** latest asset operation time */
-@property(nonatomic, readwrite, strong, null_resettable) GPBStringInt64Dictionary *latestAssetOperationTime;
-/** The number of items in @c latestAssetOperationTime without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger latestAssetOperationTime_Count;
-
-/** the frozen balance */
+/**
+ * latest asset operation time
+ * the frozen balance
+ **/
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<Account_Frozen*> *frozenArray;
 /** The number of items in @c frozenArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger frozenArray_Count;
 
 /** bandwidth, get from frozen */
-@property(nonatomic, readwrite) int64_t bandwidth;
+@property(nonatomic, readwrite) int64_t netUsage;
 
 /** this account create time */
 @property(nonatomic, readwrite) int64_t createTime;
 
-/** this last opration time, including transfer, voting and so on. */
+/** this last operation time, including transfer, voting and so on. //FIXME fix grammar */
 @property(nonatomic, readwrite) int64_t latestOprationTime;
 
 /** witness block producing allowance */
@@ -373,6 +377,20 @@ typedef GPB_ENUM(Account_FieldNumber) {
 
 /** asset_issued_name */
 @property(nonatomic, readwrite, copy, null_resettable) NSData *assetIssuedName;
+
+@property(nonatomic, readwrite, strong, null_resettable) GPBStringInt64Dictionary *latestAssetOperationTime;
+/** The number of items in @c latestAssetOperationTime without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger latestAssetOperationTime_Count;
+
+@property(nonatomic, readwrite) int64_t freeNetUsage;
+
+@property(nonatomic, readwrite, strong, null_resettable) GPBStringInt64Dictionary *freeAssetNetUsage;
+/** The number of items in @c freeAssetNetUsage without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger freeAssetNetUsage_Count;
+
+@property(nonatomic, readwrite) int64_t latestConsumeTime;
+
+@property(nonatomic, readwrite) int64_t latestConsumeFreeTime;
 
 @end
 
@@ -415,6 +433,9 @@ typedef GPB_ENUM(acuthrity_FieldNumber) {
   acuthrity_FieldNumber_PermissionName = 2,
 };
 
+/**
+ * FIXME authority?
+ **/
 @interface acuthrity : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) AccountId *account;
@@ -431,6 +452,9 @@ typedef GPB_ENUM(permision_FieldNumber) {
   permision_FieldNumber_Account = 1,
 };
 
+/**
+ * FIXME permission
+ **/
 @interface permision : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) AccountId *account;
@@ -581,6 +605,7 @@ typedef GPB_ENUM(Transaction_FieldNumber) {
 /** Test to see if @c rawData has been set. */
 @property(nonatomic, readwrite) BOOL hasRawData;
 
+/** only support size = 1,  repeated list here for muti-sig extenstion */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *signatureArray;
 /** The number of items in @c signatureArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger signatureArray_Count;
@@ -677,6 +702,7 @@ typedef GPB_ENUM(Transaction_raw_FieldNumber) {
 
 @property(nonatomic, readwrite) int64_t expiration;
 
+/** FIXME authority */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<acuthrity*> *authsArray;
 /** The number of items in @c authsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger authsArray_Count;
@@ -684,6 +710,7 @@ typedef GPB_ENUM(Transaction_raw_FieldNumber) {
 /** data not used */
 @property(nonatomic, readwrite, copy, null_resettable) NSData *data_p;
 
+/** only support size = 1,  repeated list here for extenstion */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<Transaction_Contract*> *contractArray;
 /** The number of items in @c contractArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger contractArray_Count;
@@ -692,6 +719,20 @@ typedef GPB_ENUM(Transaction_raw_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSData *scripts;
 
 @property(nonatomic, readwrite) int64_t timestamp;
+
+@end
+
+#pragma mark - Transactions
+
+typedef GPB_ENUM(Transactions_FieldNumber) {
+  Transactions_FieldNumber_TransactionsArray = 1,
+};
+
+@interface Transactions : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TronTransaction*> *transactionsArray;
+/** The number of items in @c transactionsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger transactionsArray_Count;
 
 @end
 
@@ -957,6 +998,9 @@ typedef GPB_ENUM(HelloMessage_FieldNumber) {
   HelloMessage_FieldNumber_From = 1,
   HelloMessage_FieldNumber_Version = 2,
   HelloMessage_FieldNumber_Timestamp = 3,
+  HelloMessage_FieldNumber_GenesisBlockId = 4,
+  HelloMessage_FieldNumber_SolidBlockId = 5,
+  HelloMessage_FieldNumber_HeadBlockId = 6,
 };
 
 @interface HelloMessage : GPBMessage
@@ -968,6 +1012,33 @@ typedef GPB_ENUM(HelloMessage_FieldNumber) {
 @property(nonatomic, readwrite) int32_t version;
 
 @property(nonatomic, readwrite) int64_t timestamp;
+
+@property(nonatomic, readwrite, strong, null_resettable) HelloMessage_BlockId *genesisBlockId;
+/** Test to see if @c genesisBlockId has been set. */
+@property(nonatomic, readwrite) BOOL hasGenesisBlockId;
+
+@property(nonatomic, readwrite, strong, null_resettable) HelloMessage_BlockId *solidBlockId;
+/** Test to see if @c solidBlockId has been set. */
+@property(nonatomic, readwrite) BOOL hasSolidBlockId;
+
+@property(nonatomic, readwrite, strong, null_resettable) HelloMessage_BlockId *headBlockId;
+/** Test to see if @c headBlockId has been set. */
+@property(nonatomic, readwrite) BOOL hasHeadBlockId;
+
+@end
+
+#pragma mark - HelloMessage_BlockId
+
+typedef GPB_ENUM(HelloMessage_BlockId_FieldNumber) {
+  HelloMessage_BlockId_FieldNumber_Hash_p = 1,
+  HelloMessage_BlockId_FieldNumber_Number = 2,
+};
+
+@interface HelloMessage_BlockId : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *hash_p;
+
+@property(nonatomic, readwrite) int64_t number;
 
 @end
 

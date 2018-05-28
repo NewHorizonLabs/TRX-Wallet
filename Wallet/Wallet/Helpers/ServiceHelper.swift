@@ -106,7 +106,11 @@ class ServiceHelper: NSObject {
     
     private func getFromTransactions(account: TronAccount) -> Observable<[TronTransaction]> {
         return Observable.create({ (observer) -> Disposable in
-            self.solidityService.getTransactionsFromThis(withRequest: account, handler: { (list, error) in
+            let pageAccount = AccountPaginated()
+            pageAccount.account = account
+            pageAccount.offset = 0
+            pageAccount.limit = 100
+            self.solidityService.getTransactionsFromThis(withRequest: pageAccount, handler: { (list, error) in
                 if let list = list?.transactionArray as? [TronTransaction] {
                     observer.onNext(list)
                 } else if let error = error {
@@ -119,7 +123,11 @@ class ServiceHelper: NSObject {
     
     private func getToTransactions(account: TronAccount) -> Observable<[TronTransaction]> {
         return Observable.create({ (observer) -> Disposable in
-            self.solidityService.getTransactionsToThis(withRequest: account, handler: { (list, error) in
+            let pageAccount = AccountPaginated()
+            pageAccount.account = account
+            pageAccount.offset = 0
+            pageAccount.limit = 100
+            self.solidityService.getTransactionsToThis(withRequest: pageAccount, handler: { (list, error) in
                 if let list = list?.transactionArray as? [TronTransaction] {
                     observer.onNext(list)
                 } else if let error = error {

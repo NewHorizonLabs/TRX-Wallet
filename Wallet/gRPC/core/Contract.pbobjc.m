@@ -633,6 +633,7 @@ typedef struct WitnessUpdateContract__storage_ {
 
 @dynamic ownerAddress;
 @dynamic name;
+@dynamic abbr;
 @dynamic totalSupply;
 @dynamic frozenSupplyArray, frozenSupplyArray_Count;
 @dynamic trxNum;
@@ -642,6 +643,10 @@ typedef struct WitnessUpdateContract__storage_ {
 @dynamic voteScore;
 @dynamic description_p;
 @dynamic URL;
+@dynamic freeAssetNetLimit;
+@dynamic publicFreeAssetNetLimit;
+@dynamic publicFreeAssetNetUsage;
+@dynamic publicLatestFreeNetTime;
 
 typedef struct AssetIssueContract__storage_ {
   uint32_t _has_storage_[1];
@@ -650,12 +655,17 @@ typedef struct AssetIssueContract__storage_ {
   int32_t voteScore;
   NSData *ownerAddress;
   NSData *name;
+  NSData *abbr;
   NSMutableArray *frozenSupplyArray;
   NSData *description_p;
   NSData *URL;
   int64_t totalSupply;
   int64_t startTime;
   int64_t endTime;
+  int64_t freeAssetNetLimit;
+  int64_t publicFreeAssetNetLimit;
+  int64_t publicFreeAssetNetUsage;
+  int64_t publicLatestFreeNetTime;
 } AssetIssueContract__storage_;
 
 // This method is threadsafe because it is initially called
@@ -683,10 +693,19 @@ typedef struct AssetIssueContract__storage_ {
         .dataType = GPBDataTypeBytes,
       },
       {
+        .name = "abbr",
+        .dataTypeSpecific.className = NULL,
+        .number = AssetIssueContract_FieldNumber_Abbr,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(AssetIssueContract__storage_, abbr),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
         .name = "totalSupply",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_TotalSupply,
-        .hasIndex = 2,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, totalSupply),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
@@ -704,7 +723,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "trxNum",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_TrxNum,
-        .hasIndex = 3,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, trxNum),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt32,
@@ -713,7 +732,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "num",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_Num,
-        .hasIndex = 4,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, num),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt32,
@@ -722,7 +741,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "startTime",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_StartTime,
-        .hasIndex = 5,
+        .hasIndex = 6,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, startTime),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
@@ -731,7 +750,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "endTime",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_EndTime,
-        .hasIndex = 6,
+        .hasIndex = 7,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, endTime),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
@@ -740,7 +759,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "voteScore",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_VoteScore,
-        .hasIndex = 7,
+        .hasIndex = 8,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, voteScore),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt32,
@@ -749,7 +768,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "description_p",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_Description_p,
-        .hasIndex = 8,
+        .hasIndex = 9,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, description_p),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
@@ -758,10 +777,46 @@ typedef struct AssetIssueContract__storage_ {
         .name = "URL",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_URL,
-        .hasIndex = 9,
+        .hasIndex = 10,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, URL),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "freeAssetNetLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AssetIssueContract_FieldNumber_FreeAssetNetLimit,
+        .hasIndex = 11,
+        .offset = (uint32_t)offsetof(AssetIssueContract__storage_, freeAssetNetLimit),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "publicFreeAssetNetLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AssetIssueContract_FieldNumber_PublicFreeAssetNetLimit,
+        .hasIndex = 12,
+        .offset = (uint32_t)offsetof(AssetIssueContract__storage_, publicFreeAssetNetLimit),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "publicFreeAssetNetUsage",
+        .dataTypeSpecific.className = NULL,
+        .number = AssetIssueContract_FieldNumber_PublicFreeAssetNetUsage,
+        .hasIndex = 13,
+        .offset = (uint32_t)offsetof(AssetIssueContract__storage_, publicFreeAssetNetUsage),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "publicLatestFreeNetTime",
+        .dataTypeSpecific.className = NULL,
+        .number = AssetIssueContract_FieldNumber_PublicLatestFreeNetTime,
+        .hasIndex = 14,
+        .offset = (uint32_t)offsetof(AssetIssueContract__storage_, publicLatestFreeNetTime),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -1156,6 +1211,98 @@ typedef struct WithdrawBalanceContract__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(WithdrawBalanceContract__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - UpdateAssetContract
+
+@implementation UpdateAssetContract
+
+@dynamic ownerAddress;
+@dynamic description_p;
+@dynamic URL;
+@dynamic newLimit;
+@dynamic newPublicLimit;
+
+typedef struct UpdateAssetContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  NSData *description_p;
+  NSData *URL;
+  int64_t newLimit;
+  int64_t newPublicLimit;
+} UpdateAssetContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = UpdateAssetContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(UpdateAssetContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "description_p",
+        .dataTypeSpecific.className = NULL,
+        .number = UpdateAssetContract_FieldNumber_Description_p,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(UpdateAssetContract__storage_, description_p),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "URL",
+        .dataTypeSpecific.className = NULL,
+        .number = UpdateAssetContract_FieldNumber_URL,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(UpdateAssetContract__storage_, URL),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "newLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = UpdateAssetContract_FieldNumber_NewLimit,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(UpdateAssetContract__storage_, newLimit),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "newPublicLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = UpdateAssetContract_FieldNumber_NewPublicLimit,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(UpdateAssetContract__storage_, newPublicLimit),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[UpdateAssetContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(UpdateAssetContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\003!!!\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }

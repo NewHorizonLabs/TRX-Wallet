@@ -228,6 +228,7 @@ typedef GPB_ENUM(WitnessUpdateContract_FieldNumber) {
 typedef GPB_ENUM(AssetIssueContract_FieldNumber) {
   AssetIssueContract_FieldNumber_OwnerAddress = 1,
   AssetIssueContract_FieldNumber_Name = 2,
+  AssetIssueContract_FieldNumber_Abbr = 3,
   AssetIssueContract_FieldNumber_TotalSupply = 4,
   AssetIssueContract_FieldNumber_FrozenSupplyArray = 5,
   AssetIssueContract_FieldNumber_TrxNum = 6,
@@ -237,6 +238,10 @@ typedef GPB_ENUM(AssetIssueContract_FieldNumber) {
   AssetIssueContract_FieldNumber_VoteScore = 16,
   AssetIssueContract_FieldNumber_Description_p = 20,
   AssetIssueContract_FieldNumber_URL = 21,
+  AssetIssueContract_FieldNumber_FreeAssetNetLimit = 22,
+  AssetIssueContract_FieldNumber_PublicFreeAssetNetLimit = 23,
+  AssetIssueContract_FieldNumber_PublicFreeAssetNetUsage = 24,
+  AssetIssueContract_FieldNumber_PublicLatestFreeNetTime = 25,
 };
 
 @interface AssetIssueContract : GPBMessage
@@ -244,6 +249,8 @@ typedef GPB_ENUM(AssetIssueContract_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *name;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *abbr;
 
 @property(nonatomic, readwrite) int64_t totalSupply;
 
@@ -264,6 +271,14 @@ typedef GPB_ENUM(AssetIssueContract_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSData *description_p;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *URL;
+
+@property(nonatomic, readwrite) int64_t freeAssetNetLimit;
+
+@property(nonatomic, readwrite) int64_t publicFreeAssetNetLimit;
+
+@property(nonatomic, readwrite) int64_t publicFreeAssetNetUsage;
+
+@property(nonatomic, readwrite) int64_t publicLatestFreeNetTime;
 
 @end
 
@@ -371,6 +386,30 @@ typedef GPB_ENUM(WithdrawBalanceContract_FieldNumber) {
 @interface WithdrawBalanceContract : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@end
+
+#pragma mark - UpdateAssetContract
+
+typedef GPB_ENUM(UpdateAssetContract_FieldNumber) {
+  UpdateAssetContract_FieldNumber_OwnerAddress = 1,
+  UpdateAssetContract_FieldNumber_Description_p = 2,
+  UpdateAssetContract_FieldNumber_URL = 3,
+  UpdateAssetContract_FieldNumber_NewLimit = 4,
+  UpdateAssetContract_FieldNumber_NewPublicLimit = 5,
+};
+
+@interface UpdateAssetContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *description_p;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *URL;
+
+@property(nonatomic, readwrite) int64_t newLimit;
+
+@property(nonatomic, readwrite) int64_t newPublicLimit;
 
 @end
 

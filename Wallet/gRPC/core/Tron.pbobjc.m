@@ -287,9 +287,8 @@ typedef struct Vote__storage_ {
 @dynamic balance;
 @dynamic votesArray, votesArray_Count;
 @dynamic asset, asset_Count;
-@dynamic latestAssetOperationTime, latestAssetOperationTime_Count;
 @dynamic frozenArray, frozenArray_Count;
-@dynamic bandwidth;
+@dynamic netUsage;
 @dynamic createTime;
 @dynamic latestOprationTime;
 @dynamic allowance;
@@ -299,6 +298,11 @@ typedef struct Vote__storage_ {
 @dynamic isCommittee;
 @dynamic frozenSupplyArray, frozenSupplyArray_Count;
 @dynamic assetIssuedName;
+@dynamic latestAssetOperationTime, latestAssetOperationTime_Count;
+@dynamic freeNetUsage;
+@dynamic freeAssetNetUsage, freeAssetNetUsage_Count;
+@dynamic latestConsumeTime;
+@dynamic latestConsumeFreeTime;
 
 typedef struct Account__storage_ {
   uint32_t _has_storage_[1];
@@ -312,12 +316,16 @@ typedef struct Account__storage_ {
   NSMutableArray *frozenSupplyArray;
   NSData *assetIssuedName;
   GPBStringInt64Dictionary *latestAssetOperationTime;
+  GPBStringInt64Dictionary *freeAssetNetUsage;
   int64_t balance;
-  int64_t bandwidth;
+  int64_t netUsage;
   int64_t createTime;
   int64_t latestOprationTime;
   int64_t allowance;
   int64_t latestWithdrawTime;
+  int64_t freeNetUsage;
+  int64_t latestConsumeTime;
+  int64_t latestConsumeFreeTime;
 } Account__storage_;
 
 // This method is threadsafe because it is initially called
@@ -390,11 +398,11 @@ typedef struct Account__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "bandwidth",
+        .name = "netUsage",
         .dataTypeSpecific.className = NULL,
-        .number = Account_FieldNumber_Bandwidth,
+        .number = Account_FieldNumber_NetUsage,
         .hasIndex = 4,
-        .offset = (uint32_t)offsetof(Account__storage_, bandwidth),
+        .offset = (uint32_t)offsetof(Account__storage_, netUsage),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
       },
@@ -486,6 +494,42 @@ typedef struct Account__storage_ {
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(Account__storage_, latestAssetOperationTime),
         .flags = GPBFieldMapKeyString,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "freeNetUsage",
+        .dataTypeSpecific.className = NULL,
+        .number = Account_FieldNumber_FreeNetUsage,
+        .hasIndex = 15,
+        .offset = (uint32_t)offsetof(Account__storage_, freeNetUsage),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "freeAssetNetUsage",
+        .dataTypeSpecific.className = NULL,
+        .number = Account_FieldNumber_FreeAssetNetUsage,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(Account__storage_, freeAssetNetUsage),
+        .flags = GPBFieldMapKeyString,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "latestConsumeTime",
+        .dataTypeSpecific.className = NULL,
+        .number = Account_FieldNumber_LatestConsumeTime,
+        .hasIndex = 16,
+        .offset = (uint32_t)offsetof(Account__storage_, latestConsumeTime),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "latestConsumeFreeTime",
+        .dataTypeSpecific.className = NULL,
+        .number = Account_FieldNumber_LatestConsumeFreeTime,
+        .hasIndex = 17,
+        .offset = (uint32_t)offsetof(Account__storage_, latestConsumeFreeTime),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
       },
     };
@@ -1269,7 +1313,7 @@ GPBEnumDescriptor *Transaction_Contract_ContractType_EnumDescriptor(void) {
         "ntract\000AccountUpdateContract\000FreezeBalan"
         "ceContract\000UnfreezeBalanceContract\000Withd"
         "rawBalanceContract\000UnfreezeAssetContract"
-        "\000CustomContract\000";
+        "\000UpdateAssetContract\000CustomContract\000";
     static const int32_t values[] = {
         Transaction_Contract_ContractType_AccountCreateContract,
         Transaction_Contract_ContractType_TransferContract,
@@ -1286,9 +1330,10 @@ GPBEnumDescriptor *Transaction_Contract_ContractType_EnumDescriptor(void) {
         Transaction_Contract_ContractType_UnfreezeBalanceContract,
         Transaction_Contract_ContractType_WithdrawBalanceContract,
         Transaction_Contract_ContractType_UnfreezeAssetContract,
+        Transaction_Contract_ContractType_UpdateAssetContract,
         Transaction_Contract_ContractType_CustomContract,
     };
-    static const char *extraTextFormatInfo = "\020\000\025\000\001\020\000\002\025\000\003\021\000\004\023\000\005\025\000\006\022\000\007\016\000\010\025\000\t\035\000\n\025\000\013\025\000\014\027\000\r\027\000\016\025\000\017\016\000";
+    static const char *extraTextFormatInfo = "\021\000\025\000\001\020\000\002\025\000\003\021\000\004\023\000\005\025\000\006\022\000\007\016\000\010\025\000\t\035\000\n\025\000\013\025\000\014\027\000\r\027\000\016\025\000\017\023\000\020\016\000";
     GPBEnumDescriptor *worker =
         [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(Transaction_Contract_ContractType)
                                        valueNames:valueNames
@@ -1320,6 +1365,7 @@ BOOL Transaction_Contract_ContractType_IsValidValue(int32_t value__) {
     case Transaction_Contract_ContractType_UnfreezeBalanceContract:
     case Transaction_Contract_ContractType_WithdrawBalanceContract:
     case Transaction_Contract_ContractType_UnfreezeAssetContract:
+    case Transaction_Contract_ContractType_UpdateAssetContract:
     case Transaction_Contract_ContractType_CustomContract:
       return YES;
     default:
@@ -1552,6 +1598,49 @@ typedef struct Transaction_raw__storage_ {
                                    storageSize:sizeof(Transaction_raw__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(TronTransaction)];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - Transactions
+
+@implementation Transactions
+
+@dynamic transactionsArray, transactionsArray_Count;
+
+typedef struct Transactions__storage_ {
+  uint32_t _has_storage_[1];
+  NSMutableArray *transactionsArray;
+} Transactions__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "transactionsArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(TronTransaction),
+        .number = Transactions_FieldNumber_TransactionsArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(Transactions__storage_, transactionsArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[Transactions class]
+                                     rootClass:[TronRoot class]
+                                          file:TronRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(Transactions__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }
@@ -2369,11 +2458,17 @@ void SetDisconnectMessage_Reason_RawValue(DisconnectMessage *message, int32_t va
 @dynamic hasFrom, from;
 @dynamic version;
 @dynamic timestamp;
+@dynamic hasGenesisBlockId, genesisBlockId;
+@dynamic hasSolidBlockId, solidBlockId;
+@dynamic hasHeadBlockId, headBlockId;
 
 typedef struct HelloMessage__storage_ {
   uint32_t _has_storage_[1];
   int32_t version;
   Endpoint *from;
+  HelloMessage_BlockId *genesisBlockId;
+  HelloMessage_BlockId *solidBlockId;
+  HelloMessage_BlockId *headBlockId;
   int64_t timestamp;
 } HelloMessage__storage_;
 
@@ -2410,6 +2505,33 @@ typedef struct HelloMessage__storage_ {
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
       },
+      {
+        .name = "genesisBlockId",
+        .dataTypeSpecific.className = GPBStringifySymbol(HelloMessage_BlockId),
+        .number = HelloMessage_FieldNumber_GenesisBlockId,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(HelloMessage__storage_, genesisBlockId),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "solidBlockId",
+        .dataTypeSpecific.className = GPBStringifySymbol(HelloMessage_BlockId),
+        .number = HelloMessage_FieldNumber_SolidBlockId,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(HelloMessage__storage_, solidBlockId),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "headBlockId",
+        .dataTypeSpecific.className = GPBStringifySymbol(HelloMessage_BlockId),
+        .number = HelloMessage_FieldNumber_HeadBlockId,
+        .hasIndex = 5,
+        .offset = (uint32_t)offsetof(HelloMessage__storage_, headBlockId),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeMessage,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[HelloMessage class]
@@ -2419,6 +2541,66 @@ typedef struct HelloMessage__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(HelloMessage__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\003\004\016\000\005\014\000\006\013\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - HelloMessage_BlockId
+
+@implementation HelloMessage_BlockId
+
+@dynamic hash_p;
+@dynamic number;
+
+typedef struct HelloMessage_BlockId__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *hash_p;
+  int64_t number;
+} HelloMessage_BlockId__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "hash_p",
+        .dataTypeSpecific.className = NULL,
+        .number = HelloMessage_BlockId_FieldNumber_Hash_p,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(HelloMessage_BlockId__storage_, hash_p),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "number",
+        .dataTypeSpecific.className = NULL,
+        .number = HelloMessage_BlockId_FieldNumber_Number,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(HelloMessage_BlockId__storage_, number),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[HelloMessage_BlockId class]
+                                     rootClass:[TronRoot class]
+                                          file:TronRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(HelloMessage_BlockId__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(HelloMessage)];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }

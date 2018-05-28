@@ -241,49 +241,6 @@ typedef struct BlockReference__storage_ {
 
 @end
 
-#pragma mark - AccountList
-
-@implementation AccountList
-
-@dynamic accountsArray, accountsArray_Count;
-
-typedef struct AccountList__storage_ {
-  uint32_t _has_storage_[1];
-  NSMutableArray *accountsArray;
-} AccountList__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "accountsArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(TronAccount),
-        .number = AccountList_FieldNumber_AccountsArray,
-        .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(AccountList__storage_, accountsArray),
-        .flags = GPBFieldRepeated,
-        .dataType = GPBDataTypeMessage,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[AccountList class]
-                                     rootClass:[ApiRoot class]
-                                          file:ApiRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(AccountList__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
 #pragma mark - WitnessList
 
 @implementation WitnessList
@@ -884,6 +841,244 @@ typedef struct TransactionLimit__storage_ {
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
         "\002\001\r\000\002\010\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - AccountPaginated
+
+@implementation AccountPaginated
+
+@dynamic hasAccount, account;
+@dynamic offset;
+@dynamic limit;
+
+typedef struct AccountPaginated__storage_ {
+  uint32_t _has_storage_[1];
+  TronAccount *account;
+  int64_t offset;
+  int64_t limit;
+} AccountPaginated__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "account",
+        .dataTypeSpecific.className = GPBStringifySymbol(TronAccount),
+        .number = AccountPaginated_FieldNumber_Account,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(AccountPaginated__storage_, account),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "offset",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountPaginated_FieldNumber_Offset,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(AccountPaginated__storage_, offset),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "limit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountPaginated_FieldNumber_Limit,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(AccountPaginated__storage_, limit),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[AccountPaginated class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(AccountPaginated__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - TimePaginatedMessage
+
+@implementation TimePaginatedMessage
+
+@dynamic hasTimeMessage, timeMessage;
+@dynamic offset;
+@dynamic limit;
+
+typedef struct TimePaginatedMessage__storage_ {
+  uint32_t _has_storage_[1];
+  TimeMessage *timeMessage;
+  int64_t offset;
+  int64_t limit;
+} TimePaginatedMessage__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "timeMessage",
+        .dataTypeSpecific.className = GPBStringifySymbol(TimeMessage),
+        .number = TimePaginatedMessage_FieldNumber_TimeMessage,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(TimePaginatedMessage__storage_, timeMessage),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "offset",
+        .dataTypeSpecific.className = NULL,
+        .number = TimePaginatedMessage_FieldNumber_Offset,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(TimePaginatedMessage__storage_, offset),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "limit",
+        .dataTypeSpecific.className = NULL,
+        .number = TimePaginatedMessage_FieldNumber_Limit,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(TimePaginatedMessage__storage_, limit),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[TimePaginatedMessage class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(TimePaginatedMessage__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\001\013\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - AccountNetMessage
+
+@implementation AccountNetMessage
+
+@dynamic freeNetUsed;
+@dynamic freeNetLimit;
+@dynamic netUsed;
+@dynamic netLimit;
+@dynamic assetNetUsed, assetNetUsed_Count;
+@dynamic assetNetLimit, assetNetLimit_Count;
+
+typedef struct AccountNetMessage__storage_ {
+  uint32_t _has_storage_[1];
+  GPBStringInt64Dictionary *assetNetUsed;
+  GPBStringInt64Dictionary *assetNetLimit;
+  int64_t freeNetUsed;
+  int64_t freeNetLimit;
+  int64_t netUsed;
+  int64_t netLimit;
+} AccountNetMessage__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "freeNetUsed",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountNetMessage_FieldNumber_FreeNetUsed,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(AccountNetMessage__storage_, freeNetUsed),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "freeNetLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountNetMessage_FieldNumber_FreeNetLimit,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(AccountNetMessage__storage_, freeNetLimit),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "netUsed",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountNetMessage_FieldNumber_NetUsed,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(AccountNetMessage__storage_, netUsed),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "netLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountNetMessage_FieldNumber_NetLimit,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(AccountNetMessage__storage_, netLimit),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "assetNetUsed",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountNetMessage_FieldNumber_AssetNetUsed,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(AccountNetMessage__storage_, assetNetUsed),
+        .flags = (GPBFieldFlags)(GPBFieldMapKeyString | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "assetNetLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountNetMessage_FieldNumber_AssetNetLimit,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(AccountNetMessage__storage_, assetNetLimit),
+        .flags = (GPBFieldFlags)(GPBFieldMapKeyString | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[AccountNetMessage class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(AccountNetMessage__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\006\001\013\000\002\014\000\003G\000\004H\000\005\014\000\006\r\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
