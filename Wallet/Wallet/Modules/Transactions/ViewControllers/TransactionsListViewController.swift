@@ -65,8 +65,11 @@ class TransactionsListViewController: UIViewController {
                         return false
                     })
                     self?.data.value = value
+                } else {
+                    self?.tableView.reloadData()
                 }
                 self?.hideLoading()
+                
                 self?.tableView.endRefresh()
                 
         }.disposed(by: disposeBag)
