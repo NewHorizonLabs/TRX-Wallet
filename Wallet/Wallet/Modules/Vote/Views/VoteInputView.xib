@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="VoteInputView" customModule="Wallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="304" height="323"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJ6-GP-gWE">
+                    <rect key="frame" x="244" y="0.0" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="ksy-Uk-6JU"/>
+                        <constraint firstAttribute="width" constant="60" id="ktV-vM-4zo"/>
+                    </constraints>
+                    <state key="normal" image="common_close"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="url" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzK-uA-IE7">
+                    <rect key="frame" x="142" y="39" width="20" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <color key="textColor" red="0.12941176470588234" green="0.15686274509803921" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJZ-pi-GG6">
+                    <rect key="frame" x="128" y="83.5" width="47" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.52156862745098043" green="0.53333333333333333" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="url" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yk6-64-GoE">
+                    <rect key="frame" x="138.5" y="98.5" width="26" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                    <color key="textColor" red="0.52156862749999999" green="0.53333333329999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the number of" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4r-oB-efN">
+                    <rect key="frame" x="79" y="163" width="145" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.27058823529999998" green="0.20000000000000001" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4j-iM-2wX">
+                    <rect key="frame" x="30" y="150" width="244" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="wbL-vT-ePs"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="pborderColor">
+                            <color key="value" red="0.69019607843137254" green="0.72156862745098038" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="pborderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QT1-PE-ZzA">
+                    <rect key="frame" x="31" y="236" width="242" height="44"/>
+                    <color key="backgroundColor" red="0.27450980392156865" green="0.23529411764705882" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="SRZ-j9-UOn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <state key="normal" title="Confirm"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="QT1-PE-ZzA" firstAttribute="centerX" secondItem="W4j-iM-2wX" secondAttribute="centerX" id="0oX-a6-8gS"/>
+                <constraint firstItem="W4j-iM-2wX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="13f-57-xkC"/>
+                <constraint firstItem="V4r-oB-efN" firstAttribute="centerY" secondItem="W4j-iM-2wX" secondAttribute="centerY" id="5FF-y1-VZF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="W4j-iM-2wX" secondAttribute="trailing" constant="30" id="6H2-wx-mIy"/>
+                <constraint firstItem="yk6-64-GoE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="8oA-ZJ-4bL"/>
+                <constraint firstItem="yk6-64-GoE" firstAttribute="top" secondItem="tzK-uA-IE7" secondAttribute="bottom" constant="40" id="D3R-6Y-5Qh"/>
+                <constraint firstItem="W4j-iM-2wX" firstAttribute="top" secondItem="yk6-64-GoE" secondAttribute="bottom" constant="25" id="FB9-Dw-7rG"/>
+                <constraint firstItem="uJZ-pi-GG6" firstAttribute="centerX" secondItem="yk6-64-GoE" secondAttribute="centerX" id="GYj-EX-PKi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yk6-64-GoE" secondAttribute="trailing" constant="30" id="M2A-V2-EVF"/>
+                <constraint firstItem="W4j-iM-2wX" firstAttribute="centerX" secondItem="yk6-64-GoE" secondAttribute="centerX" id="Olc-IY-Gh5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tzK-uA-IE7" secondAttribute="trailing" constant="30" id="R6q-Cj-HxZ"/>
+                <constraint firstItem="yk6-64-GoE" firstAttribute="centerX" secondItem="tzK-uA-IE7" secondAttribute="centerX" id="Ral-J7-4th"/>
+                <constraint firstItem="QT1-PE-ZzA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="235:295" id="Se2-pr-Agk"/>
+                <constraint firstItem="yk6-64-GoE" firstAttribute="top" secondItem="uJZ-pi-GG6" secondAttribute="bottom" constant="0.5" id="T0r-MO-9yy"/>
+                <constraint firstItem="hJ6-GP-gWE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dEi-KF-Fcw"/>
+                <constraint firstItem="V4r-oB-efN" firstAttribute="centerX" secondItem="W4j-iM-2wX" secondAttribute="centerX" id="gyT-sd-mSn"/>
+                <constraint firstItem="tzK-uA-IE7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="kcM-Yo-cdR"/>
+                <constraint firstItem="QT1-PE-ZzA" firstAttribute="top" secondItem="W4j-iM-2wX" secondAttribute="bottom" constant="42" id="tWM-6q-UcF"/>
+                <constraint firstItem="tzK-uA-IE7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="39" id="uWL-vC-4cv"/>
+                <constraint firstItem="tzK-uA-IE7" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="vjh-ZD-JM4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hJ6-GP-gWE" secondAttribute="trailing" id="yaL-zl-l2d"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
+                    <real key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="accountTitleLabel" destination="uJZ-pi-GG6" id="Ea2-vf-85K"/>
+                <outlet property="balanceLabel" destination="yk6-64-GoE" id="oy0-rp-3bs"/>
+                <outlet property="closeButton" destination="hJ6-GP-gWE" id="a9G-xX-Ycq"/>
+                <outlet property="confirmButton" destination="QT1-PE-ZzA" id="hyy-hE-y3Z"/>
+                <outlet property="numberTipLabel" destination="V4r-oB-efN" id="S4U-cq-W36"/>
+                <outlet property="textField" destination="W4j-iM-2wX" id="jnK-Ly-Jfv"/>
+                <outlet property="urlLabel" destination="tzK-uA-IE7" id="vSo-sa-8TO"/>
+            </connections>
+            <point key="canvasLocation" x="-2" y="-118.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="common_close" width="26" height="26"/>
+    </resources>
+</document>

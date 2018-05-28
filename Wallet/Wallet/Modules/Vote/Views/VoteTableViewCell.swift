@@ -1,0 +1,67 @@
+//
+//  VoteTableViewCell.swift
+//  Wallet
+//
+//  Created by Maynard on 2018/5/8.
+//  Copyright © 2018年 New Horizon Labs. All rights reserved.
+//
+
+import UIKit
+
+class VoteTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var addressTitleLabel: UILabel!
+    @IBOutlet weak var voteTitleLabel: UILabel!
+    @IBOutlet weak var voteButton: UIButton!
+    @IBOutlet weak var websiteLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var voteNumberLabel: UILabel!
+    
+    var model: Witness?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        configureUI()
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if selected {
+            super.setSelected(false, animated: true)
+        }
+        // Configure the view for the selected state
+    }
+    
+    func configureUI() {
+        voteButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
+        voteButton.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+        
+        voteTitleLabel.text = R.string.tron.voteVoteLabelTitle()
+        voteButton.setTitle(R.string.tron.voteButtonTitle(), for: .normal)
+        addressTitleLabel.text = R.string.tron.voteAddressLabelTitle()
+    }
+    
+    func configure(model: Witness) {
+        self.model = model
+        addressLabel.text = model.address.addressString
+        voteNumberLabel.text = String(model.voteCount)
+        websiteLabel.text = model.url
+    }
+    
+    @objc func buttonClick() {
+        let voteView = VoteInputView.loadXib()
+        voteView.model = model
+        voteView.popShow()
+        voteView.successBlock = {[weak self] number in
+            self?.votedSuccess(number: number)
+        }
+    }
+    
+    func votedSuccess(number: Int64) {
+        if let model = model {
+            model.voteCount = model.voteCount + number
+            configure(model: model)
+        }
+    }
+}

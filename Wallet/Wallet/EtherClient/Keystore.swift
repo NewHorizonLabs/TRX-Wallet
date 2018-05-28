@@ -1,0 +1,34 @@
+// Copyright SIX DAY LLC. All rights reserved.
+
+import Foundation
+import Result
+import TrustKeystore
+
+protocol Keystore {
+    var hasWallets: Bool { get }
+    var wallets: [Wallet] { get }
+    var keysDirectory: URL { get }
+    var recentlyUsedWallet: Wallet? { get set }
+    static var current: Wallet? { get }
+    @available(iOS 10.0, *)
+    func createAccount(with password: String, completion: @escaping (Result<TrustKeystore.Account, KeystoreError>) -> Void)
+    func importWallet(type: ImportType, completion: @escaping (Result<Wallet, KeystoreError>) -> Void)
+    func keystore(for privateKey: String, password: String, completion: @escaping (Result<String, KeystoreError>) -> Void)
+    func importKeystore(value: String, password: String, newPassword: String, completion: @escaping (Result<TrustKeystore.Account, KeystoreError>) -> Void)
+    func createAccout(password: String) -> TrustKeystore.Account
+    func importKeystore(value: String, password: String, newPassword: String) -> Result<TrustKeystore.Account, KeystoreError>
+    func export(account: TrustKeystore.Account, password: String, newPassword: String) -> Result<String, KeystoreError>
+    func export(account: TrustKeystore.Account, password: String, newPassword: String, completion: @escaping (Result<String, KeystoreError>) -> Void)
+    func exportData(account: TrustKeystore.Account, password: String, newPassword: String) -> Result<Data, KeystoreError>
+    func exportPrivateKey(account: TrustKeystore.Account) -> Result<Data, KeystoreError>
+    func delete(wallet: Wallet) -> Result<Void, KeystoreError>
+    func delete(wallet: Wallet, completion: @escaping (Result<Void, KeystoreError>) -> Void)
+    func updateAccount(account: TrustKeystore.Account, password: String, newPassword: String) -> Result<Void, KeystoreError>
+    func signPersonalMessage(_ data: Data, for account: TrustKeystore.Account) -> Result<Data, KeystoreError>
+    func signMessage(_ message: Data, for account: TrustKeystore.Account) -> Result<Data, KeystoreError>
+    func signTypedMessage(_ datas: [EthTypedData], for account: TrustKeystore.Account) -> Result<Data, KeystoreError>
+    func signHash(_ hash: Data, for account: TrustKeystore.Account) -> Result<Data, KeystoreError>
+    func signTransaction(_ signTransaction: SignTransaction) -> Result<Data, KeystoreError>
+    func getPassword(for account: TrustKeystore.Account) -> String?
+    func convertPrivateKeyToKeystoreFile(privateKey: String, passphrase: String) -> Result<[String: Any], KeystoreError>
+}

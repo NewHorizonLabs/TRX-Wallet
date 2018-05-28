@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetSwitchTableViewCell" rowHeight="55" id="eZw-da-LAx" customClass="SetSwitchTableViewCell" customModule="Wallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eZw-da-LAx" id="jys-pi-rOO">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_Facebook" translatesAutoresizingMaskIntoConstraints="NO" id="eGF-0f-Pqy">
+                        <rect key="frame" x="16" y="12.5" width="30" height="30"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aer-jC-PUR">
+                        <rect key="frame" x="60" y="19" width="28.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.094117647060000004" green="0.054901960780000002" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gGc-Vo-z81">
+                        <rect key="frame" x="253" y="12" width="51" height="31"/>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="gGc-Vo-z81" secondAttribute="trailing" constant="18" id="118-lY-hgv"/>
+                    <constraint firstItem="gGc-Vo-z81" firstAttribute="centerY" secondItem="jys-pi-rOO" secondAttribute="centerY" id="3AR-ni-EzN"/>
+                    <constraint firstItem="aer-jC-PUR" firstAttribute="centerY" secondItem="jys-pi-rOO" secondAttribute="centerY" id="3l9-52-X1Y"/>
+                    <constraint firstItem="eGF-0f-Pqy" firstAttribute="centerY" secondItem="jys-pi-rOO" secondAttribute="centerY" id="HyT-WE-RKo"/>
+                    <constraint firstItem="aer-jC-PUR" firstAttribute="leading" secondItem="eGF-0f-Pqy" secondAttribute="trailing" constant="14" id="RfZ-u6-z5V"/>
+                    <constraint firstItem="eGF-0f-Pqy" firstAttribute="leading" secondItem="jys-pi-rOO" secondAttribute="leading" constant="16" id="fXv-nj-Ukt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="8My-Sm-YOr"/>
+            <connections>
+                <outlet property="controlSwitch" destination="gGc-Vo-z81" id="aza-kK-Nai"/>
+                <outlet property="iconImageView" destination="eGF-0f-Pqy" id="2Yy-4H-dEV"/>
+                <outlet property="titleLabel" destination="aer-jC-PUR" id="Vul-AV-sWM"/>
+            </connections>
+            <point key="canvasLocation" x="17" y="178"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_Facebook" width="30" height="30"/>
+    </resources>
+</document>
