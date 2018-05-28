@@ -23,7 +23,7 @@ This app offers you one of the safest ways to protect your private data.
 
 # Displays
   
-![image](https://github.com/NewHorizonLabs/TRX-Wallet/blob/master/Wallet/screenshoots/logo.PNG)
+![image](https://github.com/NewHorizonLabs/TRX-Wallet/blob/master/Wallet/screenshoots/logo.png)
 ![image](https://github.com/NewHorizonLabs/TRX-Wallet/blob/master/Wallet/screenshoots/balance.PNG)
 ![image](https://github.com/NewHorizonLabs/TRX-Wallet/blob/master/Wallet/screenshoots/votelist.PNG)
 ![image](https://github.com/NewHorizonLabs/TRX-Wallet/blob/master/Wallet/screenshoots/receive.PNG)
