@@ -17,6 +17,11 @@ class BalanceViewController: UIViewController {
     @IBOutlet weak var receiveButton: UIButton!
     @IBOutlet weak var sendButton: UIButton!
     
+    @IBOutlet weak var unfrozenButton: UIButton!
+    @IBOutlet weak var frozenButton: UIButton!
+    @IBOutlet weak var frozenLabel: UILabel!
+    @IBOutlet weak var powerLabel: UILabel!
+    @IBOutlet weak var bandWidthLabel: UILabel!
     @IBOutlet weak var navBalanceLabel: UILabel!
     @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -82,6 +87,14 @@ class BalanceViewController: UIViewController {
     func update(model: TronAccount) {
         self.data.value = model.assetArray
         self.balanceLabel.text = (Double(model.balance)/1000000.0).numberFormat()
+        self.bandWidthLabel.text = model.netUsage.string
+        if let array = model.frozenArray as? [Account_Frozen] {
+            print(array)
+            let count = array.reduce(0) { (result, value) -> Int64 in
+                return value.frozenBalance + result
+            }
+            frozenLabel.text = count.balanceString
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

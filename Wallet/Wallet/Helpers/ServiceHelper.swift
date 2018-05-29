@@ -84,7 +84,6 @@ class ServiceHelper: NSObject {
     }
     
     func getAccount(account: TronAccount) -> Observable<TronAccount> {
-
         return Observable.create({ (observer) -> Disposable in
             self.service.getAccountWithRequest(account) { (accountModel, error) in
                 if let model = accountModel {

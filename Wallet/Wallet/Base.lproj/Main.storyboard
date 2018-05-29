@@ -60,6 +60,37 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwr-mb-BuW">
+                                            <rect key="frame" x="274" y="63" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oty-vp-bug">
+                                            <rect key="frame" x="274" y="96" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuC-1K-20P">
+                                            <rect key="frame" x="274" y="125" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLY-hP-N1L">
+                                            <rect key="frame" x="191" y="162" width="72" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Frozen"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB5-Qv-lsg">
+                                            <rect key="frame" x="271" y="162" width="81" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="unFrozen"/>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -147,12 +178,17 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="c45-0l-k1I" id="8Xc-9g-6Kn"/>
                         <outlet property="balanceLabel" destination="F0r-1o-ADB" id="Vj8-sW-NT6"/>
+                        <outlet property="bandWidthLabel" destination="lwr-mb-BuW" id="472-ik-H4X"/>
+                        <outlet property="frozenButton" destination="XLY-hP-N1L" id="5Jk-is-CES"/>
+                        <outlet property="frozenLabel" destination="yuC-1K-20P" id="MNn-h2-5KO"/>
                         <outlet property="gradientView" destination="0Eh-U6-jxC" id="2mi-5X-j7x"/>
                         <outlet property="headerView" destination="VHl-gI-wR3" id="Lf8-nc-yhN"/>
                         <outlet property="navBalanceLabel" destination="Flg-n7-deC" id="TES-lR-9n4"/>
+                        <outlet property="powerLabel" destination="oty-vp-bug" id="zgJ-Ie-9xG"/>
                         <outlet property="receiveButton" destination="wrP-SQ-9yw" id="jLN-0w-sdy"/>
                         <outlet property="sendButton" destination="3Jm-RR-OkV" id="mL0-l3-xS5"/>
                         <outlet property="tableView" destination="5Ci-dA-H19" id="FXp-qF-wiG"/>
+                        <outlet property="unfrozenButton" destination="XB5-Qv-lsg" id="JVN-EY-tbf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKq-La-wlE" userLabel="First Responder" sceneMemberID="firstResponder"/>
