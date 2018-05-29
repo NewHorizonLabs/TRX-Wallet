@@ -11,9 +11,12 @@ import RxSwift
 import RxCocoa
 
 class FrozenView: UIView, XibLoadable, Popable {
-
+    @IBOutlet weak var closeButton: UIButton!
+    
     @IBOutlet weak var frozenButton: UIButton!
     @IBOutlet weak var numberTextField: UITextField!
+    @IBOutlet weak var numberTipLabel: UILabel!
+    @IBOutlet weak var checkButton: UIButton!
     
     let disposeBag = DisposeBag()
     
@@ -23,10 +26,9 @@ class FrozenView: UIView, XibLoadable, Popable {
     }
     
     func baseConfigure() {
-        (numberTextField.rx.text).orEmpty.map{ return $0.count > 0 }
-        .asObservable()
-        .bind(to: frozenButton.rx.isEnabled)
-        .disposed(by: disposeBag)
+       frozenButton.isEnabled = false
+        frozenButton.setBackgroundColor(UIColor.normalBackgroundColor, forState: .normal)
+        frozenButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
         
         (frozenButton.rx.tap).debounce(0.5, scheduler: MainScheduler.instance)
             .asObservable()
@@ -34,6 +36,30 @@ class FrozenView: UIView, XibLoadable, Popable {
                 self?.frozenButtonClick()
             })
             .disposed(by: disposeBag)
+        
+        (closeButton.rx.tap).debounce(0.5, scheduler: MainScheduler.instance)
+            .asObservable()
+            .subscribe(onNext: {[weak self] (_) in
+                self?.popDismiss()
+            })
+            .disposed(by: disposeBag)
+        
+        let inputSignal = (numberTextField.rx.text).orEmpty.asObservable()
+        inputSignal
+            .map { return $0.count > 0 }
+            .bind(to: numberTipLabel.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        let checkSignal = (checkButton.rx.tap).asObservable().map { (_) -> Bool in
+            self.checkButton.isSelected = !self.checkButton.isSelected
+            return self.checkButton.isSelected
+        }
+        
+        Observable.combineLatest(checkSignal, inputSignal) { (checked, text) -> Bool in
+            return self.checkButton.isSelected && text.count > 0
+        }.bind(to: frozenButton.rx.isEnabled)
+        .disposed(by: disposeBag)
+        numberTextField.becomeFirstResponder()
     }
     
     func frozenButtonClick() {
@@ -53,6 +79,7 @@ class FrozenView: UIView, XibLoadable, Popable {
                         print(response)
                         if result {
                             self.popDismiss()
+                            ServiceHelper.shared.getAccount()
                             HUD.showText(text: R.string.tron.hudSuccess())
                         } else {
                             HUD.showError(error: response.errorMessage)
