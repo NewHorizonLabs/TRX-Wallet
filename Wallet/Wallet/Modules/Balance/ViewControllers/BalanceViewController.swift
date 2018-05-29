@@ -20,6 +20,11 @@ class BalanceViewController: UIViewController {
     @IBOutlet weak var unfrozenButton: UIButton!
     @IBOutlet weak var frozenButton: UIButton!
     @IBOutlet weak var frozenLabel: UILabel!
+    
+    
+    @IBOutlet weak var bandwidthTitleLabel: UILabel!
+    @IBOutlet weak var frozenTitleLabel: UILabel!
+    @IBOutlet weak var powerTitleLabel: UILabel!
     @IBOutlet weak var powerLabel: UILabel!
     @IBOutlet weak var bandWidthLabel: UILabel!
     @IBOutlet weak var navBalanceLabel: UILabel!
@@ -106,6 +111,9 @@ class BalanceViewController: UIViewController {
     func configureUI() {
         title = R.string.tron.balanceNavTitle()
         navBalanceLabel.text = R.string.tron.balanceNavTitle()
+        powerTitleLabel.text = R.string.tron.balancePowerLabelTitle()
+        frozenTitleLabel.text = R.string.tron.balanceFreezeLabelTitle()
+        bandwidthTitleLabel.text = R.string.tron.balanceBandwidthLabelTitle()
         sendButton.setTitle(R.string.tron.balanceButtonSend(), for: .normal)
         receiveButton.setTitle(R.string.tron.balanceButtonReceive(), for: .normal)
         sendButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)

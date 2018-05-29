@@ -277,7 +277,7 @@ extension Return {
         case .contractExeError:
             return R.string.tron.errorContractExe()
         case .bandwithError:
-            return R.string.tron.errorBandwith()
+            return R.string.tron.errorBandwidth()
         case .dupTransactionError:
             return R.string.tron.errorDupTransaction()
         case .taposError:

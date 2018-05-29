@@ -1,6 +1,9 @@
 "Balance.nav.title" = "余额";
 "Balance.button.send" = "发送";
 "Balance.button.receive" = "接收";
+"Balance.bandwidth.label.title" = "带宽";
+"Balance.power.label.title" = "波场力";
+"Balance.freeze.label.title" = "冻结资产";
 "Balance.Send.address.label.title" = "接收地址";
 "Balance.Send.number.label.title" = "数量";
 "Balance.Send.paste.button.title" = "粘贴";
@@ -86,7 +89,7 @@
 "Error.sig" = "签名错误";
 "Error.ContractValidate" = "合约验证错误";
 "Error.ContractExe" = "合约出口错误";
-"Error.Bandwith" = "绑定错误";
+"Error.Bandwidth" = "带宽不足";
 "Error.DupTransaction" = "重复交易";
 "Error.Tapos" = "交易错误";
 "Error.TooBigTransaction" = "交易额太大";

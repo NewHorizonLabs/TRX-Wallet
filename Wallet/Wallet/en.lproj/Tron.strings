@@ -1,6 +1,9 @@
 "Balance.nav.title" = "Balance";
 "Balance.button.send" = "Send";
 "Balance.button.receive" = "Receive";
+"Balance.bandwidth.label.title" = "BandWidth";
+"Balance.power.label.title" = "Tron Power";
+"Balance.freeze.label.title" = "Freeze";
 "Balance.Send.address.label.title" = "Receiving Address";
 "Balance.Send.number.label.title" = "The number of";
 "Balance.Send.paste.button.title" = "Paste";
@@ -41,7 +44,9 @@
 "IssueToken.frozendays.label.title" = "Frozen days";
 "IssueToken.description.label.title" = "Description";
 "IssueToken.url.label.title" = "URL";
-"IssueToken.tip.label.title" = "Specify the price of a single token by defining how many tokens a participant will receive for every TRX they spend.  Participants will receive Token for every 1 TRX.";
+"IssueToken.tip.label.title" = "Specify the price of a single token by defining how many
+tokens a participant will receive for every TRX they
+spend.  Participants will receive Token for every 1 TRX.";
 "IssueToken.trxamount.label.title" = "TRX amount";
 "IssueToken.tokenamount.label.title" = "Token amount";
 "IssueToken.starttime.label.title" = "Start time";
@@ -85,7 +90,7 @@
 "Error.sig" = "Signature Error";
 "Error.ContractValidate" = "Contract validation error";
 "Error.ContractExe" = "Contract export error";
-"Error.Bandwith" = "Binding error";
+"Error.Bandwidth" = "Bindwidth not enough";
 "Error.DupTransaction" = "Repeated transactions";
 "Error.Tapos" = "Transaction error";
 "Error.TooBigTransaction" = "The transaction amount is too large";

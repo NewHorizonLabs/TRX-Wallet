@@ -272,12 +272,15 @@
                         <outlet property="backgroundImageView" destination="c45-0l-k1I" id="8Xc-9g-6Kn"/>
                         <outlet property="balanceLabel" destination="F0r-1o-ADB" id="Vj8-sW-NT6"/>
                         <outlet property="bandWidthLabel" destination="lwr-mb-BuW" id="472-ik-H4X"/>
+                        <outlet property="bandwidthTitleLabel" destination="BOT-2i-Iu8" id="JE5-ah-piL"/>
                         <outlet property="frozenButton" destination="XLY-hP-N1L" id="5Jk-is-CES"/>
                         <outlet property="frozenLabel" destination="BSs-ft-Dwa" id="zWc-Zr-y8b"/>
+                        <outlet property="frozenTitleLabel" destination="QLp-aH-pyv" id="g6M-bv-qen"/>
                         <outlet property="gradientView" destination="0Eh-U6-jxC" id="2mi-5X-j7x"/>
                         <outlet property="headerView" destination="VHl-gI-wR3" id="Lf8-nc-yhN"/>
                         <outlet property="navBalanceLabel" destination="Flg-n7-deC" id="TES-lR-9n4"/>
                         <outlet property="powerLabel" destination="oty-vp-bug" id="zgJ-Ie-9xG"/>
+                        <outlet property="powerTitleLabel" destination="fnh-Vj-ckj" id="FOv-YE-f0a"/>
                         <outlet property="receiveButton" destination="wrP-SQ-9yw" id="jLN-0w-sdy"/>
                         <outlet property="sendButton" destination="3Jm-RR-OkV" id="mL0-l3-xS5"/>
                         <outlet property="tableView" destination="5Ci-dA-H19" id="FXp-qF-wiG"/>
