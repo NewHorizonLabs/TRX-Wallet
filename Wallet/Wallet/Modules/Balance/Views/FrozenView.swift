@@ -40,11 +40,11 @@ class FrozenView: UIView, XibLoadable, Popable {
         guard let numberText = numberTextField.text, let number = Int64(numberText), let account = ServiceHelper.shared.account.value else {
             return
         }
-        let contract = FreezeBalanceContract()
-        contract.frozenBalance = number
-        contract.ownerAddress = account.address
-        contract.frozenDuration = 3
-        ServiceHelper.shared.service.freezeBalance(withRequest: contract) { (transaction, error) in
+        let freezeContract = FreezeBalanceContract()
+        freezeContract.ownerAddress = account.address
+        freezeContract.frozenBalance = number * 1000000
+        freezeContract.frozenDuration = 3
+        ServiceHelper.shared.service.freezeBalance(withRequest: freezeContract) { (transaction, error) in
             if let action = transaction {
                 ServiceHelper.shared.broadcastTransaction(action, completion: { (response, error) in
                     if let response = response {
