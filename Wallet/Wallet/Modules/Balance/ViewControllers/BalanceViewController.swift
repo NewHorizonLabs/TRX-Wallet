@@ -92,6 +92,21 @@ class BalanceViewController: UIViewController {
     }
     
     func unfrozenButtonClick() {
+        let alert = UIAlertController(title: R.string.tron.alertUnFreezeTitle(), message: nil, preferredStyle: .alert)
+        let sureAction =  UIAlertAction(title: R.string.tron.alertUnFreezeSure(), style: .default) { (action) in
+            self.unfreeze()
+        }
+        let cancelAction = UIAlertAction(title: R.string.tron.alertUnFreezeCancle(), style: .cancel) { (action) in
+            
+        }
+        alert.addAction(sureAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    func unfreeze() {
         guard let account = ServiceHelper.shared.account.value else {
             return
         }

@@ -44,9 +44,7 @@
 "IssueToken.frozendays.label.title" = "Frozen days";
 "IssueToken.description.label.title" = "Description";
 "IssueToken.url.label.title" = "URL";
-"IssueToken.tip.label.title" = "Specify the price of a single token by defining how many
-tokens a participant will receive for every TRX they
-spend.  Participants will receive Token for every 1 TRX.";
+"IssueToken.tip.label.title" = "Specify the price of a single token by defining how many tokens a participant will receive for every TRX they spend.  Participants will receive Token for every 1 TRX.";
 "IssueToken.trxamount.label.title" = "TRX amount";
 "IssueToken.tokenamount.label.title" = "Token amount";
 "IssueToken.starttime.label.title" = "Start time";
@@ -97,3 +95,6 @@ spend.  Participants will receive Token for every 1 TRX.";
 "Error.TransactionExpiration" = "Transaction expires";
 "Error.ServerBusy" = "The server is busy";
 "Error.Other" = "Other errors";
+"Alert.UnFreeze.title" = "Are you sure you want to unfreeze TRX？";
+"Alert.UnFreeze.cancle" = "Cancle";
+"Alert.UnFreeze.sure" = "Unfreeze";

@@ -96,3 +96,6 @@
 "Error.TransactionExpiration" = "交易到期";
 "Error.ServerBusy" = "服务器繁忙";
 "Error.Other" = "其他错误";
+"Alert.UnFreeze.title" = "确定要解冻 TRX吗？";
+"Alert.UnFreeze.cancle" = "取消";
+"Alert.UnFreeze.sure" = "解冻";
