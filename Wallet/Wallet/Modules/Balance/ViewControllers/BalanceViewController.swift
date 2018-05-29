@@ -58,6 +58,13 @@ class BalanceViewController: UIViewController {
                 }
             })
         .disposed(by: disposeBag)
+        
+        (frozenButton.rx.tap).debounce(0.5, scheduler: MainScheduler.instance)
+        .asObservable()
+            .subscribe(onNext: {[weak self] (_) in
+                self?.frozenButtonClick()
+            })
+        .disposed(by: disposeBag)
     }
     
     
@@ -65,6 +72,11 @@ class BalanceViewController: UIViewController {
         let vc = R.storyboard.balance.otherTokenViewController()!
         vc.asset = asset
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func frozenButtonClick() {
+        let view = FrozenView.loadXib()
+        view.popShow()
     }
     
     override func viewWillAppear(_ animated: Bool) {

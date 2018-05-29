@@ -19,6 +19,7 @@ class FrozenView: UIView, XibLoadable, Popable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        baseConfigure()
     }
     
     func baseConfigure() {
@@ -26,6 +27,13 @@ class FrozenView: UIView, XibLoadable, Popable {
         .asObservable()
         .bind(to: frozenButton.rx.isEnabled)
         .disposed(by: disposeBag)
+        
+        (frozenButton.rx.tap).debounce(0.5, scheduler: MainScheduler.instance)
+            .asObservable()
+            .subscribe(onNext: {[weak self] (_) in
+                self?.frozenButtonClick()
+            })
+            .disposed(by: disposeBag)
     }
     
     func frozenButtonClick() {

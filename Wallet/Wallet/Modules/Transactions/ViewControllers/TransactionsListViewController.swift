@@ -54,6 +54,7 @@ class TransactionsListViewController: UIViewController {
             return
         }
         displayLoading()
+        
         ServiceHelper.shared.getTransactions(account: account)
             .subscribe {[weak self] (list) in
                 self?.firstLoad = false
