@@ -65,6 +65,13 @@ class BalanceViewController: UIViewController {
                 self?.frozenButtonClick()
             })
         .disposed(by: disposeBag)
+        
+        (unfrozenButton.rx.tap).debounce(0.5, scheduler: MainScheduler.instance)
+            .asObservable()
+            .subscribe(onNext: {[weak self] (_) in
+                self?.unfrozenButtonClick()
+            })
+            .disposed(by: disposeBag)
     }
     
     
@@ -77,6 +84,17 @@ class BalanceViewController: UIViewController {
     func frozenButtonClick() {
         let view = FrozenView.loadXib()
         view.popShow()
+    }
+    
+    func unfrozenButtonClick() {
+        guard let account = ServiceHelper.shared.account.value else {
+            return
+        }
+        let contract = UnfreezeBalanceContract()
+        contract.ownerAddress = account.address
+        ServiceHelper.shared.service.unfreezeBalance(withRequest: contract) { (tranaction, error) in
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,7 +136,7 @@ class BalanceViewController: UIViewController {
         if headerViewHeight == 0 {
             
         }
-        headerViewHeight = kScreenWidth * 210.0/375.0
+        headerViewHeight = kScreenWidth * 285.0/375.0
         self.updateHeaderViewHeight()
     }
     
