@@ -18,6 +18,11 @@ class FrozenView: UIView, XibLoadable, Popable {
     @IBOutlet weak var numberTipLabel: UILabel!
     @IBOutlet weak var checkButton: UIButton!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var amountLabel: UILabel!
+    
+    @IBOutlet weak var comfirmTipLabel: UILabel!
     let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
@@ -25,7 +30,16 @@ class FrozenView: UIView, XibLoadable, Popable {
         baseConfigure()
     }
     
+    func configureUI() {
+        titleLabel.text = R.string.tron.balanceFreezePopViewTitle()
+        amountLabel.text = R.string.tron.balanceFreezePopViewAmountLabelTitle()
+        numberTipLabel.text = R.string.tron.tokenPopViewInputTitle()
+        frozenButton.setTitle(R.string.tron.balanceFreezePopViewFreezeButtonTitle(), for: .normal)
+        comfirmTipLabel.text = R.string.tron.balanceFreezePopViewConfirmtipLabelTitle()
+    }
+    
     func baseConfigure() {
+        configureUI()
        frozenButton.isEnabled = false
         frozenButton.setBackgroundColor(UIColor.normalBackgroundColor, forState: .normal)
         frozenButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
@@ -60,6 +74,8 @@ class FrozenView: UIView, XibLoadable, Popable {
         }.bind(to: frozenButton.rx.isEnabled)
         .disposed(by: disposeBag)
         numberTextField.becomeFirstResponder()
+        
+        
     }
     
     func frozenButtonClick() {

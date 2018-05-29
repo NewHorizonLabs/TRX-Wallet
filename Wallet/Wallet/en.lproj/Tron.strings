@@ -98,3 +98,7 @@
 "Alert.UnFreeze.title" = "Are you sure you want to unfreeze TRX？";
 "Alert.UnFreeze.cancle" = "Cancle";
 "Alert.UnFreeze.sure" = "Unfreeze";
+"Balance.FreezePopView.title" = "Freeze Balance";
+"Balance.FreezePopView.amount.label.title" = "TRX Amount";
+"Balance.FreezePopView.confirmtip.label.title" = "I coinfirm to freeze TRX for at least of 3 days";
+"Balance.FreezePopView.freeze.button.title" = "Freeze Balance";

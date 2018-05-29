@@ -138,11 +138,14 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="amountLabel" destination="gWy-TF-kw9" id="MQ1-CM-sHq"/>
                 <outlet property="checkButton" destination="qwM-ug-XBM" id="p0y-Q0-HhL"/>
                 <outlet property="closeButton" destination="CZT-wy-s39" id="2vx-ls-fZ8"/>
+                <outlet property="comfirmTipLabel" destination="did-Of-9V3" id="gqq-bz-nPk"/>
                 <outlet property="frozenButton" destination="bvh-4m-TO7" id="jmS-Of-Kvl"/>
                 <outlet property="numberTextField" destination="DPb-tv-nNB" id="AEw-lE-J2n"/>
                 <outlet property="numberTipLabel" destination="9pn-8p-t9e" id="QbR-W3-NBe"/>
+                <outlet property="titleLabel" destination="b7B-l3-A9h" id="hsB-sc-hwA"/>
             </connections>
             <point key="canvasLocation" x="-172" y="-84"/>
         </view>
