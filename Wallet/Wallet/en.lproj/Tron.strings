@@ -98,6 +98,9 @@
 "Alert.UnFreeze.title" = "Are you sure you want to unfreeze TRX？";
 "Alert.UnFreeze.cancle" = "Cancle";
 "Alert.UnFreeze.sure" = "Unfreeze";
+"Error.UnFreeze.title" = "Unable to unfreeze";
+"Error.UnFreeze.message" = "Unable to unfreeze TRX. This could be caused because the minimal freeze period hasn't been reached yet.";
+"Error.UnFreeze.ok" = "OK";
 "Balance.FreezePopView.title" = "Freeze Balance";
 "Balance.FreezePopView.amount.label.title" = "TRX Amount";
 "Balance.FreezePopView.confirmtip.label.title" = "I coinfirm to freeze TRX for at least of 3 days";

@@ -102,8 +102,6 @@ class BalanceViewController: UIViewController {
         alert.addAction(sureAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
-        
-        
     }
     
     func unfreeze() {
@@ -112,9 +110,38 @@ class BalanceViewController: UIViewController {
         }
         let contract = UnfreezeBalanceContract()
         contract.ownerAddress = account.address
-        ServiceHelper.shared.service.unfreezeBalance(withRequest: contract) { (tranaction, error) in
+        self.displayLoading()
+        ServiceHelper.shared.service.unfreezeBalance(withRequest: contract) { (transaction, error) in
+            if let action = transaction {
+                ServiceHelper.shared.broadcastTransaction(action, completion: { (response, error) in
+                    if let response = response {
+                        let result = response.result
+                        let message = String.init(data: response.message, encoding: .utf8)
+                        print(response)
+                        if result {
+                            HUD.showText(text: R.string.tron.hudSuccess())
+                        } else {
+                            self.showUnfrezeeError()
+                        }
+                    } else if let error = error {
+                        self.showUnfrezeeError()
+                    }
+                    self.hideLoading()
+                })
+            } else {
+                self.showUnfrezeeError()
+                self.hideLoading()
+            }
+        }
+    }
+    
+    func showUnfrezeeError() {
+        let alert = UIAlertController(title: R.string.tron.errorUnFreezeTitle(), message: R.string.tron.errorUnFreezeMessage(), preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: R.string.tron.errorUnFreezeOk(), style: .cancel) { (action) in
             
         }
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

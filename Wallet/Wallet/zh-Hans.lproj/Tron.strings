@@ -99,6 +99,9 @@
 "Alert.UnFreeze.title" = "确定要解冻 TRX吗？";
 "Alert.UnFreeze.cancle" = "取消";
 "Alert.UnFreeze.sure" = "解冻";
+"Error.UnFreeze.title" = "不能解除冻结";
+"Error.UnFreeze.message" = "解除冻结的TRX失败。导致这个的原因可能是因为最少的冻结时间还没有达到。";
+"Error.UnFreeze.ok" = "确定";
 "Balance.FreezePopView.title" = "冻结余额";
 "Balance.FreezePopView.amount.label.title" = "TRX 数量";
 "Balance.FreezePopView.confirmtip.label.title" = "我确认冻结TRX 至少3天";
