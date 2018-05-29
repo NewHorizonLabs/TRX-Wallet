@@ -20,7 +20,7 @@ class ServiceHelper: NSObject {
     static let fullNode: String = "47.91.216.69:50051"
     static let solidityNode: String = "47.254.39.153:50051"
     let service: TWallet = TWallet(host: ServiceHelper.fullNode)
-    let solidityService: WalletSolidity = WalletSolidity(host: ServiceHelper.solidityNode)
+    let solidityService: WalletExtension = WalletExtension(host: ServiceHelper.solidityNode)
     var account: Variable<TronAccount?> = Variable(nil)
     var trustAccount: TrustKeystore.Account?
     

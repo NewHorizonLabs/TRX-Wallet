@@ -533,6 +533,32 @@
              responseClass:[TronTransaction class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
+@end
+@implementation WalletExtension
+
+// Designated initializer
+- (instancetype)initWithHost:(NSString *)host {
+  self = [super initWithHost:host
+                 packageName:@"protocol"
+                 serviceName:@"WalletExtension"];
+  return self;
+}
+
+// Override superclass initializer to disallow different package and service names.
+- (instancetype)initWithHost:(NSString *)host
+                 packageName:(NSString *)packageName
+                 serviceName:(NSString *)serviceName {
+  return [self initWithHost:host];
+}
+
+#pragma mark - Class Methods
+
++ (instancetype)serviceWithHost:(NSString *)host {
+  return [[self alloc] initWithHost:host];
+}
+
+#pragma mark - Method Implementations
+
 #pragma mark GetTransactionsByTimestamp(TimePaginatedMessage) returns (TransactionList)
 
 - (void)getTransactionsByTimestampWithRequest:(TimePaginatedMessage *)request handler:(void(^)(TransactionList *_Nullable response, NSError *_Nullable error))handler{

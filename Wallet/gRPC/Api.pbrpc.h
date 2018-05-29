@@ -53,7 +53,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol TWallet <NSObject>
+@protocol TronWallet <NSObject>
 
 #pragma mark GetAccount(TronAccount) returns (TronAccount)
 
@@ -338,6 +338,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCToGetTransactionByIdWithRequest:(BytesMessage *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
 
 
+@end
+
+@protocol WalletExtension <NSObject>
+
 #pragma mark GetTransactionsByTimestamp(TimePaginatedMessage) returns (TransactionList)
 
 - (void)getTransactionsByTimestampWithRequest:(TimePaginatedMessage *)request handler:(void(^)(TransactionList *_Nullable response, NSError *_Nullable error))handler;
@@ -430,7 +434,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Basic service implementation, over gRPC, that only does
  * marshalling and parsing.
  */
-@interface TWallet : GRPCProtoService<TWallet>
+@interface TWallet : GRPCProtoService<TronWallet>
 - (instancetype)initWithHost:(NSString *)host NS_DESIGNATED_INITIALIZER;
 + (instancetype)serviceWithHost:(NSString *)host;
 @end
@@ -439,6 +443,14 @@ NS_ASSUME_NONNULL_BEGIN
  * marshalling and parsing.
  */
 @interface WalletSolidity : GRPCProtoService<WalletSolidity>
+- (instancetype)initWithHost:(NSString *)host NS_DESIGNATED_INITIALIZER;
++ (instancetype)serviceWithHost:(NSString *)host;
+@end
+/**
+ * Basic service implementation, over gRPC, that only does
+ * marshalling and parsing.
+ */
+@interface WalletExtension : GRPCProtoService<WalletExtension>
 - (instancetype)initWithHost:(NSString *)host NS_DESIGNATED_INITIALIZER;
 + (instancetype)serviceWithHost:(NSString *)host;
 @end
