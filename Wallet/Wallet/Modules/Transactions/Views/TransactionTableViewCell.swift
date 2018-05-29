@@ -40,7 +40,6 @@ class TransactionTableViewCell: UITableViewCell {
     }
     
     func configure(model: TronTransaction) {
-        print("这里: \(model.rawData.timestamp)")
         dateLabel.text = model.rawData.timestamp.dateString
         if let contract = model.rawData.contractArray.firstObject as? Transaction_Contract {
             do {

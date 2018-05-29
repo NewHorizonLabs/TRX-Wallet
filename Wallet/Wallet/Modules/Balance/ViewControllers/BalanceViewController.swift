@@ -116,14 +116,13 @@ class BalanceViewController: UIViewController {
                 ServiceHelper.shared.broadcastTransaction(action, completion: { (response, error) in
                     if let response = response {
                         let result = response.result
-                        let message = String.init(data: response.message, encoding: .utf8)
                         print(response)
                         if result {
                             HUD.showText(text: R.string.tron.hudSuccess())
                         } else {
                             self.showUnfrezeeError()
                         }
-                    } else if let error = error {
+                    } else if let _ = error {
                         self.showUnfrezeeError()
                     }
                     self.hideLoading()
