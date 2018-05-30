@@ -97,10 +97,22 @@
                         <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your vote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Y3-N9-b0I">
+                        <rect key="frame" x="250.5" y="138" width="53.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.52156862745098043" green="0.53333333333333333" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1s-gf-Mdn">
                         <rect key="frame" x="20" y="152" width="31" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFY-QD-d8r">
+                        <rect key="frame" x="271.5" y="152" width="32.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="12"/>
+                        <color key="textColor" red="0.27058823529411763" green="0.20000000000000001" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -110,8 +122,12 @@
                     <constraint firstItem="H1s-gf-Mdn" firstAttribute="top" secondItem="RhK-fb-qPO" secondAttribute="bottom" constant="-0.5" id="4UQ-DL-U1x"/>
                     <constraint firstItem="RhK-fb-qPO" firstAttribute="top" secondItem="6K6-KH-3Wu" secondAttribute="bottom" constant="24.5" id="CnY-Li-Uxf"/>
                     <constraint firstItem="6K6-KH-3Wu" firstAttribute="leading" secondItem="CoZ-NN-LVJ" secondAttribute="leading" id="FDx-Gp-8Ad"/>
+                    <constraint firstItem="MFY-QD-d8r" firstAttribute="centerY" secondItem="H1s-gf-Mdn" secondAttribute="centerY" id="MOH-Of-Joi"/>
+                    <constraint firstAttribute="trailing" secondItem="MFY-QD-d8r" secondAttribute="trailing" constant="16" id="SzU-RL-qOt"/>
                     <constraint firstItem="CoZ-NN-LVJ" firstAttribute="top" secondItem="rsT-lk-UhI" secondAttribute="top" constant="20" id="Zuv-bY-JJh"/>
                     <constraint firstItem="CoZ-NN-LVJ" firstAttribute="leading" secondItem="rsT-lk-UhI" secondAttribute="leading" constant="20" id="e0Y-1b-qB4"/>
+                    <constraint firstAttribute="trailing" secondItem="0Y3-N9-b0I" secondAttribute="trailing" constant="16" id="rp0-0y-3Ju"/>
+                    <constraint firstItem="0Y3-N9-b0I" firstAttribute="centerY" secondItem="RhK-fb-qPO" secondAttribute="centerY" id="t6A-LR-n3g"/>
                     <constraint firstItem="6K6-KH-3Wu" firstAttribute="top" secondItem="CoZ-NN-LVJ" secondAttribute="bottom" constant="14.5" id="u5R-KF-I07"/>
                     <constraint firstItem="RhK-fb-qPO" firstAttribute="leading" secondItem="rsT-lk-UhI" secondAttribute="leading" constant="20" id="xUf-MP-CpR"/>
                     <constraint firstItem="H1s-gf-Mdn" firstAttribute="leading" secondItem="RhK-fb-qPO" secondAttribute="leading" id="xlW-NE-1Wl"/>
@@ -123,9 +139,11 @@
                 <outlet property="addressLabel" destination="A2d-n7-px1" id="use-dd-zM9"/>
                 <outlet property="addressTitleLabel" destination="8C8-vi-GaS" id="Q9v-Sg-JBC"/>
                 <outlet property="voteButton" destination="NjU-Y6-Z6R" id="7vL-M6-KXm"/>
-                <outlet property="voteNumberLabel" destination="STL-Cw-GXT" id="xgW-9a-nCY"/>
+                <outlet property="voteNumberLabel" destination="STL-Cw-GXT" id="1h9-mv-Cnk"/>
+                <outlet property="voteNumberTitleLabel" destination="0Y3-N9-b0I" id="xSA-bs-bFj"/>
                 <outlet property="voteTitleLabel" destination="Ajn-j4-U8p" id="WOM-lH-yd8"/>
                 <outlet property="websiteLabel" destination="H1s-gf-Mdn" id="KPS-wr-j8L"/>
+                <outlet property="yourVoteNumberLabel" destination="MFY-QD-d8r" id="wfF-NF-SGc"/>
             </connections>
             <point key="canvasLocation" x="-32" y="34"/>
         </tableViewCell>

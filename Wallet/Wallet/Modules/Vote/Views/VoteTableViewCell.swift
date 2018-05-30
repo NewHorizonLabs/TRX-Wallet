@@ -16,9 +16,10 @@ class VoteTableViewCell: UITableViewCell {
     @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var voteNumberLabel: UILabel!
-    
+    @IBOutlet weak var voteNumberTitleLabel: UILabel!
     var model: Witness?
     
+    @IBOutlet weak var yourVoteNumberLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -47,6 +48,17 @@ class VoteTableViewCell: UITableViewCell {
         addressLabel.text = model.address.addressString
         voteNumberLabel.text = String(model.voteCount)
         websiteLabel.text = model.url
+        if let vote = (ServiceHelper.shared.voteArray.filter { (object) -> Bool in
+            return object.voteAddress.addressString == model.address.addressString
+        }).first {
+            yourVoteNumberLabel.text = vote.voteCount.string
+            voteNumberTitleLabel.text = "Your vote"
+            voteNumberTitleLabel.isHidden = false
+            yourVoteNumberLabel.isHidden = false
+        } else {
+            voteNumberTitleLabel.isHidden = true
+            yourVoteNumberLabel.isHidden = true
+        }
     }
     
     @objc func buttonClick() {

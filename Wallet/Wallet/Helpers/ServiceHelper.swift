@@ -36,6 +36,7 @@ class ServiceHelper: NSObject {
         }
     }
     var keystore: EtherKeystore = EtherKeystore.shared
+    var voteArray: [Vote] = []
     
     //钱包切换
     var walletChange: PublishSubject<Void> = PublishSubject<()>()
@@ -79,6 +80,9 @@ class ServiceHelper: NSObject {
         service.getAccountWithRequest(a) {[weak self] (accountModel, error) in
             if let model = accountModel, a.address.addressString == model.address.addressString {
                 self?.account.value = model
+                if let array = model.votesArray as? [Vote] {
+                    self?.voteArray = array
+                }
             }
         }
     }
