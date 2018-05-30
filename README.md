@@ -20,6 +20,9 @@ This app offers you one of the safest ways to protect your private data.
     - submit votes for representatives
     - offline signing mechanism with QR code scanning
     - participate on token distributions
+    
+# Video
+[(click here to see video)](https://youtu.be/1UZUl1GdtaI)
 
 # Displays
   
