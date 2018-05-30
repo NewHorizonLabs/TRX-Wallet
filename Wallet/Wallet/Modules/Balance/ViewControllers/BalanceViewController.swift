@@ -175,6 +175,7 @@ class BalanceViewController: UIViewController {
             frozenLabel.text = count.balanceString
             powerLabel.text = count.balanceString
         }
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

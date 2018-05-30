@@ -196,7 +196,7 @@ class ImportWalletViewController: FormViewController {
             case .mnemonic:
                 return .mnemonic(words: words, password: password)
             case .watch:
-                let address = TrustCore.Address(string: watchInput)! // TrustCore.Address validated by form view.
+                let address = TrustCore.Address(data: watchInput.base58CheckData!) // TrustCore.Address validated by form view.
                 return .watch(address: address)
             }
         }()
