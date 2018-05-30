@@ -173,6 +173,7 @@ class BalanceViewController: UIViewController {
                 return value.frozenBalance + result
             }
             frozenLabel.text = count.balanceString
+            powerLabel.text = count.balanceString
         }
     }
     
