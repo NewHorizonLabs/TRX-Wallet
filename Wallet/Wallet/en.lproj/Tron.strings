@@ -21,6 +21,7 @@
 "Vote.nav.title" = "Vote";
 "Vote.button.title" = "Vote";
 "Vote.address.label.title" = "Address ";
+"Vote.yourvote.label.title" = "Your Vote";
 "Vote.vote.label.title" = "Vote";
 "Vote.PopView.account.label.title" = "Account";
 "Vote.PopView.comfirm.button.title" = "Confirm";

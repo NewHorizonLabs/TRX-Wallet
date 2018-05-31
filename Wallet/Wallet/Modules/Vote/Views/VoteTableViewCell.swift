@@ -52,7 +52,7 @@ class VoteTableViewCell: UITableViewCell {
             return object.voteAddress.addressString == model.address.addressString
         }).first {
             yourVoteNumberLabel.text = vote.voteCount.string
-            voteNumberTitleLabel.text = "Your vote"
+            voteNumberTitleLabel.text = R.string.tron.voteYourvoteLabelTitle()
             voteNumberTitleLabel.isHidden = false
             yourVoteNumberLabel.isHidden = false
         } else {

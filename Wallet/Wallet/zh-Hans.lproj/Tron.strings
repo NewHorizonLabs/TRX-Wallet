@@ -21,6 +21,7 @@
 "Vote.nav.title" = "投票";
 "Vote.button.title" = "投票";
 "Vote.address.label.title" = "地址";
+"Vote.yourvote.label.title" = "当前投票数";
 "Vote.vote.label.title" = "投票";
 "Vote.PopView.account.label.title" = "账户";
 "Vote.PopView.comfirm.button.title" = "确认";

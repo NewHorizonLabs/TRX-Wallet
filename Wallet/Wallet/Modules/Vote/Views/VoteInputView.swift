@@ -100,10 +100,21 @@ class VoteInputView: UIView, XibLoadable, Popable {
         vote.voteAddress = model.address
         vote.voteCount = number
         
+        var voteContractArray: [VoteWitnessContract_Vote] = ServiceHelper.shared.voteArray.filter({ (vote) -> Bool in
+            return model.address.addressString != vote.voteAddress.addressString
+        }).map { (object) -> VoteWitnessContract_Vote in
+            let vote = VoteWitnessContract_Vote()
+            vote.voteAddress = object.voteAddress
+            vote.voteCount = object.voteCount
+            return vote
+        }
+        
+        voteContractArray.append(vote)
+        
         //用户数据
         let contract = VoteWitnessContract()
         contract.ownerAddress = account.address
-        contract.votesArray = [vote]
+        contract.votesArray = NSMutableArray(array: voteContractArray)
         
         if let vc = self.viewController() {
             vc.displayLoading()
