@@ -273,7 +273,7 @@ open class EtherKeystore: Keystore {
                 return .failure(.failedToDeleteAccount)
             }
         case .address(let address):
-            watchAddresses = watchAddresses.filter { $0 != address.description }
+            watchAddresses = watchAddresses.filter { $0 != address.data.addressString }
             return .success(())
         }
     }
