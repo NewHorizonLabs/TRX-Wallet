@@ -178,13 +178,13 @@
                                             </constraints>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbL-4L-WBV">
-                                            <rect key="frame" x="315" y="0.0" width="60" height="60"/>
+                                            <rect key="frame" x="315" y="12.5" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="TgV-Kb-gLq"/>
                                                 <constraint firstAttribute="height" constant="60" id="gtR-qg-uPg"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                            <state key="normal" title="Sacn"/>
+                                            <state key="normal" image="ic_scan"/>
                                             <connections>
                                                 <action selector="scanButtonClick:" destination="fIk-Gy-A7P" eventType="touchUpInside" id="Mtg-to-1vv"/>
                                             </connections>
@@ -195,13 +195,13 @@
                                         <constraint firstAttribute="trailing" secondItem="RbL-4L-WBV" secondAttribute="trailing" id="433-6n-673"/>
                                         <constraint firstAttribute="bottom" secondItem="0Eh-U6-jxC" secondAttribute="bottom" id="48G-Ht-Nug"/>
                                         <constraint firstItem="F0r-1o-ADB" firstAttribute="top" secondItem="jZM-uH-BGp" secondAttribute="bottom" constant="10" id="7rJ-rF-5LY"/>
+                                        <constraint firstItem="RbL-4L-WBV" firstAttribute="centerY" secondItem="Flg-n7-deC" secondAttribute="centerY" id="8SK-tU-jIU"/>
                                         <constraint firstItem="0Eh-U6-jxC" firstAttribute="leading" secondItem="VHl-gI-wR3" secondAttribute="leading" id="9eY-X4-T9H"/>
                                         <constraint firstItem="Flg-n7-deC" firstAttribute="top" secondItem="VHl-gI-wR3" secondAttribute="top" constant="32" id="Aba-YD-mZn"/>
                                         <constraint firstItem="jZM-uH-BGp" firstAttribute="top" secondItem="Flg-n7-deC" secondAttribute="bottom" constant="20" id="E3d-rd-IyT"/>
                                         <constraint firstItem="c45-0l-k1I" firstAttribute="top" secondItem="VHl-gI-wR3" secondAttribute="top" id="FLh-u8-m3Q"/>
                                         <constraint firstAttribute="bottom" secondItem="c45-0l-k1I" secondAttribute="bottom" id="HuZ-mA-NAN"/>
                                         <constraint firstAttribute="trailing" secondItem="0Eh-U6-jxC" secondAttribute="trailing" id="Oit-Xm-DsY"/>
-                                        <constraint firstItem="RbL-4L-WBV" firstAttribute="top" secondItem="VHl-gI-wR3" secondAttribute="top" id="PUP-6Q-bgl"/>
                                         <constraint firstItem="lwr-mb-BuW" firstAttribute="leading" secondItem="BOT-2i-Iu8" secondAttribute="leading" id="QVk-7M-l5A"/>
                                         <constraint firstAttribute="bottom" secondItem="cHc-2O-ekX" secondAttribute="bottom" constant="20" id="THT-PF-ZZD"/>
                                         <constraint firstItem="cHc-2O-ekX" firstAttribute="leading" secondItem="VHl-gI-wR3" secondAttribute="leading" constant="20" id="bvb-na-sMi"/>
@@ -487,6 +487,7 @@
         <image name="balance_bg" width="375" height="210"/>
         <image name="ic_arrow" width="7" height="9"/>
         <image name="ic_freeze" width="40" height="40"/>
+        <image name="ic_scan" width="24" height="24"/>
         <image name="ic_tron_power" width="40" height="40"/>
         <image name="icon_acount_highlight" width="30" height="30"/>
         <image name="icon_acount_nor" width="30" height="30"/>
