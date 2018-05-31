@@ -59,6 +59,12 @@ class SendConfiremViewController: UIViewController {
     }
     
     @objc func sendButtonClick() {
+        if let type = ServiceHelper.shared.currentWallet?.type, let wallet = ServiceHelper.shared.currentWallet, type == .address(wallet.address) {
+            let coldView = ColdTransactionView.loadXib()
+            coldView.popShow()
+            return
+        }
+        
         if let _ = asset {
             sendOtherToken()
         } else {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36075F3920BFCCDB00E6AF13 /* ColdTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36075F3820BFCCDB00E6AF13 /* ColdTransactionView.swift */; };
+		36075F3B20BFCCE600E6AF13 /* ColdTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36075F3A20BFCCE600E6AF13 /* ColdTransactionView.xib */; };
 		36173AFB209D61F30082CD1E /* Balance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36173AFA209D61F30082CD1E /* Balance.storyboard */; };
 		36173AFE209D74EE0082CD1E /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */; };
 		3640CAAA20B416E80002050B /* SetSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3640CAA820B416E80002050B /* SetSwitchTableViewCell.swift */; };
@@ -407,6 +409,8 @@
 
 /* Begin PBXFileReference section */
 		2C5162AE5ADEF1BC135CACA9 /* Pods-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallet/Pods-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
+		36075F3820BFCCDB00E6AF13 /* ColdTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColdTransactionView.swift; sourceTree = "<group>"; };
+		36075F3A20BFCCE600E6AF13 /* ColdTransactionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColdTransactionView.xib; sourceTree = "<group>"; };
 		36173AFA209D61F30082CD1E /* Balance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Balance.storyboard; sourceTree = "<group>"; };
 		36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		3640CAA820B416E80002050B /* SetSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSwitchTableViewCell.swift; sourceTree = "<group>"; };
@@ -2124,6 +2128,8 @@
 				36C62AB820A2ECFF005A36DF /* AccountAssetTableViewCell.xib */,
 				36CF028320BD041C0001D0F5 /* FrozenView.swift */,
 				36CF028520BD04230001D0F5 /* FrozenView.xib */,
+				36075F3820BFCCDB00E6AF13 /* ColdTransactionView.swift */,
+				36075F3A20BFCCE600E6AF13 /* ColdTransactionView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2271,6 +2277,7 @@
 				368C85F6209C70190089D906 /* bignumber.min.js in Resources */,
 				36CCC1A520AD29100067B8E6 /* Tron.strings in Resources */,
 				36173AFB209D61F30082CD1E /* Balance.storyboard in Resources */,
+				36075F3B20BFCCE600E6AF13 /* ColdTransactionView.xib in Resources */,
 				36C62AC620A30655005A36DF /* VoteInputView.xib in Resources */,
 				368C8594209C70180089D906 /* Localizable.strings in Resources */,
 				36C62A8A20A19EED005A36DF /* TransactionTableViewCell.xib in Resources */,
@@ -2779,6 +2786,7 @@
 				368C8572209C70180089D906 /* TransactionValue.swift in Sources */,
 				368C85C3209C70190089D906 /* EnterPasswordCoordinator.swift in Sources */,
 				368C856E209C70180089D906 /* TokenTransfer.swift in Sources */,
+				36075F3920BFCCDB00E6AF13 /* ColdTransactionView.swift in Sources */,
 				368C8547209C70180089D906 /* TrustNetworkProtocol.swift in Sources */,
 				36CF020B20B65A9C0001D0F5 /* UIScrollView+Refresh.swift in Sources */,
 				3666DA0E20A02FC000EF7F87 /* GradientButton.swift in Sources */,
