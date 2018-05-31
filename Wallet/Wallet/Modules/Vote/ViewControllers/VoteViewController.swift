@@ -31,6 +31,11 @@ class VoteViewController: UIViewController {
         tableView.addRefreshHeader {[weak self] in
             self?.loadData()
         }
+        ServiceHelper.shared.voteChange.asObservable()
+            .subscribe(onNext: {[weak self] (_) in
+                self?.tableView.reloadData()
+            })
+        .disposed(by: disposeBag)
     }
     
     func loadData() {
