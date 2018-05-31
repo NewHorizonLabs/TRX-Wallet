@@ -630,7 +630,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSx-6j-iis">
-                                <rect key="frame" x="20" y="36" width="335" height="54.5"/>
+                                <rect key="frame" x="20" y="80" width="335" height="54.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNf-O8-3Yl">
                                         <rect key="frame" x="0.0" y="0.0" width="40.5" height="14.5"/>
@@ -669,7 +669,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0Y-4R-nWw">
-                                <rect key="frame" x="20" y="107.5" width="335" height="54.5"/>
+                                <rect key="frame" x="20" y="151.5" width="335" height="54.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tz-ev-uac">
                                         <rect key="frame" x="0.0" y="0.0" width="14" height="14.5"/>
@@ -708,7 +708,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9R-f8-WTX">
-                                <rect key="frame" x="20" y="179" width="335" height="54.5"/>
+                                <rect key="frame" x="20" y="223" width="335" height="54.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSY-og-GWo">
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="14.5"/>
@@ -747,7 +747,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5T-Z8-raQ">
-                                <rect key="frame" x="20" y="250.5" width="335" height="54.5"/>
+                                <rect key="frame" x="20" y="294.5" width="335" height="54.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocQ-1e-8f6">
                                         <rect key="frame" x="0.0" y="0.0" width="54.5" height="14.5"/>
@@ -820,6 +820,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pJw-T7-nyZ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Jqp-KH-9vs">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="veg-nA-EN2">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2sd-Ch-Lv8" customClass="NavCancelButton" customModule="Wallet" customModuleProvider="target">
+                                <rect key="frame" x="16" y="6" width="83" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="accountBalancelLabel" destination="dBF-EN-SN4" id="lh4-Xv-WdZ"/>
                         <outlet property="balanceTitleLabel" destination="gSY-og-GWo" id="dnB-fd-WFa"/>

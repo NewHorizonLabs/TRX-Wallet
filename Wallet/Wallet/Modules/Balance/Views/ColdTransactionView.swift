@@ -31,8 +31,15 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
     var successBlock:(() -> Void)?
     var cancleBlock:(() -> Void)?
     
+    func configureUI() {
+        confirmButton.isEnabled = false
+        confirmButton.setBackgroundColor(UIColor.normalBackgroundColor, forState: .normal)
+        confirmButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureUI()
         (closeButton.rx.tap).debounce(0.5, scheduler: MainScheduler.instance)
             .asObservable()
             .subscribe(onNext: {[weak self] (_) in
@@ -85,6 +92,7 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
     func nextStep() {
         self.bringSubview(toFront: scanView)
         self.bringSubview(toFront: closeButton)
+        self.scanView.isHidden = false
         UIView.animate(withDuration: 0.35, animations: {
             self.scanView.alpha = 1.0
         }) { (finished) in
@@ -96,6 +104,7 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
     func previousStep() {
         self.bringSubview(toFront: codeView)
         self.bringSubview(toFront: closeButton)
+        self.codeView.isHidden = false
         UIView.animate(withDuration: 0.35, animations: {
             self.codeView.alpha = 1.0
         }) { (finished) in

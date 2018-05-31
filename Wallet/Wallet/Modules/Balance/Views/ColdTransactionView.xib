@@ -71,7 +71,7 @@
                                 <constraint firstAttribute="height" constant="60" id="V55-gT-ths"/>
                                 <constraint firstAttribute="width" constant="60" id="wVB-VE-ljo"/>
                             </constraints>
-                            <state key="normal" image="common_close"/>
+                            <state key="normal" image="ic_back"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -171,5 +171,6 @@
     </objects>
     <resources>
         <image name="common_close" width="26" height="26"/>
+        <image name="ic_back" width="26" height="26"/>
     </resources>
 </document>

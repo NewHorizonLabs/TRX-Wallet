@@ -40,7 +40,7 @@ class FrozenView: UIView, XibLoadable, Popable {
     
     func baseConfigure() {
         configureUI()
-       frozenButton.isEnabled = false
+        frozenButton.isEnabled = false
         frozenButton.setBackgroundColor(UIColor.normalBackgroundColor, forState: .normal)
         frozenButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
         
