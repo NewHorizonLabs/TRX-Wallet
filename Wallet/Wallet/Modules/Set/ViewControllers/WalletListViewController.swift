@@ -27,6 +27,7 @@ class WalletListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = R.string.tron.walletsNavTitle()
+        let array = EtherKeystore.shared
         tableView.register(R.nib.walletTableViewCell)
        
         data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.walletTableViewCell.identifier, cellType: WalletTableViewCell.self)) { _, model, cell in

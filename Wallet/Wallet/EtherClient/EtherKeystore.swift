@@ -137,7 +137,7 @@ open class EtherKeystore: Keystore {
                 return completion(.failure(KeystoreError.duplicateAccount))
             }
         case .watch(let address):
-            let addressString = address.description
+            let addressString = address.data.addressString
             guard !watchAddresses.contains(addressString) else {
                 return completion(.failure(.duplicateAccount))
             }
@@ -201,7 +201,7 @@ open class EtherKeystore: Keystore {
     }
 
     var wallets: [Wallet] {
-        let addresses = watchAddresses.compactMap { TrustCore.Address(string: $0) }
+        let addresses = watchAddresses.compactMap { TrustCore.Address(data: $0.base58CheckData!) }
         return [
             keyStore.accounts.map {
                 switch $0.type {
