@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		36075F3920BFCCDB00E6AF13 /* ColdTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36075F3820BFCCDB00E6AF13 /* ColdTransactionView.swift */; };
 		36075F3B20BFCCE600E6AF13 /* ColdTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36075F3A20BFCCE600E6AF13 /* ColdTransactionView.xib */; };
+		36075F3D20BFD9B100E6AF13 /* OffLineSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36075F3C20BFD9B100E6AF13 /* OffLineSignViewController.swift */; };
+		36075F4120BFF5A100E6AF13 /* SignedTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36075F4020BFF5A100E6AF13 /* SignedTransactionView.swift */; };
+		36075F4320BFF5B200E6AF13 /* SignedTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36075F4220BFF5B200E6AF13 /* SignedTransactionView.xib */; };
 		36173AFB209D61F30082CD1E /* Balance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36173AFA209D61F30082CD1E /* Balance.storyboard */; };
 		36173AFE209D74EE0082CD1E /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */; };
 		3640CAAA20B416E80002050B /* SetSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3640CAA820B416E80002050B /* SetSwitchTableViewCell.swift */; };
@@ -411,6 +414,9 @@
 		2C5162AE5ADEF1BC135CACA9 /* Pods-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallet/Pods-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		36075F3820BFCCDB00E6AF13 /* ColdTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColdTransactionView.swift; sourceTree = "<group>"; };
 		36075F3A20BFCCE600E6AF13 /* ColdTransactionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColdTransactionView.xib; sourceTree = "<group>"; };
+		36075F3C20BFD9B100E6AF13 /* OffLineSignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffLineSignViewController.swift; sourceTree = "<group>"; };
+		36075F4020BFF5A100E6AF13 /* SignedTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedTransactionView.swift; sourceTree = "<group>"; };
+		36075F4220BFF5B200E6AF13 /* SignedTransactionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedTransactionView.xib; sourceTree = "<group>"; };
 		36173AFA209D61F30082CD1E /* Balance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Balance.storyboard; sourceTree = "<group>"; };
 		36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		3640CAA820B416E80002050B /* SetSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSwitchTableViewCell.swift; sourceTree = "<group>"; };
@@ -861,6 +867,7 @@
 				36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */,
 				3666D98A209D7EC100EF7F87 /* SendTransactionViewController.swift */,
 				36C62ADC20A6E971005A36DF /* SendConfiremViewController.swift */,
+				36075F3C20BFD9B100E6AF13 /* OffLineSignViewController.swift */,
 				3666D9B620A0200A00EF7F87 /* BalanceViewController.swift */,
 				36CCC19920AAC1E50067B8E6 /* OtherTokenViewController.swift */,
 			);
@@ -2130,6 +2137,8 @@
 				36CF028520BD04230001D0F5 /* FrozenView.xib */,
 				36075F3820BFCCDB00E6AF13 /* ColdTransactionView.swift */,
 				36075F3A20BFCCE600E6AF13 /* ColdTransactionView.xib */,
+				36075F4020BFF5A100E6AF13 /* SignedTransactionView.swift */,
+				36075F4220BFF5B200E6AF13 /* SignedTransactionView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2277,6 +2286,7 @@
 				368C85F6209C70190089D906 /* bignumber.min.js in Resources */,
 				36CCC1A520AD29100067B8E6 /* Tron.strings in Resources */,
 				36173AFB209D61F30082CD1E /* Balance.storyboard in Resources */,
+				36075F4320BFF5B200E6AF13 /* SignedTransactionView.xib in Resources */,
 				36075F3B20BFCCE600E6AF13 /* ColdTransactionView.xib in Resources */,
 				36C62AC620A30655005A36DF /* VoteInputView.xib in Resources */,
 				368C8594209C70180089D906 /* Localizable.strings in Resources */,
@@ -2590,6 +2600,7 @@
 				368C8534209C70180089D906 /* NonFungibleTokensViewController.swift in Sources */,
 				368C859F209C70180089D906 /* FloatLabelCell.swift in Sources */,
 				368C8595209C70180089D906 /* PrivateKeyRule.swift in Sources */,
+				36075F4120BFF5A100E6AF13 /* SignedTransactionView.swift in Sources */,
 				368C84CD209C70180089D906 /* UnconfirmedTransaction.swift in Sources */,
 				368C853E209C70180089D906 /* TokensHeaderView.swift in Sources */,
 				368C8519209C70180089D906 /* Styles.swift in Sources */,
@@ -2656,6 +2667,7 @@
 				368C856F209C70180089D906 /* LocalizedOperationObject.swift in Sources */,
 				368C8592209C70180089D906 /* PendingTransaction.swift in Sources */,
 				36C62ADD20A6E971005A36DF /* SendConfiremViewController.swift in Sources */,
+				36075F3D20BFD9B100E6AF13 /* OffLineSignViewController.swift in Sources */,
 				368C84CC209C70180089D906 /* InCoordinatorError.swift in Sources */,
 				368C8577209C70180089D906 /* Transaction.swift in Sources */,
 				368C84D3209C70180089D906 /* GasPriceConfiguration.swift in Sources */,

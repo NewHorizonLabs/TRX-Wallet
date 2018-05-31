@@ -37,7 +37,7 @@ class WalletListViewController: UIViewController {
         
         tableView.rx.modelSelected(Wallet.self).subscribe(onNext: {[weak self] (model) in
             ServiceHelper.shared.reset(wallet: model)
-            self?.export(model: model)
+//            self?.export(model: model)
             self?.navigationController?.popToRootViewController(animated: true)
             self?.tabBarController?.selectedIndex = 0
             

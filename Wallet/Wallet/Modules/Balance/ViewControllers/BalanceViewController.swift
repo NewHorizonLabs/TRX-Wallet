@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import QRCodeReaderViewController
 
 class BalanceViewController: UIViewController {
 
@@ -41,7 +42,7 @@ class BalanceViewController: UIViewController {
     var data: Variable<[AccountAsset]> = Variable([])
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         configureUI()
         //配置tableview
         tableView.register(R.nib.accountAssetTableViewCell)
@@ -143,6 +144,16 @@ class BalanceViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func scanButtonClick(_ sender: Any) {
+        openReader()
+    }
+    
+    @objc func openReader() {
+        let controller = QRCodeReaderViewController()
+        controller.delegate = self
+        present(controller, animated: true, completion: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //获取用户数据并刷新页面
@@ -209,8 +220,38 @@ class BalanceViewController: UIViewController {
             headerView.clipsToBounds = false
         }
     }
-
+    
+    @objc func showOfflineSignVC(dataString: String) {
+        let vc = R.storyboard.balance.offLineSignViewController()!
+        let data = Data(hex: dataString)
+        do {
+            let transaction = try TronTransaction.parse(from: data)
+            vc.toSignTransaction = transaction
+        } catch {
+            HUD.showText(text: "Transaction Error")
+        }
+        
+        let nav = NavigationController(rootViewController: vc)
+        self.present(nav, animated: true, completion: nil)
+    }
 }
+
+extension BalanceViewController: QRCodeReaderDelegate {
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController!) {
+        reader.stopScanning()
+        reader.dismiss(animated: true, completion: nil)
+    }
+    func reader(_ reader: QRCodeReaderViewController!, didScanResult result: String!) {
+        reader.stopScanning()
+        if result.hasPrefix("coldtransaction://") {
+            let dataString = result.replacingOccurrences(of: "coldtransaction://", with: "")
+            self.perform(#selector(showOfflineSignVC), with: dataString, afterDelay: 0.5)
+        }
+        reader.dismiss(animated: true, completion: nil)
+    }
+}
+
 extension BalanceViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 82
