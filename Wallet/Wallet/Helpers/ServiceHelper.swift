@@ -156,13 +156,13 @@ class ServiceHelper: NSObject {
         if let signTransaction = ServiceHelper.transactionSign(transaction) {
             service.broadcastTransaction(withRequest: signTransaction, handler: completion)
         } else {
-            
+            service.broadcastTransaction(withRequest: transaction, handler: completion)
         }
         
     }
     
     class func setTimestamp(_ transaction: TronTransaction) -> TronTransaction {
-        let timeInterval:TimeInterval = Date().timeIntervalSince1970
+        let timeInterval:TimeInterval = (Date().timeIntervalSince1970) * 1000
         transaction.rawData.timestamp = Int64(timeInterval)
         return transaction
     }
@@ -171,6 +171,7 @@ class ServiceHelper: NSObject {
         guard let addressData = ServiceHelper.shared.account.value?.address, let hash = transaction.rawData.data()?.sha256() else {
             return nil
         }
+        
         if let list = transaction.rawData.contractArray {
             for _ in list {
                 let result = ServiceHelper.shared.keystore.signHash(hash, for: ServiceHelper.shared.trustAccount!)
@@ -182,6 +183,7 @@ class ServiceHelper: NSObject {
                 }
             }
         }
+//        ServiceHelper.setTimestamp(transaction)
         return transaction
     }
     
@@ -255,7 +257,7 @@ extension Int64 {
     }
     
     var dateString: String {
-        let timeInterval = TimeInterval(self)/1000000000
+        let timeInterval = TimeInterval(self)/1000
         return Date(timeIntervalSince1970: timeInterval).formatterString
     }
     
