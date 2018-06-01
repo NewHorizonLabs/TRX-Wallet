@@ -147,8 +147,13 @@ class CreateWalletViewController: UIViewController {
     
     @objc func createButtonClick() {
         if let account = self.account {
-            self.coordinator?.pushBackup(for: account)
-            self.coordinator?.delegate = self
+            do {
+                try EtherKeystore.shared.saveAccount(account)
+                self.coordinator?.pushBackup(for: account)
+                self.coordinator?.delegate = self
+            } catch {
+                HUD.showError(error: "Creat wallet failed")
+            }
         }
     }
     

@@ -180,9 +180,14 @@ open class EtherKeystore: Keystore {
     func createAccout(password: String) -> TrustKeystore.Account {
         let account = try! keyStore.createAccount(password: password, type: .encryptedKey)
         let _ = setPassword(password, for: account)
+        
         return account
     }
-
+    
+    func saveAccount(_ account: TrustKeystore.Account) throws {
+        try keyStore.addAccount(account: account)
+    }
+    
     func importKeystore(value: String, password: String, newPassword: String) -> Result<TrustKeystore.Account, KeystoreError> {
         guard let data = value.data(using: .utf8) else {
             return (.failure(.failedToParseJSON))
