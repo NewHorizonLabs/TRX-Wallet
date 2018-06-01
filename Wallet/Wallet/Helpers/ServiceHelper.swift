@@ -168,10 +168,12 @@ class ServiceHelper: NSObject {
     }
     
     class func transactionSign(_ transaction: TronTransaction) -> TronTransaction? {
+        //在sha256 之前设置时间戳，否则验签失败
+        ServiceHelper.setTimestamp(transaction)
         guard let addressData = ServiceHelper.shared.account.value?.address, let hash = transaction.rawData.data()?.sha256() else {
             return nil
         }
-        
+
         if let list = transaction.rawData.contractArray {
             for _ in list {
                 let result = ServiceHelper.shared.keystore.signHash(hash, for: ServiceHelper.shared.trustAccount!)
