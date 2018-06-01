@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class VoteTableViewCell: UITableViewCell {
 
@@ -19,10 +21,16 @@ class VoteTableViewCell: UITableViewCell {
     @IBOutlet weak var voteNumberTitleLabel: UILabel!
     var model: Witness?
     
+    let disposeBag = DisposeBag()
+    
     @IBOutlet weak var yourVoteNumberLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        ServiceHelper.shared.isWatchMode.asObservable()
+            .bind(to: voteButton.rx.isHidden)
+            .disposed(by: disposeBag)
         configureUI()
     }
 

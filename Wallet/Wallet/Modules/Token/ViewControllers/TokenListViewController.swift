@@ -13,6 +13,7 @@ import UITableView_FDTemplateLayoutCell
 
 class TokenListViewController: UIViewController {
     
+    @IBOutlet weak var addButton: UIButton!
     let disposeBag = DisposeBag()
     
     var data: Variable<[AssetIssueContract]> = Variable([])
@@ -38,6 +39,11 @@ class TokenListViewController: UIViewController {
         tableView.addRefreshHeader {[weak self] in
             self?.loadData()
         }
+        
+        //冷钱包隐藏添加按钮
+        ServiceHelper.shared.isWatchMode.asObservable()
+        .bind(to: addButton.rx.isHidden)
+        .disposed(by: disposeBag)
     }
     
     func loadData() {

@@ -23,6 +23,7 @@ class ServiceHelper: NSObject {
     let solidityService: WalletExtension = WalletExtension(host: ServiceHelper.solidityNode)
     var account: Variable<TronAccount?> = Variable(nil)
     var trustAccount: TrustKeystore.Account?
+    var isWatchMode: Variable<Bool> = Variable(false)
     
     var currentWallet: Wallet? {
         didSet {
@@ -32,6 +33,11 @@ class ServiceHelper: NSObject {
                 account.value = a
                 keystore.recentlyUsedWallet = w
                 trustAccount = keystore.getAccount(for: w.address)
+                if w.type == .address(w.address) {
+                    isWatchMode.value = true
+                } else {
+                    isWatchMode.value = false
+                }
             }
         }
     }
@@ -70,6 +76,11 @@ class ServiceHelper: NSObject {
             account.value = a
             trustAccount = keystore.getAccount(for: w.address)
             keystore.recentlyUsedWallet = w
+            if w.type == .address(w.address) {
+                isWatchMode.value = true
+            } else {
+                isWatchMode.value = false
+            }
         }
     }
     
