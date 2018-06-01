@@ -58,7 +58,7 @@ class CreateWalletViewController: UIViewController {
                 print(account.address)
                 let string = String(base58CheckEncoding: account.address.data)
                 self.address.value = string
-                self.password.value = password
+                self.export(account: account)
                 self.account = account
             case .failure(let error):
                 print("创建失败")
@@ -126,6 +126,18 @@ class CreateWalletViewController: UIViewController {
         .disposed(by: disposeBag)
         
         createButton.addTarget(self, action: #selector(createButtonClick), for: .touchUpInside)
+    }
+    
+    func export(account: TrustKeystore.Account) {
+        let result = EtherKeystore.shared.exportPrivateKey(account: account)
+        switch result {
+        case .success(let data):
+            let string = data.hexString
+            self.password.value = string
+            print(string)
+        default:
+            break
+        }
     }
 
     @objc func pasteButtonClick() {

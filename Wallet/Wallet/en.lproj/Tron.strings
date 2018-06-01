@@ -69,8 +69,8 @@
 "Login.import.button.title" = "Import Wallet";
 "Create.address.label.title" = "Account address";
 "Create.address.tip.label.title" = "Make sure copy your wallet address and paste it safely. Or you can write it down on the paper and keep it well";
-"Create.password.label.title" = "Password";
-"Create.repassword.label.title" = "Repassword";
+"Create.password.label.title" = "Private Key";
+"Create.repassword.label.title" = "Repeat Private Key";
 "Create.checkbox.tip1.label.title" = "I understand that if I forget/lose my password I will never be able to access my assets.";
 "Create.checkbox.tip2.label.title" = "I understand that if I forget/lose my password no one will be able to help me recover it.";
 "Create.checkbox.tip3.label.title" = "I've written my password on paper.";

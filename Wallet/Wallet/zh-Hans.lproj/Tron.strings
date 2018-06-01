@@ -70,8 +70,8 @@
 "Login.import.button.title" = "导入钱包";
 "Create.address.label.title" = "钱包地址";
 "Create.address.tip.label.title" = "请确保复制你的钱包地址并安全粘贴到安全的地方。或者你可以把密码写在纸上并妥善保存。";
-"Create.password.label.title" = "密码";
-"Create.repassword.label.title" = "重复密码";
+"Create.password.label.title" = "私钥";
+"Create.repassword.label.title" = "重复私钥";
 "Create.checkbox.tip1.label.title" = "我了解如果忘记或丢失了密码，我将永远不能再使用我的资产。";
 "Create.checkbox.tip2.label.title" = "我了解如果忘记或丢失了密码，我将永远不能再使用我的资产。";
 "Create.checkbox.tip3.label.title" = "我已经在纸上写下了我的密码。";
