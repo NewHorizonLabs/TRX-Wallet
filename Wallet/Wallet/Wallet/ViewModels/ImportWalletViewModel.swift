@@ -17,6 +17,6 @@ struct ImportWalletViewModel {
     }
 
     var watchAddressPlaceholder: String {
-        return String(format: NSLocalizedString("import.wallet.watch.placeholder", value: "%@ TrustCore.Address", comment: ""), config.server.name)
+        return String(format: NSLocalizedString("import.wallet.watch.placeholder", value: "%@ TrustCore.Address", comment: ""), "Tron")
     }
 }
