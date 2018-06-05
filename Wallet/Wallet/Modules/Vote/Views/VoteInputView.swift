@@ -64,33 +64,7 @@ class VoteInputView: UIView, XibLoadable, Popable {
         }
         self.textField.resignFirstResponder()
         
-        //冻结余额
-        let freezeContract = FreezeBalanceContract()
-        freezeContract.ownerAddress = account.address
-        freezeContract.frozenBalance = number * 1000000
-        freezeContract.frozenDuration = 3
-        
-        ServiceHelper.shared.service.freezeBalance(withRequest: freezeContract) {[weak self] (transaction, error) in
-            if let action = transaction {
-                ServiceHelper.shared.broadcastTransaction(action, completion: { (response, error) in
-                    if let response = response {
-                        let result = response.result
-                        let message = String.init(data: response.message, encoding: .utf8)
-                        print(response)
-                        if result {
-                            self?.vote(model: model, account: account, number: number)
-                        } else {
-                            HUD.showError(error: response.errorMessage)
-                        }
-                    } else if let error = error {
-                        HUD.showError(error: error.localizedDescription)
-                    }
-                })
-            } else if let error = error {
-                HUD.showError(error: error.localizedDescription)
-            }
-        }
-        
+        self.vote(model: model, account: account, number: number)
         
     }
     
