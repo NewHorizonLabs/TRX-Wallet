@@ -55,6 +55,7 @@ target 'Wallet' do
     pod 'HMSegmentedControl'
     pod 'DZNEmptyDataSet'
     pod 'MJRefresh'
+    pod 'Bugly'
 end
 
 # target 'OpenInTrust' do

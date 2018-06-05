@@ -18,6 +18,7 @@ PODS:
   - Branch (0.24.2):
     - Branch/Core (= 0.24.2)
   - Branch/Core (0.24.2)
+  - Bugly (2.5.0)
   - Crashlytics (3.10.1):
     - Fabric (~> 1.7.5)
   - CryptoSwift (0.8.0)
@@ -133,6 +134,7 @@ DEPENDENCIES:
   - APIKit
   - BigInt (~> 3.0)
   - Branch
+  - Bugly
   - Crashlytics (~> 3.10)
   - CryptoSwift (= 0.8.0)
   - DZNEmptyDataSet
@@ -185,6 +187,7 @@ SPEC REPOS:
     - BigInt
     - BoringSSL
     - Branch
+    - Bugly
     - Crashlytics
     - CryptoSwift
     - DZNEmptyDataSet
@@ -264,6 +267,7 @@ SPEC CHECKSUMS:
   BigInt: 8e8a52161c745cd3ab78e3dc346a9fbee51e6cf6
   BoringSSL: 60dd24df4af296bf41d78e5841dbb95d75f88c0d
   Branch: 0d98d22745a9b68bcb4fa6dc1c6a92b64d4fdd7b
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   CryptoSwift: f81907430ebbe38b8404b4f6fb40f3c576a8755f
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -317,6 +321,6 @@ SPEC CHECKSUMS:
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: b7bdd352cc07f4f745547807a3ca2a82980a6cea
 
-PODFILE CHECKSUM: 410407cf8ae5faadbcecf072cc4a9fb9accd8921
+PODFILE CHECKSUM: bd6045c1c24c8a21b1b250350e44b5b8f590ca9e
 
 COCOAPODS: 1.5.0
