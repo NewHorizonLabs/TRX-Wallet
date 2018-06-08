@@ -16,11 +16,12 @@ class BaseTabbarViewController: UITabBarController {
     
     let disposeBag = DisposeBag()
     var modeView: WalletModeView = WalletModeView.loadXib()
+    var state: WalletModeState = .hot
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(modeView)
-
+        delegate = self
         let height = UIApplication.shared.statusBarFrame.height
         
         setStatusBar(hide: true)
@@ -49,14 +50,17 @@ class BaseTabbarViewController: UITabBarController {
         if let wallet = ServiceHelper.shared.currentWallet {
             if wallet.isWatch {
                 modeView.state = .watch
+                state = .watch
                 setStatusBar(hide: true)
             } else {
                 switch netState {
                 case .notReachable, .unknown:
                     modeView.state = .cold
+                    state = .cold
                     setStatusBar(hide: true)
                 case .reachable:
                     modeView.state = .hot
+                    state = .hot
                     setStatusBar(hide: false)
                 }
             }
@@ -69,4 +73,24 @@ class BaseTabbarViewController: UITabBarController {
         }
     }
 
+}
+
+extension BaseTabbarViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        switch state {
+        case .hot:
+            return true
+        default:
+            if let vc = (viewController as? BaseNavigationViewController)?.viewControllers.first {
+                if vc is BalanceViewController || vc is SetViewController {
+                    return true
+                } else {
+                    HUD.showText(text: "Not avaliable in this wallet mode")
+                    return false
+                }
+            }
+            return true
+        }
+    }
 }

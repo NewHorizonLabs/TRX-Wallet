@@ -365,7 +365,7 @@
         <!--Tansactions-->
         <scene sceneID="LqF-JF-HSl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C3B-66-tSI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C3B-66-tSI" customClass="BaseNavigationViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tansactions" image="icon_transactions_nor" selectedImage="icon_transactions_highlight" id="o3Q-wm-ibe"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -395,7 +395,7 @@
         <!--Vote-->
         <scene sceneID="Lkq-LC-zyl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xd2-Mo-NWa" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xd2-Mo-NWa" customClass="BaseNavigationViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Vote" image="icon_vote_nor" selectedImage="icon_vote_highlight" id="Abf-JP-Nb8"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
