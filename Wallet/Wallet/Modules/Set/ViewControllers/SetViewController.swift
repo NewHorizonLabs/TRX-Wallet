@@ -25,7 +25,7 @@ class SetViewController: UIViewController, Coordinator {
     @IBOutlet weak var versionLabel: UILabel!
     let disposeBag = DisposeBag()
     
-    var datas: [[SettingType]] = [[.wallets],[.password], [.share, .walletHelp]]
+    var datas: [[SettingType]] = [[.wallets],[.password, .walletHelp], [.share]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,7 +190,7 @@ enum SettingType {
         case .password:
             return R.image.icon_set_password()
         case .walletHelp:
-            return R.image.icon_set_password()
+            return R.image.icon_cold()
         }
     }
     var settingTitle: String {
