@@ -78,6 +78,16 @@ class BalanceViewController: UIViewController {
                 self?.unfrozenButtonClick()
             })
             .disposed(by: disposeBag)
+        
+        NetworkHelper.shared.netState.asObservable()
+            .subscribe(onNext: { (state) in
+                HUD.showText(text: "\(state)")
+            })
+        .disposed(by: disposeBag)
+    }
+    
+    func networkChange() {
+        
     }
     
     

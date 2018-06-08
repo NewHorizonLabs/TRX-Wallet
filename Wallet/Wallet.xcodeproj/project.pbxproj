@@ -407,6 +407,7 @@
 		36CF028220BBD5710001D0F5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF028120BBD5710001D0F5 /* Constant.swift */; };
 		36CF028420BD041C0001D0F5 /* FrozenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF028320BD041C0001D0F5 /* FrozenView.swift */; };
 		36CF028620BD04230001D0F5 /* FrozenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF028520BD04230001D0F5 /* FrozenView.xib */; };
+		36F1557920CA182F002BF4B1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1557820CA182F002BF4B1 /* NetworkHelper.swift */; };
 		506C1BE2A7FC0A2831F1AD43 /* Pods_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F726B613EFCB776E125EF5D /* Pods_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -836,6 +837,7 @@
 		36CF028120BBD5710001D0F5 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		36CF028320BD041C0001D0F5 /* FrozenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrozenView.swift; sourceTree = "<group>"; };
 		36CF028520BD04230001D0F5 /* FrozenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrozenView.xib; sourceTree = "<group>"; };
+		36F1557820CA182F002BF4B1 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		4F726B613EFCB776E125EF5D /* Pods_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9544229453FF14F04EE17021 /* Pods-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wallet/Pods-Wallet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2049,6 +2051,7 @@
 		36C62A8320511F3D005A36DF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				36F1557820CA182F002BF4B1 /* NetworkHelper.swift */,
 				368C860F209C88BF0089D906 /* WalletHelper.swift */,
 				36CCC1A020AC43210067B8E6 /* HUD.swift */,
 				36CCC19F20AC43210067B8E6 /* SwiftNotice.swift */,
@@ -2630,6 +2633,7 @@
 				368C85A9209C70190089D906 /* LoadingView.swift in Sources */,
 				368C85CA209C70190089D906 /* HelpUsCoordinator.swift in Sources */,
 				368C85C8209C70190089D906 /* PassphraseView.swift in Sources */,
+				36F1557920CA182F002BF4B1 /* NetworkHelper.swift in Sources */,
 				368C8596209C70180089D906 /* TransactionAppearance.swift in Sources */,
 				368C8552209C70180089D906 /* Decimal.swift in Sources */,
 				368C85ED209C70190089D906 /* PreferencesController.swift in Sources */,
