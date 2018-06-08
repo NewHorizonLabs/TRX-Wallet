@@ -322,10 +322,10 @@
             </objects>
             <point key="canvasLocation" x="1513.5999999999999" y="-424.58770614692656"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Base Tabbar View Controller-->
         <scene sceneID="In7-sg-xK4">
             <objects>
-                <tabBarController id="CDC-Of-pml" sceneMemberID="viewController">
+                <tabBarController id="CDC-Of-pml" customClass="BaseTabbarViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A2p-ib-nB2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

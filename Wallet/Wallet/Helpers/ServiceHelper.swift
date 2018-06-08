@@ -312,3 +312,13 @@ extension Return {
         }
     }
 }
+
+extension Wallet {
+    var isWatch: Bool {
+        if self.type == .address(self.address) {
+            return true
+        } else {
+            return false
+        }
+    }
+}

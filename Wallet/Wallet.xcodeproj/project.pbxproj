@@ -408,6 +408,9 @@
 		36CF028420BD041C0001D0F5 /* FrozenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF028320BD041C0001D0F5 /* FrozenView.swift */; };
 		36CF028620BD04230001D0F5 /* FrozenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF028520BD04230001D0F5 /* FrozenView.xib */; };
 		36F1557920CA182F002BF4B1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1557820CA182F002BF4B1 /* NetworkHelper.swift */; };
+		36F1557B20CA4F35002BF4B1 /* WalletModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1557A20CA4F35002BF4B1 /* WalletModeView.swift */; };
+		36F1557D20CA4F3E002BF4B1 /* WalletModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F1557C20CA4F3E002BF4B1 /* WalletModeView.xib */; };
+		36F1557F20CA5003002BF4B1 /* BaseTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1557E20CA5003002BF4B1 /* BaseTabbarViewController.swift */; };
 		506C1BE2A7FC0A2831F1AD43 /* Pods_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F726B613EFCB776E125EF5D /* Pods_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -838,6 +841,9 @@
 		36CF028320BD041C0001D0F5 /* FrozenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrozenView.swift; sourceTree = "<group>"; };
 		36CF028520BD04230001D0F5 /* FrozenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrozenView.xib; sourceTree = "<group>"; };
 		36F1557820CA182F002BF4B1 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		36F1557A20CA4F35002BF4B1 /* WalletModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModeView.swift; sourceTree = "<group>"; };
+		36F1557C20CA4F3E002BF4B1 /* WalletModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletModeView.xib; sourceTree = "<group>"; };
+		36F1557E20CA5003002BF4B1 /* BaseTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarViewController.swift; sourceTree = "<group>"; };
 		4F726B613EFCB776E125EF5D /* Pods_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9544229453FF14F04EE17021 /* Pods-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wallet/Pods-Wallet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -872,6 +878,7 @@
 				36075F3C20BFD9B100E6AF13 /* OffLineSignViewController.swift */,
 				3666D9B620A0200A00EF7F87 /* BalanceViewController.swift */,
 				36CCC19920AAC1E50067B8E6 /* OtherTokenViewController.swift */,
+				36F1557E20CA5003002BF4B1 /* BaseTabbarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2044,6 +2051,8 @@
 				36C62A8120511CD6005A36DF /* NavCancelButton.swift */,
 				36CCC18D20A973DF0067B8E6 /* KTPickerViewController.swift */,
 				36CCC19B20AB19020067B8E6 /* PopViewController.swift */,
+				36F1557A20CA4F35002BF4B1 /* WalletModeView.swift */,
+				36F1557C20CA4F3E002BF4B1 /* WalletModeView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -2275,6 +2284,7 @@
 				36CCC18220A9371A0067B8E6 /* Set.storyboard in Resources */,
 				3666DA0920A02FC000EF7F87 /* AlerButtonBar.xib in Resources */,
 				368C853C209C70180089D906 /* NonFungibleTokenViewCell.xib in Resources */,
+				36F1557D20CA4F3E002BF4B1 /* WalletModeView.xib in Resources */,
 				368C82FA209C44AA0089D906 /* Login.storyboard in Resources */,
 				36CF028620BD04230001D0F5 /* FrozenView.xib in Resources */,
 				368C82F0209C43300089D906 /* LaunchScreen.storyboard in Resources */,
@@ -2579,6 +2589,7 @@
 				368C85AF209C70190089D906 /* BackupViewModel.swift in Sources */,
 				368C84BD209C70180089D906 /* ConfirmCoordinator.swift in Sources */,
 				36CCC18C20A946530067B8E6 /* CreateTokenViewController.swift in Sources */,
+				36F1557F20CA5003002BF4B1 /* BaseTabbarViewController.swift in Sources */,
 				368C84D2209C70180089D906 /* ConfigureTransactionError.swift in Sources */,
 				3666DB5920A1718100EF7F87 /* Annotations.pbobjc.m in Sources */,
 				3666D9D820A0260300EF7F87 /* UIImage + Extensions.swift in Sources */,
@@ -2640,6 +2651,7 @@
 				368C85F0209C70190089D906 /* EthTypedData.swift in Sources */,
 				368C85EE209C70190089D906 /* CastError.swift in Sources */,
 				368C8555209C70180089D906 /* NSAttributedString.swift in Sources */,
+				36F1557B20CA4F35002BF4B1 /* WalletModeView.swift in Sources */,
 				368C852C209C70180089D906 /* ERC20Token.swift in Sources */,
 				368C84BB209C70180089D906 /* PaymentCoordinator.swift in Sources */,
 				368C857B209C70180089D906 /* TransactionsEmptyView.swift in Sources */,
