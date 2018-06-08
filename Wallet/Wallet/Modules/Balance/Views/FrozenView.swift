@@ -109,7 +109,4 @@ class FrozenView: UIView, XibLoadable, Popable {
             }
         }
     }
-    
-    
-    
 }

@@ -25,7 +25,7 @@ class SetViewController: UIViewController, Coordinator {
     @IBOutlet weak var versionLabel: UILabel!
     let disposeBag = DisposeBag()
     
-    var datas: [[SettingType]] = [[.wallets],[.password], [.share]]
+    var datas: [[SettingType]] = [[.wallets],[.password], [.share, .walletHelp]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,7 +178,7 @@ enum SettingType {
     case wallets
     case share
     case password
-    
+    case walletHelp
     
     var iconImage: UIImage? {
         switch self {
@@ -188,6 +188,8 @@ enum SettingType {
         case .share:
             return R.image.icon_set_share()
         case .password:
+            return R.image.icon_set_password()
+        case .walletHelp:
             return R.image.icon_set_password()
         }
     }
@@ -199,6 +201,8 @@ enum SettingType {
         case .share:
             return R.string.tron.settingShareTitle()
         case .password:
+            return R.string.tron.settingPasswordTouchIDTitle()
+        case .walletHelp:
             return R.string.tron.settingPasswordTouchIDTitle()
         }
     }
