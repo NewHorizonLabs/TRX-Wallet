@@ -31,7 +31,7 @@ class WalletModeView: UIView, XibLoadable {
     
     
     @objc func tapView() {
-        
+        BrowserHelper.show(url: state.url)
     }
 
 }
@@ -61,6 +61,12 @@ enum WalletModeState {
         default:
             return ""
         }
+    }
+    
+    var url: URL {
+        let path = Bundle.main.bundlePath
+        let basePath = "\(path)/html/coldwallet.html"
+        return URL(fileURLWithPath: basePath, isDirectory: true)
     }
     
 }

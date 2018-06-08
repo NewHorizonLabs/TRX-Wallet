@@ -358,6 +358,10 @@
 		368C860D209C72640089D906 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C860C209C72640089D906 /* R.generated.swift */; };
 		368C8610209C88BF0089D906 /* WalletHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C860F209C88BF0089D906 /* WalletHelper.swift */; };
 		36B15CA720AEE16800DB006B /* ImportTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B15CA520AEE16800DB006B /* ImportTypeTableViewCell.swift */; };
+		36B68B4020CA82EB006E891C /* Browser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B68B3E20CA82EA006E891C /* Browser.storyboard */; };
+		36B68B4120CA82EB006E891C /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B68B3F20CA82EA006E891C /* BrowserViewController.swift */; };
+		36B68B4320CA83C5006E891C /* BrowserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B68B4220CA83C5006E891C /* BrowserHelper.swift */; };
+		36B68B4720CA8E37006E891C /* html in Resources */ = {isa = PBXBuildFile; fileRef = 36B68B4620CA8E37006E891C /* html */; };
 		36C62A8220511CD6005A36DF /* NavCancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C62A8120511CD6005A36DF /* NavCancelButton.swift */; };
 		36C62A8520511FBF005A36DF /* CurrentViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C62A8420511FBF005A36DF /* CurrentViewControllerHelper.swift */; };
 		36C62A8920A19EED005A36DF /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C62A8720A19EED005A36DF /* TransactionTableViewCell.swift */; };
@@ -790,6 +794,10 @@
 		368C860C209C72640089D906 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		368C860F209C88BF0089D906 /* WalletHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHelper.swift; sourceTree = "<group>"; };
 		36B15CA520AEE16800DB006B /* ImportTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTypeTableViewCell.swift; sourceTree = "<group>"; };
+		36B68B3E20CA82EA006E891C /* Browser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browser.storyboard; sourceTree = "<group>"; };
+		36B68B3F20CA82EA006E891C /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		36B68B4220CA83C5006E891C /* BrowserHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserHelper.swift; sourceTree = "<group>"; };
+		36B68B4620CA8E37006E891C /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
 		36C62A8120511CD6005A36DF /* NavCancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavCancelButton.swift; sourceTree = "<group>"; };
 		36C62A8420511FBF005A36DF /* CurrentViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentViewControllerHelper.swift; sourceTree = "<group>"; };
 		36C62A8720A19EED005A36DF /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
@@ -1055,6 +1063,7 @@
 			children = (
 				368C860C209C72640089D906 /* R.generated.swift */,
 				368C82E5209C432F0089D906 /* AppDelegate.swift */,
+				36B68B4620CA8E37006E891C /* html */,
 				36C62A8320511F3D005A36DF /* Helpers */,
 				3666DA0F20A030CC00EF7F87 /* Protocols */,
 				3666D9E320A02CCF00EF7F87 /* Views */,
@@ -1091,6 +1100,7 @@
 		368C82F7209C442D0089D906 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				36B68B3D20CA82EA006E891C /* Browser */,
 				36CCC18020A936F50067B8E6 /* Set */,
 				36C62A9620A1AE4B005A36DF /* Token */,
 				36C62A8B20A1A85C005A36DF /* Vote */,
@@ -2045,6 +2055,15 @@
 			path = Balance;
 			sourceTree = "<group>";
 		};
+		36B68B3D20CA82EA006E891C /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				36B68B3E20CA82EA006E891C /* Browser.storyboard */,
+				36B68B3F20CA82EA006E891C /* BrowserViewController.swift */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
 		36C62A8020511CAC005A36DF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -2060,6 +2079,7 @@
 		36C62A8320511F3D005A36DF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				36B68B4220CA83C5006E891C /* BrowserHelper.swift */,
 				36F1557820CA182F002BF4B1 /* NetworkHelper.swift */,
 				368C860F209C88BF0089D906 /* WalletHelper.swift */,
 				36CCC1A020AC43210067B8E6 /* HUD.swift */,
@@ -2288,12 +2308,14 @@
 				368C82FA209C44AA0089D906 /* Login.storyboard in Resources */,
 				36CF028620BD04230001D0F5 /* FrozenView.xib in Resources */,
 				368C82F0209C43300089D906 /* LaunchScreen.storyboard in Resources */,
+				36B68B4020CA82EB006E891C /* Browser.storyboard in Resources */,
 				36C62AA020A1AED4005A36DF /* TokenTableViewCell.xib in Resources */,
 				3640CAAB20B416E80002050B /* SetSwitchTableViewCell.xib in Resources */,
 				36C62A8D20A1A868005A36DF /* Vote.storyboard in Resources */,
 				36C62ABA20A2ECFF005A36DF /* AccountAssetTableViewCell.xib in Resources */,
 				36C62AC120A30545005A36DF /* PopTipViewController.xib in Resources */,
 				368C82ED209C43300089D906 /* Assets.xcassets in Resources */,
+				36B68B4720CA8E37006E891C /* html in Resources */,
 				368C85C7209C70190089D906 /* WordCollectionViewCell.xib in Resources */,
 				368C853B209C70180089D906 /* EditTokenTableViewCell.xib in Resources */,
 				368C85F6209C70190089D906 /* bignumber.min.js in Resources */,
@@ -2603,6 +2625,7 @@
 				36CCC1A120AC43210067B8E6 /* SwiftNotice.swift in Sources */,
 				368C8566209C70180089D906 /* TransactionsViewModel.swift in Sources */,
 				368C851C209C70180089D906 /* TokensCoordinator.swift in Sources */,
+				36B68B4120CA82EB006E891C /* BrowserViewController.swift in Sources */,
 				368C85C4209C70190089D906 /* ImportWalletViewController.swift in Sources */,
 				368C8546209C70180089D906 /* DecimalFormatter.swift in Sources */,
 				368C8598209C70180089D906 /* FieldAppereance.swift in Sources */,
@@ -2705,6 +2728,7 @@
 				368C8508209C70180089D906 /* BranchEventParser.swift in Sources */,
 				368C8524209C70180089D906 /* NFTDetailsViewModel.swift in Sources */,
 				368C85E2209C70190089D906 /* ServiceProvider.swift in Sources */,
+				36B68B4320CA83C5006E891C /* BrowserHelper.swift in Sources */,
 				368C8589209C70180089D906 /* SplashViewController.swift in Sources */,
 				368C8608209C70190089D906 /* EtherClient.swift in Sources */,
 				368C85AA209C70190089D906 /* TabBarController.swift in Sources */,
