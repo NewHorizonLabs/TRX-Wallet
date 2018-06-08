@@ -29,8 +29,7 @@ class BaseTabbarViewController: UITabBarController {
             make.height.equalTo(height)
         }
         
-    Observable.combineLatest(ServiceHelper.shared.walletChange.asObservable()
-        ,NetworkHelper.shared.netState.asObservable())
+        ServiceHelper.shared.walletChange
         .asObservable()
         .subscribe(onNext: {[weak self] _ in
             self?.updateUI()
@@ -50,6 +49,7 @@ class BaseTabbarViewController: UITabBarController {
         if let wallet = ServiceHelper.shared.currentWallet {
             if wallet.isWatch {
                 modeView.state = .watch
+                setStatusBar(hide: true)
             } else {
                 switch netState {
                 case .notReachable, .unknown:
