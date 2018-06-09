@@ -24,6 +24,7 @@ class ServiceHelper: NSObject {
     var account: Variable<TronAccount?> = Variable(nil)
     var trustAccount: TrustKeystore.Account?
     var isWatchMode: Variable<Bool> = Variable(false)
+    var walletMode: Variable<WalletModeState> = Variable(.hot)
     
     var currentWallet: Wallet? {
         didSet {

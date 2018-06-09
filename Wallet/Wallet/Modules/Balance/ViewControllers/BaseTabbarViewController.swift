@@ -16,7 +16,11 @@ class BaseTabbarViewController: UITabBarController {
     
     let disposeBag = DisposeBag()
     var modeView: WalletModeView = WalletModeView.loadXib()
-    var state: WalletModeState = .hot
+    var state: WalletModeState = .hot {
+        didSet {
+            ServiceHelper.shared.walletMode = state
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

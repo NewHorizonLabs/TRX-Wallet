@@ -81,9 +81,24 @@ class BalanceViewController: UIViewController {
         
         NetworkHelper.shared.netState.asObservable()
             .subscribe(onNext: { (state) in
-                HUD.showText(text: "\(state)")
+                
             })
         .disposed(by: disposeBag)
+        
+        ServiceHelper.shared.walletMode.asObservable()
+            .subscribe(onNext: {[weak self] (state) in
+                self?.walletModeChange(state: state)
+            })
+        .disposed(by: disposeBag)
+    }
+    
+    func walletModeChange(state: WalletModeState) {
+        switch state {
+        case .cold:
+            sendButton.setTitle("Sign Transaction", for: .normal)
+        default:
+            sendButton.setTitle(R.string.tron.balanceButtonSend(), for: .normal)
+        }
     }
     
     func networkChange() {
