@@ -4059,60 +4059,60 @@ html[lang*="en-US"] .hero:before {
    content: "What can i do for you?";
 }
 
-.imtoken #navbar-container {
+.trxwallet #navbar-container {
   display: none;
 }
 
-.imtoken .header {
+.trxwallet .header {
   display: none;
 }
 
-.imtoken .hero {
+.trxwallet .hero {
 	height: 176px;
 }
 
-.imtoken .blocks-item-link {
+.trxwallet .blocks-item-link {
    padding: 13px 30px;
 }
 
-.imtoken .blocks-item {
+.trxwallet .blocks-item {
     border-radius: 8px;
     margin: 0 0 20px;
 }
 
-.imtoken .article-more-questions {
+.trxwallet .article-more-questions {
   display: none;
 }
 
-.imtoken .page-header {
+.trxwallet .page-header {
    display: none;
 }
 
-.imtoken .sub-nav {
+.trxwallet .sub-nav {
   display: none;
 }
 
-.imtoken .article-author {
+.trxwallet .article-author {
   display: none;
 }
 
-.imtoken .article-subscribe {
+.trxwallet .article-subscribe {
   display: none;
 }
 
-.imtoken .article-title {
+.trxwallet .article-title {
   margin-bottom: 0;
 }
 
-.imtoken .article-header {
+.trxwallet .article-header {
     margin-bottom: 20px;
     margin-top: 10px;
 }
 
-.imtoken .article-sidebar {
+.trxwallet .article-sidebar {
     border-top: none;
 }
 
-.imtoken .container-divider {
+.trxwallet .container-divider {
     border-top: none;
 }

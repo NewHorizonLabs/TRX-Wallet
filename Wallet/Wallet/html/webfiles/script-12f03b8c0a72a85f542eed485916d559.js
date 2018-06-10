@@ -3,9 +3,9 @@
  */
 
 $(document).ready(function() {
-  // imtoken
-  if (window.imTokenAgent) {
-    $('body').addClass('imtoken')
+  // trxwallet
+  if (window.trxwalletAgent) {
+    $('body').addClass('trxwallet')
   }
 
   // social share popups
