@@ -18,7 +18,7 @@ class BaseTabbarViewController: UITabBarController {
     var modeView: WalletModeView = WalletModeView.loadXib()
     var state: WalletModeState = .hot {
         didSet {
-            ServiceHelper.shared.walletMode = state
+            ServiceHelper.shared.walletMode.value = state
         }
     }
 

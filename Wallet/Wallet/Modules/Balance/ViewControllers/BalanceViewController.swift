@@ -79,6 +79,13 @@ class BalanceViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        (sendButton.rx.tap).debounce(0.5, scheduler: MainScheduler.instance)
+            .asObservable()
+            .subscribe(onNext: {[weak self] (_) in
+                self?.sendButtonClick()
+            })
+            .disposed(by: disposeBag)
+        
         NetworkHelper.shared.netState.asObservable()
             .subscribe(onNext: { (state) in
                 
@@ -103,6 +110,16 @@ class BalanceViewController: UIViewController {
     
     func networkChange() {
         
+    }
+    
+    func sendButtonClick() {
+        switch ServiceHelper.shared.walletMode.value {
+        case .cold:
+            self.openReader()
+        default:
+            let nav = R.storyboard.balance.sendNavVC()!
+            self.present(nav, animated: true, completion: nil)
+        }
     }
     
     
@@ -169,10 +186,7 @@ class BalanceViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func scanButtonClick(_ sender: Any) {
-        openReader()
-    }
-    
+
     @objc func openReader() {
         let controller = QRCodeReaderViewController()
         controller.delegate = self
