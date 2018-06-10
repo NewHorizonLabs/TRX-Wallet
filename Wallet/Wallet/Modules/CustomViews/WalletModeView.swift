@@ -31,6 +31,9 @@ class WalletModeView: UIView, XibLoadable {
     
     
     @objc func tapView() {
+        guard !(CurrentControllerHelper.currentViewController() is BrowserViewController)  else {
+            return
+        }
         BrowserHelper.show(url: state.url)
     }
 

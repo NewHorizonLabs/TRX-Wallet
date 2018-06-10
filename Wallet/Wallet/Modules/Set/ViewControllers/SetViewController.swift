@@ -114,6 +114,8 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
             CurrentControllerHelper.pushViewController(viewController: vc)
         case .share:
             self.helpUsCoordinator.presentSharing(in: self, from: self.view)
+        case .walletHelp:
+            type.open()
         default:
             break
         }
@@ -203,7 +205,7 @@ enum SettingType {
         case .password:
             return R.string.tron.settingPasswordTouchIDTitle()
         case .walletHelp:
-            return R.string.tron.settingPasswordTouchIDTitle()
+            return "Cold Wallet"
         }
     }
     
@@ -213,6 +215,9 @@ enum SettingType {
         case .wallets:
             let vc = R.storyboard.set.walletListViewController()!
             CurrentControllerHelper.pushViewController(viewController: vc)
+        case .walletHelp:
+            let url = ServiceHelper.shared.walletMode.value.url
+            BrowserHelper.show(url: url)
         default:
             break
         }
