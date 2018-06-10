@@ -58,9 +58,9 @@ enum WalletModeState {
     var title: String {
         switch self {
         case .cold:
-            return "Cold Wallet"
+            return R.string.tron.coldWalletColdTitle()
         case .watch:
-            return "Watch Wallet"
+            return R.string.tron.coldWalletColdTitle()
         default:
             return ""
         }

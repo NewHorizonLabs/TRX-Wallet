@@ -197,7 +197,6 @@ enum SettingType {
     }
     var settingTitle: String {
         switch self {
-            
         case .wallets:
             return R.string.tron.settingWalletsTitle()
         case .share:
@@ -205,7 +204,7 @@ enum SettingType {
         case .password:
             return R.string.tron.settingPasswordTouchIDTitle()
         case .walletHelp:
-            return "Cold Wallet"
+            return R.string.tron.settingColdwalletTitle()
         }
     }
     

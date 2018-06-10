@@ -102,11 +102,11 @@ class BalanceViewController: UIViewController {
     func walletModeChange(state: WalletModeState) {
         switch state {
         case .cold:
-            sendButton.setTitle("Sign Transaction", for: .normal)
-            HUD.showText(text: "Network Disconnected,Become Cold Wallet")
+            sendButton.setTitle(R.string.tron.coldWalletSignTitle(), for: .normal)
+            HUD.showText(text: R.string.tron.networkUnavailableHud())
         case .hot:
             sendButton.setTitle(R.string.tron.balanceButtonSend(), for: .normal)
-            HUD.showText(text: "Network Connected,Become Hot Wallet")
+            HUD.showText(text: R.string.tron.networkAvailableHud())
         default:
             sendButton.setTitle(R.string.tron.balanceButtonSend(), for: .normal)
         }

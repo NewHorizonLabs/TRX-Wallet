@@ -57,6 +57,14 @@ class BaseTabbarViewController: UITabBarController {
             })
         .disposed(by: disposeBag)
         
+        let titles = [R.string.tron.balanceNavTitle(),
+                      R.string.tron.transactionNavTitle(),
+                      R.string.tron.voteNavTitle(),
+                      R.string.tron.tokenNavTitle(),
+                      R.string.tron.settingNavTitle()]
+        for (index, item) in self.tabBar.items!.enumerated() {
+            item.title = titles[index]
+        }
     }
     
     func updateUI() {
@@ -116,7 +124,7 @@ extension BaseTabbarViewController: UITabBarControllerDelegate {
                 if vc is BalanceViewController || vc is SetViewController {
                     return true
                 } else {
-                    HUD.showText(text: "Not avaliable in this wallet mode")
+                    HUD.showText(text: R.string.tron.coldWalletFobidHud())
                     return false
                 }
             }

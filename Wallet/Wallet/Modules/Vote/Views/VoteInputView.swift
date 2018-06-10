@@ -106,7 +106,7 @@ class VoteInputView: UIView, XibLoadable, Popable {
                             self.successBlock?(number)
                             self.popDismiss()
                         } else {
-                            HUD.showError(error: response.errorMessage)
+                            HUD.showError(error: "Vote Failed, If you don't have freeze TRX, please freeze TRX first")
                         }
                         
                     }

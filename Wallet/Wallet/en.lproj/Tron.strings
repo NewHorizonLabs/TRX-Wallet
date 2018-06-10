@@ -45,7 +45,9 @@
 "IssueToken.frozendays.label.title" = "Frozen days";
 "IssueToken.description.label.title" = "Description";
 "IssueToken.url.label.title" = "URL";
-"IssueToken.tip.label.title" = "Specify the price of a single token by defining how many tokens a participant will receive for every TRX they spend.  Participants will receive Token for every 1 TRX.";
+"IssueToken.tip.label.title" = "Specify the price of a single token by defining how many
+tokens a participant will receive for every TRX they
+spend.  Participants will receive Token for every 1 TRX.";
 "IssueToken.trxamount.label.title" = "TRX amount";
 "IssueToken.tokenamount.label.title" = "Token amount";
 "IssueToken.starttime.label.title" = "Start time";
@@ -56,6 +58,7 @@
 "Setting.wallets.title" = "Wallets";
 "Setting.password/touchID.title" = "password/touch ID";
 "Setting.share.title" = "Share";
+"Setting.coldwallet.title" = "Cold Wallet";
 "Setting.secion.share.title" = "Support us";
 "Setting.secion.password.title" = "Security";
 "Setting.version.title" = "Version";
@@ -106,3 +109,10 @@
 "Balance.FreezePopView.amount.label.title" = "TRX Amount";
 "Balance.FreezePopView.confirmtip.label.title" = "I coinfirm to freeze TRX for at least of 3 days";
 "Balance.FreezePopView.freeze.button.title" = "Freeze Balance";
+"ColdWallet.cold.title" = "Cold Wallet";
+"ColdWallet.watch.title" = "Watch Wallet";
+"ColdWallet.Set.coldwallet" = "Cold Wallet Help";
+"ColdWallet.sign.title" = "Sign Transaction";
+"ColdWallet.fobid.hud" = "Unavailable in this wallet mode";
+"Network.unavailable.hud" = "Network Disconnected,Become Cold Wallet";
+"Network.available.hud" = "Network Connected,Become Hot Wallet";

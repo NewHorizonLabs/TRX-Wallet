@@ -57,6 +57,7 @@
 "Setting.wallets.title" = "钱包";
 "Setting.password/touchID.title" = "密码";
 "Setting.share.title" = "分享";
+"Setting.coldwallet.title" = "冷钱包";
 "Setting.secion.share.title" = "支持我们";
 "Setting.secion.password.title" = "安全";
 "Setting.version.title" = "版本号";
@@ -107,3 +108,10 @@
 "Balance.FreezePopView.amount.label.title" = "TRX 数量";
 "Balance.FreezePopView.confirmtip.label.title" = "我确认冻结TRX 至少3天";
 "Balance.FreezePopView.freeze.button.title" = "冻结余额";
+"ColdWallet.cold.title" = "冷钱包";
+"ColdWallet.watch.title" = "观察钱包";
+"ColdWallet.Set.coldwallet" = "冷钱包说明";
+"ColdWallet.sign.title" = "离线签名";
+"ColdWallet.fobid.hud" = "当前钱包模式下不可用";
+"Network.unavailable.hud" = "网络已断开，切换到冷钱包";
+"Network.available.hud" = "网络已连接，切换到热钱包";
