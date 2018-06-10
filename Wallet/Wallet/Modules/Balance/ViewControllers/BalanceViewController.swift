@@ -103,6 +103,10 @@ class BalanceViewController: UIViewController {
         switch state {
         case .cold:
             sendButton.setTitle("Sign Transaction", for: .normal)
+            HUD.showText(text: "Network Disconnected,Become Cold Wallet")
+        case .hot:
+            sendButton.setTitle(R.string.tron.balanceButtonSend(), for: .normal)
+            HUD.showText(text: "Network Connected,Become Hot Wallet")
         default:
             sendButton.setTitle(R.string.tron.balanceButtonSend(), for: .normal)
         }

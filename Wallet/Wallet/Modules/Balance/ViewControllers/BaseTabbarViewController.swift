@@ -21,6 +21,16 @@ class BaseTabbarViewController: UITabBarController {
             ServiceHelper.shared.walletMode.value = state
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        setStatusBar(hide: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateStatusBar()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +75,22 @@ class BaseTabbarViewController: UITabBarController {
                 case .reachable:
                     modeView.state = .hot
                     state = .hot
+                    setStatusBar(hide: false)
+                }
+            }
+        }
+    }
+    
+    func updateStatusBar() {
+        let netState = NetworkHelper.shared.netState.value
+        if let wallet = ServiceHelper.shared.currentWallet {
+            if wallet.isWatch {
+                setStatusBar(hide: true)
+            } else {
+                switch netState {
+                case .notReachable, .unknown:
+                    setStatusBar(hide: true)
+                case .reachable:
                     setStatusBar(hide: false)
                 }
             }
