@@ -51,18 +51,18 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - AccountCreateContract
 
 typedef GPB_ENUM(AccountCreateContract_FieldNumber) {
-  AccountCreateContract_FieldNumber_Type = 1,
-  AccountCreateContract_FieldNumber_AccountName = 2,
-  AccountCreateContract_FieldNumber_OwnerAddress = 3,
+  AccountCreateContract_FieldNumber_OwnerAddress = 1,
+  AccountCreateContract_FieldNumber_AccountAddress = 2,
+  AccountCreateContract_FieldNumber_Type = 3,
 };
 
 @interface AccountCreateContract : GPBMessage
 
-@property(nonatomic, readwrite) enum AccountType type;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *accountName;
-
 @property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *accountAddress;
+
+@property(nonatomic, readwrite) enum AccountType type;
 
 @end
 

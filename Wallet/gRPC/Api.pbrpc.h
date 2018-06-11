@@ -11,6 +11,7 @@
 
 #if defined(GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO) && GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO
   @class TronAccount;
+  @class AccountCreateContract;
   @class AccountNetMessage;
   @class AccountPaginated;
   @class AccountUpdateContract;
@@ -28,8 +29,6 @@
   @class NumberMessage;
   @class ParticipateAssetIssueContract;
   @class Return;
-  @class TimeMessage;
-  @class TimePaginatedMessage;
   @class TronTransaction;
   @class TransactionList;
   @class TransferAssetContract;
@@ -102,6 +101,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateWitnessWithRequest:(WitnessUpdateContract *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
 
 - (GRPCProtoCall *)RPCToUpdateWitnessWithRequest:(WitnessUpdateContract *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark CreateAccount(AccountCreateContract) returns (TronTransaction)
+
+- (void)createAccountWithRequest:(AccountCreateContract *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
+
+- (GRPCProtoCall *)RPCToCreateAccountWithRequest:(AccountCreateContract *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
 
 
 #pragma mark CreateWitness(WitnessCreateContract) returns (TronTransaction)
@@ -283,27 +289,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCToGetAssetIssueListWithRequest:(EmptyMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
 
 
-#pragma mark GetAssetIssueListByTimestamp(NumberMessage) returns (AssetIssueList)
-
-- (void)getAssetIssueListByTimestampWithRequest:(NumberMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
-
-- (GRPCProtoCall *)RPCToGetAssetIssueListByTimestampWithRequest:(NumberMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
-
-
-#pragma mark GetAssetIssueByAccount(TronAccount) returns (AssetIssueList)
-
-- (void)getAssetIssueByAccountWithRequest:(TronAccount *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
-
-- (GRPCProtoCall *)RPCToGetAssetIssueByAccountWithRequest:(TronAccount *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
-
-
-#pragma mark GetAssetIssueByName(BytesMessage) returns (AssetIssueContract)
-
-- (void)getAssetIssueByNameWithRequest:(BytesMessage *)request handler:(void(^)(AssetIssueContract *_Nullable response, NSError *_Nullable error))handler;
-
-- (GRPCProtoCall *)RPCToGetAssetIssueByNameWithRequest:(BytesMessage *)request handler:(void(^)(AssetIssueContract *_Nullable response, NSError *_Nullable error))handler;
-
-
 #pragma mark GetNowBlock(EmptyMessage) returns (Block)
 
 - (void)getNowBlockWithRequest:(EmptyMessage *)request handler:(void(^)(Block *_Nullable response, NSError *_Nullable error))handler;
@@ -318,43 +303,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCToGetBlockByNumWithRequest:(NumberMessage *)request handler:(void(^)(Block *_Nullable response, NSError *_Nullable error))handler;
 
 
-#pragma mark TotalTransaction(EmptyMessage) returns (NumberMessage)
-
-/**
- * get transaction
- */
-- (void)totalTransactionWithRequest:(EmptyMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
-
-/**
- * get transaction
- */
-- (GRPCProtoCall *)RPCToTotalTransactionWithRequest:(EmptyMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
-
-
-#pragma mark GetTransactionById(BytesMessage) returns (TronTransaction)
-
-- (void)getTransactionByIdWithRequest:(BytesMessage *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
-
-- (GRPCProtoCall *)RPCToGetTransactionByIdWithRequest:(BytesMessage *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
-
-
 @end
 
 @protocol WalletExtension <NSObject>
-
-#pragma mark GetTransactionsByTimestamp(TimePaginatedMessage) returns (TransactionList)
-
-- (void)getTransactionsByTimestampWithRequest:(TimePaginatedMessage *)request handler:(void(^)(TransactionList *_Nullable response, NSError *_Nullable error))handler;
-
-- (GRPCProtoCall *)RPCToGetTransactionsByTimestampWithRequest:(TimePaginatedMessage *)request handler:(void(^)(TransactionList *_Nullable response, NSError *_Nullable error))handler;
-
-
-#pragma mark GetTransactionsByTimestampCount(TimeMessage) returns (NumberMessage)
-
-- (void)getTransactionsByTimestampCountWithRequest:(TimeMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
-
-- (GRPCProtoCall *)RPCToGetTransactionsByTimestampCountWithRequest:(TimeMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
-
 
 #pragma mark GetTransactionsFromThis(AccountPaginated) returns (TransactionList)
 
@@ -368,20 +319,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getTransactionsToThisWithRequest:(AccountPaginated *)request handler:(void(^)(TransactionList *_Nullable response, NSError *_Nullable error))handler;
 
 - (GRPCProtoCall *)RPCToGetTransactionsToThisWithRequest:(AccountPaginated *)request handler:(void(^)(TransactionList *_Nullable response, NSError *_Nullable error))handler;
-
-
-#pragma mark GetTransactionsFromThisCount(TronAccount) returns (NumberMessage)
-
-- (void)getTransactionsFromThisCountWithRequest:(TronAccount *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
-
-- (GRPCProtoCall *)RPCToGetTransactionsFromThisCountWithRequest:(TronAccount *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
-
-
-#pragma mark GetTransactionsToThisCount(TronAccount) returns (NumberMessage)
-
-- (void)getTransactionsToThisCountWithRequest:(TronAccount *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
-
-- (GRPCProtoCall *)RPCToGetTransactionsToThisCountWithRequest:(TronAccount *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

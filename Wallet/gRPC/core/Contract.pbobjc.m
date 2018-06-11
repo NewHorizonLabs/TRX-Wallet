@@ -47,15 +47,15 @@ static GPBFileDescriptor *ContractRoot_FileDescriptor(void) {
 
 @implementation AccountCreateContract
 
-@dynamic type;
-@dynamic accountName;
 @dynamic ownerAddress;
+@dynamic accountAddress;
+@dynamic type;
 
 typedef struct AccountCreateContract__storage_ {
   uint32_t _has_storage_[1];
   AccountType type;
-  NSData *accountName;
   NSData *ownerAddress;
+  NSData *accountAddress;
 } AccountCreateContract__storage_;
 
 // This method is threadsafe because it is initially called
@@ -65,31 +65,31 @@ typedef struct AccountCreateContract__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "type",
-        .dataTypeSpecific.enumDescFunc = AccountType_EnumDescriptor,
-        .number = AccountCreateContract_FieldNumber_Type,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(AccountCreateContract__storage_, type),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
-        .dataType = GPBDataTypeEnum,
-      },
-      {
-        .name = "accountName",
-        .dataTypeSpecific.className = NULL,
-        .number = AccountCreateContract_FieldNumber_AccountName,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(AccountCreateContract__storage_, accountName),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
         .name = "ownerAddress",
         .dataTypeSpecific.className = NULL,
         .number = AccountCreateContract_FieldNumber_OwnerAddress,
-        .hasIndex = 2,
+        .hasIndex = 0,
         .offset = (uint32_t)offsetof(AccountCreateContract__storage_, ownerAddress),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "accountAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountCreateContract_FieldNumber_AccountAddress,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(AccountCreateContract__storage_, accountAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "type",
+        .dataTypeSpecific.enumDescFunc = AccountType_EnumDescriptor,
+        .number = AccountCreateContract_FieldNumber_Type,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(AccountCreateContract__storage_, type),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
+        .dataType = GPBDataTypeEnum,
       },
     };
     GPBDescriptor *localDescriptor =
