@@ -64,7 +64,7 @@ class OffLineSignViewController: UIViewController {
         balanceTitleLabel.text = R.string.tron.balanceNavTitle()
         totalTitleLabel.text = R.string.tron.balanceSendConfirmTotal()
         
-        sendButton.setTitle(R.string.tron.balanceSendConfirmButtonConfirm(), for: .normal)
+        sendButton.setTitle(R.string.tron.coldWalletSignTitle(), for: .normal)
         
         sendButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
         sendButton.setBackgroundColor(UIColor.normalBackgroundColor, forState: .normal)
