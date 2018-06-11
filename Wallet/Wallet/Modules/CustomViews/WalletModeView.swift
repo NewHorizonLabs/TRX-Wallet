@@ -60,7 +60,7 @@ enum WalletModeState {
         case .cold:
             return R.string.tron.coldWalletColdTitle()
         case .watch:
-            return R.string.tron.coldWalletColdTitle()
+            return R.string.tron.coldWalletWatchTitle()
         default:
             return ""
         }

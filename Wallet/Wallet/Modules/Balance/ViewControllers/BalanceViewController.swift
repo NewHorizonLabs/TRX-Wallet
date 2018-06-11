@@ -143,7 +143,7 @@ class BalanceViewController: UIViewController {
         let sureAction =  UIAlertAction(title: R.string.tron.alertUnFreezeSure(), style: .default) { (action) in
             self.unfreeze()
         }
-        let cancelAction = UIAlertAction(title: R.string.tron.alertUnFreezeCancle(), style: .cancel) { (action) in
+        let cancelAction = UIAlertAction(title: R.string.tron.alertUnFreezeCancel(), style: .cancel) { (action) in
             
         }
         alert.addAction(sureAction)

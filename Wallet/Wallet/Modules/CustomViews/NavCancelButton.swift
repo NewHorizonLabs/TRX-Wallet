@@ -18,7 +18,7 @@ class NavCancelButton: UIButton {
     func baseConfigure() {
         self.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         self.titleLabel?.textColor = UIColor.colorWithHex(hex: "#212837")
-        self.setTitle(R.string.tron.navButtonCancle(), for: .normal)
+        self.setTitle(R.string.tron.navButtonCancel(), for: .normal)
     }
     
     @objc func buttonClick() {

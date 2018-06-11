@@ -86,7 +86,7 @@
 "HUD.success" = "成功";
 "HUD.failed" = "失败";
 "HUD.copysuccess" = "复制成功";
-"Nav.Button.cancle" = "取消";
+"Nav.Button.cancel" = "取消";
 "Nav.Button.complete" = "完成";
 "Error.sig" = "签名错误";
 "Error.ContractValidate" = "合约验证错误";
@@ -99,7 +99,7 @@
 "Error.ServerBusy" = "服务器繁忙";
 "Error.Other" = "其他错误";
 "Alert.UnFreeze.title" = "确定要解冻 TRX吗？";
-"Alert.UnFreeze.cancle" = "取消";
+"Alert.UnFreeze.cancel" = "取消";
 "Alert.UnFreeze.sure" = "解冻";
 "Error.UnFreeze.title" = "不能解除冻结";
 "Error.UnFreeze.message" = "解除冻结的TRX失败。导致这个的原因可能是因为最少的冻结时间还没有达到。";
