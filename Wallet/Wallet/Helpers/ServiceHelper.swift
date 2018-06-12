@@ -18,7 +18,7 @@ import TrustKeystore
 class ServiceHelper: NSObject {
     static let shared = ServiceHelper()
     static let fullNode: String = "47.91.246.252:50051"
-    static let solidityNode: String = "47.91.246.252:50051"
+    static let solidityNode: String = "47.89.244.227:50051"
     let service: TWallet = TWallet(host: ServiceHelper.fullNode)
     let solidityService: WalletExtension = WalletExtension(host: ServiceHelper.solidityNode)
     var account: Variable<TronAccount?> = Variable(nil)
@@ -125,6 +125,7 @@ class ServiceHelper: NSObject {
             pageAccount.account = account
             pageAccount.offset = 0
             pageAccount.limit = 100
+            
             self.solidityService.getTransactionsFromThis(withRequest: pageAccount, handler: { (list, error) in
                 if let list = list?.transactionArray as? [TronTransaction] {
                     observer.onNext(list)
