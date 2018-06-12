@@ -12,6 +12,7 @@ import RxCocoa
 
 class CreateTokenViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var detailTitleLabel: UILabel!
     
     @IBOutlet weak var tokenNameTitleLabel: UILabel!
@@ -87,6 +88,22 @@ class CreateTokenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        getMyIssue()
+    }
+    
+    func getMyIssue() {
+        guard let account = ServiceHelper.shared.account.value else {
+            return
+        }
+        self.displayLoading()
+        ServiceHelper.shared.service.getAssetIssueByAccount(withRequest: account) { (list, error) in
+            if let list = list?.assetIssueArray, list.count > 0 {
+                self.scrollView.isHidden = true
+            } else {
+                self.scrollView.isHidden = false
+            }
+            self.hideLoading()
+        }
     }
     
     func configureUI() {

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,6 +79,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you can only issue one token" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edK-d1-3ES">
+                                <rect key="frame" x="37" y="356" width="300" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9K-35-tXs">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
@@ -612,10 +619,13 @@ spend.  Participants will receive Token for every 1 TRX</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="edK-d1-3ES" firstAttribute="centerX" secondItem="MeU-WO-ve7" secondAttribute="centerX" id="065-Na-ed8"/>
                             <constraint firstItem="MeU-WO-ve7" firstAttribute="trailing" secondItem="u9K-35-tXs" secondAttribute="trailing" id="HTR-C2-yAp"/>
+                            <constraint firstItem="edK-d1-3ES" firstAttribute="width" secondItem="1dj-cL-sG0" secondAttribute="width" multiplier="0.8" id="KJP-1C-UQR"/>
                             <constraint firstItem="u9K-35-tXs" firstAttribute="top" secondItem="MeU-WO-ve7" secondAttribute="top" id="Nha-MG-gqG"/>
                             <constraint firstItem="qVe-Xx-E4h" firstAttribute="width" secondItem="1dj-cL-sG0" secondAttribute="width" constant="-40" id="eXA-gu-JtS"/>
                             <constraint firstItem="u9K-35-tXs" firstAttribute="leading" secondItem="MeU-WO-ve7" secondAttribute="leading" id="gji-9R-U3M"/>
+                            <constraint firstItem="edK-d1-3ES" firstAttribute="centerY" secondItem="MeU-WO-ve7" secondAttribute="centerY" id="hFl-ZL-8pw"/>
                             <constraint firstItem="MeU-WO-ve7" firstAttribute="bottom" secondItem="u9K-35-tXs" secondAttribute="bottom" id="jzt-GT-aEZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MeU-WO-ve7"/>
@@ -640,6 +650,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                         <outlet property="frozenDaysTitleLabel" destination="o6m-iD-hEU" id="bZY-wq-8O5"/>
                         <outlet property="nameTextField" destination="Cdg-Iv-gVH" id="fpA-G0-JJ9"/>
                         <outlet property="nameTipLabel" destination="9qr-aA-gXP" id="JME-S7-dAF"/>
+                        <outlet property="scrollView" destination="u9K-35-tXs" id="ZAg-42-LLg"/>
                         <outlet property="startDateButton" destination="WzS-Wd-PPG" id="EGD-Jm-7qX"/>
                         <outlet property="startTimeTipLabel" destination="dmc-IE-BxY" id="see-ct-NoC"/>
                         <outlet property="startTimeTitleLabel" destination="dmc-IE-BxY" id="9Hv-wf-5kh"/>
