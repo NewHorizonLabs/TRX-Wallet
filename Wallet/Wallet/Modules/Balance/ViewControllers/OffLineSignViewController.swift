@@ -53,7 +53,7 @@ class OffLineSignViewController: UIViewController {
                         }
                     }
                 } catch {
-                    
+                    self.sendButtonClick()
             }
         }
     }
