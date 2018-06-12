@@ -16,6 +16,7 @@
 		36173AFE209D74EE0082CD1E /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */; };
 		3640CAAA20B416E80002050B /* SetSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3640CAA820B416E80002050B /* SetSwitchTableViewCell.swift */; };
 		3640CAAB20B416E80002050B /* SetSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3640CAA920B416E80002050B /* SetSwitchTableViewCell.xib */; };
+		3657307D20CFB17600F942B3 /* TronInventoryItems.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657307C20CFB17600F942B3 /* TronInventoryItems.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3666D98B209D7EC100EF7F87 /* SendTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3666D98A209D7EC100EF7F87 /* SendTransactionViewController.swift */; };
 		3666D98D209D82C900EF7F87 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3666D98C209D82C900EF7F87 /* SendViewController.swift */; };
 		3666D9B220A006C900EF7F87 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3666D9B120A006C900EF7F87 /* Transaction.storyboard */; };
@@ -429,6 +430,8 @@
 		36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		3640CAA820B416E80002050B /* SetSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		3640CAA920B416E80002050B /* SetSwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		3657307B20CFB17600F942B3 /* TronInventoryItems.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TronInventoryItems.pbobjc.h; sourceTree = "<group>"; };
+		3657307C20CFB17600F942B3 /* TronInventoryItems.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TronInventoryItems.pbobjc.m; sourceTree = "<group>"; };
 		3666D98A209D7EC100EF7F87 /* SendTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionViewController.swift; sourceTree = "<group>"; };
 		3666D98C209D82C900EF7F87 /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		3666D9B120A006C900EF7F87 /* Transaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
@@ -1007,6 +1010,8 @@
 				3666DB4520A1718100EF7F87 /* Discover.pbobjc.m */,
 				3666DB4620A1718100EF7F87 /* Tron.pbobjc.m */,
 				3666DB4720A1718100EF7F87 /* Contract.pbobjc.m */,
+				3657307B20CFB17600F942B3 /* TronInventoryItems.pbobjc.h */,
+				3657307C20CFB17600F942B3 /* TronInventoryItems.pbobjc.m */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -2847,6 +2852,7 @@
 				368C84C9209C70180089D906 /* ConfigureTransaction.swift in Sources */,
 				368C852A209C70180089D906 /* TokenObject.swift in Sources */,
 				368C859C209C70180089D906 /* TokenImageView.swift in Sources */,
+				3657307D20CFB17600F942B3 /* TronInventoryItems.pbobjc.m in Sources */,
 				368C85A3209C70190089D906 /* NetworkConditionViewModel.swift in Sources */,
 				368C858B209C70180089D906 /* PasscodeCharacterView.swift in Sources */,
 				368C8559209C70180089D906 /* UIButton.swift in Sources */,
