@@ -93,6 +93,7 @@
             <connections>
                 <outlet property="closeButton" destination="eMW-Fd-DFG" id="v4b-nz-YV0"/>
                 <outlet property="codeImageView" destination="7d3-89-xxF" id="Z9b-4W-LYr"/>
+                <outlet property="finishButton" destination="fT7-oE-MW9" id="vXf-2y-G3d"/>
             </connections>
             <point key="canvasLocation" x="18.5" y="-75.5"/>
         </view>

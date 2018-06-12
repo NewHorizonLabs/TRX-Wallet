@@ -86,13 +86,15 @@ class OffLineSignViewController: UIViewController {
         if let signedTransaction = ServiceHelper.transactionSign(transaction) {
             let view = SignedTransactionView.loadXib()
             view.popShow()
+            view.finishBlock = {
+                self.dismiss(animated: true, completion: nil)
+            }
             if let dataString = signedTransaction.data()?.hexString {
                 view.changeQRCode(address: dataString)
             }
         } else {
             HUD.showError(error: "Sign Transaction Failed")
         }
-        
     }
     
 }

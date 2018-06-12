@@ -13,7 +13,10 @@ import RxCocoa
 class SignedTransactionView: UIView, XibLoadable, Popable {
     @IBOutlet weak var codeImageView: UIImageView!
     
+    @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
+    
+    var finishBlock: (() -> Void)?
     
     let disposeBag = DisposeBag()
     
@@ -22,6 +25,14 @@ class SignedTransactionView: UIView, XibLoadable, Popable {
         (closeButton.rx.tap).debounce(0.5, scheduler: MainScheduler.instance)
             .asObservable()
             .subscribe(onNext: {[weak self] (_) in
+                self?.popDismiss()
+            })
+            .disposed(by: disposeBag)
+        
+        (finishButton.rx.tap).debounce(0.5, scheduler: MainScheduler.instance)
+            .asObservable()
+            .subscribe(onNext: {[weak self] (_) in
+                self?.finishBlock?()
                 self?.popDismiss()
             })
             .disposed(by: disposeBag)

@@ -101,10 +101,13 @@ class VoteInputView: UIView, XibLoadable, Popable {
                         let result = response.result
                         let message = String.init(data: response.message, encoding: .utf8)
                         if result {
-                            HUD.showText(text: R.string.tron.hudSuccess())
-                            ServiceHelper.shared.voteChange.onNext(())
-                            self.successBlock?(number)
                             self.popDismiss()
+                            self.successBlock?(number)
+                            ServiceHelper.shared.voteChange.onNext(())
+                            HUD.showText(text: R.string.tron.hudSuccess())
+                            
+                            
+                            
                         } else {
                             HUD.showError(error: "Vote Failed, If you don't have\n freeze TRX, please freeze TRX first")
                         }

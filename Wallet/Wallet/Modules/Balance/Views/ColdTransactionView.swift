@@ -73,10 +73,9 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
             .asObservable()
             .subscribe(onNext: {[weak self] (_) in
                 if let value = self?.signedTransaction.value {
-                    self?.finishBlock?(value)
                     self?.popDismiss()
+                    self?.perform(#selector(self?.finish(transaction:)), with: value, afterDelay: 0.3)
                 }
-                
             })
             .disposed(by: disposeBag)
         
@@ -87,6 +86,10 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
             return false
         }.bind(to: confirmButton.rx.isEnabled)
         .disposed(by: disposeBag)
+    }
+    
+    @objc func finish(transaction: TronTransaction) {
+        self.finishBlock?(transaction)
     }
     
     
