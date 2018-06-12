@@ -28,9 +28,9 @@ class VoteTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        ServiceHelper.shared.isWatchMode.asObservable()
-            .bind(to: voteButton.rx.isHidden)
-            .disposed(by: disposeBag)
+//        ServiceHelper.shared.isWatchMode.asObservable()
+//            .bind(to: voteButton.rx.isHidden)
+//            .disposed(by: disposeBag)
         configureUI()
     }
 

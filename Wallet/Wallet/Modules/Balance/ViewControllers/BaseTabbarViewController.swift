@@ -119,6 +119,16 @@ extension BaseTabbarViewController: UITabBarControllerDelegate {
         switch state {
         case .hot:
             return true
+        case .watch:
+            if let vc = (viewController as? BaseNavigationViewController)?.viewControllers.first {
+                if vc is TokenListViewController {
+                    HUD.showText(text: R.string.tron.coldWalletFobidHud())
+                    return false
+                } else {
+                    return true
+                }
+            }
+            return true
         default:
             if let vc = (viewController as? BaseNavigationViewController)?.viewControllers.first {
                 if vc is BalanceViewController || vc is SetViewController {
