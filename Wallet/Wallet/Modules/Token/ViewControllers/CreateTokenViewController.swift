@@ -181,18 +181,23 @@ class CreateTokenViewController: UIViewController {
         let contract = AssetIssueContract()
         contract.ownerAddress = account.address
         contract.name = name.value.data(using: .utf8)
+        contract.abbr = name.value.data(using: .utf8)
         let startTime = startDate.timeIntervalSince1970 * 1000
         contract.startTime = Int64(startTime)
         contract.endTime = Int64(endDate.timeIntervalSince1970 * 1000)
         contract.totalSupply = total
         contract.trxNum = trxNum * 1000000
         contract.num = num
+        contract.voteScore = 1
         contract.url = url.value.data(using: .utf8)
         contract.description_p = descriptionString.value.data(using: .utf8)
         let freeze = AssetIssueContract_FrozenSupply()
         freeze.frozenAmount = freezeNumber.value
         freeze.frozenDays = freezeDays.value
         contract.frozenSupplyArray = [freeze]
+        contract.publicFreeAssetNetUsage = 0
+        contract.publicFreeAssetNetLimit = 0
+        contract.freeAssetNetLimit = 0
         self.displayLoading()
         
         ServiceHelper.shared.service.createAssetIssue(withRequest: contract) {[weak self] (transaction, error) in
