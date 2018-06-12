@@ -966,8 +966,9 @@ ul[data-hc-pills-container] li:last-child input, ul[data-hc-pills-container] li:
   content: "\2713"; }
 /* Alert / Lock */
 .notification-alert, .notification-lock {
-  background: #ffface;
-  border-color: #ede5a1; }
+  color: #ad5e18;
+  background: #fff8ed;
+  border-color: #fcdba9; }
 .notification-alert .notification-icon::before,
 .notification-lock .notification-icon::before {
   border-color: #ede5a1; }
