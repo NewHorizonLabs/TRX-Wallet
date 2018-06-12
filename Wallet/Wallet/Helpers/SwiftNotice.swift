@@ -309,6 +309,7 @@ class SwiftNotice: NSObject {
         label.snp.makeConstraints { (make) in
             make.centerX.equalTo(mainView)
             make.top.equalTo(checkmarkView.snp.bottom).offset(10)
+            make.left.right.equalTo(mainView).offset(10)
         }
         
         checkmarkView.center = CGPoint(x: label.center.x, y: checkmarkView.center.y)

@@ -28,9 +28,9 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
     @IBOutlet weak var transactionDataLabel: UILabel!
     
     var signedTransaction: Variable<TronTransaction?> = Variable(nil)
-    var successBlock:((Return?, Error?) -> Void)?
+//    var successBlock:((Return?, Error?) -> Void)?
     var cancleBlock:(() -> Void)?
-    
+    var finishBlock:((TronTransaction) -> Void)?
     func configureUI() {
         confirmButton.isEnabled = false
         confirmButton.setBackgroundColor(UIColor.normalBackgroundColor, forState: .normal)
@@ -73,7 +73,8 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
             .asObservable()
             .subscribe(onNext: {[weak self] (_) in
                 if let value = self?.signedTransaction.value {
-                    self?.sendTransaction(value)
+                    self?.finishBlock?(value)
+                    self?.popDismiss()
                 }
                 
             })
@@ -146,23 +147,23 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
     }
 
     
-    func sendTransaction(_ transaction: TronTransaction) {
-        ServiceHelper.shared.service.broadcastTransaction(withRequest: transaction) {[weak self] (result, error) in
-            if let response = result {
-                let success = response.result
-                let message = String.init(data: response.message, encoding: .utf8)
-                if success {
-                    HUD.showText(text: R.string.tron.hudSuccess())
-                    self?.successBlock?(result, error)
-                    self?.popDismiss()
-                } else {
-                    //
-                    HUD.showError(error: response.errorMessage)
-                }
-                
-            }
-        }
-    }
+//    func sendTransaction(_ transaction: TronTransaction) {
+//        ServiceHelper.shared.service.broadcastTransaction(withRequest: transaction) {[weak self] (result, error) in
+//            if let response = result {
+//                let success = response.result
+//                let message = String.init(data: response.message, encoding: .utf8)
+//                if success {
+//                    HUD.showText(text: R.string.tron.hudSuccess())
+//                    self?.successBlock?(result, error)
+//                    self?.popDismiss()
+//                } else {
+//                    //
+//                    HUD.showError(error: response.errorMessage)
+//                }
+//
+//            }
+//        }
+//    }
 }
 
 extension ColdTransactionView: QRCodeReaderDelegate {

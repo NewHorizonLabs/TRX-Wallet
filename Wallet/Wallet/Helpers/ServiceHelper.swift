@@ -161,12 +161,16 @@ class ServiceHelper: NSObject {
             if let string = transaction.data()?.hexString {
                 coldView.changeQRCode(address: string)
             }
-            coldView.successBlock = completion
-//            coldView.cancleBlock = {[weak self] in
-////                self?.hideLoading()
-//            }
+            coldView.finishBlock = {[weak self] signedTransaction in
+                self?.service.broadcastTransaction(withRequest: signedTransaction, handler: completion)
+            }
+            coldView.cancleBlock = {[weak self] in
+                let error = NSError(domain: "Cancel", code: -1, userInfo: nil)
+                completion(nil, error)
+            }
             coldView.popShow()
-//            service.broadcastTransaction(withRequest: transaction, handler: completion)
+        } else {
+            service.broadcastTransaction(withRequest: transaction, handler: completion)
         }
         
     }
