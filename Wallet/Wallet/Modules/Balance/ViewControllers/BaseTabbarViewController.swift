@@ -30,6 +30,7 @@ class BaseTabbarViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         updateStatusBar()
+        ServiceHelper.shared.getAccount()
     }
 
     override func viewDidLoad() {
