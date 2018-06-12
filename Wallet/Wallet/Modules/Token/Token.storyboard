@@ -565,6 +565,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="SPV-Q2-4j4" firstAttribute="top" secondItem="m2u-3W-8dZ" secondAttribute="bottom" constant="29.5" id="09b-CY-se4"/>
                                     <constraint firstItem="dTi-Ie-v5I" firstAttribute="trailing" secondItem="m2u-3W-8dZ" secondAttribute="trailing" id="18I-1e-Qse"/>
