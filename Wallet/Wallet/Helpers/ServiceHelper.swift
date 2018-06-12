@@ -156,8 +156,17 @@ class ServiceHelper: NSObject {
     func broadcastTransaction(_ transaction: TronTransaction, completion: @escaping ((Return?, Error?) -> Void)) {
         if let signTransaction = ServiceHelper.transactionSign(transaction) {
             service.broadcastTransaction(withRequest: signTransaction, handler: completion)
-        } else {
-            service.broadcastTransaction(withRequest: transaction, handler: completion)
+        } else if let wallet = ServiceHelper.shared.currentWallet, wallet.isWatch == true {
+            let coldView = ColdTransactionView.loadXib()
+            if let string = transaction.data()?.hexString {
+                coldView.changeQRCode(address: string)
+            }
+            coldView.successBlock = completion
+//            coldView.cancleBlock = {[weak self] in
+////                self?.hideLoading()
+//            }
+            coldView.popShow()
+//            service.broadcastTransaction(withRequest: transaction, handler: completion)
         }
         
     }

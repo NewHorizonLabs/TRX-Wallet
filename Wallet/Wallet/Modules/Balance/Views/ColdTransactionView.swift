@@ -28,7 +28,7 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
     @IBOutlet weak var transactionDataLabel: UILabel!
     
     var signedTransaction: Variable<TronTransaction?> = Variable(nil)
-    var successBlock:(() -> Void)?
+    var successBlock:((Return?, Error?) -> Void)?
     var cancleBlock:(() -> Void)?
     
     func configureUI() {
@@ -153,7 +153,7 @@ class ColdTransactionView: UIView, XibLoadable, Popable {
                 let message = String.init(data: response.message, encoding: .utf8)
                 if success {
                     HUD.showText(text: R.string.tron.hudSuccess())
-                    self?.successBlock?()
+                    self?.successBlock?(result, error)
                     self?.popDismiss()
                 } else {
                     //

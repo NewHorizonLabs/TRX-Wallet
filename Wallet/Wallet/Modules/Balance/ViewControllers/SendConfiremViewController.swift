@@ -112,10 +112,10 @@ class SendConfiremViewController: UIViewController {
             if let string = transaction.data()?.hexString {
                 coldView.changeQRCode(address: string)
             }
-            coldView.successBlock = {[weak self] in
-                self?.hideLoading()
-                self?.dismiss(animated: true, completion: nil)
-            }
+//            coldView.successBlock = {[weak self] in
+//                self?.hideLoading()
+//                self?.dismiss(animated: true, completion: nil)
+//            }
             coldView.cancleBlock = {[weak self] in
                 self?.hideLoading()
             }
