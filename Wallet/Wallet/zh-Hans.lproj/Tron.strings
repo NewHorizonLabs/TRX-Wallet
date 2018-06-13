@@ -2,8 +2,8 @@
 "Balance.button.send" = "发送";
 "Balance.button.receive" = "接收";
 "Balance.bandwidth.label.title" = "带宽";
-"Balance.power.label.title" = "波场力";
-"Balance.freeze.label.title" = "冻结资产";
+"Balance.power.label.title" = "冻结资产";
+"Balance.freeze.label.title" = "解冻资产";
 "Balance.Send.address.label.title" = "接收地址";
 "Balance.Send.number.label.title" = "数量";
 "Balance.Send.paste.button.title" = "粘贴";

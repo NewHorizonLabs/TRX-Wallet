@@ -51,7 +51,7 @@ class AccountAssetTableViewCell: UITableViewCell {
             
             ServiceHelper.shared.service.getAssetIssueByName(withRequest: message) {[weak self] (result, error) in
                 if let result = result {
-                    self?.priceLabel.text = Int64(result.trxNum.trxValue / result.num).string + "TRX"
+                    self?.priceLabel.text = String(result.trxNum.trxValue / result.num) + "TRX"
                 }
             }
         }
