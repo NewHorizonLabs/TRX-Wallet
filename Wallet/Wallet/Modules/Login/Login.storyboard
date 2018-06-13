@@ -342,6 +342,16 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="gjY-iA-lOf"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3V5-CJ-Gwl">
+                                <rect key="frame" x="86" y="486" width="203" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="About Cold Wallet (Important)">
+                                    <color key="titleColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showColdWalletInfo:" destination="yjO-sl-8He" eventType="touchUpInside" id="6S2-hZ-rpI"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caq-rh-LlB">
                                 <rect key="frame" x="20" y="579" width="335" height="48"/>
                                 <color key="backgroundColor" red="0.27450980390000002" green="0.23529411759999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -361,7 +371,6 @@
                         <constraints>
                             <constraint firstItem="DoK-pN-rqk" firstAttribute="top" secondItem="ejs-Wd-8xh" secondAttribute="bottom" constant="40" id="0hj-QP-F9i"/>
                             <constraint firstItem="caq-rh-LlB" firstAttribute="trailing" secondItem="SgH-2s-eTp" secondAttribute="trailing" id="1uY-NA-owj"/>
-                            <constraint firstItem="caq-rh-LlB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SgH-2s-eTp" secondAttribute="bottom" constant="10" id="4fa-Yz-f1B"/>
                             <constraint firstItem="ejs-Wd-8xh" firstAttribute="top" secondItem="Eht-Eg-757" secondAttribute="top" constant="30" id="4fc-qB-rNj"/>
                             <constraint firstItem="DoK-pN-rqk" firstAttribute="leading" secondItem="ejs-Wd-8xh" secondAttribute="leading" id="6cO-9i-7Va"/>
                             <constraint firstItem="SgH-2s-eTp" firstAttribute="leading" secondItem="ASD-OP-iDe" secondAttribute="leading" id="6fY-sN-udN"/>
@@ -373,12 +382,15 @@
                             <constraint firstItem="IfK-Fi-cUj" firstAttribute="top" secondItem="L29-8T-VPF" secondAttribute="bottom" constant="43.5" id="OoX-Jt-1lr"/>
                             <constraint firstItem="L29-8T-VPF" firstAttribute="leading" secondItem="DoK-pN-rqk" secondAttribute="leading" id="Q1c-Iq-imU"/>
                             <constraint firstItem="L29-8T-VPF" firstAttribute="top" secondItem="DoK-pN-rqk" secondAttribute="bottom" constant="20" id="Qba-2A-QCb"/>
+                            <constraint firstItem="3V5-CJ-Gwl" firstAttribute="top" secondItem="SgH-2s-eTp" secondAttribute="bottom" constant="10" id="XtU-0j-jWk"/>
                             <constraint firstItem="ejs-Wd-8xh" firstAttribute="centerX" secondItem="Eht-Eg-757" secondAttribute="centerX" id="YxR-JB-MJy"/>
                             <constraint firstItem="ejs-Wd-8xh" firstAttribute="width" secondItem="SSm-0y-Dec" secondAttribute="width" multiplier="335:375" id="bZ4-Vk-slt"/>
                             <constraint firstItem="ASD-OP-iDe" firstAttribute="leading" secondItem="IfK-Fi-cUj" secondAttribute="leading" id="d1k-n3-MYd"/>
+                            <constraint firstItem="3V5-CJ-Gwl" firstAttribute="centerX" secondItem="SgH-2s-eTp" secondAttribute="centerX" id="dbB-7J-zRJ"/>
                             <constraint firstItem="SgH-2s-eTp" firstAttribute="top" secondItem="ASD-OP-iDe" secondAttribute="bottom" constant="16" id="jlZ-OZ-oTK"/>
                             <constraint firstItem="ASD-OP-iDe" firstAttribute="trailing" secondItem="IfK-Fi-cUj" secondAttribute="trailing" id="omx-ln-sHR"/>
                             <constraint firstItem="ASD-OP-iDe" firstAttribute="top" secondItem="IfK-Fi-cUj" secondAttribute="bottom" constant="14" id="qcv-uc-wZc"/>
+                            <constraint firstItem="caq-rh-LlB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3V5-CJ-Gwl" secondAttribute="bottom" constant="10" id="rcj-Hm-t5Z"/>
                             <constraint firstItem="L29-8T-VPF" firstAttribute="trailing" secondItem="DoK-pN-rqk" secondAttribute="trailing" id="tic-a7-JwG"/>
                             <constraint firstItem="IfK-Fi-cUj" firstAttribute="trailing" secondItem="L29-8T-VPF" secondAttribute="trailing" id="yDU-Us-8Q8"/>
                         </constraints>

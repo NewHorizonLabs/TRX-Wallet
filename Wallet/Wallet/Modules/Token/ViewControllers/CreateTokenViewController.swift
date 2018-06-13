@@ -12,6 +12,7 @@ import RxCocoa
 
 class CreateTokenViewController: UIViewController {
 
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var detailTitleLabel: UILabel!
     

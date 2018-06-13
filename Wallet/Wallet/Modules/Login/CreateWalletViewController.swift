@@ -157,6 +157,14 @@ class CreateWalletViewController: UIViewController {
         }
     }
     
+    @IBAction func showColdWalletInfo(_ sender: Any) {
+        
+        let path = Bundle.main.bundlePath
+        let basePath = "\(path)/html/whatiscoldwallet.html"
+        let url = URL(fileURLWithPath: basePath, isDirectory: true)
+        BrowserHelper.show(url: url)
+    }
+    
     func showHomePage() {
         if let window = UIApplication.shared.keyWindow {
             window.rootViewController = R.storyboard.main.instantiateInitialViewController()
