@@ -109,6 +109,12 @@
                                                 <color key="textColor" red="0.69019607843137254" green="0.72156862745098038" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jl-gB-ZR2">
+                                                <rect key="frame" x="327.5" y="0.0" width="7.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFQ-pC-ufi" customClass="LineView" customModule="Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -129,6 +135,8 @@
                                             <constraint firstAttribute="trailing" secondItem="nFQ-pC-ufi" secondAttribute="trailing" id="h84-LQ-8cP"/>
                                             <constraint firstAttribute="trailing" secondItem="Cdg-Iv-gVH" secondAttribute="trailing" id="olZ-6l-tKc"/>
                                             <constraint firstItem="9qr-aA-gXP" firstAttribute="centerY" secondItem="cWW-Ip-6Ao" secondAttribute="centerY" id="tTd-j5-qVx"/>
+                                            <constraint firstItem="5jl-gB-ZR2" firstAttribute="top" secondItem="cWW-Ip-6Ao" secondAttribute="top" id="tXA-D6-ZIZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="5jl-gB-ZR2" secondAttribute="trailing" id="ubG-DG-Bdf"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWp-VT-fT7">
@@ -146,6 +154,12 @@
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRp-rJ-fC8">
+                                                <rect key="frame" x="327.5" y="0.0" width="7.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66v-ty-XOV" customClass="LineView" customModule="Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,9 +173,11 @@
                                             <constraint firstItem="Z37-xt-qo8" firstAttribute="leading" secondItem="QWp-VT-fT7" secondAttribute="leading" id="3b4-1Q-eBw"/>
                                             <constraint firstItem="WK5-Zk-YQk" firstAttribute="centerY" secondItem="QWp-VT-fT7" secondAttribute="centerY" id="4Nn-PT-eWV"/>
                                             <constraint firstAttribute="bottom" secondItem="66v-ty-XOV" secondAttribute="bottom" id="6Pd-cY-QMv"/>
+                                            <constraint firstAttribute="trailing" secondItem="jRp-rJ-fC8" secondAttribute="trailing" id="9rS-0E-Twu"/>
                                             <constraint firstItem="Z37-xt-qo8" firstAttribute="top" secondItem="QWp-VT-fT7" secondAttribute="top" id="BUs-lv-SES"/>
                                             <constraint firstAttribute="height" constant="36" id="Gd0-dC-FSH"/>
                                             <constraint firstAttribute="bottom" secondItem="Z37-xt-qo8" secondAttribute="bottom" id="Odz-bY-Ge4"/>
+                                            <constraint firstItem="jRp-rJ-fC8" firstAttribute="top" secondItem="QWp-VT-fT7" secondAttribute="top" id="X6L-b5-Elc"/>
                                             <constraint firstAttribute="trailing" secondItem="66v-ty-XOV" secondAttribute="trailing" id="dvh-FO-vXF"/>
                                             <constraint firstAttribute="trailing" secondItem="Z37-xt-qo8" secondAttribute="trailing" id="qsI-iQ-CWJ"/>
                                             <constraint firstItem="WK5-Zk-YQk" firstAttribute="leading" secondItem="QWp-VT-fT7" secondAttribute="leading" id="wW3-ea-XVL"/>
@@ -183,6 +199,12 @@
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOb-ug-rd6">
+                                                <rect key="frame" x="327.5" y="0.0" width="7.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9f-YG-wsJ" customClass="LineView" customModule="Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,6 +215,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="vOb-ug-rd6" firstAttribute="top" secondItem="rav-1X-BiO" secondAttribute="top" id="3rU-34-IlE"/>
                                             <constraint firstAttribute="trailing" secondItem="2JS-E5-6Tc" secondAttribute="trailing" id="80n-No-54G"/>
                                             <constraint firstAttribute="bottom" secondItem="N9f-YG-wsJ" secondAttribute="bottom" id="ISs-O0-tER"/>
                                             <constraint firstItem="Qxp-gN-Pzt" firstAttribute="leading" secondItem="rav-1X-BiO" secondAttribute="leading" id="JYm-XC-S8t"/>
@@ -200,6 +223,7 @@
                                             <constraint firstItem="2JS-E5-6Tc" firstAttribute="top" secondItem="rav-1X-BiO" secondAttribute="top" id="OHi-IU-Ym6"/>
                                             <constraint firstItem="2JS-E5-6Tc" firstAttribute="leading" secondItem="rav-1X-BiO" secondAttribute="leading" id="OuR-7Q-9kT"/>
                                             <constraint firstItem="N9f-YG-wsJ" firstAttribute="leading" secondItem="rav-1X-BiO" secondAttribute="leading" id="Yaf-tU-Ux2"/>
+                                            <constraint firstAttribute="trailing" secondItem="vOb-ug-rd6" secondAttribute="trailing" id="Ysa-Nu-vfT"/>
                                             <constraint firstAttribute="height" constant="36" id="d2T-9r-M7i"/>
                                             <constraint firstAttribute="bottom" secondItem="2JS-E5-6Tc" secondAttribute="bottom" id="j8f-70-bOZ"/>
                                             <constraint firstItem="Qxp-gN-Pzt" firstAttribute="centerY" secondItem="rav-1X-BiO" secondAttribute="centerY" id="je2-Sr-tBx"/>
@@ -294,6 +318,12 @@
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-Xo-Fvw">
+                                                <rect key="frame" x="327.5" y="0.0" width="7.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqn-4r-Og6" customClass="LineView" customModule="Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -304,10 +334,12 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="gC1-Xo-Fvw" firstAttribute="top" secondItem="X9N-wm-zDb" secondAttribute="top" id="6RP-A5-vNG"/>
                                             <constraint firstItem="Ibp-vt-GAm" firstAttribute="top" secondItem="X9N-wm-zDb" secondAttribute="top" id="F53-RO-NCh"/>
                                             <constraint firstItem="YqB-9S-YEu" firstAttribute="leading" secondItem="X9N-wm-zDb" secondAttribute="leading" id="Lki-Yf-srB"/>
                                             <constraint firstItem="Ibp-vt-GAm" firstAttribute="leading" secondItem="X9N-wm-zDb" secondAttribute="leading" id="M8w-xG-Cu1"/>
                                             <constraint firstItem="YqB-9S-YEu" firstAttribute="centerY" secondItem="X9N-wm-zDb" secondAttribute="centerY" id="OKc-Zr-VMR"/>
+                                            <constraint firstAttribute="trailing" secondItem="gC1-Xo-Fvw" secondAttribute="trailing" id="Rcd-2P-SzN"/>
                                             <constraint firstAttribute="trailing" secondItem="Vqn-4r-Og6" secondAttribute="trailing" id="Sxo-e9-Tfa"/>
                                             <constraint firstAttribute="height" constant="36" id="ZHc-NG-a98"/>
                                             <constraint firstAttribute="bottom" secondItem="Vqn-4r-Og6" secondAttribute="bottom" id="adz-cY-t3h"/>
@@ -331,6 +363,12 @@
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHg-jA-OZN">
+                                                <rect key="frame" x="327.5" y="0.0" width="7.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4w-ZR-ShT" customClass="LineView" customModule="Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -344,10 +382,12 @@
                                             <constraint firstAttribute="height" constant="36" id="68F-l6-6Hw"/>
                                             <constraint firstItem="uVj-Ri-fuy" firstAttribute="leading" secondItem="elh-Xp-Cfg" secondAttribute="leading" id="85b-Oz-iYT"/>
                                             <constraint firstAttribute="bottom" secondItem="J4w-ZR-ShT" secondAttribute="bottom" id="BWg-F3-9Ur"/>
+                                            <constraint firstItem="kHg-jA-OZN" firstAttribute="top" secondItem="elh-Xp-Cfg" secondAttribute="top" id="Cig-O7-ik5"/>
                                             <constraint firstItem="FLU-VE-AV9" firstAttribute="leading" secondItem="elh-Xp-Cfg" secondAttribute="leading" id="CyP-WX-iBw"/>
                                             <constraint firstAttribute="trailing" secondItem="J4w-ZR-ShT" secondAttribute="trailing" id="DbV-ZS-l6t"/>
                                             <constraint firstItem="J4w-ZR-ShT" firstAttribute="leading" secondItem="elh-Xp-Cfg" secondAttribute="leading" id="Gsi-Rn-cHU"/>
                                             <constraint firstAttribute="trailing" secondItem="FLU-VE-AV9" secondAttribute="trailing" id="gGq-FE-Fh3"/>
+                                            <constraint firstAttribute="trailing" secondItem="kHg-jA-OZN" secondAttribute="trailing" id="his-uE-uWl"/>
                                             <constraint firstItem="FLU-VE-AV9" firstAttribute="top" secondItem="elh-Xp-Cfg" secondAttribute="top" id="pGt-Kv-Lan"/>
                                             <constraint firstAttribute="bottom" secondItem="FLU-VE-AV9" secondAttribute="bottom" id="uET-8J-PCm"/>
                                             <constraint firstItem="uVj-Ri-fuy" firstAttribute="centerY" secondItem="elh-Xp-Cfg" secondAttribute="centerY" id="yrs-Bj-vbD"/>
@@ -377,6 +417,12 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiS-KE-vLY">
+                                                <rect key="frame" x="142" y="0.0" width="7.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mt8-Mj-VD5" customClass="LineView" customModule="Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="149.5" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -388,8 +434,10 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="r2k-et-UhE" firstAttribute="leading" secondItem="SPV-Q2-4j4" secondAttribute="leading" id="A0S-Bg-Sa4"/>
+                                            <constraint firstAttribute="trailing" secondItem="UiS-KE-vLY" secondAttribute="trailing" id="FC2-5j-PAq"/>
                                             <constraint firstAttribute="bottom" secondItem="8li-fw-gYo" secondAttribute="bottom" id="IQ2-AS-USy"/>
                                             <constraint firstAttribute="trailing" secondItem="mt8-Mj-VD5" secondAttribute="trailing" id="KXa-KT-mXj"/>
+                                            <constraint firstItem="UiS-KE-vLY" firstAttribute="top" secondItem="SPV-Q2-4j4" secondAttribute="top" id="L9m-PG-ulV"/>
                                             <constraint firstItem="8li-fw-gYo" firstAttribute="top" secondItem="SPV-Q2-4j4" secondAttribute="top" id="O4h-pj-RGn"/>
                                             <constraint firstItem="8li-fw-gYo" firstAttribute="leading" secondItem="SPV-Q2-4j4" secondAttribute="leading" id="R4R-P6-8X3"/>
                                             <constraint firstItem="r2k-et-UhE" firstAttribute="centerY" secondItem="SPV-Q2-4j4" secondAttribute="centerY" id="a9j-3Z-lhY"/>
@@ -414,6 +462,12 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeU-ZH-b2e">
+                                                <rect key="frame" x="142" y="0.0" width="7.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vs-zw-quj" customClass="LineView" customModule="Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="149.5" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -428,6 +482,8 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                             <constraint firstAttribute="trailing" secondItem="amG-Vw-HJp" secondAttribute="trailing" id="6TW-ow-i22"/>
                                             <constraint firstItem="amG-Vw-HJp" firstAttribute="top" secondItem="dTi-Ie-v5I" secondAttribute="top" id="9Jp-KB-fbT"/>
                                             <constraint firstAttribute="bottom" secondItem="7vs-zw-quj" secondAttribute="bottom" id="GqE-k8-sab"/>
+                                            <constraint firstItem="KeU-ZH-b2e" firstAttribute="top" secondItem="dTi-Ie-v5I" secondAttribute="top" id="Jae-9Z-ER8"/>
+                                            <constraint firstAttribute="trailing" secondItem="KeU-ZH-b2e" secondAttribute="trailing" id="LEJ-7M-kFf"/>
                                             <constraint firstAttribute="trailing" secondItem="7vs-zw-quj" secondAttribute="trailing" id="dn8-kt-YLc"/>
                                             <constraint firstItem="amG-Vw-HJp" firstAttribute="leading" secondItem="dTi-Ie-v5I" secondAttribute="leading" id="dts-Sz-lnN"/>
                                             <constraint firstAttribute="height" constant="36" id="g32-Z9-qcd"/>
@@ -458,6 +514,12 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2Q-QU-yHE">
+                                                <rect key="frame" x="142" y="0.0" width="7.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NG0-Vq-jtP" customClass="LineView" customModule="Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="149.5" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -469,6 +531,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="dmc-IE-BxY" firstAttribute="leading" secondItem="dDB-r2-V5e" secondAttribute="leading" id="1EE-Sw-03a"/>
+                                            <constraint firstItem="h2Q-QU-yHE" firstAttribute="top" secondItem="dDB-r2-V5e" secondAttribute="top" id="FxX-ih-UXx"/>
                                             <constraint firstAttribute="trailing" secondItem="NG0-Vq-jtP" secondAttribute="trailing" id="LxQ-L9-68s"/>
                                             <constraint firstItem="NG0-Vq-jtP" firstAttribute="leading" secondItem="dDB-r2-V5e" secondAttribute="leading" id="SLj-Ug-wrx"/>
                                             <constraint firstItem="WzS-Wd-PPG" firstAttribute="top" secondItem="dDB-r2-V5e" secondAttribute="top" id="Sfv-GF-w60"/>
@@ -476,6 +539,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                             <constraint firstItem="dmc-IE-BxY" firstAttribute="centerY" secondItem="dDB-r2-V5e" secondAttribute="centerY" id="eCF-ms-QTl"/>
                                             <constraint firstItem="NG0-Vq-jtP" firstAttribute="top" secondItem="WzS-Wd-PPG" secondAttribute="bottom" id="gWc-1b-kgq"/>
                                             <constraint firstAttribute="bottom" secondItem="NG0-Vq-jtP" secondAttribute="bottom" id="jPv-qf-0s6"/>
+                                            <constraint firstAttribute="trailing" secondItem="h2Q-QU-yHE" secondAttribute="trailing" id="tcE-lG-FxP"/>
                                             <constraint firstAttribute="trailing" secondItem="WzS-Wd-PPG" secondAttribute="trailing" id="uv4-x7-qaO"/>
                                             <constraint firstAttribute="height" constant="36" id="y4E-Rv-94p"/>
                                         </constraints>
@@ -496,6 +560,12 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMk-kC-ZQd">
+                                                <rect key="frame" x="142.5" y="0.0" width="7.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GT-Yz-leB" customClass="LineView" customModule="Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="150" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -509,12 +579,14 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                             <constraint firstItem="M1W-EP-c8k" firstAttribute="leading" secondItem="UTO-u9-hNQ" secondAttribute="leading" id="3eb-dX-tza"/>
                                             <constraint firstItem="7GT-Yz-leB" firstAttribute="leading" secondItem="UTO-u9-hNQ" secondAttribute="leading" id="5RV-Bq-tpi"/>
                                             <constraint firstItem="kO3-d1-hjI" firstAttribute="leading" secondItem="UTO-u9-hNQ" secondAttribute="leading" id="Nzn-vn-lJK"/>
+                                            <constraint firstAttribute="trailing" secondItem="SMk-kC-ZQd" secondAttribute="trailing" id="QH0-9a-fbm"/>
                                             <constraint firstAttribute="height" constant="36" id="UDt-S1-Adx"/>
                                             <constraint firstAttribute="bottom" secondItem="7GT-Yz-leB" secondAttribute="bottom" id="ZaR-AG-ToQ"/>
                                             <constraint firstItem="M1W-EP-c8k" firstAttribute="top" secondItem="UTO-u9-hNQ" secondAttribute="top" id="aED-bt-hWa"/>
                                             <constraint firstItem="kO3-d1-hjI" firstAttribute="centerY" secondItem="UTO-u9-hNQ" secondAttribute="centerY" id="fXm-Ub-xkw"/>
                                             <constraint firstAttribute="trailing" secondItem="7GT-Yz-leB" secondAttribute="trailing" id="hIW-Rd-mWL"/>
                                             <constraint firstAttribute="trailing" secondItem="M1W-EP-c8k" secondAttribute="trailing" id="ks9-b5-NgQ"/>
+                                            <constraint firstItem="SMk-kC-ZQd" firstAttribute="top" secondItem="UTO-u9-hNQ" secondAttribute="top" id="mrV-NI-Uj4"/>
                                             <constraint firstItem="7GT-Yz-leB" firstAttribute="top" secondItem="M1W-EP-c8k" secondAttribute="bottom" id="va8-nP-kp2"/>
                                         </constraints>
                                     </view>
