@@ -46,7 +46,7 @@ class VoteInputView: UIView, XibLoadable, Popable {
         confirmButton.addTarget(self, action: #selector(confirmButtonClick), for: .touchUpInside)
         closeButton.addTarget(self, action: #selector(closeButtonClick), for: .touchUpInside)
         
-        balanceLabel.text = ServiceHelper.shared.balance + " TRX"
+        balanceLabel.text = ServiceHelper.shared.account.value?.frozenBalance ?? "0" + " TRX"
         
         (textField.rx.text).orEmpty.asObservable()
             .map { return $0.count > 0 }

@@ -337,3 +337,15 @@ extension Wallet {
         }
     }
 }
+
+extension TronAccount {
+    var frozenBalance: String {
+        if let array = self.frozenArray as? [Account_Frozen] {
+            let count = array.reduce(0) { (result, value) -> Int64 in
+                return value.frozenBalance + result
+            }
+            return count.balanceString
+        }
+        return "0"
+    }
+}
