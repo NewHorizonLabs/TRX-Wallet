@@ -83,6 +83,7 @@ class SendConfiremViewController: UIViewController {
                 self?.displayError(error: error)
             }
         }
+        
     }
     
     func sendOtherToken() {
@@ -114,7 +115,7 @@ class SendConfiremViewController: UIViewController {
             }
 
             coldView.finishBlock = {[weak self] signedTransaction in
-                self?.broadcast(transaction: signedTransaction)
+                self?.broadcastSigned(transaction: signedTransaction)
             }
             coldView.cancleBlock = {[weak self] in
                 self?.hideLoading()
@@ -125,6 +126,25 @@ class SendConfiremViewController: UIViewController {
             self.broadcast(transaction: transaction)
         }
         
+    }
+    
+    func broadcastSigned(transaction: TronTransaction) {
+        ServiceHelper.shared.service.broadcastTransaction(withRequest: transaction) { [weak self] (result, error) in
+            if let response = result {
+                let success = response.result
+                let message = String.init(data: response.message, encoding: .utf8)
+                if success {
+                    self?.hideLoading()
+                    HUD.showText(text: R.string.tron.hudSuccess())
+                    self?.dismiss(animated: true, completion: nil)
+                } else {
+                    //                            self?.displayError(error: Error())
+                    self?.hideLoading()
+                    HUD.showError(error: response.errorMessage)
+                }
+                
+            }
+        }
     }
     
     func broadcast(transaction: TronTransaction) {
