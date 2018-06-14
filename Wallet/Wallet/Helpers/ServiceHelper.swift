@@ -91,10 +91,11 @@ class ServiceHelper: NSObject {
         }
         service.getAccountWithRequest(a) {[weak self] (accountModel, error) in
             if let model = accountModel, a.address.addressString == model.address.addressString {
-                self?.account.value = model
                 if let array = model.votesArray as? [Vote] {
                     self?.voteArray = array
                 }
+                self?.account.value = model
+                
             }
         }
     }

@@ -105,9 +105,6 @@ class VoteInputView: UIView, XibLoadable, Popable {
                             self.successBlock?(number)
                             ServiceHelper.shared.voteChange.onNext(())
                             HUD.showText(text: R.string.tron.hudSuccess())
-                            
-                            
-                            
                         } else {
                             HUD.showError(error: "Vote Failed, If you don't have\n freeze TRX, please freeze TRX first")
                         }

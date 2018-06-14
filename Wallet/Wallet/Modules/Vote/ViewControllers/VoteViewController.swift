@@ -33,17 +33,44 @@ class VoteViewController: UIViewController {
         }
         ServiceHelper.shared.voteChange.asObservable()
             .subscribe(onNext: {[weak self] (_) in
+                ServiceHelper.shared.getAccount()
                 self?.tableView.reloadData()
             })
         .disposed(by: disposeBag)
+        
+        ServiceHelper.shared.account.asObservable()
+            .subscribe(onNext: {[weak self] (account) in
+                self?.orderArray()
+            })
+        .disposed(by: disposeBag)
+    }
+    
+    func orderArray() {
+        let voteAddressArray = ServiceHelper.shared.voteArray.map { $0.voteAddress.addressString }
+        let a1 = data.value.filter({ (object) -> Bool in
+            return voteAddressArray.contains(object.address.addressString)
+        })
+        let a2 = data.value.filter({ (object) -> Bool in
+            return !voteAddressArray.contains(object.address.addressString)
+        })
+        self.data.value = a1 + a2
     }
     
     func loadData() {
         displayLoading()
         ServiceHelper.shared.service.listWitnesses(withRequest: EmptyMessage()) {[weak self] (list, error) in
+            let voteAddressArray = ServiceHelper.shared.voteArray.map { $0.voteAddress.addressString }
             if let array = list?.witnessesArray as? [Witness] {
-                self?.data.value = array
+                let a1 = array.filter({ (object) -> Bool in
+                    return voteAddressArray.contains(object.address.addressString)
+                })
+                let a2 = array.filter({ (object) -> Bool in
+                    return !voteAddressArray.contains(object.address.addressString)
+                })
+                self?.data.value = a1 + a2
+                
             }
+        
             self?.hideLoading()
             self?.tableView.endRefresh()
         }
