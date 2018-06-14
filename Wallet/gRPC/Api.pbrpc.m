@@ -117,6 +117,18 @@
              responseClass:[TronTransaction class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
+#pragma mark CreateAccount(AccountCreateContract) returns (TronTransaction)
+
+- (void)createAccountWithRequest:(AccountCreateContract *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToCreateAccountWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCToCreateAccountWithRequest:(AccountCreateContract *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"CreateAccount"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[TronTransaction class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
 #pragma mark CreateWitness(WitnessCreateContract) returns (TronTransaction)
 
 - (void)createWitnessWithRequest:(WitnessCreateContract *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler{
@@ -443,42 +455,6 @@
              responseClass:[AssetIssueList class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
-#pragma mark GetAssetIssueListByTimestamp(NumberMessage) returns (AssetIssueList)
-
-- (void)getAssetIssueListByTimestampWithRequest:(NumberMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToGetAssetIssueListByTimestampWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToGetAssetIssueListByTimestampWithRequest:(NumberMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"GetAssetIssueListByTimestamp"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[AssetIssueList class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-#pragma mark GetAssetIssueByAccount(TronAccount) returns (AssetIssueList)
-
-- (void)getAssetIssueByAccountWithRequest:(TronAccount *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToGetAssetIssueByAccountWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToGetAssetIssueByAccountWithRequest:(TronAccount *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"GetAssetIssueByAccount"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[AssetIssueList class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-#pragma mark GetAssetIssueByName(BytesMessage) returns (AssetIssueContract)
-
-- (void)getAssetIssueByNameWithRequest:(BytesMessage *)request handler:(void(^)(AssetIssueContract *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToGetAssetIssueByNameWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToGetAssetIssueByNameWithRequest:(BytesMessage *)request handler:(void(^)(AssetIssueContract *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"GetAssetIssueByName"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[AssetIssueContract class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
 #pragma mark GetNowBlock(EmptyMessage) returns (Block)
 
 - (void)getNowBlockWithRequest:(EmptyMessage *)request handler:(void(^)(Block *_Nullable response, NSError *_Nullable error))handler{
@@ -503,60 +479,32 @@
              responseClass:[Block class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
-#pragma mark TotalTransaction(EmptyMessage) returns (NumberMessage)
+@end
+@implementation WalletExtension
 
-/**
- * get transaction
- */
-- (void)totalTransactionWithRequest:(EmptyMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToTotalTransactionWithRequest:request handler:handler] start];
+// Designated initializer
+- (instancetype)initWithHost:(NSString *)host {
+  self = [super initWithHost:host
+                 packageName:@"protocol"
+                 serviceName:@"WalletExtension"];
+  return self;
 }
-// Returns a not-yet-started RPC object.
-/**
- * get transaction
- */
-- (GRPCProtoCall *)RPCToTotalTransactionWithRequest:(EmptyMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"TotalTransaction"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[NumberMessage class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-#pragma mark GetTransactionById(BytesMessage) returns (TronTransaction)
 
-- (void)getTransactionByIdWithRequest:(BytesMessage *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToGetTransactionByIdWithRequest:request handler:handler] start];
+// Override superclass initializer to disallow different package and service names.
+- (instancetype)initWithHost:(NSString *)host
+                 packageName:(NSString *)packageName
+                 serviceName:(NSString *)serviceName {
+  return [self initWithHost:host];
 }
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToGetTransactionByIdWithRequest:(BytesMessage *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"GetTransactionById"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[TronTransaction class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-#pragma mark GetTransactionsByTimestamp(TimePaginatedMessage) returns (TransactionList)
 
-- (void)getTransactionsByTimestampWithRequest:(TimePaginatedMessage *)request handler:(void(^)(TransactionList *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToGetTransactionsByTimestampWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToGetTransactionsByTimestampWithRequest:(TimePaginatedMessage *)request handler:(void(^)(TransactionList *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"GetTransactionsByTimestamp"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[TransactionList class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-#pragma mark GetTransactionsByTimestampCount(TimeMessage) returns (NumberMessage)
+#pragma mark - Class Methods
 
-- (void)getTransactionsByTimestampCountWithRequest:(TimeMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToGetTransactionsByTimestampCountWithRequest:request handler:handler] start];
++ (instancetype)serviceWithHost:(NSString *)host {
+  return [[self alloc] initWithHost:host];
 }
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToGetTransactionsByTimestampCountWithRequest:(TimeMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"GetTransactionsByTimestampCount"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[NumberMessage class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
+
+#pragma mark - Method Implementations
+
 #pragma mark GetTransactionsFromThis(AccountPaginated) returns (TransactionList)
 
 - (void)getTransactionsFromThisWithRequest:(AccountPaginated *)request handler:(void(^)(TransactionList *_Nullable response, NSError *_Nullable error))handler{
@@ -579,30 +527,6 @@
   return [self RPCToMethod:@"GetTransactionsToThis"
             requestsWriter:[GRXWriter writerWithValue:request]
              responseClass:[TransactionList class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-#pragma mark GetTransactionsFromThisCount(TronAccount) returns (NumberMessage)
-
-- (void)getTransactionsFromThisCountWithRequest:(TronAccount *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToGetTransactionsFromThisCountWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToGetTransactionsFromThisCountWithRequest:(TronAccount *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"GetTransactionsFromThisCount"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[NumberMessage class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-#pragma mark GetTransactionsToThisCount(TronAccount) returns (NumberMessage)
-
-- (void)getTransactionsToThisCountWithRequest:(TronAccount *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToGetTransactionsToThisCountWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-- (GRPCProtoCall *)RPCToGetTransactionsToThisCountWithRequest:(TronAccount *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"GetTransactionsToThisCount"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[NumberMessage class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 @end

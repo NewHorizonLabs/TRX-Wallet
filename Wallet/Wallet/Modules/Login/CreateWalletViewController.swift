@@ -58,7 +58,7 @@ class CreateWalletViewController: UIViewController {
                 print(account.address)
                 let string = String(base58CheckEncoding: account.address.data)
                 self.address.value = string
-                self.password.value = password
+                self.export(account: account)
                 self.account = account
             case .failure(let error):
                 print("创建失败")
@@ -127,6 +127,18 @@ class CreateWalletViewController: UIViewController {
         
         createButton.addTarget(self, action: #selector(createButtonClick), for: .touchUpInside)
     }
+    
+    func export(account: TrustKeystore.Account) {
+        let result = EtherKeystore.shared.exportPrivateKey(account: account)
+        switch result {
+        case .success(let data):
+            let string = data.hexString
+            self.password.value = string
+            print(string)
+        default:
+            break
+        }
+    }
 
     @objc func pasteButtonClick() {
         repassword.value = UIPasteboard.general.string ?? ""
@@ -135,9 +147,22 @@ class CreateWalletViewController: UIViewController {
     
     @objc func createButtonClick() {
         if let account = self.account {
-            self.coordinator?.pushBackup(for: account)
-            self.coordinator?.delegate = self
+            do {
+                try EtherKeystore.shared.saveAccount(account)
+                self.coordinator?.pushBackup(for: account)
+                self.coordinator?.delegate = self
+            } catch {
+                HUD.showError(error: "Creat wallet failed")
+            }
         }
+    }
+    
+    @IBAction func showColdWalletInfo(_ sender: Any) {
+        
+        let path = Bundle.main.bundlePath
+        let basePath = "\(path)/html/whatiscoldwallet.html"
+        let url = URL(fileURLWithPath: basePath, isDirectory: true)
+        BrowserHelper.show(url: url)
     }
     
     func showHomePage() {

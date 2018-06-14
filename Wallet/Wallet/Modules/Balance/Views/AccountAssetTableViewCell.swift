@@ -28,6 +28,7 @@ class AccountAssetTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
+        priceLabel.text = ""
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,8 +51,8 @@ class AccountAssetTableViewCell: UITableViewCell {
             message.value = data
             
             ServiceHelper.shared.service.getAssetIssueByName(withRequest: message) {[weak self] (result, error) in
-                if let result = result {
-                    self?.priceLabel.text = Int64(result.trxNum.trxValue / result.num).string + "TRX"
+                if let result = result, let string = result.name.toString(), string == model.name {
+                    self?.priceLabel.text = String(Float(result.trxNum.trxValue) * Float(model.balance)! / Float(result.num)) + "TRX"
                 }
             }
         }

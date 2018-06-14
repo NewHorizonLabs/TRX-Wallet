@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,7 +40,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXK-Et-erm">
-                        <rect key="frame" x="280" y="54.5" width="0.0" height="0.0"/>
+                        <rect key="frame" x="300" y="54.5" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                 <constraints>
                     <constraint firstItem="zXK-Et-erm" firstAttribute="top" secondItem="h7h-A6-3mI" secondAttribute="bottom" constant="2" id="86s-pu-spd"/>
                     <constraint firstAttribute="trailing" secondItem="h7h-A6-3mI" secondAttribute="trailing" constant="20" id="DGJ-hZ-yme"/>
-                    <constraint firstItem="zXK-Et-erm" firstAttribute="centerX" secondItem="h7h-A6-3mI" secondAttribute="centerX" id="Ds7-TD-W9P"/>
+                    <constraint firstItem="zXK-Et-erm" firstAttribute="trailing" secondItem="h7h-A6-3mI" secondAttribute="trailing" id="Ds7-TD-W9P"/>
                     <constraint firstItem="h7h-A6-3mI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EIN-Mu-n7u"/>
                     <constraint firstItem="zzY-A1-Chn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="SBw-rd-ChD"/>
                     <constraint firstItem="h7h-A6-3mI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sYM-sH-YYJ" secondAttribute="trailing" constant="5" id="SOn-SA-etI"/>

@@ -137,7 +137,7 @@ open class EtherKeystore: Keystore {
                 return completion(.failure(KeystoreError.duplicateAccount))
             }
         case .watch(let address):
-            let addressString = address.description
+            let addressString = address.data.addressString
             guard !watchAddresses.contains(addressString) else {
                 return completion(.failure(.duplicateAccount))
             }
@@ -180,9 +180,14 @@ open class EtherKeystore: Keystore {
     func createAccout(password: String) -> TrustKeystore.Account {
         let account = try! keyStore.createAccount(password: password, type: .encryptedKey)
         let _ = setPassword(password, for: account)
+        
         return account
     }
-
+    
+    func saveAccount(_ account: TrustKeystore.Account) throws {
+        try keyStore.addAccount(account: account)
+    }
+    
     func importKeystore(value: String, password: String, newPassword: String) -> Result<TrustKeystore.Account, KeystoreError> {
         guard let data = value.data(using: .utf8) else {
             return (.failure(.failedToParseJSON))
@@ -201,7 +206,7 @@ open class EtherKeystore: Keystore {
     }
 
     var wallets: [Wallet] {
-        let addresses = watchAddresses.compactMap { TrustCore.Address(string: $0) }
+        let addresses = watchAddresses.compactMap { TrustCore.Address(data: $0.base58CheckData!) }
         return [
             keyStore.accounts.map {
                 switch $0.type {
@@ -273,7 +278,7 @@ open class EtherKeystore: Keystore {
                 return .failure(.failedToDeleteAccount)
             }
         case .address(let address):
-            watchAddresses = watchAddresses.filter { $0 != address.description }
+            watchAddresses = watchAddresses.filter { $0 != address.data.addressString }
             return .success(())
         }
     }

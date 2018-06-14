@@ -996,6 +996,8 @@ typedef struct TimePaginatedMessage__storage_ {
 @dynamic netLimit;
 @dynamic assetNetUsed, assetNetUsed_Count;
 @dynamic assetNetLimit, assetNetLimit_Count;
+@dynamic totalNetLimit;
+@dynamic totalNetWeight;
 
 typedef struct AccountNetMessage__storage_ {
   uint32_t _has_storage_[1];
@@ -1005,6 +1007,8 @@ typedef struct AccountNetMessage__storage_ {
   int64_t freeNetLimit;
   int64_t netUsed;
   int64_t netLimit;
+  int64_t totalNetLimit;
+  int64_t totalNetWeight;
 } AccountNetMessage__storage_;
 
 // This method is threadsafe because it is initially called
@@ -1067,6 +1071,24 @@ typedef struct AccountNetMessage__storage_ {
         .flags = (GPBFieldFlags)(GPBFieldMapKeyString | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeInt64,
       },
+      {
+        .name = "totalNetLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountNetMessage_FieldNumber_TotalNetLimit,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(AccountNetMessage__storage_, totalNetLimit),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "totalNetWeight",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountNetMessage_FieldNumber_TotalNetWeight,
+        .hasIndex = 5,
+        .offset = (uint32_t)offsetof(AccountNetMessage__storage_, totalNetWeight),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[AccountNetMessage class]
@@ -1078,7 +1100,7 @@ typedef struct AccountNetMessage__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\006\001\013\000\002\014\000\003G\000\004H\000\005\014\000\006\r\000";
+        "\010\001\013\000\002\014\000\003G\000\004H\000\005\014\000\006\r\000\007M\000\010N\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");

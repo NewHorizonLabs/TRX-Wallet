@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36075F3920BFCCDB00E6AF13 /* ColdTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36075F3820BFCCDB00E6AF13 /* ColdTransactionView.swift */; };
+		36075F3B20BFCCE600E6AF13 /* ColdTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36075F3A20BFCCE600E6AF13 /* ColdTransactionView.xib */; };
+		36075F3D20BFD9B100E6AF13 /* OffLineSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36075F3C20BFD9B100E6AF13 /* OffLineSignViewController.swift */; };
+		36075F4120BFF5A100E6AF13 /* SignedTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36075F4020BFF5A100E6AF13 /* SignedTransactionView.swift */; };
+		36075F4320BFF5B200E6AF13 /* SignedTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36075F4220BFF5B200E6AF13 /* SignedTransactionView.xib */; };
 		36173AFB209D61F30082CD1E /* Balance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36173AFA209D61F30082CD1E /* Balance.storyboard */; };
 		36173AFE209D74EE0082CD1E /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */; };
 		3640CAAA20B416E80002050B /* SetSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3640CAA820B416E80002050B /* SetSwitchTableViewCell.swift */; };
 		3640CAAB20B416E80002050B /* SetSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3640CAA920B416E80002050B /* SetSwitchTableViewCell.xib */; };
+		3657307D20CFB17600F942B3 /* TronInventoryItems.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657307C20CFB17600F942B3 /* TronInventoryItems.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3666D98B209D7EC100EF7F87 /* SendTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3666D98A209D7EC100EF7F87 /* SendTransactionViewController.swift */; };
 		3666D98D209D82C900EF7F87 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3666D98C209D82C900EF7F87 /* SendViewController.swift */; };
 		3666D9B220A006C900EF7F87 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3666D9B120A006C900EF7F87 /* Transaction.storyboard */; };
@@ -353,6 +359,10 @@
 		368C860D209C72640089D906 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C860C209C72640089D906 /* R.generated.swift */; };
 		368C8610209C88BF0089D906 /* WalletHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C860F209C88BF0089D906 /* WalletHelper.swift */; };
 		36B15CA720AEE16800DB006B /* ImportTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B15CA520AEE16800DB006B /* ImportTypeTableViewCell.swift */; };
+		36B68B4020CA82EB006E891C /* Browser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B68B3E20CA82EA006E891C /* Browser.storyboard */; };
+		36B68B4120CA82EB006E891C /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B68B3F20CA82EA006E891C /* BrowserViewController.swift */; };
+		36B68B4320CA83C5006E891C /* BrowserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B68B4220CA83C5006E891C /* BrowserHelper.swift */; };
+		36B68B4720CA8E37006E891C /* html in Resources */ = {isa = PBXBuildFile; fileRef = 36B68B4620CA8E37006E891C /* html */; };
 		36C62A8220511CD6005A36DF /* NavCancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C62A8120511CD6005A36DF /* NavCancelButton.swift */; };
 		36C62A8520511FBF005A36DF /* CurrentViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C62A8420511FBF005A36DF /* CurrentViewControllerHelper.swift */; };
 		36C62A8920A19EED005A36DF /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C62A8720A19EED005A36DF /* TransactionTableViewCell.swift */; };
@@ -402,15 +412,26 @@
 		36CF028220BBD5710001D0F5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF028120BBD5710001D0F5 /* Constant.swift */; };
 		36CF028420BD041C0001D0F5 /* FrozenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF028320BD041C0001D0F5 /* FrozenView.swift */; };
 		36CF028620BD04230001D0F5 /* FrozenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF028520BD04230001D0F5 /* FrozenView.xib */; };
+		36F1557920CA182F002BF4B1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1557820CA182F002BF4B1 /* NetworkHelper.swift */; };
+		36F1557B20CA4F35002BF4B1 /* WalletModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1557A20CA4F35002BF4B1 /* WalletModeView.swift */; };
+		36F1557D20CA4F3E002BF4B1 /* WalletModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F1557C20CA4F3E002BF4B1 /* WalletModeView.xib */; };
+		36F1557F20CA5003002BF4B1 /* BaseTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1557E20CA5003002BF4B1 /* BaseTabbarViewController.swift */; };
 		506C1BE2A7FC0A2831F1AD43 /* Pods_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F726B613EFCB776E125EF5D /* Pods_Wallet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C5162AE5ADEF1BC135CACA9 /* Pods-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallet/Pods-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
+		36075F3820BFCCDB00E6AF13 /* ColdTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColdTransactionView.swift; sourceTree = "<group>"; };
+		36075F3A20BFCCE600E6AF13 /* ColdTransactionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColdTransactionView.xib; sourceTree = "<group>"; };
+		36075F3C20BFD9B100E6AF13 /* OffLineSignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffLineSignViewController.swift; sourceTree = "<group>"; };
+		36075F4020BFF5A100E6AF13 /* SignedTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedTransactionView.swift; sourceTree = "<group>"; };
+		36075F4220BFF5B200E6AF13 /* SignedTransactionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedTransactionView.xib; sourceTree = "<group>"; };
 		36173AFA209D61F30082CD1E /* Balance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Balance.storyboard; sourceTree = "<group>"; };
 		36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		3640CAA820B416E80002050B /* SetSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		3640CAA920B416E80002050B /* SetSwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		3657307B20CFB17600F942B3 /* TronInventoryItems.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TronInventoryItems.pbobjc.h; sourceTree = "<group>"; };
+		3657307C20CFB17600F942B3 /* TronInventoryItems.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TronInventoryItems.pbobjc.m; sourceTree = "<group>"; };
 		3666D98A209D7EC100EF7F87 /* SendTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionViewController.swift; sourceTree = "<group>"; };
 		3666D98C209D82C900EF7F87 /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		3666D9B120A006C900EF7F87 /* Transaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
@@ -776,6 +797,10 @@
 		368C860C209C72640089D906 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		368C860F209C88BF0089D906 /* WalletHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHelper.swift; sourceTree = "<group>"; };
 		36B15CA520AEE16800DB006B /* ImportTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTypeTableViewCell.swift; sourceTree = "<group>"; };
+		36B68B3E20CA82EA006E891C /* Browser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browser.storyboard; sourceTree = "<group>"; };
+		36B68B3F20CA82EA006E891C /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		36B68B4220CA83C5006E891C /* BrowserHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserHelper.swift; sourceTree = "<group>"; };
+		36B68B4620CA8E37006E891C /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
 		36C62A8120511CD6005A36DF /* NavCancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavCancelButton.swift; sourceTree = "<group>"; };
 		36C62A8420511FBF005A36DF /* CurrentViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentViewControllerHelper.swift; sourceTree = "<group>"; };
 		36C62A8720A19EED005A36DF /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
@@ -826,6 +851,10 @@
 		36CF028120BBD5710001D0F5 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		36CF028320BD041C0001D0F5 /* FrozenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrozenView.swift; sourceTree = "<group>"; };
 		36CF028520BD04230001D0F5 /* FrozenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrozenView.xib; sourceTree = "<group>"; };
+		36F1557820CA182F002BF4B1 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		36F1557A20CA4F35002BF4B1 /* WalletModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModeView.swift; sourceTree = "<group>"; };
+		36F1557C20CA4F3E002BF4B1 /* WalletModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletModeView.xib; sourceTree = "<group>"; };
+		36F1557E20CA5003002BF4B1 /* BaseTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarViewController.swift; sourceTree = "<group>"; };
 		4F726B613EFCB776E125EF5D /* Pods_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9544229453FF14F04EE17021 /* Pods-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wallet/Pods-Wallet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -857,8 +886,10 @@
 				36173AFD209D74EE0082CD1E /* ReceiveViewController.swift */,
 				3666D98A209D7EC100EF7F87 /* SendTransactionViewController.swift */,
 				36C62ADC20A6E971005A36DF /* SendConfiremViewController.swift */,
+				36075F3C20BFD9B100E6AF13 /* OffLineSignViewController.swift */,
 				3666D9B620A0200A00EF7F87 /* BalanceViewController.swift */,
 				36CCC19920AAC1E50067B8E6 /* OtherTokenViewController.swift */,
+				36F1557E20CA5003002BF4B1 /* BaseTabbarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -979,6 +1010,8 @@
 				3666DB4520A1718100EF7F87 /* Discover.pbobjc.m */,
 				3666DB4620A1718100EF7F87 /* Tron.pbobjc.m */,
 				3666DB4720A1718100EF7F87 /* Contract.pbobjc.m */,
+				3657307B20CFB17600F942B3 /* TronInventoryItems.pbobjc.h */,
+				3657307C20CFB17600F942B3 /* TronInventoryItems.pbobjc.m */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -1035,6 +1068,7 @@
 			children = (
 				368C860C209C72640089D906 /* R.generated.swift */,
 				368C82E5209C432F0089D906 /* AppDelegate.swift */,
+				36B68B4620CA8E37006E891C /* html */,
 				36C62A8320511F3D005A36DF /* Helpers */,
 				3666DA0F20A030CC00EF7F87 /* Protocols */,
 				3666D9E320A02CCF00EF7F87 /* Views */,
@@ -1071,6 +1105,7 @@
 		368C82F7209C442D0089D906 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				36B68B3D20CA82EA006E891C /* Browser */,
 				36CCC18020A936F50067B8E6 /* Set */,
 				36C62A9620A1AE4B005A36DF /* Token */,
 				36C62A8B20A1A85C005A36DF /* Vote */,
@@ -2025,12 +2060,23 @@
 			path = Balance;
 			sourceTree = "<group>";
 		};
+		36B68B3D20CA82EA006E891C /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				36B68B3E20CA82EA006E891C /* Browser.storyboard */,
+				36B68B3F20CA82EA006E891C /* BrowserViewController.swift */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
 		36C62A8020511CAC005A36DF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				36C62A8120511CD6005A36DF /* NavCancelButton.swift */,
 				36CCC18D20A973DF0067B8E6 /* KTPickerViewController.swift */,
 				36CCC19B20AB19020067B8E6 /* PopViewController.swift */,
+				36F1557A20CA4F35002BF4B1 /* WalletModeView.swift */,
+				36F1557C20CA4F3E002BF4B1 /* WalletModeView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -2038,6 +2084,8 @@
 		36C62A8320511F3D005A36DF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				36B68B4220CA83C5006E891C /* BrowserHelper.swift */,
+				36F1557820CA182F002BF4B1 /* NetworkHelper.swift */,
 				368C860F209C88BF0089D906 /* WalletHelper.swift */,
 				36CCC1A020AC43210067B8E6 /* HUD.swift */,
 				36CCC19F20AC43210067B8E6 /* SwiftNotice.swift */,
@@ -2124,6 +2172,10 @@
 				36C62AB820A2ECFF005A36DF /* AccountAssetTableViewCell.xib */,
 				36CF028320BD041C0001D0F5 /* FrozenView.swift */,
 				36CF028520BD04230001D0F5 /* FrozenView.xib */,
+				36075F3820BFCCDB00E6AF13 /* ColdTransactionView.swift */,
+				36075F3A20BFCCE600E6AF13 /* ColdTransactionView.xib */,
+				36075F4020BFF5A100E6AF13 /* SignedTransactionView.swift */,
+				36075F4220BFF5B200E6AF13 /* SignedTransactionView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2257,20 +2309,25 @@
 				36CCC18220A9371A0067B8E6 /* Set.storyboard in Resources */,
 				3666DA0920A02FC000EF7F87 /* AlerButtonBar.xib in Resources */,
 				368C853C209C70180089D906 /* NonFungibleTokenViewCell.xib in Resources */,
+				36F1557D20CA4F3E002BF4B1 /* WalletModeView.xib in Resources */,
 				368C82FA209C44AA0089D906 /* Login.storyboard in Resources */,
 				36CF028620BD04230001D0F5 /* FrozenView.xib in Resources */,
 				368C82F0209C43300089D906 /* LaunchScreen.storyboard in Resources */,
+				36B68B4020CA82EB006E891C /* Browser.storyboard in Resources */,
 				36C62AA020A1AED4005A36DF /* TokenTableViewCell.xib in Resources */,
 				3640CAAB20B416E80002050B /* SetSwitchTableViewCell.xib in Resources */,
 				36C62A8D20A1A868005A36DF /* Vote.storyboard in Resources */,
 				36C62ABA20A2ECFF005A36DF /* AccountAssetTableViewCell.xib in Resources */,
 				36C62AC120A30545005A36DF /* PopTipViewController.xib in Resources */,
 				368C82ED209C43300089D906 /* Assets.xcassets in Resources */,
+				36B68B4720CA8E37006E891C /* html in Resources */,
 				368C85C7209C70190089D906 /* WordCollectionViewCell.xib in Resources */,
 				368C853B209C70180089D906 /* EditTokenTableViewCell.xib in Resources */,
 				368C85F6209C70190089D906 /* bignumber.min.js in Resources */,
 				36CCC1A520AD29100067B8E6 /* Tron.strings in Resources */,
 				36173AFB209D61F30082CD1E /* Balance.storyboard in Resources */,
+				36075F4320BFF5B200E6AF13 /* SignedTransactionView.xib in Resources */,
+				36075F3B20BFCCE600E6AF13 /* ColdTransactionView.xib in Resources */,
 				36C62AC620A30655005A36DF /* VoteInputView.xib in Resources */,
 				368C8594209C70180089D906 /* Localizable.strings in Resources */,
 				36C62A8A20A19EED005A36DF /* TransactionTableViewCell.xib in Resources */,
@@ -2559,6 +2616,7 @@
 				368C85AF209C70190089D906 /* BackupViewModel.swift in Sources */,
 				368C84BD209C70180089D906 /* ConfirmCoordinator.swift in Sources */,
 				36CCC18C20A946530067B8E6 /* CreateTokenViewController.swift in Sources */,
+				36F1557F20CA5003002BF4B1 /* BaseTabbarViewController.swift in Sources */,
 				368C84D2209C70180089D906 /* ConfigureTransactionError.swift in Sources */,
 				3666DB5920A1718100EF7F87 /* Annotations.pbobjc.m in Sources */,
 				3666D9D820A0260300EF7F87 /* UIImage + Extensions.swift in Sources */,
@@ -2572,6 +2630,7 @@
 				36CCC1A120AC43210067B8E6 /* SwiftNotice.swift in Sources */,
 				368C8566209C70180089D906 /* TransactionsViewModel.swift in Sources */,
 				368C851C209C70180089D906 /* TokensCoordinator.swift in Sources */,
+				36B68B4120CA82EB006E891C /* BrowserViewController.swift in Sources */,
 				368C85C4209C70190089D906 /* ImportWalletViewController.swift in Sources */,
 				368C8546209C70180089D906 /* DecimalFormatter.swift in Sources */,
 				368C8598209C70180089D906 /* FieldAppereance.swift in Sources */,
@@ -2583,6 +2642,7 @@
 				368C8534209C70180089D906 /* NonFungibleTokensViewController.swift in Sources */,
 				368C859F209C70180089D906 /* FloatLabelCell.swift in Sources */,
 				368C8595209C70180089D906 /* PrivateKeyRule.swift in Sources */,
+				36075F4120BFF5A100E6AF13 /* SignedTransactionView.swift in Sources */,
 				368C84CD209C70180089D906 /* UnconfirmedTransaction.swift in Sources */,
 				368C853E209C70180089D906 /* TokensHeaderView.swift in Sources */,
 				368C8519209C70180089D906 /* Styles.swift in Sources */,
@@ -2612,12 +2672,14 @@
 				368C85A9209C70190089D906 /* LoadingView.swift in Sources */,
 				368C85CA209C70190089D906 /* HelpUsCoordinator.swift in Sources */,
 				368C85C8209C70190089D906 /* PassphraseView.swift in Sources */,
+				36F1557920CA182F002BF4B1 /* NetworkHelper.swift in Sources */,
 				368C8596209C70180089D906 /* TransactionAppearance.swift in Sources */,
 				368C8552209C70180089D906 /* Decimal.swift in Sources */,
 				368C85ED209C70190089D906 /* PreferencesController.swift in Sources */,
 				368C85F0209C70190089D906 /* EthTypedData.swift in Sources */,
 				368C85EE209C70190089D906 /* CastError.swift in Sources */,
 				368C8555209C70180089D906 /* NSAttributedString.swift in Sources */,
+				36F1557B20CA4F35002BF4B1 /* WalletModeView.swift in Sources */,
 				368C852C209C70180089D906 /* ERC20Token.swift in Sources */,
 				368C84BB209C70180089D906 /* PaymentCoordinator.swift in Sources */,
 				368C857B209C70180089D906 /* TransactionsEmptyView.swift in Sources */,
@@ -2649,6 +2711,7 @@
 				368C856F209C70180089D906 /* LocalizedOperationObject.swift in Sources */,
 				368C8592209C70180089D906 /* PendingTransaction.swift in Sources */,
 				36C62ADD20A6E971005A36DF /* SendConfiremViewController.swift in Sources */,
+				36075F3D20BFD9B100E6AF13 /* OffLineSignViewController.swift in Sources */,
 				368C84CC209C70180089D906 /* InCoordinatorError.swift in Sources */,
 				368C8577209C70180089D906 /* Transaction.swift in Sources */,
 				368C84D3209C70180089D906 /* GasPriceConfiguration.swift in Sources */,
@@ -2670,6 +2733,7 @@
 				368C8508209C70180089D906 /* BranchEventParser.swift in Sources */,
 				368C8524209C70180089D906 /* NFTDetailsViewModel.swift in Sources */,
 				368C85E2209C70190089D906 /* ServiceProvider.swift in Sources */,
+				36B68B4320CA83C5006E891C /* BrowserHelper.swift in Sources */,
 				368C8589209C70180089D906 /* SplashViewController.swift in Sources */,
 				368C8608209C70190089D906 /* EtherClient.swift in Sources */,
 				368C85AA209C70190089D906 /* TabBarController.swift in Sources */,
@@ -2779,6 +2843,7 @@
 				368C8572209C70180089D906 /* TransactionValue.swift in Sources */,
 				368C85C3209C70190089D906 /* EnterPasswordCoordinator.swift in Sources */,
 				368C856E209C70180089D906 /* TokenTransfer.swift in Sources */,
+				36075F3920BFCCDB00E6AF13 /* ColdTransactionView.swift in Sources */,
 				368C8547209C70180089D906 /* TrustNetworkProtocol.swift in Sources */,
 				36CF020B20B65A9C0001D0F5 /* UIScrollView+Refresh.swift in Sources */,
 				3666DA0E20A02FC000EF7F87 /* GradientButton.swift in Sources */,
@@ -2787,6 +2852,7 @@
 				368C84C9209C70180089D906 /* ConfigureTransaction.swift in Sources */,
 				368C852A209C70180089D906 /* TokenObject.swift in Sources */,
 				368C859C209C70180089D906 /* TokenImageView.swift in Sources */,
+				3657307D20CFB17600F942B3 /* TronInventoryItems.pbobjc.m in Sources */,
 				368C85A3209C70190089D906 /* NetworkConditionViewModel.swift in Sources */,
 				368C858B209C70180089D906 /* PasscodeCharacterView.swift in Sources */,
 				368C8559209C70180089D906 /* UIButton.swift in Sources */,

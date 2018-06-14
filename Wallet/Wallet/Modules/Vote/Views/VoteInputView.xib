@@ -14,7 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="VoteInputView" customModule="Wallet" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="304" height="323"/>
+            <rect key="frame" x="0.0" y="0.0" width="304" height="355"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJ6-GP-gWE">
@@ -69,8 +69,14 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote will freeze the same number of you TRX" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyA-rv-Jc3">
+                    <rect key="frame" x="30" y="207" width="244" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.52156862749999999" green="0.53333333329999999" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QT1-PE-ZzA">
-                    <rect key="frame" x="31" y="236" width="242" height="44"/>
+                    <rect key="frame" x="31" y="278" width="242" height="44"/>
                     <color key="backgroundColor" red="0.27450980392156865" green="0.23529411764705882" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="SRZ-j9-UOn"/>
@@ -90,12 +96,15 @@
                 <constraint firstItem="W4j-iM-2wX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="13f-57-xkC"/>
                 <constraint firstItem="V4r-oB-efN" firstAttribute="centerY" secondItem="W4j-iM-2wX" secondAttribute="centerY" id="5FF-y1-VZF"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="W4j-iM-2wX" secondAttribute="trailing" constant="30" id="6H2-wx-mIy"/>
+                <constraint firstItem="QT1-PE-ZzA" firstAttribute="top" secondItem="UyA-rv-Jc3" secondAttribute="bottom" constant="42" id="88O-Q8-ejN"/>
                 <constraint firstItem="yk6-64-GoE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="8oA-ZJ-4bL"/>
                 <constraint firstItem="yk6-64-GoE" firstAttribute="top" secondItem="tzK-uA-IE7" secondAttribute="bottom" constant="40" id="D3R-6Y-5Qh"/>
                 <constraint firstItem="W4j-iM-2wX" firstAttribute="top" secondItem="yk6-64-GoE" secondAttribute="bottom" constant="25" id="FB9-Dw-7rG"/>
                 <constraint firstItem="uJZ-pi-GG6" firstAttribute="centerX" secondItem="yk6-64-GoE" secondAttribute="centerX" id="GYj-EX-PKi"/>
+                <constraint firstItem="UyA-rv-Jc3" firstAttribute="top" secondItem="W4j-iM-2wX" secondAttribute="bottom" constant="13" id="Lhj-YV-DjG"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yk6-64-GoE" secondAttribute="trailing" constant="30" id="M2A-V2-EVF"/>
                 <constraint firstItem="W4j-iM-2wX" firstAttribute="centerX" secondItem="yk6-64-GoE" secondAttribute="centerX" id="Olc-IY-Gh5"/>
+                <constraint firstItem="UyA-rv-Jc3" firstAttribute="centerX" secondItem="W4j-iM-2wX" secondAttribute="centerX" id="Pmy-hp-Kww"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tzK-uA-IE7" secondAttribute="trailing" constant="30" id="R6q-Cj-HxZ"/>
                 <constraint firstItem="yk6-64-GoE" firstAttribute="centerX" secondItem="tzK-uA-IE7" secondAttribute="centerX" id="Ral-J7-4th"/>
                 <constraint firstItem="QT1-PE-ZzA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="235:295" id="Se2-pr-Agk"/>
@@ -103,9 +112,10 @@
                 <constraint firstItem="hJ6-GP-gWE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dEi-KF-Fcw"/>
                 <constraint firstItem="V4r-oB-efN" firstAttribute="centerX" secondItem="W4j-iM-2wX" secondAttribute="centerX" id="gyT-sd-mSn"/>
                 <constraint firstItem="tzK-uA-IE7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="kcM-Yo-cdR"/>
-                <constraint firstItem="QT1-PE-ZzA" firstAttribute="top" secondItem="W4j-iM-2wX" secondAttribute="bottom" constant="42" id="tWM-6q-UcF"/>
                 <constraint firstItem="tzK-uA-IE7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="39" id="uWL-vC-4cv"/>
                 <constraint firstItem="tzK-uA-IE7" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="vjh-ZD-JM4"/>
+                <constraint firstItem="UyA-rv-Jc3" firstAttribute="leading" secondItem="W4j-iM-2wX" secondAttribute="leading" id="xJ8-WW-APL"/>
+                <constraint firstItem="UyA-rv-Jc3" firstAttribute="trailing" secondItem="W4j-iM-2wX" secondAttribute="trailing" id="xpK-mO-7HU"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hJ6-GP-gWE" secondAttribute="trailing" id="yaL-zl-l2d"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -124,7 +134,7 @@
                 <outlet property="textField" destination="W4j-iM-2wX" id="jnK-Ly-Jfv"/>
                 <outlet property="urlLabel" destination="tzK-uA-IE7" id="vSo-sa-8TO"/>
             </connections>
-            <point key="canvasLocation" x="-2" y="-118.5"/>
+            <point key="canvasLocation" x="-2" y="-102.5"/>
         </view>
     </objects>
     <resources>

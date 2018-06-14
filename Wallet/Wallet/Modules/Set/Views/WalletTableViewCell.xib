@@ -44,6 +44,9 @@
                         <color key="textColor" red="0.69019607843137254" green="0.72156862745098038" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_watch" translatesAutoresizingMaskIntoConstraints="NO" id="7XO-Of-p09">
+                        <rect key="frame" x="239" y="16" width="24" height="8"/>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-y1-0T2">
                         <rect key="frame" x="271" y="18.5" width="33" height="32"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
@@ -53,8 +56,10 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="aWt-y1-0T2" firstAttribute="leading" secondItem="7XO-Of-p09" secondAttribute="trailing" constant="8" id="7D9-6D-ZXs"/>
                     <constraint firstItem="ubq-UE-EsL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JD7-qz-sDC"/>
                     <constraint firstAttribute="trailing" secondItem="aWt-y1-0T2" secondAttribute="trailing" constant="16" id="JyC-s1-x5Y"/>
+                    <constraint firstItem="7XO-Of-p09" firstAttribute="centerY" secondItem="OJB-id-EJw" secondAttribute="centerY" id="KFX-Ns-aMz"/>
                     <constraint firstItem="y9z-hd-mbM" firstAttribute="leading" secondItem="OJB-id-EJw" secondAttribute="leading" id="cbu-lX-O1W"/>
                     <constraint firstItem="y9z-hd-mbM" firstAttribute="top" secondItem="ubq-UE-EsL" secondAttribute="bottom" id="iAl-1b-0t1"/>
                     <constraint firstItem="ubq-UE-EsL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="odO-3h-B51"/>
@@ -69,8 +74,12 @@
                 <outlet property="balanceLabel" destination="OJB-id-EJw" id="bj3-1G-ECH"/>
                 <outlet property="exportButton" destination="aWt-y1-0T2" id="l5e-xY-Oga"/>
                 <outlet property="tipView" destination="ubq-UE-EsL" id="vUM-LM-AxO"/>
+                <outlet property="watchImageView" destination="7XO-Of-p09" id="MZ6-dk-vPM"/>
             </connections>
             <point key="canvasLocation" x="34" y="66.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_watch" width="24" height="8"/>
+    </resources>
 </document>

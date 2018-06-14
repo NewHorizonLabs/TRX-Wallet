@@ -362,6 +362,8 @@ typedef GPB_ENUM(AccountNetMessage_FieldNumber) {
   AccountNetMessage_FieldNumber_NetLimit = 4,
   AccountNetMessage_FieldNumber_AssetNetUsed = 5,
   AccountNetMessage_FieldNumber_AssetNetLimit = 6,
+  AccountNetMessage_FieldNumber_TotalNetLimit = 7,
+  AccountNetMessage_FieldNumber_TotalNetWeight = 8,
 };
 
 @interface AccountNetMessage : GPBMessage
@@ -381,6 +383,10 @@ typedef GPB_ENUM(AccountNetMessage_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) GPBStringInt64Dictionary *assetNetLimit;
 /** The number of items in @c assetNetLimit without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger assetNetLimit_Count;
+
+@property(nonatomic, readwrite) int64_t totalNetLimit;
+
+@property(nonatomic, readwrite) int64_t totalNetWeight;
 
 @end
 

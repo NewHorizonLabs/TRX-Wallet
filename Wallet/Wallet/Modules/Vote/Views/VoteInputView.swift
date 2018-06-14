@@ -46,7 +46,7 @@ class VoteInputView: UIView, XibLoadable, Popable {
         confirmButton.addTarget(self, action: #selector(confirmButtonClick), for: .touchUpInside)
         closeButton.addTarget(self, action: #selector(closeButtonClick), for: .touchUpInside)
         
-        balanceLabel.text = ServiceHelper.shared.balance + " TRX"
+        balanceLabel.text = ServiceHelper.shared.account.value?.frozenBalance ?? "0" + " TRX"
         
         (textField.rx.text).orEmpty.asObservable()
             .map { return $0.count > 0 }
@@ -64,33 +64,7 @@ class VoteInputView: UIView, XibLoadable, Popable {
         }
         self.textField.resignFirstResponder()
         
-        //冻结余额
-        let freezeContract = FreezeBalanceContract()
-        freezeContract.ownerAddress = account.address
-        freezeContract.frozenBalance = number * 1000000
-        freezeContract.frozenDuration = 3
-        
-        ServiceHelper.shared.service.freezeBalance(withRequest: freezeContract) {[weak self] (transaction, error) in
-            if let action = transaction {
-                ServiceHelper.shared.broadcastTransaction(action, completion: { (response, error) in
-                    if let response = response {
-                        let result = response.result
-                        let message = String.init(data: response.message, encoding: .utf8)
-                        print(response)
-                        if result {
-                            self?.vote(model: model, account: account, number: number)
-                        } else {
-                            HUD.showError(error: response.errorMessage)
-                        }
-                    } else if let error = error {
-                        HUD.showError(error: error.localizedDescription)
-                    }
-                })
-            } else if let error = error {
-                HUD.showError(error: error.localizedDescription)
-            }
-        }
-        
+        self.vote(model: model, account: account, number: number)
         
     }
     
@@ -100,10 +74,21 @@ class VoteInputView: UIView, XibLoadable, Popable {
         vote.voteAddress = model.address
         vote.voteCount = number
         
+        var voteContractArray: [VoteWitnessContract_Vote] = ServiceHelper.shared.voteArray.filter({ (vote) -> Bool in
+            return model.address.addressString != vote.voteAddress.addressString
+        }).map { (object) -> VoteWitnessContract_Vote in
+            let vote = VoteWitnessContract_Vote()
+            vote.voteAddress = object.voteAddress
+            vote.voteCount = object.voteCount
+            return vote
+        }
+        
+        voteContractArray.append(vote)
+        
         //用户数据
         let contract = VoteWitnessContract()
         contract.ownerAddress = account.address
-        contract.votesArray = [vote]
+        contract.votesArray = NSMutableArray(array: voteContractArray)
         
         if let vc = self.viewController() {
             vc.displayLoading()
@@ -116,12 +101,12 @@ class VoteInputView: UIView, XibLoadable, Popable {
                         let result = response.result
                         let message = String.init(data: response.message, encoding: .utf8)
                         if result {
-                            HUD.showText(text: R.string.tron.hudSuccess())
-                            ServiceHelper.shared.voteChange.onNext(())
-                            self.successBlock?(number)
                             self.popDismiss()
+                            self.successBlock?(number)
+                            ServiceHelper.shared.voteChange.onNext(())
+                            HUD.showText(text: R.string.tron.hudSuccess())
                         } else {
-                            HUD.showError(error: response.errorMessage)
+                            HUD.showError(error: "Vote Failed, If you don't have\n freeze TRX, please freeze TRX first")
                         }
                         
                     }

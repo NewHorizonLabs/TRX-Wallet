@@ -605,7 +605,7 @@ typedef GPB_ENUM(Transaction_FieldNumber) {
 /** Test to see if @c rawData has been set. */
 @property(nonatomic, readwrite) BOOL hasRawData;
 
-/** only support size = 1,  repeated list here for muti-sig extenstion */
+/** only support size = 1,  repeated list here for muti-sig extension */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *signatureArray;
 /** The number of items in @c signatureArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger signatureArray_Count;
@@ -710,7 +710,7 @@ typedef GPB_ENUM(Transaction_raw_FieldNumber) {
 /** data not used */
 @property(nonatomic, readwrite, copy, null_resettable) NSData *data_p;
 
-/** only support size = 1,  repeated list here for extenstion */
+/** only support size = 1,  repeated list here for extension */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<Transaction_Contract*> *contractArray;
 /** The number of items in @c contractArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger contractArray_Count;

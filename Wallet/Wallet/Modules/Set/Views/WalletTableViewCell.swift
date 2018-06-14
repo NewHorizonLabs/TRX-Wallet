@@ -19,6 +19,7 @@ protocol WalletWalletTableViewCellDelegate: class {
 
 class WalletTableViewCell: SwipeTableViewCell {
 
+    @IBOutlet weak var watchImageView: UIImageView!
     @IBOutlet weak var exportButton: UIButton!
     @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var balanceLabel: UILabel!
@@ -75,6 +76,12 @@ class WalletTableViewCell: SwipeTableViewCell {
                 self?.balanceLabel.text = account.balance.balanceString
             })
         .disposed(by: disposeBag)
+        
+        if model.type == .address(model.address) {
+            watchImageView.isHidden = false
+        } else {
+            watchImageView.isHidden = true
+        }
     }
     
     func delete() {

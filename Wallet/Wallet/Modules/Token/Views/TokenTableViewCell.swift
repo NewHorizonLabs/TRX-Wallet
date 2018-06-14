@@ -18,9 +18,6 @@ enum TokenState {
 
 class TokenTableViewCell: UITableViewCell {
     
-    
-    
-    
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var userAddressLabel: UILabel!
@@ -33,7 +30,8 @@ class TokenTableViewCell: UITableViewCell {
     @IBOutlet weak var issuerTitleLabel: UILabel!
     var model: AssetIssueContract?
     
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
+    let cellDisposeBag = DisposeBag()
     
     var state: TokenState = .notStart {
         didSet {
@@ -51,8 +49,16 @@ class TokenTableViewCell: UITableViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        ServiceHelper.shared.isWatchMode.asObservable()
+        .bind(to: participateButton.rx.isHidden)
+        .disposed(by: cellDisposeBag)
         // Initialization code
         configureUI()
     }

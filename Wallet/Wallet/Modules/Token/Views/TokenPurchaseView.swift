@@ -87,7 +87,7 @@ class TokenPurchaseView: UIView, XibLoadable, Popable {
     }
     
     @objc func confirmButtonClick() {
-        guard let model = model, let account = ServiceHelper.shared.account.value, let text = textField.text, let number = Int64(text) else {
+        guard let model = model, let account = ServiceHelper.shared.account.value, let text = textField.text, let number = Float(text) else {
             return
         }
         self.textField.resignFirstResponder()
@@ -95,7 +95,7 @@ class TokenPurchaseView: UIView, XibLoadable, Popable {
         let contract = ParticipateAssetIssueContract()
         contract.ownerAddress = account.address
         contract.toAddress = model.ownerAddress
-        contract.amount = number * Int64(Float(model.trxNum) / Float(model.num))
+        contract.amount = Int64(number * (Float(model.trxNum) / Float(model.num)))
         contract.assetName = model.name
         self.viewController()?.displayLoading()
         ServiceHelper.shared.service.participateAssetIssue(withRequest: contract) { (transaction ,error) in

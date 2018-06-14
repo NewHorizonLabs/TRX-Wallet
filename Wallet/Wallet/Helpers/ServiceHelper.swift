@@ -17,12 +17,14 @@ import TrustKeystore
 //solidity node
 class ServiceHelper: NSObject {
     static let shared = ServiceHelper()
-    static let fullNode: String = "47.91.216.69:50051"
-    static let solidityNode: String = "47.254.39.153:50051"
+    static let fullNode: String = "47.91.246.252:50051"
+    static let solidityNode: String = "47.89.244.227:50051"
     let service: TWallet = TWallet(host: ServiceHelper.fullNode)
-    let solidityService: WalletSolidity = WalletSolidity(host: ServiceHelper.solidityNode)
+    let solidityService: WalletExtension = WalletExtension(host: ServiceHelper.solidityNode)
     var account: Variable<TronAccount?> = Variable(nil)
     var trustAccount: TrustKeystore.Account?
+    var isWatchMode: Variable<Bool> = Variable(false)
+    var walletMode: Variable<WalletModeState> = Variable(.hot)
     
     var currentWallet: Wallet? {
         didSet {
@@ -32,10 +34,16 @@ class ServiceHelper: NSObject {
                 account.value = a
                 keystore.recentlyUsedWallet = w
                 trustAccount = keystore.getAccount(for: w.address)
+                if w.type == .address(w.address) {
+                    isWatchMode.value = true
+                } else {
+                    isWatchMode.value = false
+                }
             }
         }
     }
     var keystore: EtherKeystore = EtherKeystore.shared
+    var voteArray: [Vote] = []
     
     //钱包切换
     var walletChange: PublishSubject<Void> = PublishSubject<()>()
@@ -69,6 +77,11 @@ class ServiceHelper: NSObject {
             account.value = a
             trustAccount = keystore.getAccount(for: w.address)
             keystore.recentlyUsedWallet = w
+            if w.type == .address(w.address) {
+                isWatchMode.value = true
+            } else {
+                isWatchMode.value = false
+            }
         }
     }
     
@@ -78,7 +91,11 @@ class ServiceHelper: NSObject {
         }
         service.getAccountWithRequest(a) {[weak self] (accountModel, error) in
             if let model = accountModel, a.address.addressString == model.address.addressString {
+                if let array = model.votesArray as? [Vote] {
+                    self?.voteArray = array
+                }
                 self?.account.value = model
+                
             }
         }
     }
@@ -109,6 +126,7 @@ class ServiceHelper: NSObject {
             pageAccount.account = account
             pageAccount.offset = 0
             pageAccount.limit = 100
+            
             self.solidityService.getTransactionsFromThis(withRequest: pageAccount, handler: { (list, error) in
                 if let list = list?.transactionArray as? [TronTransaction] {
                     observer.onNext(list)
@@ -140,25 +158,41 @@ class ServiceHelper: NSObject {
     func broadcastTransaction(_ transaction: TronTransaction, completion: @escaping ((Return?, Error?) -> Void)) {
         if let signTransaction = ServiceHelper.transactionSign(transaction) {
             service.broadcastTransaction(withRequest: signTransaction, handler: completion)
+        } else if let wallet = ServiceHelper.shared.currentWallet, wallet.isWatch == true {
+            let coldView = ColdTransactionView.loadXib()
+            if let string = transaction.data()?.hexString {
+                coldView.changeQRCode(address: string)
+            }
+            coldView.finishBlock = {[weak self] signedTransaction in
+                self?.service.broadcastTransaction(withRequest: signedTransaction, handler: completion)
+            }
+            coldView.cancleBlock = {[weak self] in
+                let error = NSError(domain: "Cancel", code: -1, userInfo: nil)
+                completion(nil, error)
+            }
+            coldView.popShow()
         } else {
-            
+            service.broadcastTransaction(withRequest: transaction, handler: completion)
         }
         
     }
     
     class func setTimestamp(_ transaction: TronTransaction) -> TronTransaction {
-        let timeInterval:TimeInterval = Date().timeIntervalSince1970
+        let timeInterval:TimeInterval = (Date().timeIntervalSince1970) * 1000
         transaction.rawData.timestamp = Int64(timeInterval)
         return transaction
     }
     
     class func transactionSign(_ transaction: TronTransaction) -> TronTransaction? {
-        guard let addressData = ServiceHelper.shared.account.value?.address, let hash = transaction.rawData.data()?.sha256() else {
+        //在sha256 之前设置时间戳，否则验签失败
+        ServiceHelper.setTimestamp(transaction)
+        guard let addressData = ServiceHelper.shared.account.value?.address, let hash = transaction.rawData.data()?.sha256(), let account = ServiceHelper.shared.trustAccount else {
             return nil
         }
+
         if let list = transaction.rawData.contractArray {
             for _ in list {
-                let result = ServiceHelper.shared.keystore.signHash(hash, for: ServiceHelper.shared.trustAccount!)
+                let result = ServiceHelper.shared.keystore.signHash(hash, for: account)
                 switch result {
                 case .success(let data):
                     transaction.signatureArray.add(data)
@@ -167,6 +201,7 @@ class ServiceHelper: NSObject {
                 }
             }
         }
+//        ServiceHelper.setTimestamp(transaction)
         return transaction
     }
     
@@ -240,7 +275,7 @@ extension Int64 {
     }
     
     var dateString: String {
-        let timeInterval = TimeInterval(self)/1000000000
+        let timeInterval = TimeInterval(self)/1000
         return Date(timeIntervalSince1970: timeInterval).formatterString
     }
     
@@ -277,7 +312,7 @@ extension Return {
         case .contractExeError:
             return R.string.tron.errorContractExe()
         case .bandwithError:
-            return R.string.tron.errorBandwith()
+            return R.string.tron.errorBandwidth()
         case .dupTransactionError:
             return R.string.tron.errorDupTransaction()
         case .taposError:
@@ -291,5 +326,27 @@ extension Return {
         case .otherError:
             return R.string.tron.errorOther()
         }
+    }
+}
+
+extension Wallet {
+    var isWatch: Bool {
+        if self.type == .address(self.address) {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+extension TronAccount {
+    var frozenBalance: String {
+        if let array = self.frozenArray as? [Account_Frozen] {
+            let count = array.reduce(0) { (result, value) -> Int64 in
+                return value.frozenBalance + result
+            }
+            return count.balanceString
+        }
+        return "0"
     }
 }

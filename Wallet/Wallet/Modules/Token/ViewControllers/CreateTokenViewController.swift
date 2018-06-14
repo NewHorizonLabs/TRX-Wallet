@@ -12,12 +12,16 @@ import RxCocoa
 
 class CreateTokenViewController: UIViewController {
 
+
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var detailTitleLabel: UILabel!
     
     @IBOutlet weak var tokenNameTitleLabel: UILabel!
     
     @IBOutlet weak var totalSupplyTitleLabel: UILabel!
     
+    @IBOutlet weak var tokenAbbreviationTitleLabel: UILabel!
+    @IBOutlet weak var tokenAbbreviationTextFiled: UITextField!
     @IBOutlet weak var frozenAmountTitleLabel: UILabel!
     
     @IBOutlet weak var descriptionTitleLabel: UILabel!
@@ -67,6 +71,7 @@ class CreateTokenViewController: UIViewController {
     @IBOutlet weak var checkButton: UIButton!
     
     var name: Variable<String> = Variable("")
+    var abbreviation: Variable<String> = Variable("")
     var total: Variable<String> = Variable("")
     var descriptionString: Variable<String> = Variable("")
     var url: Variable<String> = Variable("")
@@ -84,6 +89,22 @@ class CreateTokenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        getMyIssue()
+    }
+    
+    func getMyIssue() {
+        guard let account = ServiceHelper.shared.account.value else {
+            return
+        }
+        self.displayLoading()
+        ServiceHelper.shared.service.getAssetIssueByAccount(withRequest: account) { (list, error) in
+            if let list = list?.assetIssueArray, list.count > 0 {
+                self.scrollView.isHidden = true
+            } else {
+                self.scrollView.isHidden = false
+            }
+            self.hideLoading()
+        }
     }
     
     func configureUI() {
@@ -109,6 +130,8 @@ class CreateTokenViewController: UIViewController {
         
         (nameTextField.rx.text).orEmpty.asObservable().map { return $0.count > 0 }.bind(to: nameTipLabel.rx.isHidden).disposed(by: disposeBag)
         
+        (tokenAbbreviationTextFiled.rx.text).orEmpty.asObservable().map { return $0.count > 0 }.bind(to: tokenAbbreviationTitleLabel.rx.isHidden).disposed(by: disposeBag)
+        
         (totalTextFiled.rx.text).orEmpty.asObservable().map { return $0.count > 0 }.bind(to: totalTipLabel.rx.isHidden).disposed(by: disposeBag)
         
         (descriptionTextField.rx.text).orEmpty.asObservable().map { return $0.count > 0 }.bind(to: descriptionTipLabel.rx.isHidden).disposed(by: disposeBag)
@@ -123,6 +146,7 @@ class CreateTokenViewController: UIViewController {
         (freezeDaysTextField.rx.text).orEmpty.asObservable().map { return $0.count > 0 }.bind(to: freezeDaysTipLabel.rx.isHidden).disposed(by: disposeBag)
         
         (nameTextField.rx.text).orEmpty.bind(to: name).disposed(by: disposeBag)
+        (tokenAbbreviationTextFiled.rx.text).orEmpty.bind(to: abbreviation).disposed(by: disposeBag)
         (totalTextFiled.rx.text).orEmpty.bind(to: total).disposed(by: disposeBag)
         (descriptionTextField.rx.text).orEmpty.bind(to: descriptionString).disposed(by: disposeBag)
         (urlTextField.rx.text).orEmpty.bind(to: url).disposed(by: disposeBag)
@@ -138,6 +162,7 @@ class CreateTokenViewController: UIViewController {
             self.checkButton.isSelected = !self.checkButton.isSelected
             return self.checkButton.isSelected
         }
+        
         let combine = Observable.combineLatest(
             name.asObservable().map{ $0.count > 0 },
             total.asObservable().map{ $0.count > 0 },
@@ -151,9 +176,9 @@ class CreateTokenViewController: UIViewController {
                 return a && b && c && d && e && f && g && h
             }
         
-        Observable.combineLatest(signal, combine) { (a, b) -> Bool in
+        Observable.combineLatest(signal, combine, abbreviation.asObservable().map{ $0.count > 0 }) { (a, b, c) -> Bool in
             
-                return a && b
+                return a && b && c
             }.bind(to: createButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
@@ -173,26 +198,51 @@ class CreateTokenViewController: UIViewController {
         endDateButton.pickerView.minimumDate = Date().addingTimeInterval(2 * 60 * 60)
     }
 
+    func validName(name: String) -> Bool {
+        let pre = "^[A-Za-z]+$";
+        let namePre = NSPredicate(format: "SELF MATCHES %@", pre)
+        return namePre.evaluate(with:name)
+    }
 
     @objc func createButtonClick() {
+        guard validName(name: name.value) else {
+            HUD.showText(text: "Name may only contain a-Z characters")
+            nameTextField.becomeFirstResponder()
+            return
+        }
+        guard abbreviation.value.count <= 5 else {
+            HUD.showText(text: "Abbreviation may not be longer then 5 characters")
+            tokenAbbreviationTextFiled.becomeFirstResponder()
+            return
+        }
+        
+        guard let balance = Int64(ServiceHelper.shared.balance), balance > 1024 else {
+            HUD.showText(text: "Your TRX less than 1024")
+            return
+        }
         guard let account = ServiceHelper.shared.account.value, let total = Int64(total.value), let trxNum = Int32(trxString.value), let num = Int32(tokenNumString.value), let startDate = startDateButton.date.value, let endDate = endDateButton.date.value else {
             return
         }
         let contract = AssetIssueContract()
         contract.ownerAddress = account.address
         contract.name = name.value.data(using: .utf8)
+        contract.abbr = abbreviation.value.data(using: .utf8)
         let startTime = startDate.timeIntervalSince1970 * 1000
         contract.startTime = Int64(startTime)
         contract.endTime = Int64(endDate.timeIntervalSince1970 * 1000)
         contract.totalSupply = total
         contract.trxNum = trxNum * 1000000
         contract.num = num
+        contract.voteScore = 1
         contract.url = url.value.data(using: .utf8)
         contract.description_p = descriptionString.value.data(using: .utf8)
         let freeze = AssetIssueContract_FrozenSupply()
         freeze.frozenAmount = freezeNumber.value
         freeze.frozenDays = freezeDays.value
         contract.frozenSupplyArray = [freeze]
+        contract.publicFreeAssetNetUsage = 0
+        contract.publicFreeAssetNetLimit = 0
+        contract.freeAssetNetLimit = 0
         self.displayLoading()
         
         ServiceHelper.shared.service.createAssetIssue(withRequest: contract) {[weak self] (transaction, error) in

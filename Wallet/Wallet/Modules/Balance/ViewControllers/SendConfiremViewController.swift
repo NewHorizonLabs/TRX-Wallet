@@ -78,26 +78,12 @@ class SendConfiremViewController: UIViewController {
         self.displayLoading()
         ServiceHelper.shared.service.createTransaction(withRequest: contract) {[weak self] (transaction, error) in
             if let action = transaction {
-                ServiceHelper.shared.broadcastTransaction(action, completion: { (result, error) in
-                    if let response = result {
-                        let success = response.result
-                        let message = String.init(data: response.message, encoding: .utf8)
-                        if success {
-                            self?.hideLoading()
-                            HUD.showText(text: R.string.tron.hudSuccess())
-                            self?.dismiss(animated: true, completion: nil)
-                        } else {
-                            //                            self?.displayError(error: Error())
-                            self?.hideLoading()
-                            HUD.showError(error: response.errorMessage)
-                        }
-                        
-                    }
-                })
+                self?.dealTransaction(transaction: action)
             } else if let error = error {
                 self?.displayError(error: error)
             }
         }
+        
     }
     
     func sendOtherToken() {
@@ -114,26 +100,70 @@ class SendConfiremViewController: UIViewController {
     
         ServiceHelper.shared.service.transferAsset(withRequest: contract) {[weak self] (transaction, error) in
             if let action = transaction {
-                ServiceHelper.shared.broadcastTransaction(action, completion: { (result, error) in
-                    if let response = result {
-                        let success = response.result
-                        let message = String.init(data: response.message, encoding: .utf8)
-                        if success {
-                            self?.hideLoading()
-                            HUD.showText(text: R.string.tron.hudSuccess())
-                            self?.dismiss(animated: true, completion: nil)
-                        } else {
-                            //                            self?.displayError(error: Error())
-                            self?.hideLoading()
-                            HUD.showError(error: response.errorMessage)
-                        }
-                        
-                    }
-                })
+                self?.dealTransaction(transaction: action)
             } else if let error = error {
                 self?.displayError(error: error)
             }
         }
+    }
+    
+    func dealTransaction(transaction: TronTransaction) {
+        if let type = ServiceHelper.shared.currentWallet?.type, let wallet = ServiceHelper.shared.currentWallet, type == .address(wallet.address) {
+            let coldView = ColdTransactionView.loadXib()
+            if let string = transaction.data()?.hexString {
+                coldView.changeQRCode(address: string)
+            }
+
+            coldView.finishBlock = {[weak self] signedTransaction in
+                self?.broadcastSigned(transaction: signedTransaction)
+            }
+            coldView.cancleBlock = {[weak self] in
+                self?.hideLoading()
+            }
+            coldView.popShow()
+            return
+        } else {
+            self.broadcast(transaction: transaction)
+        }
+        
+    }
+    
+    func broadcastSigned(transaction: TronTransaction) {
+        ServiceHelper.shared.service.broadcastTransaction(withRequest: transaction) { [weak self] (result, error) in
+            if let response = result {
+                let success = response.result
+                let message = String.init(data: response.message, encoding: .utf8)
+                if success {
+                    self?.hideLoading()
+                    HUD.showText(text: R.string.tron.hudSuccess())
+                    self?.dismiss(animated: true, completion: nil)
+                } else {
+                    //                            self?.displayError(error: Error())
+                    self?.hideLoading()
+                    HUD.showError(error: response.errorMessage)
+                }
+                
+            }
+        }
+    }
+    
+    func broadcast(transaction: TronTransaction) {
+        ServiceHelper.shared.broadcastTransaction(transaction, completion: {[weak self] (result, error) in
+            if let response = result {
+                let success = response.result
+                let message = String.init(data: response.message, encoding: .utf8)
+                if success {
+                    self?.hideLoading()
+                    HUD.showText(text: R.string.tron.hudSuccess())
+                    self?.dismiss(animated: true, completion: nil)
+                } else {
+                    //                            self?.displayError(error: Error())
+                    self?.hideLoading()
+                    HUD.showError(error: response.errorMessage)
+                }
+                
+            }
+        })
     }
 
 }

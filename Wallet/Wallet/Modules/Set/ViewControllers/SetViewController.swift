@@ -25,7 +25,7 @@ class SetViewController: UIViewController, Coordinator {
     @IBOutlet weak var versionLabel: UILabel!
     let disposeBag = DisposeBag()
     
-    var datas: [[SettingType]] = [[.wallets],[.password], [.share]]
+    var datas: [[SettingType]] = [[.wallets],[.password, .walletHelp], [.share]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,6 +114,8 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
             CurrentControllerHelper.pushViewController(viewController: vc)
         case .share:
             self.helpUsCoordinator.presentSharing(in: self, from: self.view)
+        case .walletHelp:
+            type.open()
         default:
             break
         }
@@ -178,7 +180,7 @@ enum SettingType {
     case wallets
     case share
     case password
-    
+    case walletHelp
     
     var iconImage: UIImage? {
         switch self {
@@ -189,17 +191,20 @@ enum SettingType {
             return R.image.icon_set_share()
         case .password:
             return R.image.icon_set_password()
+        case .walletHelp:
+            return R.image.icon_cold()
         }
     }
     var settingTitle: String {
         switch self {
-            
         case .wallets:
             return R.string.tron.settingWalletsTitle()
         case .share:
             return R.string.tron.settingShareTitle()
         case .password:
             return R.string.tron.settingPasswordTouchIDTitle()
+        case .walletHelp:
+            return R.string.tron.settingColdwalletTitle()
         }
     }
     
@@ -209,6 +214,9 @@ enum SettingType {
         case .wallets:
             let vc = R.storyboard.set.walletListViewController()!
             CurrentControllerHelper.pushViewController(viewController: vc)
+        case .walletHelp:
+            let url = ServiceHelper.shared.walletMode.value.url
+            BrowserHelper.show(url: url)
         default:
             break
         }

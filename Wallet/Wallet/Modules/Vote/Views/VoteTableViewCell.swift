@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class VoteTableViewCell: UITableViewCell {
 
@@ -16,12 +18,19 @@ class VoteTableViewCell: UITableViewCell {
     @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var voteNumberLabel: UILabel!
-    
+    @IBOutlet weak var voteNumberTitleLabel: UILabel!
     var model: Witness?
+    
+    let disposeBag = DisposeBag()
+    
+    @IBOutlet weak var yourVoteNumberLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+//        ServiceHelper.shared.isWatchMode.asObservable()
+//            .bind(to: voteButton.rx.isHidden)
+//            .disposed(by: disposeBag)
         configureUI()
     }
 
@@ -47,6 +56,17 @@ class VoteTableViewCell: UITableViewCell {
         addressLabel.text = model.address.addressString
         voteNumberLabel.text = String(model.voteCount)
         websiteLabel.text = model.url
+        if let vote = (ServiceHelper.shared.voteArray.filter { (object) -> Bool in
+            return object.voteAddress.addressString == model.address.addressString
+        }).first {
+            yourVoteNumberLabel.text = vote.voteCount.string
+            voteNumberTitleLabel.text = R.string.tron.voteYourvoteLabelTitle()
+            voteNumberTitleLabel.isHidden = false
+            yourVoteNumberLabel.isHidden = false
+        } else {
+            voteNumberTitleLabel.isHidden = true
+            yourVoteNumberLabel.isHidden = true
+        }
     }
     
     @objc func buttonClick() {
