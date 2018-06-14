@@ -52,7 +52,7 @@ class AccountAssetTableViewCell: UITableViewCell {
             
             ServiceHelper.shared.service.getAssetIssueByName(withRequest: message) {[weak self] (result, error) in
                 if let result = result, let string = result.name.toString(), string == model.name {
-                    self?.priceLabel.text = String(Float(result.trxNum.trxValue) / Float(result.num)) + "TRX"
+                    self?.priceLabel.text = String(Float(result.trxNum.trxValue) * Float(model.balance)! / Float(result.num)) + "TRX"
                 }
             }
         }
