@@ -19,8 +19,8 @@ class ServiceHelper: NSObject {
     static let shared = ServiceHelper()
     static let fullNode: String = "47.91.246.252:50051"
     static let solidityNode: String = "47.89.244.227:50051"
-    let service: TWallet = TWallet(host: ServiceHelper.fullNode)
-    let solidityService: WalletExtension = WalletExtension(host: ServiceHelper.solidityNode)
+    var service: TWallet = TWallet(host: ServiceHelper.fullNode)
+    var solidityService: WalletExtension = WalletExtension(host: ServiceHelper.solidityNode)
     var account: Variable<TronAccount?> = Variable(nil)
     var trustAccount: TrustKeystore.Account?
     var isWatchMode: Variable<Bool> = Variable(false)
@@ -51,6 +51,8 @@ class ServiceHelper: NSObject {
     var tokenChange: PublishSubject<Void> = PublishSubject<()>()
     //vote
     var voteChange: PublishSubject<Void> = PublishSubject<()>()
+    //节点切换
+    var nodeChange: PublishSubject<Void> = PublishSubject<()>()
     
     var balance: String {
         if let number = account.value?.balance {
@@ -67,8 +69,7 @@ class ServiceHelper: NSObject {
     
     override init() {
         super.init()
-        GRPCCall.useInsecureConnections(forHost: ServiceHelper.fullNode)
-        GRPCCall.useInsecureConnections(forHost: ServiceHelper.solidityNode)
+        updateNode()
         currentWallet = keystore.recentlyUsedWallet ?? keystore.wallets.first!
 
         if let w = currentWallet {
@@ -83,6 +84,18 @@ class ServiceHelper: NSObject {
                 isWatchMode.value = false
             }
         }
+    }
+    
+    func updateNode() {
+        var fullNodeString = ServiceHelper.fullNode
+        if let fullNode = UserDefaults.Set.string(forKey: .fullnode) {
+            fullNodeString = fullNode
+        }
+        service = TWallet(host: fullNodeString)
+        solidityService = WalletExtension(host: ServiceHelper.solidityNode)
+        GRPCCall.useInsecureConnections(forHost: fullNodeString)
+        GRPCCall.useInsecureConnections(forHost: ServiceHelper.solidityNode)
+        nodeChange.onNext(())
     }
     
     func getAccount() {

@@ -31,8 +31,6 @@ class TransactionsListViewController: UIViewController {
             cell.configure(model: model)
             }.disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(TronTransaction.self).subscribe(onNext: {[weak self] (model) in
-        }).disposed(by: disposeBag)
         loadData()
         
         ServiceHelper.shared.walletChange

@@ -25,7 +25,7 @@ class SetViewController: UIViewController, Coordinator {
     @IBOutlet weak var versionLabel: UILabel!
     let disposeBag = DisposeBag()
     
-    var datas: [[SettingType]] = [[.wallets],[.password, .walletHelp], [.share]]
+    var datas: [[SettingType]] = [[.wallets, .nodelist],[.password, .walletHelp], [.share]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,11 @@ class SetViewController: UIViewController, Coordinator {
         
         versionLabel.text = R.string.tron.settingVersionTitle() + AppInfo.versionNumber
         
+        ServiceHelper.shared.nodeChange.asObservable()
+            .subscribe(onNext: {[weak self] () in
+                self?.tableView.reloadData()
+            })
+        .disposed(by: disposeBag)
     }
     
     func setPasscode(completion: ((Bool) -> Void)? = .none) {
@@ -81,6 +86,8 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
         switch type {
         case .wallets:
             cell.detailLabel.text = ServiceHelper.shared.account.value?.address.addressString
+        case .nodelist:
+            cell.detailLabel.text = UserDefaults.Set.string(forKey: .fullnode)
         case .password:
             let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.setSwitchTableViewCell.identifier) as! SetSwitchTableViewCell
             cell.titleLabel.text = type.settingTitle
@@ -114,7 +121,7 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
             CurrentControllerHelper.pushViewController(viewController: vc)
         case .share:
             self.helpUsCoordinator.presentSharing(in: self, from: self.view)
-        case .walletHelp:
+        case .walletHelp, .nodelist:
             type.open()
         default:
             break
@@ -178,6 +185,7 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
 enum SettingType {
     //Wallets
     case wallets
+    case nodelist
     case share
     case password
     case walletHelp
@@ -186,6 +194,8 @@ enum SettingType {
         switch self {
             
         case .wallets:
+            return R.image.icon_Wallets()
+        case .nodelist:
             return R.image.icon_Wallets()
         case .share:
             return R.image.icon_set_share()
@@ -199,6 +209,8 @@ enum SettingType {
         switch self {
         case .wallets:
             return R.string.tron.settingWalletsTitle()
+        case .nodelist:
+            return "Node"
         case .share:
             return R.string.tron.settingShareTitle()
         case .password:
@@ -213,6 +225,9 @@ enum SettingType {
 
         case .wallets:
             let vc = R.storyboard.set.walletListViewController()!
+            CurrentControllerHelper.pushViewController(viewController: vc)
+        case .nodelist:
+            let vc = R.storyboard.set.nodeListViewController()!
             CurrentControllerHelper.pushViewController(viewController: vc)
         case .walletHelp:
             let url = ServiceHelper.shared.walletMode.value.url

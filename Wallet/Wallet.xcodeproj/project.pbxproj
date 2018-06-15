@@ -412,6 +412,9 @@
 		36CF028220BBD5710001D0F5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF028120BBD5710001D0F5 /* Constant.swift */; };
 		36CF028420BD041C0001D0F5 /* FrozenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF028320BD041C0001D0F5 /* FrozenView.swift */; };
 		36CF028620BD04230001D0F5 /* FrozenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF028520BD04230001D0F5 /* FrozenView.xib */; };
+		36D56DEE20D38ECA008E1675 /* NodeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D56DED20D38ECA008E1675 /* NodeListViewController.swift */; };
+		36D56DF120D39CB9008E1675 /* NodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D56DEF20D39CB9008E1675 /* NodeTableViewCell.swift */; };
+		36D56DF220D39CB9008E1675 /* NodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D56DF020D39CB9008E1675 /* NodeTableViewCell.xib */; };
 		36F1557920CA182F002BF4B1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1557820CA182F002BF4B1 /* NetworkHelper.swift */; };
 		36F1557B20CA4F35002BF4B1 /* WalletModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1557A20CA4F35002BF4B1 /* WalletModeView.swift */; };
 		36F1557D20CA4F3E002BF4B1 /* WalletModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F1557C20CA4F3E002BF4B1 /* WalletModeView.xib */; };
@@ -851,6 +854,9 @@
 		36CF028120BBD5710001D0F5 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		36CF028320BD041C0001D0F5 /* FrozenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrozenView.swift; sourceTree = "<group>"; };
 		36CF028520BD04230001D0F5 /* FrozenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrozenView.xib; sourceTree = "<group>"; };
+		36D56DED20D38ECA008E1675 /* NodeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeListViewController.swift; sourceTree = "<group>"; };
+		36D56DEF20D39CB9008E1675 /* NodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTableViewCell.swift; sourceTree = "<group>"; };
+		36D56DF020D39CB9008E1675 /* NodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NodeTableViewCell.xib; sourceTree = "<group>"; };
 		36F1557820CA182F002BF4B1 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		36F1557A20CA4F35002BF4B1 /* WalletModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModeView.swift; sourceTree = "<group>"; };
 		36F1557C20CA4F3E002BF4B1 /* WalletModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletModeView.xib; sourceTree = "<group>"; };
@@ -2203,6 +2209,7 @@
 			children = (
 				36CCC18420A937580067B8E6 /* SetViewController.swift */,
 				36CCC19320A98EA60067B8E6 /* WalletListViewController.swift */,
+				36D56DED20D38ECA008E1675 /* NodeListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2217,6 +2224,8 @@
 				36CCC19520A991D50067B8E6 /* WalletTableViewCell.swift */,
 				36CCC19620A991D50067B8E6 /* WalletTableViewCell.xib */,
 				36B15CA520AEE16800DB006B /* ImportTypeTableViewCell.swift */,
+				36D56DEF20D39CB9008E1675 /* NodeTableViewCell.swift */,
+				36D56DF020D39CB9008E1675 /* NodeTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2315,6 +2324,7 @@
 				368C82F0209C43300089D906 /* LaunchScreen.storyboard in Resources */,
 				36B68B4020CA82EB006E891C /* Browser.storyboard in Resources */,
 				36C62AA020A1AED4005A36DF /* TokenTableViewCell.xib in Resources */,
+				36D56DF220D39CB9008E1675 /* NodeTableViewCell.xib in Resources */,
 				3640CAAB20B416E80002050B /* SetSwitchTableViewCell.xib in Resources */,
 				36C62A8D20A1A868005A36DF /* Vote.storyboard in Resources */,
 				36C62ABA20A2ECFF005A36DF /* AccountAssetTableViewCell.xib in Resources */,
@@ -2808,6 +2818,7 @@
 				368C85E4209C70190089D906 /* SendInputErrors.swift in Sources */,
 				36173AFE209D74EE0082CD1E /* ReceiveViewController.swift in Sources */,
 				368C8502209C70180089D906 /* InCoordinatorViewModel.swift in Sources */,
+				36D56DF120D39CB9008E1675 /* NodeTableViewCell.swift in Sources */,
 				368C85A7209C70190089D906 /* ContainerView.swift in Sources */,
 				368C85DE209C70190089D906 /* Config.swift in Sources */,
 				36C62A8520511FBF005A36DF /* CurrentViewControllerHelper.swift in Sources */,
@@ -2859,6 +2870,7 @@
 				368C85E0209C70190089D906 /* SettingsAction.swift in Sources */,
 				3666D9DE20A0260300EF7F87 /* UIAlertActionExtention.swift in Sources */,
 				3666D9FD20A02FC000EF7F87 /* UIConfigure.swift in Sources */,
+				36D56DEE20D38ECA008E1675 /* NodeListViewController.swift in Sources */,
 				368C84C1209C70180089D906 /* MonetaryAmountViewModel.swift in Sources */,
 				368C85D7209C70190089D906 /* SplashError.swift in Sources */,
 				368C854D209C70180089D906 /* DecryptError.swift in Sources */,
@@ -3064,7 +3076,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Wallet/HSEther",
 				);
 				INFOPLIST_FILE = Wallet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -3072,10 +3083,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Wallet/HSEther",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = newhorizonlabs.Wallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Wallet/Wallet-Bridging-Header.h";
@@ -3096,7 +3104,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Wallet/HSEther",
 				);
 				INFOPLIST_FILE = Wallet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -3104,10 +3111,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Wallet/HSEther",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = newhorizonlabs.Wallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Wallet/Wallet-Bridging-Header.h";

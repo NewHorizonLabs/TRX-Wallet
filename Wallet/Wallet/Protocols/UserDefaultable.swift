@@ -212,49 +212,7 @@ extension UserDefaults {
         private init() { }
         
         enum StringDefaultKey : String {
-            //意见反馈草稿
-            case feedbackDraft
-        }
-    }
-    
-    //健康数据
-    struct HealthData: StringUserDefaultable, FloatUserDefaultable, ObjectUserDefaultable {
-        enum StringDefaultKey : String {
-            //性别
-            case gender
-            case fitnessGoal
-            case fitnessLevel
-            case weightUnit
-            case heightUnit
-        }
-        
-        enum FloatDefaultKey: String {
-            //身高
-            case height
-            //体重
-            case weight
-        }
-        
-        enum ObjectDefaultKey: String {
-            case birthDay
-        }
-    }
-    
-    //运动过程
-    struct Sport: BoolUserDefaultable {
-        enum BoolDefaultKey: String {
-            //运动页是否静音
-            case isMute
-            //是否自动跳过记次运动
-            case isAutoComplete
-            //是否已经关闭切换模式提示框
-            case isCloseModeTipView
-        }
-    }
-    
-    struct Result: BoolUserDefaultable {
-        enum BoolDefaultKey: String {
-            case haveShowFeedback
+            case fullnode
         }
     }
     
