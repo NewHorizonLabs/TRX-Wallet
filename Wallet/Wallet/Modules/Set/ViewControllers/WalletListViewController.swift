@@ -23,11 +23,11 @@ class WalletListViewController: UIViewController {
     var data: Variable<[Wallet]> = Variable(EtherKeystore.shared.wallets)
     var coordinator: BackupCoordinator?
     var accountCoordinator: AccountsCoordinator?
+    var changeWalletBlock: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = R.string.tron.walletsNavTitle()
-        let array = EtherKeystore.shared
         tableView.register(R.nib.walletTableViewCell)
        
         data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.walletTableViewCell.identifier, cellType: WalletTableViewCell.self)) { _, model, cell in
@@ -39,8 +39,7 @@ class WalletListViewController: UIViewController {
             ServiceHelper.shared.reset(wallet: model)
 //            self?.export(model: model)
             self?.navigationController?.popToRootViewController(animated: true)
-            self?.tabBarController?.selectedIndex = 0
-            
+            self?.changeWalletBlock?()
         }).disposed(by: disposeBag)
         addButton.addTarget(self, action: #selector(addButtonClick), for: .touchUpInside)
     

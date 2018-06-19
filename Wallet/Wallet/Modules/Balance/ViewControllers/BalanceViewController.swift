@@ -213,6 +213,7 @@ class BalanceViewController: UIViewController {
         super.viewWillAppear(animated)
         //获取用户数据并刷新页面
         ServiceHelper.shared.getAccount()
+        
     }
     
     func configureUI() {

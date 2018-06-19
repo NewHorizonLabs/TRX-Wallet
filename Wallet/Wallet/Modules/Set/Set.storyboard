@@ -195,6 +195,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="resetButton" destination="Men-He-rUK" id="Eo6-m9-gFG"/>
                         <outlet property="tableView" destination="6ZP-f4-Xm8" id="JIa-m6-rcD"/>
                     </connections>
                 </viewController>

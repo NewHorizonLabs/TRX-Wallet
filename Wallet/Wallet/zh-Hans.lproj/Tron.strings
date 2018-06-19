@@ -57,10 +57,13 @@
 "Setting.wallets.title" = "钱包";
 "Setting.password/touchID.title" = "密码";
 "Setting.share.title" = "分享";
+"Setting.node.title" = "节点";
 "Setting.coldwallet.title" = "如何使用冷钱包";
 "Setting.secion.share.title" = "支持我们";
 "Setting.secion.password.title" = "安全";
 "Setting.version.title" = "版本号";
+"Setting.Nodelist.nav.title" = "节点列表";
+"Setting.Nodelist.nav.resetbutton.title" = "恢复默认";
 "Wallets.nav.title" = "钱包";
 "Wallets.export.button.title" = "导出";
 "Wallets.delete.button.title" = "删除";
@@ -101,6 +104,9 @@
 "Alert.UnFreeze.title" = "确定要解冻 TRX吗？";
 "Alert.UnFreeze.cancel" = "取消";
 "Alert.UnFreeze.sure" = "解冻";
+"Alert.changeNode.title" = "确定要切换到该节点吗？";
+"Alert.changeNode.cancel" = "取消";
+"Alert.changeNode.sure" = "确定";
 "Error.UnFreeze.title" = "不能解除冻结";
 "Error.UnFreeze.message" = "解除冻结的TRX失败。导致这个的原因可能是因为最少的冻结时间还没有达到。";
 "Error.UnFreeze.ok" = "确定";

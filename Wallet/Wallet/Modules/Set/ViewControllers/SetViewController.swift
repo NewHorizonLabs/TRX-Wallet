@@ -59,6 +59,10 @@ class SetViewController: UIViewController, Coordinator {
         addCoordinator(coordinator)
         navigationController?.present(coordinator.navigationController, animated: true, completion: nil)
     }
+    
+    @objc func showFirstTab() {
+        self.tabBarController?.selectedIndex = 0
+    }
 }
 
 extension SetViewController: LockCreatePasscodeCoordinatorDelegate {
@@ -119,6 +123,9 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
             let vc = R.storyboard.set.walletListViewController()!
             vc.accountCoordinator = self.settingsCoordinator?.accountsCoordinator
             CurrentControllerHelper.pushViewController(viewController: vc)
+            vc.changeWalletBlock = {
+                self.perform(#selector(self.showFirstTab), with: nil, afterDelay: 0.35)
+            }
         case .share:
             self.helpUsCoordinator.presentSharing(in: self, from: self.view)
         case .walletHelp, .nodelist:
@@ -196,7 +203,7 @@ enum SettingType {
         case .wallets:
             return R.image.icon_Wallets()
         case .nodelist:
-            return R.image.icon_Wallets()
+            return R.image.icon_set_node()
         case .share:
             return R.image.icon_set_share()
         case .password:
@@ -210,7 +217,7 @@ enum SettingType {
         case .wallets:
             return R.string.tron.settingWalletsTitle()
         case .nodelist:
-            return "Node"
+            return R.string.tron.settingNodeTitle()
         case .share:
             return R.string.tron.settingShareTitle()
         case .password:

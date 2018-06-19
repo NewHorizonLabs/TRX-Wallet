@@ -16,9 +16,11 @@ class NodeListViewController: UIViewController {
     var data: Variable<[Node]> = Variable([])
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var resetButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "NodeList"
+        title = R.string.tron.settingNodelistNavTitle()
+        resetButton.setTitle(R.string.tron.settingNodelistNavResetbuttonTitle(), for: .normal)
         tableView.register(R.nib.nodeTableViewCell)
         
         data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.nodeTableViewCell.identifier, cellType: NodeTableViewCell.self)) { _, model, cell in
@@ -41,11 +43,11 @@ class NodeListViewController: UIViewController {
     }
     
     func selectCell(model: Node) {
-        let alert = UIAlertController(title: R.string.tron.alertUnFreezeTitle(), message: nil, preferredStyle: .alert)
-        let sureAction =  UIAlertAction(title: R.string.tron.alertUnFreezeSure(), style: .default) { (action) in
+        let alert = UIAlertController(title: R.string.tron.alertChangeNodeTitle(), message: nil, preferredStyle: .alert)
+        let sureAction =  UIAlertAction(title: R.string.tron.alertChangeNodeSure(), style: .default) { (action) in
             self.changeNode(model: model)
         }
-        let cancelAction = UIAlertAction(title: R.string.tron.alertUnFreezeCancel(), style: .cancel) { (action) in
+        let cancelAction = UIAlertAction(title: R.string.tron.alertChangeNodeCancel(), style: .cancel) { (action) in
             
         }
         alert.addAction(sureAction)
