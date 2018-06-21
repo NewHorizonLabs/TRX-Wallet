@@ -311,12 +311,13 @@ class SwiftNotice: NSObject {
             make.top.equalTo(checkmarkView.snp.bottom).offset(10)
             make.left.equalTo(mainView).offset(10)
             make.right.equalTo(mainView).offset(-10)
+            make.bottom.equalTo(mainView).offset(-20)
         }
         
         checkmarkView.center = CGPoint(x: label.center.x, y: checkmarkView.center.y)
         
         window.frame = frame
-        mainView.frame = frame
+//        mainView.frame = frame
         window.center = rv!.center
         
         if let version = Double(UIDevice.current.systemVersion),
@@ -331,6 +332,9 @@ class SwiftNotice: NSObject {
         window.center = rv!.center
         window.isHidden = false
         window.addSubview(mainView)
+        mainView.snp.makeConstraints { (make) in
+            make.centerX.centerY.equalTo(window)
+        }
         windows.append(window)
         
         mainView.alpha = 0.0
