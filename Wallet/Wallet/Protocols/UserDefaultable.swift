@@ -213,6 +213,7 @@ extension UserDefaults {
         
         enum StringDefaultKey : String {
             case fullnode
+            case solidityNode
         }
     }
     

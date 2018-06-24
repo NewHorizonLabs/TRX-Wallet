@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SaC-g5-2AP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SaC-g5-2AP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,7 +29,7 @@
         <!--Set View Controller-->
         <scene sceneID="6YV-if-vYk">
             <objects>
-                <viewController storyboardIdentifier="SetViewController" id="2z5-gy-ied" customClass="SetViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetViewController" id="2z5-gy-ied" customClass="SetViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ghz-Pe-UOf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +89,7 @@
         <!--Title-->
         <scene sceneID="QAj-Rc-TL3">
             <objects>
-                <viewController storyboardIdentifier="WalletListViewController" id="PiU-kh-BXY" customClass="WalletListViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalletListViewController" id="PiU-kh-BXY" customClass="WalletListViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ihc-FA-42n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,7 +144,7 @@
         <!--Node List View Controller-->
         <scene sceneID="sUR-7s-aTR">
             <objects>
-                <viewController storyboardIdentifier="NodeListViewController" id="OZX-yN-Zu2" customClass="NodeListViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NodeListViewController" id="OZX-yN-Zu2" customClass="NodeListViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i7Y-hv-xwl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,15 +180,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="YlB-ff-l43">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="tp7-5p-3S2">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Men-He-rUK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Men-He-rUK">
                                 <rect key="frame" x="256" y="7" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Reset to default">
+                                <state key="normal" title="Input Node">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="resetTodefault:" destination="OZX-yN-Zu2" eventType="touchUpInside" id="JN6-Fh-GSN"/>
+                                    <segue destination="3DN-Gh-rhV" kind="show" id="vkN-wC-epE"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -202,6 +203,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fh1-oN-Fqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="805" y="937"/>
+        </scene>
+        <!--Input Node View Controller-->
+        <scene sceneID="AQF-XN-x15">
+            <objects>
+                <viewController storyboardIdentifier="InputNodeViewController" id="3DN-Gh-rhV" customClass="InputNodeViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2c9-Ji-abK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dG8-Hc-nMh" customClass="NodeInputView" customModule="TRXWallet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="c00-x5-esh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WC2-Wh-WDY" customClass="NodeInputView" customModule="TRXWallet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="314" width="375" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="MdM-Ij-Sz9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YCL-rm-yEj" firstAttribute="trailing" secondItem="WC2-Wh-WDY" secondAttribute="trailing" id="BIO-Xn-LPw"/>
+                            <constraint firstItem="dG8-Hc-nMh" firstAttribute="leading" secondItem="YCL-rm-yEj" secondAttribute="leading" id="BW1-tf-Jwe"/>
+                            <constraint firstItem="WC2-Wh-WDY" firstAttribute="leading" secondItem="YCL-rm-yEj" secondAttribute="leading" id="E21-oC-Jyj"/>
+                            <constraint firstItem="YCL-rm-yEj" firstAttribute="trailing" secondItem="dG8-Hc-nMh" secondAttribute="trailing" id="O7N-Qx-RqX"/>
+                            <constraint firstItem="WC2-Wh-WDY" firstAttribute="top" secondItem="dG8-Hc-nMh" secondAttribute="bottom" constant="10" id="YCT-EY-zcy"/>
+                            <constraint firstItem="dG8-Hc-nMh" firstAttribute="top" secondItem="YCL-rm-yEj" secondAttribute="top" id="eAF-ge-fkw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YCL-rm-yEj"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullNodeView" destination="dG8-Hc-nMh" id="A1V-GE-HZU"/>
+                        <outlet property="solidityNodeView" destination="WC2-Wh-WDY" id="FRj-B8-FWe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VFr-52-DXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="937"/>
         </scene>
     </scenes>
     <resources>

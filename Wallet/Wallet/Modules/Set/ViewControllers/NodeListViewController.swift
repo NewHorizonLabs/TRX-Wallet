@@ -39,7 +39,7 @@ class NodeListViewController: UIViewController {
     @IBAction func resetTodefault(_ sender: Any) {
         UserDefaults.Set.set(ServiceHelper.fullNode, forKey: .fullnode)
         ServiceHelper.shared.updateNode()
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
     }
     
     func selectCell(model: Node) {

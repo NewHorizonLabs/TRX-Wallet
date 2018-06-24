@@ -91,10 +91,14 @@ class ServiceHelper: NSObject {
         if let fullNode = UserDefaults.Set.string(forKey: .fullnode) {
             fullNodeString = fullNode
         }
+        var solidityNodeString = ServiceHelper.solidityNode
+        if let solidityNode = UserDefaults.Set.string(forKey: .solidityNode) {
+            solidityNodeString = solidityNode
+        }
         service = TWallet(host: fullNodeString)
-        solidityService = WalletExtension(host: ServiceHelper.solidityNode)
+        solidityService = WalletExtension(host: solidityNodeString)
         GRPCCall.useInsecureConnections(forHost: fullNodeString)
-        GRPCCall.useInsecureConnections(forHost: ServiceHelper.solidityNode)
+        GRPCCall.useInsecureConnections(forHost: solidityNodeString)
         nodeChange.onNext(())
     }
     
