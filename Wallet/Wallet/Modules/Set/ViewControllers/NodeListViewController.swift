@@ -20,7 +20,7 @@ class NodeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = R.string.tron.settingNodelistNavTitle()
-        resetButton.setTitle(R.string.tron.settingNodelistNavResetbuttonTitle(), for: .normal)
+        resetButton.setTitle("Input Node", for: .normal)
         tableView.register(R.nib.nodeTableViewCell)
         
         data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.nodeTableViewCell.identifier, cellType: NodeTableViewCell.self)) { _, model, cell in

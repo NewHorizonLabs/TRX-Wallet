@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CDC-Of-pml">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CDC-Of-pml">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
         <!--Balance View Controller-->
         <scene sceneID="If2-Jx-YbF">
             <objects>
-                <viewController storyboardIdentifier="BalanceViewController" automaticallyAdjustsScrollViewInsets="NO" id="fIk-Gy-A7P" customClass="BalanceViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BalanceViewController" automaticallyAdjustsScrollViewInsets="NO" id="fIk-Gy-A7P" customClass="BalanceViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WYe-qy-X3x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="283"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-U6-jxC" customClass="GradientView" customModule="Wallet" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Eh-U6-jxC" customClass="GradientView" customModule="TRXWallet" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="283"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <userDefinedRuntimeAttributes>
@@ -284,6 +284,7 @@
                         <outlet property="sendButton" destination="3Jm-RR-OkV" id="mL0-l3-xS5"/>
                         <outlet property="tableView" destination="5Ci-dA-H19" id="FXp-qF-wiG"/>
                         <outlet property="unfrozenButton" destination="VcQ-vY-3Rz" id="ZWe-cw-YEy"/>
+                        <outlet property="walletNameLabel" destination="jZM-uH-BGp" id="Oty-O2-EU9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKq-La-wlE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -302,7 +303,7 @@
         <!--Base Tabbar View Controller-->
         <scene sceneID="In7-sg-xK4">
             <objects>
-                <tabBarController id="CDC-Of-pml" customClass="BaseTabbarViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="CDC-Of-pml" customClass="BaseTabbarViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A2p-ib-nB2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -323,7 +324,7 @@
         <!--Balance-->
         <scene sceneID="hEp-5X-dWA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o4o-Tg-WMf" customClass="BaseNavigationViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o4o-Tg-WMf" customClass="BaseNavigationViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Balance" image="icon_acount_nor" selectedImage="icon_acount_highlight" id="cuC-oN-79d"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fR5-cs-v0p">
@@ -342,7 +343,7 @@
         <!--Tansactions-->
         <scene sceneID="LqF-JF-HSl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C3B-66-tSI" customClass="BaseNavigationViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C3B-66-tSI" customClass="BaseNavigationViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tansactions" image="icon_transactions_nor" selectedImage="icon_transactions_highlight" id="o3Q-wm-ibe"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -372,7 +373,7 @@
         <!--Vote-->
         <scene sceneID="Lkq-LC-zyl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xd2-Mo-NWa" customClass="BaseNavigationViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xd2-Mo-NWa" customClass="BaseNavigationViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Vote" image="icon_vote_nor" selectedImage="icon_vote_highlight" id="Abf-JP-Nb8"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -402,7 +403,7 @@
         <!--Setting-->
         <scene sceneID="RZ4-3j-UQ2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JON-HH-WuC" customClass="NavigationController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JON-HH-WuC" customClass="NavigationController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Setting" image="icon_setting_nor" selectedImage="icon_setting_highlight" id="KgE-zm-lDT"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -432,7 +433,7 @@
         <!--Token-->
         <scene sceneID="rCj-OD-3pH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J9T-Ap-F7h" customClass="BaseNavigationViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J9T-Ap-F7h" customClass="BaseNavigationViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Token" image="icon_token_nor" selectedImage="icon_token_highlight" id="G4w-54-UJe"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

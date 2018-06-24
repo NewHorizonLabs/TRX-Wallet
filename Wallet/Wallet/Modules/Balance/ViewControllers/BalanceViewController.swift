@@ -13,6 +13,7 @@ import QRCodeReaderViewController
 
 class BalanceViewController: UIViewController {
 
+    @IBOutlet weak var walletNameLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var receiveButton: UIButton!
@@ -245,9 +246,9 @@ class BalanceViewController: UIViewController {
         }
         
         if let address = ServiceHelper.shared.currentWallet?.address.data.addressString,let value = UserDefaults.standard.string(forKey: address) {
-            navBalanceLabel.text = value
+            walletNameLabel.text = value + " TRX"
         } else {
-            navBalanceLabel.text = R.string.tron.balanceNavTitle()
+            walletNameLabel.text = R.string.tron.balanceNavTitle() + " TRX"
         }
     }
     
