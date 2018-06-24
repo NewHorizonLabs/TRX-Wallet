@@ -37,6 +37,10 @@ class BrowserViewController: UIViewController {
         webView.load(request)
         webView.navigationDelegate = self
     }
+    
+    deinit {
+        HUD.hideLoading()
+    }
 }
 
 extension BrowserViewController: WKNavigationDelegate {
