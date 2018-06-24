@@ -26,6 +26,7 @@ class CreateWalletViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var accountTextField: UITextField!
     
+    @IBOutlet weak var nameTextField: DottedLineTextField!
     @IBOutlet weak var pasteButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
     
@@ -36,6 +37,7 @@ class CreateWalletViewController: UIViewController {
     var address: Variable<String> = Variable("")
     var password: Variable<String> = Variable("")
     var repassword: Variable<String> = Variable("")
+    var name: Variable<String> = Variable("")
     
     var account: TrustKeystore.Account?
     var coordinator: WalletCoordinator?
@@ -56,8 +58,10 @@ class CreateWalletViewController: UIViewController {
                 
             case .success(let account):
                 print(account.address)
+                var account = account
                 let string = String(base58CheckEncoding: account.address.data)
                 self.address.value = string
+            
                 self.export(account: account)
                 self.account = account
             case .failure(let error):
@@ -110,18 +114,27 @@ class CreateWalletViewController: UIViewController {
             })
         .disposed(by: disposeBag)
         
+        
+        
         address.asObservable().bind(to: accountTextField.rx.text).disposed(by: disposeBag)
         password.asObservable().bind(to: passwordTextField.rx.text).disposed(by: disposeBag)
         repassword.asObservable().bind(to: repasswordTextField.rx.text).disposed(by: disposeBag)
+        name.asObservable().bind(to: nameTextField.rx.text).disposed(by: disposeBag)
+        (nameTextField.rx.text).orEmpty
+            .subscribe(onNext: {[weak self] (text) in
+                self?.name.value = text
+            })
+        .disposed(by: disposeBag)
         
         Observable.combineLatest(
+            name.asObservable().map{ $0.count > 0 },
             address.asObservable().map{ $0.count > 0 },
             password.asObservable().map{ $0.count > 0 },
             repassword.asObservable().map{ $0.count > 0 },
             (checkButtons[0].rx.tap).map { return self.checkButtons[0].isSelected },
             (checkButtons[1].rx.tap).map { return self.checkButtons[1].isSelected },
-            (checkButtons[2].rx.tap).map { return self.checkButtons[2].isSelected }) { (a,b,c,d,e,f ) -> Bool in
-                return a && b && c && d && e && f
+            (checkButtons[2].rx.tap).map { return self.checkButtons[2].isSelected }) { (a,b,c,d,e,f,g ) -> Bool in
+                return a && b && c && d && e && f && g
         }.bind(to: createButton.rx.isEnabled)
         .disposed(by: disposeBag)
         
@@ -149,8 +162,10 @@ class CreateWalletViewController: UIViewController {
         if let account = self.account {
             do {
                 try EtherKeystore.shared.saveAccount(account)
+                UserDefaults.standard.set(name.value, forKey: account.address.data.addressString)
                 self.coordinator?.pushBackup(for: account)
                 self.coordinator?.delegate = self
+                
             } catch {
                 HUD.showError(error: "Creat wallet failed")
             }

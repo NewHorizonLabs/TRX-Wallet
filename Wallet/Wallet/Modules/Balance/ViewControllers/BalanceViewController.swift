@@ -22,7 +22,6 @@ class BalanceViewController: UIViewController {
     @IBOutlet weak var frozenButton: UIButton!
     @IBOutlet weak var frozenLabel: UILabel!
     
-    
     @IBOutlet weak var bandwidthTitleLabel: UILabel!
     @IBOutlet weak var frozenTitleLabel: UILabel!
     @IBOutlet weak var powerTitleLabel: UILabel!
@@ -218,7 +217,9 @@ class BalanceViewController: UIViewController {
     
     func configureUI() {
         title = R.string.tron.balanceNavTitle()
+        
         navBalanceLabel.text = R.string.tron.balanceNavTitle()
+        
         powerTitleLabel.text = R.string.tron.balancePowerLabelTitle()
         frozenTitleLabel.text = R.string.tron.balanceFreezeLabelTitle()
         bandwidthTitleLabel.text = R.string.tron.balanceBandwidthLabelTitle()
@@ -243,6 +244,11 @@ class BalanceViewController: UIViewController {
             powerLabel.text = count.balanceString
         }
         
+        if let address = ServiceHelper.shared.currentWallet?.address.data.addressString,let value = UserDefaults.standard.string(forKey: address) {
+            navBalanceLabel.text = value
+        } else {
+            navBalanceLabel.text = R.string.tron.balanceNavTitle()
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

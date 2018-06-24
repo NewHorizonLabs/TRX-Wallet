@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WalletTableViewCell" rowHeight="69" id="KGk-i7-Jjw" customClass="WalletTableViewCell" customModule="Wallet" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WalletTableViewCell" rowHeight="69" id="KGk-i7-Jjw" customClass="WalletTableViewCell" customModule="TRXWallet" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -38,6 +38,12 @@
                         <color key="textColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zq4-hz-bq1">
+                        <rect key="frame" x="65" y="11" width="15" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <color key="textColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9z-hd-mbM">
                         <rect key="frame" x="40" y="38.5" width="11.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
@@ -60,7 +66,9 @@
                     <constraint firstItem="ubq-UE-EsL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JD7-qz-sDC"/>
                     <constraint firstAttribute="trailing" secondItem="aWt-y1-0T2" secondAttribute="trailing" constant="16" id="JyC-s1-x5Y"/>
                     <constraint firstItem="7XO-Of-p09" firstAttribute="centerY" secondItem="OJB-id-EJw" secondAttribute="centerY" id="KFX-Ns-aMz"/>
+                    <constraint firstItem="zq4-hz-bq1" firstAttribute="centerY" secondItem="OJB-id-EJw" secondAttribute="centerY" id="SXv-ab-n1z"/>
                     <constraint firstItem="y9z-hd-mbM" firstAttribute="leading" secondItem="OJB-id-EJw" secondAttribute="leading" id="cbu-lX-O1W"/>
+                    <constraint firstItem="zq4-hz-bq1" firstAttribute="leading" secondItem="OJB-id-EJw" secondAttribute="trailing" constant="10" id="dUy-AK-hbb"/>
                     <constraint firstItem="y9z-hd-mbM" firstAttribute="top" secondItem="ubq-UE-EsL" secondAttribute="bottom" id="iAl-1b-0t1"/>
                     <constraint firstItem="ubq-UE-EsL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="odO-3h-B51"/>
                     <constraint firstItem="aWt-y1-0T2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qkq-hL-gI8"/>
@@ -71,8 +79,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addressLabel" destination="y9z-hd-mbM" id="qgX-Zx-A3j"/>
-                <outlet property="balanceLabel" destination="OJB-id-EJw" id="bj3-1G-ECH"/>
+                <outlet property="balanceLabel" destination="zq4-hz-bq1" id="kNH-iu-DOv"/>
                 <outlet property="exportButton" destination="aWt-y1-0T2" id="l5e-xY-Oga"/>
+                <outlet property="nameLabel" destination="OJB-id-EJw" id="dp0-y5-F4p"/>
                 <outlet property="tipView" destination="ubq-UE-EsL" id="vUM-LM-AxO"/>
                 <outlet property="watchImageView" destination="7XO-Of-p09" id="MZ6-dk-vPM"/>
             </connections>

@@ -23,6 +23,7 @@ class WalletTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var exportButton: UIButton!
     @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     
     weak var cellDelegate: WalletWalletTableViewCellDelegate?
@@ -81,6 +82,12 @@ class WalletTableViewCell: SwipeTableViewCell {
             watchImageView.isHidden = false
         } else {
             watchImageView.isHidden = true
+        }
+        let address = model.address.data.addressString
+        if let value = UserDefaults.standard.string(forKey: address) {
+            nameLabel.text = value
+        } else {
+            nameLabel.text = "Wallet"
         }
     }
     
