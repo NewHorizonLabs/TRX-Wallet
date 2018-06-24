@@ -87,6 +87,15 @@ open class EtherKeystore: Keystore {
             }
         }
     }
+    
+    func createAccount(with password: String, type: TrustKeystore.AccountType, completion: @escaping (Result<TrustKeystore.Account, KeystoreError>) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let account = self.createAccout(password: password, type: type)
+            DispatchQueue.main.async {
+                completion(.success(account))
+            }
+        }
+    }
 
     func importWallet(type: ImportType, completion: @escaping (Result<Wallet, KeystoreError>) -> Void) {
         let newPassword = PasswordGenerator.generateRandom()
@@ -183,6 +192,14 @@ open class EtherKeystore: Keystore {
         
         return account
     }
+    
+    func createAccout(password: String, type: TrustKeystore.AccountType) -> TrustKeystore.Account {
+        let account = try! keyStore.createAccount(password: password, type: type)
+        let _ = setPassword(password, for: account)
+        
+        return account
+    }
+    
     
     func saveAccount(_ account: TrustKeystore.Account) throws {
         try keyStore.addAccount(account: account)
