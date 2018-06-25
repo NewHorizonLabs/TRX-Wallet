@@ -246,9 +246,9 @@ class BalanceViewController: UIViewController {
         }
         
         if let address = ServiceHelper.shared.currentWallet?.address.data.addressString,let value = UserDefaults.standard.string(forKey: address) {
-            walletNameLabel.text = value + " TRX"
+            walletNameLabel.text = value
         } else {
-            walletNameLabel.text = R.string.tron.balanceNavTitle() + " TRX"
+            walletNameLabel.text = R.string.tron.balanceNavTitle()
         }
     }
     
