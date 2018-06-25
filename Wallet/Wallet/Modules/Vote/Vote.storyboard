@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Vote View Controller-->
         <scene sceneID="uzU-qe-RMx">
             <objects>
-                <viewController storyboardIdentifier="VoteViewController" id="GmL-qN-1uT" customClass="VoteViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VoteViewController" id="GmL-qN-1uT" customClass="VoteViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YrY-gX-xK8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,17 +37,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zsj-li-A4l" customClass="VoteConfirmView" customModule="TRXWallet" customModuleProvider="target">
+                                <rect key="frame" x="10" y="667" width="355" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="HLu-g1-7FF"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="addShadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Cl5-pb-jbF" firstAttribute="leading" secondItem="D4n-GI-RrE" secondAttribute="leading" id="2SF-6d-XXU"/>
                             <constraint firstItem="Cl5-pb-jbF" firstAttribute="top" secondItem="D4n-GI-RrE" secondAttribute="top" id="GH9-L7-5bZ"/>
+                            <constraint firstItem="D4n-GI-RrE" firstAttribute="trailing" secondItem="Zsj-li-A4l" secondAttribute="trailing" constant="10" id="aQB-7f-6z6"/>
+                            <constraint firstItem="D4n-GI-RrE" firstAttribute="bottom" secondItem="Zsj-li-A4l" secondAttribute="bottom" constant="-100" id="dlG-c5-HEq"/>
                             <constraint firstItem="D4n-GI-RrE" firstAttribute="trailing" secondItem="Cl5-pb-jbF" secondAttribute="trailing" id="g5V-Rx-wBX"/>
                             <constraint firstItem="D4n-GI-RrE" firstAttribute="bottom" secondItem="Cl5-pb-jbF" secondAttribute="bottom" id="gH8-40-kjl"/>
+                            <constraint firstItem="Zsj-li-A4l" firstAttribute="leading" secondItem="D4n-GI-RrE" secondAttribute="leading" constant="10" id="oet-NE-68X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D4n-GI-RrE"/>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="dlG-c5-HEq" id="0zQ-kq-5Ka"/>
+                        <outlet property="confirmView" destination="Zsj-li-A4l" id="98g-Y5-Jvr"/>
                         <outlet property="tableView" destination="Cl5-pb-jbF" id="VWs-RD-2dC"/>
                     </connections>
                 </viewController>

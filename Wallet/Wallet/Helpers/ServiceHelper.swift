@@ -44,6 +44,7 @@ class ServiceHelper: NSObject {
     }
     var keystore: EtherKeystore = EtherKeystore.shared
     var voteArray: [Vote] = []
+    var voteModelChange: PublishSubject<Vote> = PublishSubject()
     
     //钱包切换
     var walletChange: PublishSubject<Void> = PublishSubject<()>()
@@ -51,6 +52,9 @@ class ServiceHelper: NSObject {
     var tokenChange: PublishSubject<Void> = PublishSubject<()>()
     //vote
     var voteChange: PublishSubject<Void> = PublishSubject<()>()
+    
+    //vote
+    var voteArrayChange: PublishSubject<Void> = PublishSubject<()>()
     //节点切换
     var nodeChange: PublishSubject<Void> = PublishSubject<()>()
     
@@ -103,6 +107,7 @@ class ServiceHelper: NSObject {
     }
     
     func getAccount() {
+        
         guard let a = account.value else {
             return
         }
@@ -110,6 +115,7 @@ class ServiceHelper: NSObject {
             if let model = accountModel, a.address.addressString == model.address.addressString {
                 if let array = model.votesArray as? [Vote] {
                     self?.voteArray = array
+                    self?.voteArrayChange.onNext(())
                 }
                 self?.account.value = model
                 

@@ -13,9 +13,24 @@ import UITableView_FDTemplateLayoutCell
 
 class VoteViewController: UIViewController {
 
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var confirmView: VoteConfirmView!
     let disposeBag = DisposeBag()
     
     var data: Variable<[Witness]> = Variable([])
+    var voteModelArray: [Vote] = []
+    var isEdit: Bool = false {
+        didSet {
+            let constant: CGFloat = isEdit ? 10 : -100
+            let alpha: CGFloat = isEdit ? 1.0 : 0.0
+            UIView.animate(withDuration: 0.35) {
+                self.confirmView.alpha = alpha
+                self.bottomConstraint.constant = constant
+            }
+            confirmView.layoutIfNeeded()
+            
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -24,7 +39,8 @@ class VoteViewController: UIViewController {
         tableView.register(R.nib.voteTableViewCell)
         tableView.delegate = self
         data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.voteTableViewCell.identifier, cellType: VoteTableViewCell.self)) { _, model, cell in
-            cell.configure(model: model)
+            let voteArray = self.isEdit ? self.voteModelArray : ServiceHelper.shared.voteArray
+            cell.configure(model: model, voteArray: voteArray)
             }.disposed(by: disposeBag)
         
         loadData()
@@ -43,6 +59,84 @@ class VoteViewController: UIViewController {
                 self?.orderArray()
             })
         .disposed(by: disposeBag)
+        
+        ServiceHelper.shared.voteModelChange.asObservable()
+            .subscribe(onNext: {[weak self] (vote) in
+                self?.updateVoteModelArray(vote: vote)
+            })
+        .disposed(by: disposeBag)
+        
+//        ServiceHelper.shared.voteArrayChange.asObservable()
+//            .subscribe(onNext: { (_) in
+//
+//            })
+//        .disposed(by: disposeBag)
+        
+        confirmView.sureBlock = {
+            self.requestVote()
+        }
+        
+        confirmView.cancleBlock = {
+            self.isEdit = false
+            self.voteModelArray = ServiceHelper.shared.voteArray
+            self.tableView.reloadData()
+        }
+    }
+    
+    func requestVote() {
+        guard self.voteModelArray.count > 0 else {
+            HUD.showText(text: "Nothing to Vote")
+            return
+        }
+        guard let account = ServiceHelper.shared.account.value else {
+            return
+        }
+        self.displayLoading()
+        //投票数据
+        let voteContractArray = self.voteModelArray.map { (model) -> VoteWitnessContract_Vote in
+            let vote = VoteWitnessContract_Vote()
+            vote.voteAddress = model.voteAddress
+            vote.voteCount = model.voteCount
+            return vote
+        }
+        
+        //用户数据
+        let contract = VoteWitnessContract()
+        contract.ownerAddress = account.address
+        contract.votesArray = NSMutableArray(array: voteContractArray)
+        
+        ServiceHelper.shared.service.voteWitnessAccount(withRequest: contract) { (transaction, error) in
+            if let action = transaction {
+                ServiceHelper.shared.broadcastTransaction(action, completion: { (result, error) in
+                    if let response = result {
+                        let result = response.result
+                        if result {
+                            self.isEdit = false
+                            ServiceHelper.shared.voteChange.onNext(())
+                            HUD.showText(text: R.string.tron.hudSuccess())
+                        } else {
+                            HUD.showError(error: "Vote Failed, If you don't have\n freeze TRX, please freeze TRX first")
+                        }
+                        
+                    }
+                    self.hideLoading()
+                })
+            } else if let error = error {
+                self.hideLoading()
+                HUD.showError(error: (error.localizedDescription))
+            }
+        }
+    }
+    
+    func updateVoteModelArray(vote: Vote) {
+        isEdit = true
+        var filterArray = self.voteModelArray.filter { return $0.voteAddress.addressString != vote.voteAddress.addressString }
+        if vote.voteCount <= 0 {
+            self.voteModelArray = filterArray
+        } else {
+            filterArray.append(vote)
+            self.voteModelArray = filterArray
+        }
     }
     
     func orderArray() {
@@ -83,7 +177,8 @@ extension VoteViewController: UITableViewDelegate {
         let model = data.value[indexPath.row]
         return tableView.fd_heightForCell(withIdentifier: R.nib.voteTableViewCell.identifier, configuration: { (cell) in
             if let cell = cell as? VoteTableViewCell {
-                cell.configure(model: model)
+                let voteArray = self.isEdit ? self.voteModelArray : ServiceHelper.shared.voteArray
+                cell.configure(model: model, voteArray: voteArray)
             }
         })
     }

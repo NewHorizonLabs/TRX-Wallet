@@ -12,16 +12,16 @@ import RxCocoa
 
 class VoteTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var addressTitleLabel: UILabel!
     @IBOutlet weak var voteTitleLabel: UILabel!
-    @IBOutlet weak var voteButton: UIButton!
     @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var voteNumberLabel: UILabel!
     @IBOutlet weak var voteNumberTitleLabel: UILabel!
     var model: Witness?
     
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     @IBOutlet weak var yourVoteNumberLabel: UILabel!
     
@@ -33,6 +33,11 @@ class VoteTableViewCell: UITableViewCell {
 //            .disposed(by: disposeBag)
         configureUI()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -43,30 +48,40 @@ class VoteTableViewCell: UITableViewCell {
     }
     
     func configureUI() {
-        voteButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
-        voteButton.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
-        
         voteTitleLabel.text = R.string.tron.voteVoteLabelTitle()
-        voteButton.setTitle(R.string.tron.voteButtonTitle(), for: .normal)
         addressTitleLabel.text = R.string.tron.voteAddressLabelTitle()
     }
     
-    func configure(model: Witness) {
+    func configure(model: Witness, voteArray: [Vote]) {
         self.model = model
         addressLabel.text = model.address.addressString
         voteNumberLabel.text = String(model.voteCount)
         websiteLabel.text = model.url
-        if let vote = (ServiceHelper.shared.voteArray.filter { (object) -> Bool in
+
+        if let vote = (voteArray.filter { (object) -> Bool in
             return object.voteAddress.addressString == model.address.addressString
         }).first {
             yourVoteNumberLabel.text = vote.voteCount.string
+            inputTextField.text = vote.voteCount.string
             voteNumberTitleLabel.text = R.string.tron.voteYourvoteLabelTitle()
             voteNumberTitleLabel.isHidden = false
             yourVoteNumberLabel.isHidden = false
         } else {
+            inputTextField.text = ""
             voteNumberTitleLabel.isHidden = true
             yourVoteNumberLabel.isHidden = true
         }
+        
+        (inputTextField.rx.text).skip(1).map({ (text) -> Int64 in
+            return Int64(text ?? "0") ?? 0
+        }).asObservable()
+            .subscribe(onNext: { (number) in
+                let vote = Vote()
+                vote.voteAddress = model.address
+                vote.voteCount = number
+                ServiceHelper.shared.voteModelChange.onNext(vote)
+            })
+        .disposed(by: disposeBag)
     }
     
     @objc func buttonClick() {
@@ -81,7 +96,7 @@ class VoteTableViewCell: UITableViewCell {
     func votedSuccess(number: Int64) {
         if let model = model {
             model.voteCount = model.voteCount + number
-            configure(model: model)
+//            configure(model: model)
         }
     }
 }

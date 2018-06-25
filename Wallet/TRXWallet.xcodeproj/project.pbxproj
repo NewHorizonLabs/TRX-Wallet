@@ -55,6 +55,8 @@
 		3666DB5920A1718100EF7F87 /* Annotations.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666DB4E20A1718100EF7F87 /* Annotations.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3666DB5A20A1718100EF7F87 /* Descriptor.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666DB5120A1718100EF7F87 /* Descriptor.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3666DB5B20A1718100EF7F87 /* Api.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666DB5220A1718100EF7F87 /* Api.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		368A159A20E0F88900D340CF /* VoteConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A159920E0F88900D340CF /* VoteConfirm.swift */; };
+		368A159C20E0F89A00D340CF /* VoteConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368A159B20E0F89A00D340CF /* VoteConfirmView.xib */; };
 		368C82E6209C432F0089D906 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C82E5209C432F0089D906 /* AppDelegate.swift */; };
 		368C82EB209C432F0089D906 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368C82E9209C432F0089D906 /* Main.storyboard */; };
 		368C82ED209C43300089D906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368C82EC209C43300089D906 /* Assets.xcassets */; };
@@ -486,6 +488,8 @@
 		3666DB5120A1718100EF7F87 /* Descriptor.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Descriptor.pbobjc.m; sourceTree = "<group>"; };
 		3666DB5220A1718100EF7F87 /* Api.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Api.pbobjc.m; sourceTree = "<group>"; };
 		3666DB5320A1718100EF7F87 /* Api.pbrpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Api.pbrpc.h; sourceTree = "<group>"; };
+		368A159920E0F88900D340CF /* VoteConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteConfirm.swift; sourceTree = "<group>"; };
+		368A159B20E0F89A00D340CF /* VoteConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteConfirmView.xib; sourceTree = "<group>"; };
 		368C82E2209C432F0089D906 /* TRXWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRXWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		368C82E5209C432F0089D906 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		368C82EA209C432F0089D906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -2142,6 +2146,8 @@
 				36C62A9320A1A927005A36DF /* VoteTableViewCell.xib */,
 				36C62AC320A30649005A36DF /* VoteInputView.swift */,
 				36C62AC520A30655005A36DF /* VoteInputView.xib */,
+				368A159920E0F88900D340CF /* VoteConfirm.swift */,
+				368A159B20E0F89A00D340CF /* VoteConfirmView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2329,6 +2335,7 @@
 				360B81D420DFEBE700778E45 /* NodeInputView.xib in Resources */,
 				368C853C209C70180089D906 /* NonFungibleTokenViewCell.xib in Resources */,
 				36F1557D20CA4F3E002BF4B1 /* WalletModeView.xib in Resources */,
+				368A159C20E0F89A00D340CF /* VoteConfirmView.xib in Resources */,
 				368C82FA209C44AA0089D906 /* Login.storyboard in Resources */,
 				36CF028620BD04230001D0F5 /* FrozenView.xib in Resources */,
 				368C82F0209C43300089D906 /* LaunchScreen.storyboard in Resources */,
@@ -2649,6 +2656,7 @@
 				36C62ADB20A595B5005A36DF /* DottedLineTextField.swift in Sources */,
 				36CCC1A120AC43210067B8E6 /* SwiftNotice.swift in Sources */,
 				368C8566209C70180089D906 /* TransactionsViewModel.swift in Sources */,
+				368A159A20E0F88900D340CF /* VoteConfirm.swift in Sources */,
 				368C851C209C70180089D906 /* TokensCoordinator.swift in Sources */,
 				36B68B4120CA82EB006E891C /* BrowserViewController.swift in Sources */,
 				368C85C4209C70190089D906 /* ImportWalletViewController.swift in Sources */,

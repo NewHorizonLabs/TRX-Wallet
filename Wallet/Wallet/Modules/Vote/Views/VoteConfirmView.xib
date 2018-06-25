@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VoteConfirmView" customModule="TRXWallet" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="SqB-5v-ykQ" id="Xf4-Lc-owO"/>
+                <outlet property="confirmButton" destination="aba-aV-X0P" id="PiE-8J-awA"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Aqk-Xc-S8i"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VrC-FL-2Ng">
+                    <rect key="frame" x="10" y="0.0" width="355" height="92"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hjV-TX-ARQ">
+                            <rect key="frame" x="0.0" y="24" width="355" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqB-5v-ykQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="167.5" height="44"/>
+                                    <color key="backgroundColor" red="0.27450980390000002" green="0.23529411759999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="Cancel"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aba-aV-X0P">
+                                    <rect key="frame" x="187.5" y="0.0" width="167.5" height="44"/>
+                                    <color key="backgroundColor" red="0.27450980390000002" green="0.23529411759999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="Confirm"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="YQY-qo-y5E"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="hjV-TX-ARQ" firstAttribute="leading" secondItem="VrC-FL-2Ng" secondAttribute="leading" id="5im-z7-XUC"/>
+                        <constraint firstAttribute="trailing" secondItem="hjV-TX-ARQ" secondAttribute="trailing" id="cWq-0p-nyi"/>
+                        <constraint firstItem="hjV-TX-ARQ" firstAttribute="centerY" secondItem="VrC-FL-2Ng" secondAttribute="centerY" id="mw4-bF-i10"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VrC-FL-2Ng" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="04t-4C-PJt"/>
+                <constraint firstItem="VrC-FL-2Ng" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="UVm-Pe-JwS"/>
+                <constraint firstItem="VrC-FL-2Ng" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cO7-W9-wsf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VrC-FL-2Ng" secondAttribute="trailing" constant="10" id="eoP-cm-DTv"/>
+                <constraint firstItem="VrC-FL-2Ng" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="ery-ZW-E7d"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VrC-FL-2Ng" secondAttribute="bottom" id="iTm-Ux-dD7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-154" y="-237"/>
+        </view>
+    </objects>
+</document>

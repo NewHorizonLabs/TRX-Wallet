@@ -39,7 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="zq4-hz-bq1">
-                        <rect key="frame" x="212" y="11" width="15" height="19.5"/>
+                        <rect key="frame" x="203" y="11" width="15" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -51,12 +51,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_watch" translatesAutoresizingMaskIntoConstraints="NO" id="7XO-Of-p09">
-                        <rect key="frame" x="232" y="16" width="24" height="8"/>
+                        <rect key="frame" x="223" y="16" width="24" height="8"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-y1-0T2">
-                        <rect key="frame" x="264" y="18.5" width="40" height="32"/>
+                        <rect key="frame" x="255" y="18.5" width="60" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="1WL-kv-mEE"/>
+                            <constraint firstAttribute="width" constant="60" id="1WL-kv-mEE"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                         <state key="normal" title="导出">
@@ -68,7 +68,7 @@
                     <constraint firstItem="aWt-y1-0T2" firstAttribute="leading" secondItem="7XO-Of-p09" secondAttribute="trailing" constant="8" id="7D9-6D-ZXs"/>
                     <constraint firstItem="7XO-Of-p09" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="y9z-hd-mbM" secondAttribute="trailing" constant="5" id="GTG-8J-mC1"/>
                     <constraint firstItem="ubq-UE-EsL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JD7-qz-sDC"/>
-                    <constraint firstAttribute="trailing" secondItem="aWt-y1-0T2" secondAttribute="trailing" constant="16" id="JyC-s1-x5Y"/>
+                    <constraint firstAttribute="trailing" secondItem="aWt-y1-0T2" secondAttribute="trailing" constant="5" id="JyC-s1-x5Y"/>
                     <constraint firstItem="7XO-Of-p09" firstAttribute="centerY" secondItem="OJB-id-EJw" secondAttribute="centerY" id="KFX-Ns-aMz"/>
                     <constraint firstItem="7XO-Of-p09" firstAttribute="leading" secondItem="zq4-hz-bq1" secondAttribute="trailing" constant="5" id="KWv-NW-tMu"/>
                     <constraint firstItem="zq4-hz-bq1" firstAttribute="centerY" secondItem="OJB-id-EJw" secondAttribute="centerY" id="SXv-ab-n1z"/>
