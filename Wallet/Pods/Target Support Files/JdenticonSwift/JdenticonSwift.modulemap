@@ -1,0 +1,6 @@
+framework module JdenticonSwift {
+  umbrella header "JdenticonSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

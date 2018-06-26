@@ -1,0 +1,6 @@
+framework module TrustCore {
+  umbrella header "TrustCore-umbrella.h"
+
+  export *
+  module * { export * }
+}
