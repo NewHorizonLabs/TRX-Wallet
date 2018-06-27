@@ -49,4 +49,14 @@ class UIConfigure {
         tableViewCell.selectedBackgroundView = view
     }
     
+    class func button() {
+        var env = getenv("DYLD_INSERT_LIBRARIES")
+        if env != nil {
+            let alertVC = UIAlertController(title: "The device has been break prison", message: "It is dangerous run in this device", preferredStyle: .alert)
+            let action = UIAlertAction(title: "I know", style: .cancel, handler: nil)
+            alertVC.addAction(action)
+            CurrentControllerHelper.currentViewController().show(alertVC, sender: nil)
+        }
+    }
+    
 }

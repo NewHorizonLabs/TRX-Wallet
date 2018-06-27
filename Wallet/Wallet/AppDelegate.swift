@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         protectionCoordinator.applicationDidBecomeActive()
+        UIConfigure.button()
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
