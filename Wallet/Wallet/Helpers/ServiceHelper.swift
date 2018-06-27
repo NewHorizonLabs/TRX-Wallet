@@ -17,8 +17,8 @@ import TrustKeystore
 //solidity node
 class ServiceHelper: NSObject {
     static let shared = ServiceHelper()
-    static let fullNode: String = "47.254.144.25:50051"
-    static let solidityNode: String = "18.204.117.182:50051"
+    static let fullNode: String = "54.236.37.243:50051"
+    static let solidityNode: String = "39.105.66.80:50051"
     var service: TWallet = TWallet(host: ServiceHelper.fullNode)
     var solidityService: WalletExtension = WalletExtension(host: ServiceHelper.solidityNode)
     var account: Variable<TronAccount?> = Variable(nil)
