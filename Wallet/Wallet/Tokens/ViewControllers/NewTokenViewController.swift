@@ -175,7 +175,10 @@ extension NewTokenViewController: QRCodeReaderDelegate {
     func reader(_ reader: QRCodeReaderViewController!, didScanResult result: String!) {
         reader.stopScanning()
         reader.dismiss(animated: true, completion: nil)
-
+        if result == nil {
+            HUD.showText(text: "Error QRCode")
+            return
+        }
         guard let result = QRURLParser.from(string: result) else { return }
         updateContractValue(value: result.address)
     }

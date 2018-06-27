@@ -216,7 +216,10 @@ extension SendViewController: QRCodeReaderDelegate {
         reader.dismiss(animated: true) { [weak self] in
            self?.activateAmountView()
         }
-
+        if result == nil {
+            HUD.showText(text: "Error QRCode")
+            return
+        }
         guard let result = QRURLParser.from(string: result) else { return }
         addressRow?.value = result.address
         addressRow?.reload()

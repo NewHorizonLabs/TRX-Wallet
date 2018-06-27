@@ -300,7 +300,11 @@ extension ImportWalletViewController: QRCodeReaderDelegate {
     }
     func reader(_ reader: QRCodeReaderViewController!, didScanResult result: String!) {
         reader.stopScanning()
-        setValueForCurrentField(string: result)
         reader.dismiss(animated: true)
+        if result == nil {
+            HUD.showText(text: "Error QRCode")
+            return
+        }
+        setValueForCurrentField(string: result)
     }
 }

@@ -177,6 +177,11 @@ extension ColdTransactionView: QRCodeReaderDelegate {
     
     func reader(_ reader: QRCodeReaderViewController!, didScanResult result: String!) {
         reader.stopScanning()
+        reader.dismiss(animated: true, completion: nil)
+        if result == nil {
+            HUD.showText(text: "Error QRCode")
+            return
+        }
         transactionDataLabel.text = result
         let data = Data(hex: result)
         do {
@@ -185,6 +190,6 @@ extension ColdTransactionView: QRCodeReaderDelegate {
         } catch {
             HUD.showError(error: "No Transaction Information")
         }
-        reader.dismiss(animated: true, completion: nil)
+        
     }
 }

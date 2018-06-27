@@ -307,11 +307,16 @@ extension BalanceViewController: QRCodeReaderDelegate {
     }
     func reader(_ reader: QRCodeReaderViewController!, didScanResult result: String!) {
         reader.stopScanning()
+        reader.dismiss(animated: true, completion: nil)
+        if result == nil {
+            HUD.showText(text: "Error QRCode")
+            return
+        }
         if result.hasPrefix("coldtransaction://") {
             let dataString = result.replacingOccurrences(of: "coldtransaction://", with: "")
             self.perform(#selector(showOfflineSignVC), with: dataString, afterDelay: 0.5)
         }
-        reader.dismiss(animated: true, completion: nil)
+        
     }
 }
 

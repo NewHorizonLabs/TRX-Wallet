@@ -119,9 +119,14 @@ extension SendTransactionViewController: QRCodeReaderDelegate {
     }
     func reader(_ reader: QRCodeReaderViewController!, didScanResult result: String!) {
         reader.stopScanning()
+        reader.dismiss(animated: true, completion: nil)
+        if result == nil {
+            HUD.showText(text: "Error QRCode")
+            return
+        }
         if let address = result.components(separatedBy: "to=").last {
             self.addressTextField.text = address
         }
-        reader.dismiss(animated: true, completion: nil)
+        
     }
 }
