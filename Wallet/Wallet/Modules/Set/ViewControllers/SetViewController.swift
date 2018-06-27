@@ -234,7 +234,7 @@ enum SettingType {
             let vc = R.storyboard.set.walletListViewController()!
             CurrentControllerHelper.pushViewController(viewController: vc)
         case .nodelist:
-            let vc = R.storyboard.set.nodeListViewController()!
+            let vc = R.storyboard.set.inputNodeViewController()!
             CurrentControllerHelper.pushViewController(viewController: vc)
         case .walletHelp:
             let url = ServiceHelper.shared.walletMode.value.url

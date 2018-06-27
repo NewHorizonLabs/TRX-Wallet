@@ -59,6 +59,16 @@ class NodeInputView: UIView {
     var nodeType: NodeType = .full {
         didSet {
             titleLabel.text = nodeType.title
+            switch nodeType {
+            case .full:
+                let nodeComponent = ServiceHelper.fullNode.components(separatedBy: ":")
+                ipTextField.text = nodeComponent[0]
+                portTextField.text = nodeComponent[1]
+            case .solidity:
+                let nodeComponent = ServiceHelper.solidityNode.components(separatedBy: ":")
+                ipTextField.text = nodeComponent[0]
+                portTextField.text = nodeComponent[1]
+            }
         }
     }
     
