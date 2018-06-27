@@ -57,11 +57,14 @@ class TransactionsListViewController: UIViewController {
             .subscribe {[weak self] (list) in
                 self?.firstLoad = false
                 if let array = list.element {
-                    let value = array.filter({ (action) -> Bool in
+                    var value = array.filter({ (action) -> Bool in
                         if let object = action.rawData.contractArray.firstObject as? Transaction_Contract {
                             return object.type == Transaction_Contract_ContractType.transferContract || object.type == Transaction_Contract_ContractType.transferAssetContract
                         }
                         return false
+                    })
+                    value.sort(by: { (a, b) -> Bool in
+                        return a.rawData.expiration > b.rawData.expiration
                     })
                     self?.data.value = value
                 } else {
