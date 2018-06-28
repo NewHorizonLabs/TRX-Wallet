@@ -73,7 +73,7 @@ class SendConfiremViewController: UIViewController {
         let contract = TransferContract()
         contract.ownerAddress = fromAddress
         contract.toAddress = toAddress
-        contract.amount = Int64(info.amount * 1000000.0)
+        contract.amount = Int64(roundf(Float(info.amount * 1000000.0)))
         self.displayLoading()
         ServiceHelper.shared.service.createTransaction(withRequest: contract) {[weak self] (transaction, error) in
             if let action = transaction {
