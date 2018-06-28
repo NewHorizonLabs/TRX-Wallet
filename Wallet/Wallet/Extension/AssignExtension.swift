@@ -78,7 +78,7 @@ extension Double: digtalTarget {
     }
     
     func numberFormat() -> String {
-        return String(format: "%.4f", self)
+        return String(format: "%.6f", self)
     }
     
     
