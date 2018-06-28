@@ -36,7 +36,7 @@ class WalletSession {
         self.nonceProvider = nonceProvider
         self.balanceCoordinator = balanceCoordinator
         self.balanceCoordinator.delegate = self
-        self.chainState.start()
+//        self.chainState.start()
     }
 
     func refresh() {

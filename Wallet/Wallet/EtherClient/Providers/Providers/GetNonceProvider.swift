@@ -33,7 +33,7 @@ class GetNonceProvider: NonceProvider {
     ) {
         self.storage = storage
 
-        fetchLatestNonce()
+//        fetchLatestNonce()
     }
 
     func fetchLatestNonce() {
