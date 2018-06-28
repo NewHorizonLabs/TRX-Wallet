@@ -305,7 +305,7 @@ extension Int64 {
     }
     
     var balanceString: String {
-        return String(Double(self)/1000000.0)
+        return (Double(self)/1000000.0).numberFormat()
     }
 }
 
