@@ -20,7 +20,7 @@ class SendConfiremViewController: UIViewController {
     @IBOutlet weak var accountBalancelLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var numberLabel: UILabel!
-    var info:(from:String, to:String, amount: Int64)?
+    var info:(from:String, to:String, amount: CGFloat)?
     
     var asset: AccountAsset?
     
@@ -30,8 +30,7 @@ class SendConfiremViewController: UIViewController {
         if let info = info {
             senderAddressLabel.text = info.from
             toAddressLabel.text = info.to
-            numberLabel.text = info.amount.string + "  " + (self.title ?? "")
-            
+            numberLabel.text = info.amount.numberFormat(length: 6) + "  " + (self.title ?? "")
         }
         
         configureUI()
@@ -74,7 +73,7 @@ class SendConfiremViewController: UIViewController {
         let contract = TransferContract()
         contract.ownerAddress = fromAddress
         contract.toAddress = toAddress
-        contract.amount = info.amount * 1000000
+        contract.amount = Int64(info.amount * 1000000.0)
         self.displayLoading()
         ServiceHelper.shared.service.createTransaction(withRequest: contract) {[weak self] (transaction, error) in
             if let action = transaction {
@@ -94,7 +93,7 @@ class SendConfiremViewController: UIViewController {
         let contract = TransferAssetContract()
         contract.ownerAddress = fromAddress
         contract.toAddress = toAddress
-        contract.amount = info.amount
+        contract.amount = Int64(info.amount)
         contract.assetName = asset.name.data(using: .utf8)
         self.displayLoading()
     

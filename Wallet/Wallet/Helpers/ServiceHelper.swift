@@ -101,8 +101,10 @@ class ServiceHelper: NSObject {
         }
         service = TWallet(host: fullNodeString)
         solidityService = WalletExtension(host: solidityNodeString)
+        
         GRPCCall.useInsecureConnections(forHost: fullNodeString)
         GRPCCall.useInsecureConnections(forHost: solidityNodeString)
+        
         nodeChange.onNext(())
     }
     

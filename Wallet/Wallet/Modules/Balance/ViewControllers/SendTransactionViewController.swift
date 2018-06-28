@@ -82,7 +82,7 @@ class SendTransactionViewController: UIViewController {
     }
     
     @objc func nextButtonClick() {
-        guard let account = ServiceHelper.shared.account.value, let addressData = Data(base58CheckDecoding: addressTextField.text ?? ""), let numberText = numberTextField.text, let number = Int64(numberText) else {
+        guard let account = ServiceHelper.shared.account.value, let addressData = Data(base58CheckDecoding: addressTextField.text ?? ""), let numberText = numberTextField.text, let number = numberText.cgFloat else {
             return
         }
         
@@ -128,5 +128,14 @@ extension SendTransactionViewController: QRCodeReaderDelegate {
             self.addressTextField.text = address
         }
         
+    }
+}
+
+extension String {
+    var cgFloat: CGFloat? {
+        if let value = NumberFormatter().number(from: self)?.floatValue {
+            return CGFloat(value)
+        }
+        return nil
     }
 }

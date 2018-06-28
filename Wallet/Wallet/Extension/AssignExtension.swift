@@ -54,11 +54,18 @@ extension Int: digtalTarget {
     }
 }
 
+
 extension UInt: digtalTarget {
     
 }
 
 extension Float: digtalTarget {
+}
+
+extension CGFloat {
+    func numberFormat(length: Int) -> String {
+        return String(format: "%.\(length)f", self)
+    }
 }
 
 extension Double: digtalTarget {
@@ -72,8 +79,9 @@ extension Double: digtalTarget {
     
     func numberFormat() -> String {
         return String(format: "%.4f", self)
-        
     }
+    
+    
 }
 
 extension CGFloat: digtalTarget {
