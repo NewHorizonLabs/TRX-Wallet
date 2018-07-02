@@ -1111,6 +1111,243 @@ typedef struct AccountNetMessage__storage_ {
 
 @end
 
+#pragma mark - PaginatedMessage
+
+@implementation PaginatedMessage
+
+@dynamic offset;
+@dynamic limit;
+
+typedef struct PaginatedMessage__storage_ {
+  uint32_t _has_storage_[1];
+  int64_t offset;
+  int64_t limit;
+} PaginatedMessage__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "offset",
+        .dataTypeSpecific.className = NULL,
+        .number = PaginatedMessage_FieldNumber_Offset,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(PaginatedMessage__storage_, offset),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "limit",
+        .dataTypeSpecific.className = NULL,
+        .number = PaginatedMessage_FieldNumber_Limit,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(PaginatedMessage__storage_, limit),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[PaginatedMessage class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(PaginatedMessage__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - EasyTransferMessage
+
+@implementation EasyTransferMessage
+
+@dynamic passPhrase;
+@dynamic toAddress;
+@dynamic amount;
+
+typedef struct EasyTransferMessage__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *passPhrase;
+  NSData *toAddress;
+  int64_t amount;
+} EasyTransferMessage__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "passPhrase",
+        .dataTypeSpecific.className = NULL,
+        .number = EasyTransferMessage_FieldNumber_PassPhrase,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(EasyTransferMessage__storage_, passPhrase),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "toAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = EasyTransferMessage_FieldNumber_ToAddress,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(EasyTransferMessage__storage_, toAddress),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "amount",
+        .dataTypeSpecific.className = NULL,
+        .number = EasyTransferMessage_FieldNumber_Amount,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(EasyTransferMessage__storage_, amount),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[EasyTransferMessage class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(EasyTransferMessage__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\002\001\n\000\002\t\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - EasyTransferResponse
+
+@implementation EasyTransferResponse
+
+@dynamic hasTransaction, transaction;
+@dynamic hasResult, result;
+
+typedef struct EasyTransferResponse__storage_ {
+  uint32_t _has_storage_[1];
+  TronTransaction *transaction;
+  Return *result;
+} EasyTransferResponse__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "transaction",
+        .dataTypeSpecific.className = GPBStringifySymbol(TronTransaction),
+        .number = EasyTransferResponse_FieldNumber_Transaction,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(EasyTransferResponse__storage_, transaction),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "result",
+        .dataTypeSpecific.className = GPBStringifySymbol(Return),
+        .number = EasyTransferResponse_FieldNumber_Result,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(EasyTransferResponse__storage_, result),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[EasyTransferResponse class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(EasyTransferResponse__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - AddressPrKeyPairMessage
+
+@implementation AddressPrKeyPairMessage
+
+@dynamic address;
+@dynamic privateKey;
+
+typedef struct AddressPrKeyPairMessage__storage_ {
+  uint32_t _has_storage_[1];
+  NSString *address;
+  NSString *privateKey;
+} AddressPrKeyPairMessage__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "address",
+        .dataTypeSpecific.className = NULL,
+        .number = AddressPrKeyPairMessage_FieldNumber_Address,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(AddressPrKeyPairMessage__storage_, address),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "privateKey",
+        .dataTypeSpecific.className = NULL,
+        .number = AddressPrKeyPairMessage_FieldNumber_PrivateKey,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(AddressPrKeyPairMessage__storage_, privateKey),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[AddressPrKeyPairMessage class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(AddressPrKeyPairMessage__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\002\n\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 
 #pragma clang diagnostic pop
 

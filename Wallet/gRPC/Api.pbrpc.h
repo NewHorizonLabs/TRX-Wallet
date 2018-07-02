@@ -15,6 +15,7 @@
   @class AccountNetMessage;
   @class AccountPaginated;
   @class AccountUpdateContract;
+  @class AddressPrKeyPairMessage;
   @class AssetIssueContract;
   @class AssetIssueList;
   @class Block;
@@ -23,14 +24,19 @@
   @class BlockReference;
   @class BytesMessage;
   @class DynamicProperties;
+  @class EasyTransferMessage;
+  @class EasyTransferResponse;
   @class EmptyMessage;
   @class FreezeBalanceContract;
   @class NodeList;
   @class NumberMessage;
+  @class PaginatedMessage;
   @class ParticipateAssetIssueContract;
   @class Return;
   @class TronTransaction;
+  @class TransactionInfo;
   @class TransactionList;
+  @class TransactionSign;
   @class TransferAssetContract;
   @class TransferContract;
   @class UnfreezeAssetContract;
@@ -250,6 +256,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCToGetAssetIssueListWithRequest:(EmptyMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
 
 
+#pragma mark GetPaginatedAssetIssueList(PaginatedMessage) returns (AssetIssueList)
+
+- (void)getPaginatedAssetIssueListWithRequest:(PaginatedMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
+
+- (GRPCProtoCall *)RPCToGetPaginatedAssetIssueListWithRequest:(PaginatedMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
+
+
 #pragma mark TotalTransaction(EmptyMessage) returns (NumberMessage)
 
 - (void)totalTransactionWithRequest:(EmptyMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
@@ -262,6 +275,58 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getNextMaintenanceTimeWithRequest:(EmptyMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
 
 - (GRPCProtoCall *)RPCToGetNextMaintenanceTimeWithRequest:(EmptyMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark GetTransactionSign(TransactionSign) returns (TronTransaction)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)getTransactionSignWithRequest:(TransactionSign *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToGetTransactionSignWithRequest:(TransactionSign *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark CreateAdresss(BytesMessage) returns (BytesMessage)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)createAdresssWithRequest:(BytesMessage *)request handler:(void(^)(BytesMessage *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToCreateAdresssWithRequest:(BytesMessage *)request handler:(void(^)(BytesMessage *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark EasyTransfer(EasyTransferMessage) returns (EasyTransferResponse)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)easyTransferWithRequest:(EasyTransferMessage *)request handler:(void(^)(EasyTransferResponse *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToEasyTransferWithRequest:(EasyTransferMessage *)request handler:(void(^)(EasyTransferResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark GenerateAddress(EmptyMessage) returns (AddressPrKeyPairMessage)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)generateAddressWithRequest:(EmptyMessage *)request handler:(void(^)(AddressPrKeyPairMessage *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToGenerateAddressWithRequest:(EmptyMessage *)request handler:(void(^)(AddressPrKeyPairMessage *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end
@@ -289,6 +354,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCToGetAssetIssueListWithRequest:(EmptyMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
 
 
+#pragma mark GetPaginatedAssetIssueList(PaginatedMessage) returns (AssetIssueList)
+
+- (void)getPaginatedAssetIssueListWithRequest:(PaginatedMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
+
+- (GRPCProtoCall *)RPCToGetPaginatedAssetIssueListWithRequest:(PaginatedMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler;
+
+
 #pragma mark GetNowBlock(EmptyMessage) returns (Block)
 
 - (void)getNowBlockWithRequest:(EmptyMessage *)request handler:(void(^)(Block *_Nullable response, NSError *_Nullable error))handler;
@@ -301,6 +373,33 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBlockByNumWithRequest:(NumberMessage *)request handler:(void(^)(Block *_Nullable response, NSError *_Nullable error))handler;
 
 - (GRPCProtoCall *)RPCToGetBlockByNumWithRequest:(NumberMessage *)request handler:(void(^)(Block *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark GetTransactionById(BytesMessage) returns (TronTransaction)
+
+- (void)getTransactionByIdWithRequest:(BytesMessage *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
+
+- (GRPCProtoCall *)RPCToGetTransactionByIdWithRequest:(BytesMessage *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark GetTransactionInfoById(BytesMessage) returns (TransactionInfo)
+
+- (void)getTransactionInfoByIdWithRequest:(BytesMessage *)request handler:(void(^)(TransactionInfo *_Nullable response, NSError *_Nullable error))handler;
+
+- (GRPCProtoCall *)RPCToGetTransactionInfoByIdWithRequest:(BytesMessage *)request handler:(void(^)(TransactionInfo *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark GenerateAddress(EmptyMessage) returns (AddressPrKeyPairMessage)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)generateAddressWithRequest:(EmptyMessage *)request handler:(void(^)(AddressPrKeyPairMessage *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToGenerateAddressWithRequest:(EmptyMessage *)request handler:(void(^)(AddressPrKeyPairMessage *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

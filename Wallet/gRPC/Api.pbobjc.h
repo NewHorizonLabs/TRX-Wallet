@@ -32,6 +32,7 @@ CF_EXTERN_C_BEGIN
 @class AssetIssueContract;
 @class Block;
 @class Node;
+@class Return;
 @class TimeMessage;
 @class TronTransaction;
 @class Witness;
@@ -387,6 +388,73 @@ typedef GPB_ENUM(AccountNetMessage_FieldNumber) {
 @property(nonatomic, readwrite) int64_t totalNetLimit;
 
 @property(nonatomic, readwrite) int64_t totalNetWeight;
+
+@end
+
+#pragma mark - PaginatedMessage
+
+typedef GPB_ENUM(PaginatedMessage_FieldNumber) {
+  PaginatedMessage_FieldNumber_Offset = 1,
+  PaginatedMessage_FieldNumber_Limit = 2,
+};
+
+@interface PaginatedMessage : GPBMessage
+
+@property(nonatomic, readwrite) int64_t offset;
+
+@property(nonatomic, readwrite) int64_t limit;
+
+@end
+
+#pragma mark - EasyTransferMessage
+
+typedef GPB_ENUM(EasyTransferMessage_FieldNumber) {
+  EasyTransferMessage_FieldNumber_PassPhrase = 1,
+  EasyTransferMessage_FieldNumber_ToAddress = 2,
+  EasyTransferMessage_FieldNumber_Amount = 3,
+};
+
+@interface EasyTransferMessage : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *passPhrase;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *toAddress;
+
+@property(nonatomic, readwrite) int64_t amount;
+
+@end
+
+#pragma mark - EasyTransferResponse
+
+typedef GPB_ENUM(EasyTransferResponse_FieldNumber) {
+  EasyTransferResponse_FieldNumber_Transaction = 1,
+  EasyTransferResponse_FieldNumber_Result = 2,
+};
+
+@interface EasyTransferResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) TronTransaction *transaction;
+/** Test to see if @c transaction has been set. */
+@property(nonatomic, readwrite) BOOL hasTransaction;
+
+@property(nonatomic, readwrite, strong, null_resettable) Return *result;
+/** Test to see if @c result has been set. */
+@property(nonatomic, readwrite) BOOL hasResult;
+
+@end
+
+#pragma mark - AddressPrKeyPairMessage
+
+typedef GPB_ENUM(AddressPrKeyPairMessage_FieldNumber) {
+  AddressPrKeyPairMessage_FieldNumber_Address = 1,
+  AddressPrKeyPairMessage_FieldNumber_PrivateKey = 2,
+};
+
+@interface AddressPrKeyPairMessage : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *address;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *privateKey;
 
 @end
 

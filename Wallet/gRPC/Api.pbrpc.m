@@ -369,6 +369,18 @@
              responseClass:[AssetIssueList class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
+#pragma mark GetPaginatedAssetIssueList(PaginatedMessage) returns (AssetIssueList)
+
+- (void)getPaginatedAssetIssueListWithRequest:(PaginatedMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToGetPaginatedAssetIssueListWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCToGetPaginatedAssetIssueListWithRequest:(PaginatedMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"GetPaginatedAssetIssueList"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[AssetIssueList class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
 #pragma mark TotalTransaction(EmptyMessage) returns (NumberMessage)
 
 - (void)totalTransactionWithRequest:(EmptyMessage *)request handler:(void(^)(NumberMessage *_Nullable response, NSError *_Nullable error))handler{
@@ -391,6 +403,78 @@
   return [self RPCToMethod:@"GetNextMaintenanceTime"
             requestsWriter:[GRXWriter writerWithValue:request]
              responseClass:[NumberMessage class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+#pragma mark GetTransactionSign(TransactionSign) returns (TronTransaction)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)getTransactionSignWithRequest:(TransactionSign *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToGetTransactionSignWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToGetTransactionSignWithRequest:(TransactionSign *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"GetTransactionSign"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[TronTransaction class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+#pragma mark CreateAdresss(BytesMessage) returns (BytesMessage)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)createAdresssWithRequest:(BytesMessage *)request handler:(void(^)(BytesMessage *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToCreateAdresssWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToCreateAdresssWithRequest:(BytesMessage *)request handler:(void(^)(BytesMessage *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"CreateAdresss"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[BytesMessage class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+#pragma mark EasyTransfer(EasyTransferMessage) returns (EasyTransferResponse)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)easyTransferWithRequest:(EasyTransferMessage *)request handler:(void(^)(EasyTransferResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToEasyTransferWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToEasyTransferWithRequest:(EasyTransferMessage *)request handler:(void(^)(EasyTransferResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"EasyTransfer"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[EasyTransferResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+#pragma mark GenerateAddress(EmptyMessage) returns (AddressPrKeyPairMessage)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)generateAddressWithRequest:(EmptyMessage *)request handler:(void(^)(AddressPrKeyPairMessage *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToGenerateAddressWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToGenerateAddressWithRequest:(EmptyMessage *)request handler:(void(^)(AddressPrKeyPairMessage *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"GenerateAddress"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[AddressPrKeyPairMessage class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 @end
@@ -455,6 +539,18 @@
              responseClass:[AssetIssueList class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
+#pragma mark GetPaginatedAssetIssueList(PaginatedMessage) returns (AssetIssueList)
+
+- (void)getPaginatedAssetIssueListWithRequest:(PaginatedMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToGetPaginatedAssetIssueListWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCToGetPaginatedAssetIssueListWithRequest:(PaginatedMessage *)request handler:(void(^)(AssetIssueList *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"GetPaginatedAssetIssueList"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[AssetIssueList class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
 #pragma mark GetNowBlock(EmptyMessage) returns (Block)
 
 - (void)getNowBlockWithRequest:(EmptyMessage *)request handler:(void(^)(Block *_Nullable response, NSError *_Nullable error))handler{
@@ -477,6 +573,48 @@
   return [self RPCToMethod:@"GetBlockByNum"
             requestsWriter:[GRXWriter writerWithValue:request]
              responseClass:[Block class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+#pragma mark GetTransactionById(BytesMessage) returns (TronTransaction)
+
+- (void)getTransactionByIdWithRequest:(BytesMessage *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToGetTransactionByIdWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCToGetTransactionByIdWithRequest:(BytesMessage *)request handler:(void(^)(TronTransaction *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"GetTransactionById"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[TronTransaction class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+#pragma mark GetTransactionInfoById(BytesMessage) returns (TransactionInfo)
+
+- (void)getTransactionInfoByIdWithRequest:(BytesMessage *)request handler:(void(^)(TransactionInfo *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToGetTransactionInfoByIdWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+- (GRPCProtoCall *)RPCToGetTransactionInfoByIdWithRequest:(BytesMessage *)request handler:(void(^)(TransactionInfo *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"GetTransactionInfoById"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[TransactionInfo class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+#pragma mark GenerateAddress(EmptyMessage) returns (AddressPrKeyPairMessage)
+
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (void)generateAddressWithRequest:(EmptyMessage *)request handler:(void(^)(AddressPrKeyPairMessage *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToGenerateAddressWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * Warning: do not invoke this interface provided by others.
+ */
+- (GRPCProtoCall *)RPCToGenerateAddressWithRequest:(EmptyMessage *)request handler:(void(^)(AddressPrKeyPairMessage *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"GenerateAddress"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[AddressPrKeyPairMessage class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 @end

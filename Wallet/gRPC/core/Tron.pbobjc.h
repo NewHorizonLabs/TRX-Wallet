@@ -101,6 +101,7 @@ typedef GPB_ENUM(ReasonCode) {
   ReasonCode_IncompatibleChain = 25,
   ReasonCode_TimeOut = 32,
   ReasonCode_ConnectFail = 33,
+  ReasonCode_TooManyPeersWithSameIp = 34,
   ReasonCode_Unknown = 255,
 };
 
@@ -722,6 +723,27 @@ typedef GPB_ENUM(Transaction_raw_FieldNumber) {
 
 @end
 
+#pragma mark - TransactionInfo
+
+typedef GPB_ENUM(TransactionInfo_FieldNumber) {
+  TransactionInfo_FieldNumber_Id_p = 1,
+  TransactionInfo_FieldNumber_Fee = 2,
+  TransactionInfo_FieldNumber_BlockNumber = 3,
+  TransactionInfo_FieldNumber_BlockTimeStamp = 4,
+};
+
+@interface TransactionInfo : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *id_p;
+
+@property(nonatomic, readwrite) int64_t fee;
+
+@property(nonatomic, readwrite) int64_t blockNumber;
+
+@property(nonatomic, readwrite) int64_t blockTimeStamp;
+
+@end
+
 #pragma mark - Transactions
 
 typedef GPB_ENUM(Transactions_FieldNumber) {
@@ -733,6 +755,23 @@ typedef GPB_ENUM(Transactions_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TronTransaction*> *transactionsArray;
 /** The number of items in @c transactionsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger transactionsArray_Count;
+
+@end
+
+#pragma mark - TransactionSign
+
+typedef GPB_ENUM(TransactionSign_FieldNumber) {
+  TransactionSign_FieldNumber_Transaction = 1,
+  TransactionSign_FieldNumber_PrivateKey = 2,
+};
+
+@interface TransactionSign : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) TronTransaction *transaction;
+/** Test to see if @c transaction has been set. */
+@property(nonatomic, readwrite) BOOL hasTransaction;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *privateKey;
 
 @end
 

@@ -151,6 +151,21 @@ typedef GPB_ENUM(Neighbours_FieldNumber) {
 
 @end
 
+#pragma mark - BackupMessage
+
+typedef GPB_ENUM(BackupMessage_FieldNumber) {
+  BackupMessage_FieldNumber_Flag = 1,
+  BackupMessage_FieldNumber_Priority = 2,
+};
+
+@interface BackupMessage : GPBMessage
+
+@property(nonatomic, readwrite) BOOL flag;
+
+@property(nonatomic, readwrite) int32_t priority;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END

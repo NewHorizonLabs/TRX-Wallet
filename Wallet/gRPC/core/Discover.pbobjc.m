@@ -388,6 +388,59 @@ typedef struct Neighbours__storage_ {
 
 @end
 
+#pragma mark - BackupMessage
+
+@implementation BackupMessage
+
+@dynamic flag;
+@dynamic priority;
+
+typedef struct BackupMessage__storage_ {
+  uint32_t _has_storage_[1];
+  int32_t priority;
+} BackupMessage__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "flag",
+        .dataTypeSpecific.className = NULL,
+        .number = BackupMessage_FieldNumber_Flag,
+        .hasIndex = 0,
+        .offset = 1,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "priority",
+        .dataTypeSpecific.className = NULL,
+        .number = BackupMessage_FieldNumber_Priority,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(BackupMessage__storage_, priority),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt32,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[BackupMessage class]
+                                     rootClass:[DiscoverRoot class]
+                                          file:DiscoverRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(BackupMessage__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 
 #pragma clang diagnostic pop
 

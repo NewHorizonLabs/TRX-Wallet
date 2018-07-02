@@ -99,7 +99,8 @@ GPBEnumDescriptor *ReasonCode_EnumDescriptor(void) {
         "dentity\000PingTimeout\000UserReason\000Reset\000Syn"
         "cFail\000FetchFail\000BadTx\000BadBlock\000Forked\000Un"
         "linkable\000IncompatibleVersion\000Incompatibl"
-        "eChain\000TimeOut\000ConnectFail\000Unknown\000";
+        "eChain\000TimeOut\000ConnectFail\000TooManyPeersW"
+        "ithSameIp\000Unknown\000";
     static const int32_t values[] = {
         ReasonCode_Requested,
         ReasonCode_BadProtocol,
@@ -123,6 +124,7 @@ GPBEnumDescriptor *ReasonCode_EnumDescriptor(void) {
         ReasonCode_IncompatibleChain,
         ReasonCode_TimeOut,
         ReasonCode_ConnectFail,
+        ReasonCode_TooManyPeersWithSameIp,
         ReasonCode_Unknown,
     };
     GPBEnumDescriptor *worker =
@@ -162,6 +164,7 @@ BOOL ReasonCode_IsValidValue(int32_t value__) {
     case ReasonCode_IncompatibleChain:
     case ReasonCode_TimeOut:
     case ReasonCode_ConnectFail:
+    case ReasonCode_TooManyPeersWithSameIp:
     case ReasonCode_Unknown:
       return YES;
     default:
@@ -1606,6 +1609,87 @@ typedef struct Transaction_raw__storage_ {
 
 @end
 
+#pragma mark - TransactionInfo
+
+@implementation TransactionInfo
+
+@dynamic id_p;
+@dynamic fee;
+@dynamic blockNumber;
+@dynamic blockTimeStamp;
+
+typedef struct TransactionInfo__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *id_p;
+  int64_t fee;
+  int64_t blockNumber;
+  int64_t blockTimeStamp;
+} TransactionInfo__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "id_p",
+        .dataTypeSpecific.className = NULL,
+        .number = TransactionInfo_FieldNumber_Id_p,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(TransactionInfo__storage_, id_p),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "fee",
+        .dataTypeSpecific.className = NULL,
+        .number = TransactionInfo_FieldNumber_Fee,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(TransactionInfo__storage_, fee),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "blockNumber",
+        .dataTypeSpecific.className = NULL,
+        .number = TransactionInfo_FieldNumber_BlockNumber,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(TransactionInfo__storage_, blockNumber),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "blockTimeStamp",
+        .dataTypeSpecific.className = NULL,
+        .number = TransactionInfo_FieldNumber_BlockTimeStamp,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(TransactionInfo__storage_, blockTimeStamp),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[TransactionInfo class]
+                                     rootClass:[TronRoot class]
+                                          file:TronRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(TransactionInfo__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\002\003\013\000\004\016\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 #pragma mark - Transactions
 
 @implementation Transactions
@@ -1641,6 +1725,65 @@ typedef struct Transactions__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(Transactions__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - TransactionSign
+
+@implementation TransactionSign
+
+@dynamic hasTransaction, transaction;
+@dynamic privateKey;
+
+typedef struct TransactionSign__storage_ {
+  uint32_t _has_storage_[1];
+  TronTransaction *transaction;
+  NSData *privateKey;
+} TransactionSign__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "transaction",
+        .dataTypeSpecific.className = GPBStringifySymbol(TronTransaction),
+        .number = TransactionSign_FieldNumber_Transaction,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(TransactionSign__storage_, transaction),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "privateKey",
+        .dataTypeSpecific.className = NULL,
+        .number = TransactionSign_FieldNumber_PrivateKey,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(TransactionSign__storage_, privateKey),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBytes,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[TransactionSign class]
+                                     rootClass:[TronRoot class]
+                                          file:TronRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(TransactionSign__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\002\n\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }
