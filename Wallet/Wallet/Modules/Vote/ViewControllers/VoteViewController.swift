@@ -141,12 +141,21 @@ class VoteViewController: UIViewController {
     
     func orderArray() {
         let voteAddressArray = ServiceHelper.shared.voteArray.map { $0.voteAddress.addressString }
-        let a1 = data.value.filter({ (object) -> Bool in
+        var a1 = data.value.filter({ (object) -> Bool in
             return voteAddressArray.contains(object.address.addressString)
         })
-        let a2 = data.value.filter({ (object) -> Bool in
+        a1.sort { (w1, w2) -> Bool in
+            let number1 = ServiceHelper.shared.voteArray.filter{ return w1.address.addressString == $0.voteAddress.addressString }.first?.voteCount
+            let number2 = ServiceHelper.shared.voteArray.filter{ return w2.address.addressString == $0.voteAddress.addressString }.first?.voteCount
+            guard let n1 = number1, let n2 = number2 else { return false }
+            return n1 > n2
+        }
+        var a2 = data.value.filter({ (object) -> Bool in
             return !voteAddressArray.contains(object.address.addressString)
         })
+        a2.sort { (w1, w2) -> Bool in
+            return w1.voteCount > w2.voteCount
+        }
         self.data.value = a1 + a2
     }
     
