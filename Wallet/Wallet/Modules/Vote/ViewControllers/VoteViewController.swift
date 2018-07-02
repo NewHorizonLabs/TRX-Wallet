@@ -171,7 +171,7 @@ class VoteViewController: UIViewController {
                     return !voteAddressArray.contains(object.address.addressString)
                 })
                 self?.data.value = a1 + a2
-                
+                self?.orderArray()
             }
         
             self?.hideLoading()
