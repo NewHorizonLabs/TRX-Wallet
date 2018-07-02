@@ -37,8 +37,10 @@ class BaseTabbarViewController: UITabBarController {
         super.viewDidLoad()
         view.addSubview(modeView)
         delegate = self
-        let height = UIApplication.shared.statusBarFrame.height
-        
+        var height = UIApplication.shared.statusBarFrame.height
+        if height > 20 {
+            height = 50
+        }
         setStatusBar(hide: true)
         modeView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(self.view)
