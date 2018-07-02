@@ -16,7 +16,7 @@ class VoteTableViewCell: UITableViewCell {
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var addressTitleLabel: UILabel!
     @IBOutlet weak var voteTitleLabel: UILabel!
-    @IBOutlet weak var websiteLabel: UILabel!
+    @IBOutlet weak var websiteLabel: WebsiteLabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var voteNumberLabel: UILabel!
     @IBOutlet weak var voteNumberTitleLabel: UILabel!
@@ -58,6 +58,8 @@ class VoteTableViewCell: UITableViewCell {
         addressLabel.text = model.address.addressString
         voteNumberLabel.text = String(model.voteCount)
         websiteLabel.text = model.url
+        websiteLabel.textColor = UIColor.mainNormalColor
+        websiteLabel.url = URL(string: model.url)
 
         if let vote = (voteArray.filter { (object) -> Bool in
             return object.voteAddress.addressString == model.address.addressString

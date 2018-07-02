@@ -58,13 +58,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6K6-KH-3Wu">
                         <rect key="frame" x="20" y="74" width="280" height="39.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8C8-vi-GaS">
-                                <rect key="frame" x="0.0" y="0.0" width="46.5" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8C8-vi-GaS">
+                                <rect key="frame" x="0.0" y="0.0" width="46" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.52156862749999999" green="0.53333333329999999" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2d-n7-px1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2d-n7-px1" customClass="WebsiteLabel" customModule="TRXWallet" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22.5" width="280" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="eYO-HN-pbU"/>
@@ -84,8 +84,8 @@
                             <constraint firstItem="8C8-vi-GaS" firstAttribute="leading" secondItem="6K6-KH-3Wu" secondAttribute="leading" id="vV5-yu-gsg"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhK-fb-qPO">
-                        <rect key="frame" x="20" y="138" width="44" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhK-fb-qPO">
+                        <rect key="frame" x="20" y="138" width="45.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -129,14 +129,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="azk-Wh-QfO"/>
             <connections>
-                <outlet property="addressLabel" destination="A2d-n7-px1" id="use-dd-zM9"/>
-                <outlet property="addressTitleLabel" destination="8C8-vi-GaS" id="Q9v-Sg-JBC"/>
+                <outlet property="addressLabel" destination="H1s-gf-Mdn" id="4w6-79-slE"/>
+                <outlet property="addressTitleLabel" destination="RhK-fb-qPO" id="yo9-c3-BNh"/>
                 <outlet property="inputTextField" destination="w9T-Nf-SpP" id="H5j-48-q9b"/>
                 <outlet property="voteNumberLabel" destination="STL-Cw-GXT" id="1h9-mv-Cnk"/>
                 <outlet property="voteNumberTitleLabel" destination="0Y3-N9-b0I" id="xSA-bs-bFj"/>
                 <outlet property="voteTitleLabel" destination="Ajn-j4-U8p" id="WOM-lH-yd8"/>
-                <outlet property="websiteLabel" destination="H1s-gf-Mdn" id="KPS-wr-j8L"/>
-                <outlet property="websiteTipLabel" destination="RhK-fb-qPO" id="73C-Rb-3Ts"/>
+                <outlet property="websiteLabel" destination="A2d-n7-px1" id="2uQ-uC-qoB"/>
+                <outlet property="websiteTipLabel" destination="8C8-vi-GaS" id="iYg-0h-4Xu"/>
                 <outlet property="yourVoteNumberLabel" destination="MFY-QD-d8r" id="wfF-NF-SGc"/>
             </connections>
             <point key="canvasLocation" x="-32" y="34"/>

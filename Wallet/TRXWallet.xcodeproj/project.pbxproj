@@ -363,6 +363,7 @@
 		368C860A209C70190089D906 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C84BA209C70170089D906 /* Wallet.swift */; };
 		368C860D209C72640089D906 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C860C209C72640089D906 /* R.generated.swift */; };
 		368C8610209C88BF0089D906 /* WalletHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C860F209C88BF0089D906 /* WalletHelper.swift */; };
+		36A7959D20EA2D50006BBFB2 /* WebsiteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A7959C20EA2D50006BBFB2 /* WebsiteLabel.swift */; };
 		36B15CA720AEE16800DB006B /* ImportTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B15CA520AEE16800DB006B /* ImportTypeTableViewCell.swift */; };
 		36B68B4020CA82EB006E891C /* Browser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B68B3E20CA82EA006E891C /* Browser.storyboard */; };
 		36B68B4120CA82EB006E891C /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B68B3F20CA82EA006E891C /* BrowserViewController.swift */; };
@@ -810,6 +811,7 @@
 		368C84BA209C70170089D906 /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		368C860C209C72640089D906 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		368C860F209C88BF0089D906 /* WalletHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHelper.swift; sourceTree = "<group>"; };
+		36A7959C20EA2D50006BBFB2 /* WebsiteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteLabel.swift; sourceTree = "<group>"; };
 		36B15CA520AEE16800DB006B /* ImportTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTypeTableViewCell.swift; sourceTree = "<group>"; };
 		36B68B3E20CA82EA006E891C /* Browser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browser.storyboard; sourceTree = "<group>"; };
 		36B68B3F20CA82EA006E891C /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
@@ -2148,6 +2150,7 @@
 				36C62AC520A30655005A36DF /* VoteInputView.xib */,
 				368A159920E0F88900D340CF /* VoteConfirm.swift */,
 				368A159B20E0F89A00D340CF /* VoteConfirmView.xib */,
+				36A7959C20EA2D50006BBFB2 /* WebsiteLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2692,6 +2695,7 @@
 				368C85AD209C70190089D906 /* BackupCoordinator.swift in Sources */,
 				368C85F2209C70190089D906 /* Keystore.swift in Sources */,
 				36CCC19A20AAC1E50067B8E6 /* OtherTokenViewController.swift in Sources */,
+				36A7959D20EA2D50006BBFB2 /* WebsiteLabel.swift in Sources */,
 				368C8525209C70180089D906 /* TokenViewCellViewModel.swift in Sources */,
 				368C84CF209C70180089D906 /* BalanceStatus.swift in Sources */,
 				368C85F3209C70190089D906 /* GetNonceProvider.swift in Sources */,
