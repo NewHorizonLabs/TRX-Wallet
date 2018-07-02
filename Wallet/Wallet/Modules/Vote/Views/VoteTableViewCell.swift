@@ -12,6 +12,7 @@ import RxCocoa
 
 class VoteTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var websiteTipLabel: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var addressTitleLabel: UILabel!
     @IBOutlet weak var voteTitleLabel: UILabel!
@@ -80,6 +81,20 @@ class VoteTableViewCell: UITableViewCell {
                 vote.voteAddress = model.address
                 vote.voteCount = number
                 ServiceHelper.shared.voteModelChange.onNext(vote)
+            })
+        .disposed(by: disposeBag)
+        let a = TronAccount()
+        a.address = model.address
+        ServiceHelper.shared.getAccount(account: a)
+        .asObservable()
+            .subscribe(onNext: {[weak self] (account) in
+                if let name = account.accountName.toString()?.emptyToNil() {
+                    self?.websiteLabel.text = name
+                    self?.websiteTipLabel.isHidden = true
+                } else {
+                    self?.websiteLabel.text = model.url
+                    self?.websiteTipLabel.isHidden = false
+                }
             })
         .disposed(by: disposeBag)
     }

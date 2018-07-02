@@ -136,6 +136,7 @@
                 <outlet property="voteNumberTitleLabel" destination="0Y3-N9-b0I" id="xSA-bs-bFj"/>
                 <outlet property="voteTitleLabel" destination="Ajn-j4-U8p" id="WOM-lH-yd8"/>
                 <outlet property="websiteLabel" destination="H1s-gf-Mdn" id="KPS-wr-j8L"/>
+                <outlet property="websiteTipLabel" destination="RhK-fb-qPO" id="73C-Rb-3Ts"/>
                 <outlet property="yourVoteNumberLabel" destination="MFY-QD-d8r" id="wfF-NF-SGc"/>
             </connections>
             <point key="canvasLocation" x="-32" y="34"/>
