@@ -38,9 +38,11 @@ class VoteViewController: UIViewController {
         title = R.string.tron.voteNavTitle()
         tableView.register(R.nib.voteTableViewCell)
         tableView.delegate = self
-        data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.voteTableViewCell.identifier, cellType: VoteTableViewCell.self)) { _, model, cell in
+        data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.voteTableViewCell.identifier, cellType: VoteTableViewCell.self)) { index, model, cell in
             let voteArray = self.isEdit ? self.voteModelArray : ServiceHelper.shared.voteArray
             cell.configure(model: model, voteArray: voteArray)
+        
+            cell.numberLabel.text = "#\(index + 1)"
             }.disposed(by: disposeBag)
         
         loadData()

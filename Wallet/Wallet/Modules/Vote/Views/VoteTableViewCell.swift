@@ -12,6 +12,7 @@ import RxCocoa
 
 class VoteTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var websiteTipLabel: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var addressTitleLabel: UILabel!
