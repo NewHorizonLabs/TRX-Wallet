@@ -36,6 +36,7 @@ class WalletListViewController: UIViewController {
             if let value = UserDefaults.standard.string(forKey: address) {
                 cell.nameLabel.text = value
             } else {
+                UserDefaults.standard.setValue("Wallet\(index + 1)", forKey: address)
                 cell.nameLabel.text = "Wallet\(index + 1)"
             }
             cell.cellDelegate = self
