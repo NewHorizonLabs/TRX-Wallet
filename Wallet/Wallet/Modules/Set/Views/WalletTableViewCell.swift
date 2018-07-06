@@ -83,12 +83,7 @@ class WalletTableViewCell: SwipeTableViewCell {
         } else {
             watchImageView.isHidden = true
         }
-        let address = model.address.data.addressString
-        if let value = UserDefaults.standard.string(forKey: address) {
-            nameLabel.text = value
-        } else {
-            nameLabel.text = "Wallet"
-        }
+        
     }
     
     func delete() {

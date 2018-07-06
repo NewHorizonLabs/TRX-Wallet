@@ -30,8 +30,14 @@ class WalletListViewController: UIViewController {
         title = R.string.tron.walletsNavTitle()
         tableView.register(R.nib.walletTableViewCell)
        
-        data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.walletTableViewCell.identifier, cellType: WalletTableViewCell.self)) { _, model, cell in
+        data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.walletTableViewCell.identifier, cellType: WalletTableViewCell.self)) { index, model, cell in
             cell.configure(model: model)
+            let address = model.address.data.addressString
+            if let value = UserDefaults.standard.string(forKey: address) {
+                cell.nameLabel.text = value
+            } else {
+                cell.nameLabel.text = "Wallet\(index + 1)"
+            }
             cell.cellDelegate = self
             }.disposed(by: disposeBag)
         

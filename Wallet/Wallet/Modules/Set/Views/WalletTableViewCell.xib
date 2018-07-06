@@ -52,6 +52,9 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_watch" translatesAutoresizingMaskIntoConstraints="NO" id="7XO-Of-p09">
                         <rect key="frame" x="223" y="16" width="24" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="Vzc-N9-5K6"/>
+                        </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-y1-0T2">
                         <rect key="frame" x="255" y="18.5" width="60" height="32"/>
