@@ -2,8 +2,8 @@
 //  AlerButtonBar.swift
 //  New Horizon Labs
 //
-//  Created by 彭显鹤 on 2018/3/28.
-//  Copyright © 2018年 Pengxianhe. All rights reserved.
+//  Created by  on 2018/3/28.
+//  Copyright © 2018年 TRX Wallet. All rights reserved.
 //
 
 import UIKit

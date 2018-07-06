@@ -2,8 +2,8 @@
 //  UIView+Extension.swift
 //  Sports
 //
-//  Created by Asteroid on 2017/4/18.
-//  Copyright © 2017年 Asteroid. All rights reserved.
+//  Created by TRX Wallet on 2017/4/18.
+//  Copyright © 2017年 TRX Wallet. All rights reserved.
 //
 
 import UIKit

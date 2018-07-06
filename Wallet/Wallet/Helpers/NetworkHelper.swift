@@ -1,6 +1,6 @@
 //
 //  NetworkHelper.swift
-//  AsteroidVPN-iOS
+//  TRX Wallet
 //
 //  Created by Maynard on 2018/2/8.
 //  Copyright © 2018年 Maynard. All rights reserved.

@@ -1,17 +1,17 @@
 //
 //  UIFontExtension.swift
-//  AsteroidVPN-iOS
+//  TRX Wallet
 //
-//  Created by Asteroid on 2018/1/8.
-//  Copyright © 2018年 Asteroid. All rights reserved.
+//  Created by TRX Wallet on 2018/1/8.
+//  Copyright © 2018年 TRX Wallet. All rights reserved.
 //
 
 //
 //  UIFont+SFUI.swift
-//  Asteroid
+//  TRX Wallet
 //
 //  Created by Maynard on 2017/5/5.
-//  Copyright © 2017年 Asteroid. All rights reserved.
+//  Copyright © 2017年 TRX Wallet. All rights reserved.
 //
 
 import UIKit

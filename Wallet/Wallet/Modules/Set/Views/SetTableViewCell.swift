@@ -3,7 +3,7 @@
 //  New Horizon Labs
 //
 //  Created by Maynard on 2018/3/20.
-//  Copyright © 2018年 Pengxianhe. All rights reserved.
+//  Copyright © 2018年 TRX Wallet. All rights reserved.
 //
 
 import UIKit

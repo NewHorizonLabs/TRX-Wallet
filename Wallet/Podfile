@@ -56,6 +56,9 @@ target 'TRXWallet' do
     pod 'DZNEmptyDataSet'
     pod 'MJRefresh'
     pod 'Bugly'
+    
+    pod 'Firebase/Core'
+    pod 'Firebase/RemoteConfig'
 end
 
 # target 'OpenInTrust' do

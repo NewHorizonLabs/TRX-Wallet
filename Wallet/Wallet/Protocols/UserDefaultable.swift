@@ -199,11 +199,15 @@ extension URLUserDefaultable where URLDefaultKey.RawValue == String {
 extension UserDefaults {
     
     //app 相关
-    struct Appalication: BoolUserDefaultable {
+    struct Appalication: BoolUserDefaultable, IntegerUserDefaultable {
         enum BoolDefaultKey : String {
             //是否是第一次启动应用
             case haveLoadFirstTime
             case welcomeShowed
+        }
+        
+        enum IntegerDefaultKey : String {
+            case appOptionVersionNumber//APP建议更新版本号
         }
     }
     

@@ -1,9 +1,9 @@
 //
 //  UViewController+Extension.swift
-//  AsteroidVPN-iOS
+//  TRX Wallet
 //
-//  Created by Asteroid on 2017/12/27.
-//  Copyright © 2017年 Asteroid. All rights reserved.
+//  Created by TRX Wallet on 2017/12/27.
+//  Copyright © 2017年 TRX Wallet. All rights reserved.
 //
 
 import UIKit

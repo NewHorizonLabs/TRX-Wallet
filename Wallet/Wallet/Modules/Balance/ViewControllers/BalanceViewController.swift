@@ -42,7 +42,7 @@ class BalanceViewController: UIViewController {
     var data: Variable<[AccountAsset]> = Variable([])
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ApplicationHelper.checkShouldAlertUserUpgradeApp()
         configureUI()
         //配置tableview
         tableView.register(R.nib.accountAssetTableViewCell)

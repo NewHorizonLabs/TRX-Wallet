@@ -2,8 +2,8 @@
 //  NodeInputView.swift
 //  TRXWallet
 //
-//  Created by 彭显鹤 on 2018/6/24.
-//  Copyright © 2018年 newborntown. All rights reserved.
+//  Created by  on 2018/6/24.
+//  Copyright © 2018年 TRX Wallet. All rights reserved.
 //
 
 import UIKit

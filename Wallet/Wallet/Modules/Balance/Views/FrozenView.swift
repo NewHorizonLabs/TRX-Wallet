@@ -3,7 +3,7 @@
 //  Wallet
 //
 //  Created by Maynard on 2018/5/29.
-//  Copyright © 2018年 newborntown. All rights reserved.
+//  Copyright © 2018年 TRX Wallet. All rights reserved.
 //
 
 import UIKit

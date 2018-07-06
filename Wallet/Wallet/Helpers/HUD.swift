@@ -1,6 +1,6 @@
 //
 //  HUD.swift
-//  Asteroid
+//  TRX Wallet
 //
 //  Created by Maynard on 2017/5/11.
 //  Copyright © 2017年 New Horizon Labs. All rights reserved.

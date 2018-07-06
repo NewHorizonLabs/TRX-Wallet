@@ -364,6 +364,10 @@
 		368C860D209C72640089D906 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C860C209C72640089D906 /* R.generated.swift */; };
 		368C8610209C88BF0089D906 /* WalletHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C860F209C88BF0089D906 /* WalletHelper.swift */; };
 		36A7959D20EA2D50006BBFB2 /* WebsiteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A7959C20EA2D50006BBFB2 /* WebsiteLabel.swift */; };
+		36A795F020EF4A5F006BBFB2 /* ApplicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A795EF20EF4A5F006BBFB2 /* ApplicationHelper.swift */; };
+		36A795F220EF4B04006BBFB2 /* RemoteConfigureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A795F120EF4B04006BBFB2 /* RemoteConfigureHelper.swift */; };
+		36A795F620EF50F7006BBFB2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36A795F520EF50F6006BBFB2 /* GoogleService-Info.plist */; };
+		36A795F820EF55A7006BBFB2 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36A795F720EF55A7006BBFB2 /* RemoteConfigDefaults.plist */; };
 		36B15CA720AEE16800DB006B /* ImportTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B15CA520AEE16800DB006B /* ImportTypeTableViewCell.swift */; };
 		36B68B4020CA82EB006E891C /* Browser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B68B3E20CA82EA006E891C /* Browser.storyboard */; };
 		36B68B4120CA82EB006E891C /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B68B3F20CA82EA006E891C /* BrowserViewController.swift */; };
@@ -812,6 +816,10 @@
 		368C860C209C72640089D906 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		368C860F209C88BF0089D906 /* WalletHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHelper.swift; sourceTree = "<group>"; };
 		36A7959C20EA2D50006BBFB2 /* WebsiteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteLabel.swift; sourceTree = "<group>"; };
+		36A795EF20EF4A5F006BBFB2 /* ApplicationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationHelper.swift; sourceTree = "<group>"; };
+		36A795F120EF4B04006BBFB2 /* RemoteConfigureHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigureHelper.swift; sourceTree = "<group>"; };
+		36A795F520EF50F6006BBFB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		36A795F720EF55A7006BBFB2 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		36B15CA520AEE16800DB006B /* ImportTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTypeTableViewCell.swift; sourceTree = "<group>"; };
 		36B68B3E20CA82EA006E891C /* Browser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browser.storyboard; sourceTree = "<group>"; };
 		36B68B3F20CA82EA006E891C /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
@@ -1116,6 +1124,8 @@
 				36CCC1A720AD29100067B8E6 /* Tron.strings */,
 				3666DB3F20A1718100EF7F87 /* gRPC */,
 				368C82F1209C43300089D906 /* Info.plist */,
+				36A795F520EF50F6006BBFB2 /* GoogleService-Info.plist */,
+				36A795F720EF55A7006BBFB2 /* RemoteConfigDefaults.plist */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -2102,6 +2112,8 @@
 		36C62A8320511F3D005A36DF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				36A795F120EF4B04006BBFB2 /* RemoteConfigureHelper.swift */,
+				36A795EF20EF4A5F006BBFB2 /* ApplicationHelper.swift */,
 				36B68B4220CA83C5006E891C /* BrowserHelper.swift */,
 				36F1557820CA182F002BF4B1 /* NetworkHelper.swift */,
 				368C860F209C88BF0089D906 /* WalletHelper.swift */,
@@ -2333,7 +2345,9 @@
 			files = (
 				36CCC19820A991D50067B8E6 /* WalletTableViewCell.xib in Resources */,
 				36C62ACC20A32D5A005A36DF /* TokenPurchaseView.xib in Resources */,
+				36A795F820EF55A7006BBFB2 /* RemoteConfigDefaults.plist in Resources */,
 				36CCC18220A9371A0067B8E6 /* Set.storyboard in Resources */,
+				36A795F620EF50F7006BBFB2 /* GoogleService-Info.plist in Resources */,
 				3666DA0920A02FC000EF7F87 /* AlerButtonBar.xib in Resources */,
 				360B81D420DFEBE700778E45 /* NodeInputView.xib in Resources */,
 				368C853C209C70180089D906 /* NonFungibleTokenViewCell.xib in Resources */,
@@ -2706,6 +2720,7 @@
 				368C85C8209C70190089D906 /* PassphraseView.swift in Sources */,
 				36F1557920CA182F002BF4B1 /* NetworkHelper.swift in Sources */,
 				368C8596209C70180089D906 /* TransactionAppearance.swift in Sources */,
+				36A795F020EF4A5F006BBFB2 /* ApplicationHelper.swift in Sources */,
 				368C8552209C70180089D906 /* Decimal.swift in Sources */,
 				368C85ED209C70190089D906 /* PreferencesController.swift in Sources */,
 				368C85F0209C70190089D906 /* EthTypedData.swift in Sources */,
@@ -2894,6 +2909,7 @@
 				3666D9DE20A0260300EF7F87 /* UIAlertActionExtention.swift in Sources */,
 				3666D9FD20A02FC000EF7F87 /* UIConfigure.swift in Sources */,
 				36D56DEE20D38ECA008E1675 /* NodeListViewController.swift in Sources */,
+				36A795F220EF4B04006BBFB2 /* RemoteConfigureHelper.swift in Sources */,
 				368C84C1209C70180089D906 /* MonetaryAmountViewModel.swift in Sources */,
 				368C85D7209C70190089D906 /* SplashError.swift in Sources */,
 				368C854D209C70180089D906 /* DecryptError.swift in Sources */,

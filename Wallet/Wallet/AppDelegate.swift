@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import Bugly
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Lock().clear()
             UserDefaults.Appalication.set(true, forKey: .haveLoadFirstTime)
         }
+        FirebaseApp.configure()
         
+        RemoteConfigureHelper.configure()
         protectionCoordinator.didFinishLaunchingWithOptions()
         UIConfigure.tabbar()
         UIConfigure.navgationBar()
