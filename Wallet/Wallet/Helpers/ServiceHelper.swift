@@ -44,6 +44,7 @@ class ServiceHelper: NSObject {
     }
     var keystore: EtherKeystore = EtherKeystore.shared
     var voteArray: [Vote] = []
+    
     var voteModelChange: PublishSubject<Vote> = PublishSubject()
     
     //钱包切换

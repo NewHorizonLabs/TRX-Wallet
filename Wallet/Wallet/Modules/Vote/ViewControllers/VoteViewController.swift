@@ -15,6 +15,8 @@ class VoteViewController: UIViewController {
 
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var confirmView: VoteConfirmView!
+    
+    var originalVoteListArray: [Witness] = []
     let disposeBag = DisposeBag()
     
     var data: Variable<[Witness]> = Variable([])
@@ -38,11 +40,13 @@ class VoteViewController: UIViewController {
         title = R.string.tron.voteNavTitle()
         tableView.register(R.nib.voteTableViewCell)
         tableView.delegate = self
-        data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.voteTableViewCell.identifier, cellType: VoteTableViewCell.self)) { index, model, cell in
+        data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.voteTableViewCell.identifier, cellType: VoteTableViewCell.self)) { _, model, cell in
             let voteArray = self.isEdit ? self.voteModelArray : ServiceHelper.shared.voteArray
             cell.configure(model: model, voteArray: voteArray)
-        
-            cell.numberLabel.text = "#\(index + 1)"
+            if let index = self.indexOfWitness(model) {
+                cell.numberLabel.text = "#\(index + 1)"
+            }
+            
             }.disposed(by: disposeBag)
         
         loadData()
@@ -141,6 +145,13 @@ class VoteViewController: UIViewController {
         }
     }
     
+    func indexOfWitness(_ model: Witness) -> Int? {
+        if let index = originalVoteListArray.index(of: model) {
+            return index
+        }
+        return nil
+    }
+    
     func orderArray() {
         let voteAddressArray = ServiceHelper.shared.voteArray.map { $0.voteAddress.addressString }
         var a1 = data.value.filter({ (object) -> Bool in
@@ -164,8 +175,12 @@ class VoteViewController: UIViewController {
     func loadData() {
         displayLoading()
         ServiceHelper.shared.service.listWitnesses(withRequest: EmptyMessage()) {[weak self] (list, error) in
+            
             let voteAddressArray = ServiceHelper.shared.voteArray.map { $0.voteAddress.addressString }
             if let array = list?.witnessesArray as? [Witness] {
+                self?.originalVoteListArray = array.sorted(by: { (object1, object2) -> Bool in
+                    return object1.voteCount > object2.voteCount
+                })
                 let a1 = array.filter({ (object) -> Bool in
                     return voteAddressArray.contains(object.address.addressString)
                 })

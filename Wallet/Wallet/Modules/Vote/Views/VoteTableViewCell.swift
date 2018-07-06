@@ -25,8 +25,6 @@ class VoteTableViewCell: UITableViewCell {
     
     var disposeBag = DisposeBag()
     
-    @IBOutlet weak var yourVoteNumberLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -65,15 +63,14 @@ class VoteTableViewCell: UITableViewCell {
         if let vote = (voteArray.filter { (object) -> Bool in
             return object.voteAddress.addressString == model.address.addressString
         }).first {
-            yourVoteNumberLabel.text = vote.voteCount.string
             inputTextField.text = vote.voteCount.string
             voteNumberTitleLabel.text = R.string.tron.voteYourvoteLabelTitle()
             voteNumberTitleLabel.isHidden = false
-            yourVoteNumberLabel.isHidden = false
+           
         } else {
             inputTextField.text = ""
             voteNumberTitleLabel.isHidden = true
-            yourVoteNumberLabel.isHidden = true
+            
         }
         
         (inputTextField.rx.text).skip(1).map({ (text) -> Int64 in
