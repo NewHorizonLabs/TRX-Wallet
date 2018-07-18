@@ -31,6 +31,12 @@ class TransactionsListViewController: UIViewController {
             cell.configure(model: model)
             }.disposed(by: disposeBag)
         
+        tableView.rx.modelSelected(TronTransaction.self).subscribe(onNext: { (model) in
+            let vc = R.storyboard.transaction.transactionDetailViewController()!
+            CurrentControllerHelper.pushViewController(viewController: vc)
+            vc.transaction = model
+        }).disposed(by: disposeBag)
+        
         loadData()
         
         ServiceHelper.shared.walletChange

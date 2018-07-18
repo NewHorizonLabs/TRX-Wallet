@@ -55,6 +55,7 @@
 		3666DB5920A1718100EF7F87 /* Annotations.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666DB4E20A1718100EF7F87 /* Annotations.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3666DB5A20A1718100EF7F87 /* Descriptor.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666DB5120A1718100EF7F87 /* Descriptor.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3666DB5B20A1718100EF7F87 /* Api.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666DB5220A1718100EF7F87 /* Api.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3682FAFA20FED42B0017BFE6 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3682FAF920FED42B0017BFE6 /* TransactionDetailViewController.swift */; };
 		368A159A20E0F88900D340CF /* VoteConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A159920E0F88900D340CF /* VoteConfirm.swift */; };
 		368A159C20E0F89A00D340CF /* VoteConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368A159B20E0F89A00D340CF /* VoteConfirmView.xib */; };
 		368C82E6209C432F0089D906 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C82E5209C432F0089D906 /* AppDelegate.swift */; };
@@ -493,6 +494,7 @@
 		3666DB5120A1718100EF7F87 /* Descriptor.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Descriptor.pbobjc.m; sourceTree = "<group>"; };
 		3666DB5220A1718100EF7F87 /* Api.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Api.pbobjc.m; sourceTree = "<group>"; };
 		3666DB5320A1718100EF7F87 /* Api.pbrpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Api.pbrpc.h; sourceTree = "<group>"; };
+		3682FAF920FED42B0017BFE6 /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
 		368A159920E0F88900D340CF /* VoteConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteConfirm.swift; sourceTree = "<group>"; };
 		368A159B20E0F89A00D340CF /* VoteConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteConfirmView.xib; sourceTree = "<group>"; };
 		368C82E2209C432F0089D906 /* TRXWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRXWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -934,6 +936,7 @@
 			isa = PBXGroup;
 			children = (
 				36C62ABD20A2F598005A36DF /* TransactionsListViewController.swift */,
+				3682FAF920FED42B0017BFE6 /* TransactionDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2684,6 +2687,7 @@
 				368C8506209C70180089D906 /* TrustRealmConfiguration.swift in Sources */,
 				36C62AD820A585EA005A36DF /* LoginHomeViewController.swift in Sources */,
 				368C857D209C70180089D906 /* TransactionsFooterView.swift in Sources */,
+				3682FAFA20FED42B0017BFE6 /* TransactionDetailViewController.swift in Sources */,
 				368C8534209C70180089D906 /* NonFungibleTokensViewController.swift in Sources */,
 				368C859F209C70180089D906 /* FloatLabelCell.swift in Sources */,
 				368C8595209C70180089D906 /* PrivateKeyRule.swift in Sources */,
