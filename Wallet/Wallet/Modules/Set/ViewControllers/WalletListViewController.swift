@@ -29,7 +29,8 @@ class WalletListViewController: UIViewController {
         super.viewDidLoad()
         title = R.string.tron.walletsNavTitle()
         tableView.register(R.nib.walletTableViewCell)
-       
+        self.view.backgroundColor = UIColor.backgroundColor
+        self.tableView.backgroundColor = UIColor.backgroundColor
         data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.walletTableViewCell.identifier, cellType: WalletTableViewCell.self)) { index, model, cell in
             cell.configure(model: model)
             let address = model.address.data.addressString
