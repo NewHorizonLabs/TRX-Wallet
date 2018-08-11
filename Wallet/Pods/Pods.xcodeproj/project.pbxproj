@@ -6366,7 +6366,6 @@
 		780911CD37DA37D0204B9A8167C60FB9 /* StatefulViewControllerImplementation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatefulViewControllerImplementation.swift; path = StatefulViewController/StatefulViewControllerImplementation.swift; sourceTree = "<group>"; };
 		7813FAC64ABCF9D1E3B4274C5EB95B6D /* BNCLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BNCLog.m; path = "Branch-SDK/Branch-SDK/BNCLog.m"; sourceTree = "<group>"; };
 		781DC0132EDE1888EF87D754782C37B5 /* resolver_registry.cc */ = {isa = PBXFileReference; includeInIndex = 1; name = resolver_registry.cc; path = src/core/ext/filters/client_channel/resolver_registry.cc; sourceTree = "<group>"; };
-		784D9FB7D01132AD9147E0CCB19494BB /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "RevealServer-14/iOS/RevealServer.framework"; sourceTree = "<group>"; };
 		785F58F78AE5C893BCF483B7E84CCFE7 /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
 		787E41F9C0407B28E6352E023B8D728F /* GPBUnknownFieldSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPBUnknownFieldSet.m; path = objectivec/GPBUnknownFieldSet.m; sourceTree = "<group>"; };
 		78BFE43C6C629B406F7D2A0CC7CA3E0C /* RLMObjectBase_Dynamic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectBase_Dynamic.h; path = include/RLMObjectBase_Dynamic.h; sourceTree = "<group>"; };
@@ -7644,6 +7643,7 @@
 		E6363BCE439A80CC0F28203E28E54871 /* Empty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Empty.swift; path = RxSwift/Observables/Empty.swift; sourceTree = "<group>"; };
 		E649B400A9507902CBB2C73E82CE24CF /* SipHash-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SipHash-prefix.pch"; sourceTree = "<group>"; };
 		E6A8C406CAF5A6AF37EEB1789A77AF3C /* pb_common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_common.h; sourceTree = "<group>"; };
+		E6DD4B4A728C001D5A527BF063872D77 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "RevealServer-16/iOS/RevealServer.framework"; sourceTree = "<group>"; };
 		E6F9837EBA3DAE11147C867701E6DB83 /* tcp_custom.cc */ = {isa = PBXFileReference; includeInIndex = 1; name = tcp_custom.cc; path = src/core/lib/iomgr/tcp_custom.cc; sourceTree = "<group>"; };
 		E727E4B06A94DFE8DD0736775418DA81 /* span.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = span.h; path = include/openssl/span.h; sourceTree = "<group>"; };
 		E73B82F324D631F33044F5E4608A3D66 /* BNCDeepLinkViewControllerInstance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BNCDeepLinkViewControllerInstance.m; path = "Branch-SDK/Branch-SDK/BNCDeepLinkViewControllerInstance.m"; sourceTree = "<group>"; };
@@ -9814,14 +9814,6 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		6503E0AB38DEE1FE36F981408EDFB15B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				784D9FB7D01132AD9147E0CCB19494BB /* RevealServer.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		656CFB2B1723132572A10C5D518B9B07 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -10672,6 +10664,14 @@
 			);
 			name = KeychainSwift;
 			path = KeychainSwift;
+			sourceTree = "<group>";
+		};
+		8E419F36D140CA872FB4A13D20ADE81D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6DD4B4A728C001D5A527BF063872D77 /* RevealServer.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		92DA861F5DBD7FE91BD06807FF3AA430 /* Support Files */ = {
@@ -11900,7 +11900,7 @@
 		C54D80E05CB8104C65397437C7C86EDA /* Reveal-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				6503E0AB38DEE1FE36F981408EDFB15B /* Frameworks */,
+				8E419F36D140CA872FB4A13D20ADE81D /* Frameworks */,
 			);
 			name = "Reveal-SDK";
 			path = "Reveal-SDK";

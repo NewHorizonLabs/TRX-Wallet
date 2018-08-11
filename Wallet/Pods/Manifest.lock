@@ -113,7 +113,7 @@ PODS:
   - RealmSwift (3.5.0):
     - Realm (= 3.5.0)
   - Result (3.2.4)
-  - Reveal-SDK (14)
+  - Reveal-SDK (16)
   - Ruler (2.2.0)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
@@ -193,7 +193,7 @@ DEPENDENCIES:
   - URLNavigator
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - "!ProtoCompiler"
     - "!ProtoCompiler-gRPCPlugin"
     - Alamofire
@@ -320,7 +320,7 @@ SPEC CHECKSUMS:
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  Reveal-SDK: 55b5c5545233b680c2f8da734f202acc15d422b7
+  Reveal-SDK: ed36bdbb3cbf90b94ae5da0dbcb3c7ae6738c51f
   Ruler: 624e0f82bfdf24c15fb0da45fbcc170ec7a4dbff
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxGesture: c278eb05b187abd47e11e65464ae4de53ab71d95
@@ -341,4 +341,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9726b52b5b682318fe26425948695da59cf1052a
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
