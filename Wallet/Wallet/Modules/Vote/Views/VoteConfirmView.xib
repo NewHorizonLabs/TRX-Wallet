@@ -26,10 +26,10 @@
                     <rect key="frame" x="10" y="0.0" width="355" height="92"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hjV-TX-ARQ">
-                            <rect key="frame" x="0.0" y="24" width="355" height="44"/>
+                            <rect key="frame" x="0.0" y="28.5" width="355" height="35"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqB-5v-ykQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="167.5" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="167.5" height="35"/>
                                     <color key="backgroundColor" red="0.27450980390000002" green="0.23529411759999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Cancel"/>
@@ -40,7 +40,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aba-aV-X0P">
-                                    <rect key="frame" x="187.5" y="0.0" width="167.5" height="44"/>
+                                    <rect key="frame" x="187.5" y="0.0" width="167.5" height="35"/>
                                     <color key="backgroundColor" red="0.27450980390000002" green="0.23529411759999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Confirm"/>
@@ -52,7 +52,7 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="YQY-qo-y5E"/>
+                                <constraint firstAttribute="height" constant="35" id="YQY-qo-y5E"/>
                             </constraints>
                         </stackView>
                     </subviews>

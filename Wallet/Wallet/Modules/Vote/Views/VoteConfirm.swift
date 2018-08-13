@@ -43,6 +43,9 @@ class VoteConfirmView: UIView {
         
         cancelButton.addTarget(self, action: #selector(cancelClick), for: .touchUpInside)
         confirmButton.addTarget(self, action: #selector(confirmClick), for: .touchUpInside)
+        
+        confirmButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
+        cancelButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
     }
     
     @objc func cancelClick() {

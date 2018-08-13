@@ -37,10 +37,10 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zsj-li-A4l" customClass="VoteConfirmView" customModule="TRXWallet" customModuleProvider="target">
-                                <rect key="frame" x="10" y="667" width="355" height="100"/>
+                                <rect key="frame" x="10" y="702" width="355" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="HLu-g1-7FF"/>
+                                    <constraint firstAttribute="height" constant="65" id="HLu-g1-7FF"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="addShadow" value="YES"/>
