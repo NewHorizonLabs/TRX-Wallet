@@ -15,12 +15,12 @@
         <!--Token List View Controller-->
         <scene sceneID="ts2-Mr-TxL">
             <objects>
-                <viewController storyboardIdentifier="TokenListViewController" id="bR4-E9-wHk" customClass="TokenListViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TokenListViewController" id="bR4-E9-wHk" customClass="TokenListViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hNo-ru-4Yc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CQZ-n8-OTC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CQZ-n8-OTC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="UZK-86-DhE">
@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6uZ-t2-j4o" id="yc1-xQ-oDe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -74,7 +74,7 @@
         <!--Create Token View Controller-->
         <scene sceneID="Aih-jt-xj7">
             <objects>
-                <viewController storyboardIdentifier="CreateTokenViewController" id="nhr-pM-t5V" customClass="CreateTokenViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateTokenViewController" id="nhr-pM-t5V" customClass="CreateTokenViewController" customModule="TRXWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1dj-cL-sG0" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,7 +115,7 @@
                                                 <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFQ-pC-ufi" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFQ-pC-ufi" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -160,7 +160,7 @@
                                                 <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66v-ty-XOV" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66v-ty-XOV" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -205,7 +205,7 @@
                                                 <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9f-YG-wsJ" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9f-YG-wsJ" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -244,7 +244,7 @@
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdI-Tp-5kE" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdI-Tp-5kE" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -281,7 +281,7 @@
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMe-wl-Qaw" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMe-wl-Qaw" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -324,7 +324,7 @@
                                                 <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqn-4r-Og6" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqn-4r-Og6" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -369,7 +369,7 @@
                                                 <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4w-ZR-ShT" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4w-ZR-ShT" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="335" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -423,7 +423,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                                 <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mt8-Mj-VD5" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mt8-Mj-VD5" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="149.5" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -468,7 +468,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                                 <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vs-zw-quj" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vs-zw-quj" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="149.5" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -507,7 +507,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzS-Wd-PPG" customClass="DateButton" customModule="Wallet" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzS-Wd-PPG" customClass="DateButton" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="35.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal">
@@ -520,7 +520,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                                 <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NG0-Vq-jtP" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NG0-Vq-jtP" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="149.5" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -547,7 +547,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTO-u9-hNQ">
                                         <rect key="frame" x="205" y="531" width="150" height="36"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1W-EP-c8k" customClass="DateButton" customModule="Wallet" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1W-EP-c8k" customClass="DateButton" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="35.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal">
@@ -566,7 +566,7 @@ spend.  Participants will receive Token for every 1 TRX</string>
                                                 <color key="textColor" red="0.83529411760000005" green="0.1137254902" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GT-Yz-leB" customClass="LineView" customModule="Wallet" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GT-Yz-leB" customClass="LineView" customModule="TRXWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="35.5" width="150" height="0.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
