@@ -65,6 +65,10 @@ class TokenPurchaseView: UIView, XibLoadable, Popable {
         confirmButton.setTitle(R.string.tron.tokenPopViewSubmitButtonTitle(), for: .normal)
         numberTipLabel.text = R.string.tron.tokenPopViewInputTitle()
         
+        confirmButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
+        confirmButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
+        numberTipLabel.textColor = UIColor.mainNormalColor
+        
         closeButton.addTarget(self, action: #selector(closeButtonClick), for: .touchUpInside)
         balanceLabel.text = ServiceHelper.shared.balance + "TRX"
         (textField.rx.text).map { return Float($0 ?? "0") }
