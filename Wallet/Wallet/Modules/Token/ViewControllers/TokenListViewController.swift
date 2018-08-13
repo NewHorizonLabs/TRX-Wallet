@@ -44,6 +44,9 @@ class TokenListViewController: UIViewController {
         ServiceHelper.shared.isWatchMode.asObservable()
         .bind(to: addButton.rx.isHidden)
         .disposed(by: disposeBag)
+        
+        self.view.backgroundColor = UIColor.backgroundColor
+        self.tableView.backgroundColor = UIColor.backgroundColor
     }
     
     func loadData() {
