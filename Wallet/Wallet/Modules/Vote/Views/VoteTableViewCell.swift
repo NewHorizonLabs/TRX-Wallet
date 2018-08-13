@@ -13,10 +13,8 @@ import RxCocoa
 class VoteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var websiteTipLabel: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var addressTitleLabel: UILabel!
-    @IBOutlet weak var voteTitleLabel: UILabel!
     @IBOutlet weak var websiteLabel: WebsiteLabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var voteNumberLabel: UILabel!
@@ -48,7 +46,6 @@ class VoteTableViewCell: UITableViewCell {
     }
     
     func configureUI() {
-        voteTitleLabel.text = R.string.tron.voteVoteLabelTitle()
         addressTitleLabel.text = R.string.tron.voteAddressLabelTitle()
     }
     
@@ -90,10 +87,8 @@ class VoteTableViewCell: UITableViewCell {
             .subscribe(onNext: {[weak self] (account) in
                 if let name = account.accountName.toString()?.emptyToNil() {
                     self?.websiteLabel.text = name
-                    self?.websiteTipLabel.isHidden = true
                 } else {
                     self?.websiteLabel.text = model.url
-                    self?.websiteTipLabel.isHidden = false
                 }
             })
         .disposed(by: disposeBag)

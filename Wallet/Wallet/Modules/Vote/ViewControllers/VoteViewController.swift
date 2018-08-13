@@ -87,6 +87,14 @@ class VoteViewController: UIViewController {
             self.voteModelArray = ServiceHelper.shared.voteArray
             self.tableView.reloadData()
         }
+        
+        configureUI()
+    }
+    
+    func configureUI() {
+        self.view.backgroundColor = UIColor.backgroundColor
+        self.tableView.backgroundColor = UIColor.backgroundColor
+        
     }
     
     func requestVote() {
