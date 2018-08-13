@@ -100,6 +100,9 @@ class NodeInputView: UIView {
     func baseConfigure() {
         saveButton.setBackgroundColor(UIColor.normalBackgroundColor, forState: .normal)
         saveButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
+        resetButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
+        ipTextField.setLeftOffset(15)
+        portTextField.setLeftOffset(15)
         let ipSignal = (ipTextField.rx.text).orEmpty.map { return $0.count > 0 }
             .asObservable()
         let portSignal = (portTextField.rx.text).orEmpty.map { return $0.count > 0 }

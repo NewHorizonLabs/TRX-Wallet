@@ -213,28 +213,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dG8-Hc-nMh" customClass="NodeInputView" customModule="TRXWallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="240"/>
+                                <rect key="frame" x="15" y="79" width="345" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="c00-x5-esh"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WC2-Wh-WDY" customClass="NodeInputView" customModule="TRXWallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="314" width="375" height="240"/>
+                                <rect key="frame" x="15" y="334" width="345" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="MdM-Ij-Sz9"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YCL-rm-yEj" firstAttribute="trailing" secondItem="WC2-Wh-WDY" secondAttribute="trailing" id="BIO-Xn-LPw"/>
-                            <constraint firstItem="dG8-Hc-nMh" firstAttribute="leading" secondItem="YCL-rm-yEj" secondAttribute="leading" id="BW1-tf-Jwe"/>
-                            <constraint firstItem="WC2-Wh-WDY" firstAttribute="leading" secondItem="YCL-rm-yEj" secondAttribute="leading" id="E21-oC-Jyj"/>
-                            <constraint firstItem="YCL-rm-yEj" firstAttribute="trailing" secondItem="dG8-Hc-nMh" secondAttribute="trailing" id="O7N-Qx-RqX"/>
-                            <constraint firstItem="WC2-Wh-WDY" firstAttribute="top" secondItem="dG8-Hc-nMh" secondAttribute="bottom" constant="10" id="YCT-EY-zcy"/>
-                            <constraint firstItem="dG8-Hc-nMh" firstAttribute="top" secondItem="YCL-rm-yEj" secondAttribute="top" id="eAF-ge-fkw"/>
+                            <constraint firstItem="YCL-rm-yEj" firstAttribute="trailing" secondItem="WC2-Wh-WDY" secondAttribute="trailing" constant="15" id="BIO-Xn-LPw"/>
+                            <constraint firstItem="dG8-Hc-nMh" firstAttribute="leading" secondItem="YCL-rm-yEj" secondAttribute="leading" constant="15" id="BW1-tf-Jwe"/>
+                            <constraint firstItem="WC2-Wh-WDY" firstAttribute="leading" secondItem="YCL-rm-yEj" secondAttribute="leading" constant="15" id="E21-oC-Jyj"/>
+                            <constraint firstItem="YCL-rm-yEj" firstAttribute="trailing" secondItem="dG8-Hc-nMh" secondAttribute="trailing" constant="15" id="O7N-Qx-RqX"/>
+                            <constraint firstItem="WC2-Wh-WDY" firstAttribute="top" secondItem="dG8-Hc-nMh" secondAttribute="bottom" constant="15" id="YCT-EY-zcy"/>
+                            <constraint firstItem="dG8-Hc-nMh" firstAttribute="top" secondItem="YCL-rm-yEj" secondAttribute="top" constant="15" id="eAF-ge-fkw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YCL-rm-yEj"/>
                     </view>

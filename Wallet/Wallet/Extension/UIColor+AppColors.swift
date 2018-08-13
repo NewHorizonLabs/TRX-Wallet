@@ -91,7 +91,7 @@ extension UIColor {
     }
     
     class var disabledBackgroundColor: UIColor {
-        return UIColor.colorWithHex(hex: "#B0B8CA")
+        return UIColor.colorWithHex(hex: "#E3D4D4")
     }
     
     //副标题颜色
