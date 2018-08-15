@@ -196,6 +196,8 @@
                 <outlet property="addressTitleLabel" destination="RhK-fb-qPO" id="yo9-c3-BNh"/>
                 <outlet property="inputTextField" destination="w9T-Nf-SpP" id="H5j-48-q9b"/>
                 <outlet property="numberLabel" destination="gG5-Er-xnn" id="SJr-er-w8s"/>
+                <outlet property="orderView" destination="THf-cW-fYZ" id="Rzx-7z-2WI"/>
+                <outlet property="redView" destination="Uwf-r8-Fxf" id="KaO-fb-ECw"/>
                 <outlet property="voteNumberLabel" destination="STL-Cw-GXT" id="1h9-mv-Cnk"/>
                 <outlet property="voteNumberTitleLabel" destination="0Y3-N9-b0I" id="xSA-bs-bFj"/>
                 <outlet property="websiteLabel" destination="A2d-n7-px1" id="2uQ-uC-qoB"/>

@@ -27,7 +27,7 @@ class LoginHomeViewController: UIViewController {
         coordinator = WalletCoordinator.init(navigationController: self.navigationController as! NavigationController, keystore: EtherKeystore.shared)
         loginButton.addTarget(self, action: #selector(loginButtonClick), for: .touchUpInside)
         createButton.addTarget(self, action: #selector(createButtonClick), for: .touchUpInside)
-        
+        configureUI()
         if EtherKeystore.shared.wallets.count > 0 {
             self.cancelButton.isHidden = false
         } else {
@@ -35,6 +35,13 @@ class LoginHomeViewController: UIViewController {
         }
         loginButton.setTitle(R.string.tron.loginImportButtonTitle(), for: .normal)
         createButton.setTitle(R.string.tron.loginCreateButtonTitle(), for: .normal)
+    }
+    
+    func configureUI() {
+        createButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
+        loginButton.setTitleColor(UIColor.mainNormalColor, for: .normal)
+        loginButton.pborderColor = UIColor.mainNormalColor
+        loginButton.pborderWidth = 0.5
     }
     
     @objc func createButtonClick() {

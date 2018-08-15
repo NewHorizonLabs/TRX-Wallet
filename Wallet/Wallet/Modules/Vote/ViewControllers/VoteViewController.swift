@@ -45,6 +45,13 @@ class VoteViewController: UIViewController {
             cell.configure(model: model, voteArray: voteArray)
             if let index = self.indexOfWitness(model) {
                 cell.numberLabel.text = "#\(index + 1)"
+                if index < 27 {
+                    cell.orderView.backgroundColor = UIColor.rgb(r: 194, g: 54, b: 49, a: 0.1)
+                    cell.redView.isHidden = false
+                } else {
+                    cell.orderView.backgroundColor = UIColor(hex: "d8d8d8")
+                    cell.redView.isHidden = true
+                }
             }
             
             }.disposed(by: disposeBag)
