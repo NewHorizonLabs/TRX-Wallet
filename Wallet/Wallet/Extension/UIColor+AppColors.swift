@@ -83,7 +83,7 @@ extension UIColor {
     }
     
     class var disabledTextColor: UIColor {
-        return UIColor.colorWithHex(hex: "#B0B8CA")
+        return UIColor.rgb(r: 255, g: 255, b: 255, a: 0.5)
     }
     
     class var normalBackgroundColor: UIColor {
@@ -91,7 +91,7 @@ extension UIColor {
     }
     
     class var disabledBackgroundColor: UIColor {
-        return UIColor.colorWithHex(hex: "#E3D4D4")
+        return UIColor.rgb(r: 194, g: 54, b: 49, a: 0.5)
     }
     
     //副标题颜色

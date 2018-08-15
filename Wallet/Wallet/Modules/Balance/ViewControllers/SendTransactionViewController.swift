@@ -47,10 +47,16 @@ class SendTransactionViewController: UIViewController {
         
         nameButton.setTitleColor(UIColor.disabledTextColor, for: .normal)
         nameButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        pasteButton.setTitleColor(UIColor.mainNormalColor, for: .normal)
+        pasteButton.setTitleColor(UIColor(hex: "#333333"), for: .normal)
         
-        nextButton.setTitleColor(UIColor.mainNormalColor, for: .normal)
+        nextButton.setTitleColor(UIColor.white, for: .normal)
         nextButton.setTitleColor(UIColor.disabledTextColor, for: .disabled)
+        nextButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
+        nextButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
+        
+        scanButton.pborderWidth = 0.5
+        scanButton.pborderColor = UIColor.mainNormalColor
+        scanButton.pcornerRadius = 2
         
         pasteButton.addTarget(self, action: #selector(pasteButtonClick), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextButtonClick), for: .touchUpInside)
