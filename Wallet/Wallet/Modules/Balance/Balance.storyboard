@@ -429,16 +429,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3p-3M-Ykk">
-                                <rect key="frame" x="20" y="40" width="335" height="60.5"/>
+                                <rect key="frame" x="0.0" y="35" width="375" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQN-EF-loI">
-                                        <rect key="frame" x="259" y="20" width="41.5" height="19.5"/>
+                                        <rect key="frame" x="299" y="17.5" width="41.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="textColor" red="0.12941176469999999" green="0.15686274510000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6D2-0w-DjG">
-                                        <rect key="frame" x="20" y="21" width="41.5" height="19.5"/>
+                                        <rect key="frame" x="20" y="18.5" width="41.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="textColor" red="0.12941176469999999" green="0.15686274510000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -449,18 +449,20 @@
                                     <constraint firstItem="6D2-0w-DjG" firstAttribute="leading" secondItem="B3p-3M-Ykk" secondAttribute="leading" constant="20" id="BNG-OW-Ijf"/>
                                     <constraint firstItem="pQN-EF-loI" firstAttribute="centerY" secondItem="B3p-3M-Ykk" secondAttribute="centerY" id="Kcf-ZU-Pk4"/>
                                     <constraint firstAttribute="trailing" secondItem="pQN-EF-loI" secondAttribute="trailing" constant="34.5" id="QYy-nm-KN1"/>
-                                    <constraint firstAttribute="height" constant="60.5" id="b8O-sf-TJf"/>
+                                    <constraint firstAttribute="height" constant="55" id="b8O-sf-TJf"/>
                                     <constraint firstItem="pQN-EF-loI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6D2-0w-DjG" secondAttribute="trailing" constant="5" id="i0f-uf-UfY"/>
                                     <constraint firstItem="6D2-0w-DjG" firstAttribute="centerY" secondItem="B3p-3M-Ykk" secondAttribute="centerY" id="jnt-Z1-FUB"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="3BT-R2-xd5">
-                                <rect key="frame" x="20" y="559" width="335" height="44"/>
+                                <rect key="frame" x="20" y="120" width="335" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irx-de-t1e">
-                                        <rect key="frame" x="0.0" y="0.0" width="158" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="158" height="40"/>
+                                        <color key="backgroundColor" red="0.76078431372549016" green="0.21176470588235294" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <state key="normal" title="发送"/>
+                                        <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="发送" image="ic_scan"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
                                                 <real key="value" value="2"/>
@@ -468,9 +470,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5En-0m-JqU">
-                                        <rect key="frame" x="177" y="0.0" width="158" height="44"/>
+                                        <rect key="frame" x="177" y="0.0" width="158" height="40"/>
+                                        <color key="backgroundColor" red="0.76078431372549016" green="0.21176470588235294" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                        <state key="normal" title="接收"/>
+                                        <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="接收" image="ic_qrcode"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
                                                 <real key="value" value="2"/>
@@ -479,18 +483,18 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="SVg-k2-ad2"/>
+                                    <constraint firstAttribute="height" constant="40" id="SVg-k2-ad2"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qoA-lR-FiV" firstAttribute="leading" secondItem="B3p-3M-Ykk" secondAttribute="leading" constant="-20" id="8Oh-Dl-teN"/>
-                            <constraint firstItem="qoA-lR-FiV" firstAttribute="bottom" secondItem="3BT-R2-xd5" secondAttribute="bottom" constant="64" id="PrO-Pw-0mo"/>
+                            <constraint firstItem="qoA-lR-FiV" firstAttribute="leading" secondItem="B3p-3M-Ykk" secondAttribute="leading" id="8Oh-Dl-teN"/>
+                            <constraint firstItem="3BT-R2-xd5" firstAttribute="top" secondItem="B3p-3M-Ykk" secondAttribute="bottom" constant="30" id="9e2-YB-AaB"/>
                             <constraint firstItem="qoA-lR-FiV" firstAttribute="leading" secondItem="3BT-R2-xd5" secondAttribute="leading" constant="-20" id="SAI-tT-S0S"/>
-                            <constraint firstItem="B3p-3M-Ykk" firstAttribute="top" secondItem="qoA-lR-FiV" secondAttribute="top" constant="20" id="kWG-un-rZ6"/>
+                            <constraint firstItem="B3p-3M-Ykk" firstAttribute="top" secondItem="qoA-lR-FiV" secondAttribute="top" constant="15" id="kWG-un-rZ6"/>
                             <constraint firstItem="qoA-lR-FiV" firstAttribute="trailing" secondItem="3BT-R2-xd5" secondAttribute="trailing" constant="20" id="kkH-zR-a0g"/>
-                            <constraint firstItem="qoA-lR-FiV" firstAttribute="trailing" secondItem="B3p-3M-Ykk" secondAttribute="trailing" constant="20" id="pti-0N-49q"/>
+                            <constraint firstItem="qoA-lR-FiV" firstAttribute="trailing" secondItem="B3p-3M-Ykk" secondAttribute="trailing" id="pti-0N-49q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qoA-lR-FiV"/>
                     </view>
@@ -873,5 +877,7 @@
     </scenes>
     <resources>
         <image name="balance_code" width="12" height="12"/>
+        <image name="ic_qrcode" width="20" height="20"/>
+        <image name="ic_scan" width="24" height="24"/>
     </resources>
 </document>

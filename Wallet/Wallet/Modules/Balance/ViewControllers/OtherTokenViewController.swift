@@ -23,6 +23,7 @@ class OtherTokenViewController: UIViewController {
     }
     
     func configureUI() {
+        self.view.backgroundColor = UIColor.backgroundColor
         sendButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
         receiveButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
         
