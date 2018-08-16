@@ -20,7 +20,6 @@ class VoteTableViewCell: UITableViewCell {
     @IBOutlet weak var websiteLabel: WebsiteLabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var voteNumberLabel: UILabel!
-    @IBOutlet weak var voteNumberTitleLabel: UILabel!
     var model: Witness?
     
     var disposeBag = DisposeBag()
@@ -63,12 +62,12 @@ class VoteTableViewCell: UITableViewCell {
             return object.voteAddress.addressString == model.address.addressString
         }).first {
             inputTextField.text = vote.voteCount.string
-            voteNumberTitleLabel.text = R.string.tron.voteYourvoteLabelTitle()
-            voteNumberTitleLabel.isHidden = false
+//            voteNumberTitleLabel.text = R.string.tron.voteYourvoteLabelTitle()
+//            voteNumberTitleLabel.isHidden = false
            
         } else {
             inputTextField.text = ""
-            voteNumberTitleLabel.isHidden = true
+//            voteNumberTitleLabel.isHidden = true
             
         }
         

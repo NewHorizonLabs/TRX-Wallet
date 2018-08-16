@@ -203,7 +203,7 @@
                     <state key="normal" image="common_close"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0a-kJ-sZm">
-                    <rect key="frame" x="31" y="464" width="242" height="44"/>
+                    <rect key="frame" x="31" y="444" width="242" height="44"/>
                     <color key="backgroundColor" red="0.27450980390000002" green="0.23529411759999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="sYK-g3-asR"/>
@@ -243,7 +243,7 @@
                 <constraint firstItem="dPo-1y-qcd" firstAttribute="leading" secondItem="7Aj-LG-S6t" secondAttribute="leading" id="aR3-cd-Tlw"/>
                 <constraint firstItem="Mtp-OD-8dG" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Z0a-kJ-sZm" secondAttribute="bottom" constant="30" id="bBh-MM-wQg"/>
                 <constraint firstItem="7Aj-LG-S6t" firstAttribute="leading" secondItem="8AV-1H-lyf" secondAttribute="leading" id="c1Q-7a-u9y"/>
-                <constraint firstItem="Z0a-kJ-sZm" firstAttribute="top" secondItem="8aC-Qc-jEI" secondAttribute="bottom" constant="30" id="h6f-39-7Ho"/>
+                <constraint firstItem="Z0a-kJ-sZm" firstAttribute="top" secondItem="8aC-Qc-jEI" secondAttribute="bottom" constant="10" id="h6f-39-7Ho"/>
                 <constraint firstItem="oHf-xr-Lav" firstAttribute="leading" secondItem="FOq-qk-ggy" secondAttribute="leading" id="jqW-uS-eQs"/>
                 <constraint firstItem="Cu2-3J-kbO" firstAttribute="leading" secondItem="dPo-1y-qcd" secondAttribute="leading" id="kVK-oQ-kD4"/>
                 <constraint firstItem="7tp-6u-ELQ" firstAttribute="top" secondItem="Cu2-3J-kbO" secondAttribute="bottom" constant="40" id="mBE-Av-cB1"/>
