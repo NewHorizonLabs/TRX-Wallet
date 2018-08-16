@@ -56,7 +56,7 @@ class TransactionDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.backgroundColor
         if let transaction = transaction {
             configure(model: transaction)
             if let idStirng  = transaction.rawData.data()?.sha256().hexString {
