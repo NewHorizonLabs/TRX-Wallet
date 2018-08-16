@@ -20,7 +20,7 @@ extension Date {
     var formatterString: String {
         get {
             let dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = .short
+            dateFormatter.timeStyle = .none
             dateFormatter.dateStyle = .short
             //            let locale = Locale.current
             
