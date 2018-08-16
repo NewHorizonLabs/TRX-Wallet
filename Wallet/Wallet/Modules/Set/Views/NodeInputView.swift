@@ -44,6 +44,44 @@ enum NodeType {
             ServiceHelper.shared.updateNode()
         }
     }
+    
+    func currentAddress() -> String {
+        switch self {
+        case .full:
+            if let nodeComponent = UserDefaults.Set.string(forKey: .fullnode)?.components(separatedBy: ":") {
+                return nodeComponent[0]
+            } else {
+                let nodeComponent = ServiceHelper.fullNode.components(separatedBy: ":")
+                return nodeComponent[0]
+            }
+        case .solidity:
+            if let nodeComponent = UserDefaults.Set.string(forKey: .solidityNode)?.components(separatedBy: ":") {
+                return nodeComponent[0]
+            } else {
+                let nodeComponent = ServiceHelper.solidityNode.components(separatedBy: ":")
+                return nodeComponent[0]
+            }
+        }
+    }
+    
+    func currentPort() -> String {
+        switch self {
+        case .full:
+            if let nodeComponent = UserDefaults.Set.string(forKey: .fullnode)?.components(separatedBy: ":") {
+                return nodeComponent[1]
+            } else {
+                let nodeComponent = ServiceHelper.fullNode.components(separatedBy: ":")
+                return nodeComponent[1]
+            }
+        case .solidity:
+            if let nodeComponent = UserDefaults.Set.string(forKey: .solidityNode)?.components(separatedBy: ":") {
+                return nodeComponent[1]
+            } else {
+                let nodeComponent = ServiceHelper.solidityNode.components(separatedBy: ":")
+                return nodeComponent[1]
+            }
+        }
+    }
 }
 
 class NodeInputView: UIView {
@@ -59,16 +97,8 @@ class NodeInputView: UIView {
     var nodeType: NodeType = .full {
         didSet {
             titleLabel.text = nodeType.title
-            switch nodeType {
-            case .full:
-                let nodeComponent = ServiceHelper.fullNode.components(separatedBy: ":")
-                ipTextField.text = nodeComponent[0]
-                portTextField.text = nodeComponent[1]
-            case .solidity:
-                let nodeComponent = ServiceHelper.solidityNode.components(separatedBy: ":")
-                ipTextField.text = nodeComponent[0]
-                portTextField.text = nodeComponent[1]
-            }
+            ipTextField.text = nodeType.currentAddress()
+            portTextField.text = nodeType.currentPort()
         }
     }
     
