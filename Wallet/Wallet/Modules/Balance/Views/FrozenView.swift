@@ -36,6 +36,8 @@ class FrozenView: UIView, XibLoadable, Popable {
         numberTipLabel.text = R.string.tron.tokenPopViewInputTitle()
         frozenButton.setTitle(R.string.tron.balanceFreezePopViewFreezeButtonTitle(), for: .normal)
         comfirmTipLabel.text = R.string.tron.balanceFreezePopViewConfirmtipLabelTitle()
+        frozenButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
+        frozenButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
     }
     
     func baseConfigure() {
