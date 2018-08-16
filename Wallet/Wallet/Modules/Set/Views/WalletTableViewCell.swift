@@ -17,8 +17,32 @@ protocol WalletWalletTableViewCellDelegate: class {
     func showInfoButtonClick(wallet: Wallet, view: UIView)
 }
 
+enum WalletBackgroundColorType {
+    case blue
+    case red
+    
+    var firstColor: UIColor {
+        switch self {
+        case .blue:
+            return UIColor(hex: "5590d6")
+        case .red:
+            return UIColor(hex: "e75c64")
+        }
+    }
+    
+    var secondColor: UIColor {
+        switch self {
+        case .blue:
+            return UIColor(hex: "3564cc")
+        case .red:
+            return UIColor(hex: "de3d6e")
+        }
+    }
+}
+
 class WalletTableViewCell: SwipeTableViewCell {
 
+    @IBOutlet weak var gradiuentView: GradientView!
     @IBOutlet weak var watchImageView: UIImageView!
     @IBOutlet weak var exportButton: UIButton!
     @IBOutlet weak var tipView: UIView!
@@ -30,6 +54,12 @@ class WalletTableViewCell: SwipeTableViewCell {
     
     var wallet: Wallet?
     var disposeBag = DisposeBag()
+    var backgroundColorType: WalletBackgroundColorType = .blue {
+        didSet {
+            gradiuentView.firstColor = backgroundColorType.firstColor
+            gradiuentView.secondColor = backgroundColorType.secondColor
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

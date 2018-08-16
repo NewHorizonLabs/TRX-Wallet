@@ -25,23 +25,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwr-X1-CUa">
                                 <rect key="frame" x="0.0" y="0.0" width="290" height="71.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tron_gray" translatesAutoresizingMaskIntoConstraints="NO" id="euU-8u-BWE">
-                                        <rect key="frame" x="15" y="4" width="60" height="63"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tron_white" translatesAutoresizingMaskIntoConstraints="NO" id="euU-8u-BWE">
+                                        <rect key="frame" x="15" y="12" width="45" height="47"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJB-id-EJw">
-                                        <rect key="frame" x="90" y="4" width="15" height="19.5"/>
+                                        <rect key="frame" x="75" y="12" width="15" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="zq4-hz-bq1">
-                                        <rect key="frame" x="90" y="31.5" width="15" height="19.5"/>
+                                        <rect key="frame" x="75" y="39.5" width="15" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_watch" translatesAutoresizingMaskIntoConstraints="NO" id="7XO-Of-p09">
-                                        <rect key="frame" x="191" y="31.5" width="24" height="8"/>
+                                        <rect key="frame" x="200" y="28" width="15" height="15"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-y1-0T2">
                                         <rect key="frame" x="215" y="25.5" width="60" height="20"/>
@@ -151,6 +151,7 @@
                 <outlet property="addressLabel" destination="y9z-hd-mbM" id="qgX-Zx-A3j"/>
                 <outlet property="balanceLabel" destination="zq4-hz-bq1" id="kNH-iu-DOv"/>
                 <outlet property="exportButton" destination="aWt-y1-0T2" id="l5e-xY-Oga"/>
+                <outlet property="gradiuentView" destination="PJx-z0-QrQ" id="xEH-Bi-sUn"/>
                 <outlet property="nameLabel" destination="OJB-id-EJw" id="dp0-y5-F4p"/>
                 <outlet property="tipView" destination="ubq-UE-EsL" id="vUM-LM-AxO"/>
                 <outlet property="watchImageView" destination="7XO-Of-p09" id="MZ6-dk-vPM"/>
@@ -159,7 +160,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_watch" width="24" height="8"/>
-        <image name="tron_gray" width="60" height="63"/>
+        <image name="ic_watch" width="15" height="15"/>
+        <image name="tron_white" width="45" height="47"/>
     </resources>
 </document>

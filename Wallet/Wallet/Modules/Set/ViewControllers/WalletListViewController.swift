@@ -33,6 +33,7 @@ class WalletListViewController: UIViewController {
         self.tableView.backgroundColor = UIColor.backgroundColor
         data.asObservable().bind(to: tableView.rx.items(cellIdentifier: R.nib.walletTableViewCell.identifier, cellType: WalletTableViewCell.self)) { index, model, cell in
             cell.configure(model: model)
+            cell.backgroundColorType = index % 2 == 0 ? .blue : .red
             let address = model.address.data.addressString
             if let value = UserDefaults.standard.string(forKey: address) {
                 cell.nameLabel.text = value

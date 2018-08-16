@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TokenTableViewCell" rowHeight="232" id="j95-1l-A7y" customClass="TokenTableViewCell" customModule="TRXWallet" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TokenTableViewCell" rowHeight="155" id="j95-1l-A7y" customClass="TokenTableViewCell" customModule="TRXWallet" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="232"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j95-1l-A7y" id="hEc-Mz-Vns">
