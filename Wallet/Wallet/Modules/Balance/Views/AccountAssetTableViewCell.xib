@@ -23,7 +23,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDq-Cf-M4b">
                         <rect key="frame" x="15" y="15" width="290" height="71.5"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tron_black" translatesAutoresizingMaskIntoConstraints="NO" id="zzY-A1-Chn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tron_black" translatesAutoresizingMaskIntoConstraints="NO" id="zzY-A1-Chn">
                                 <rect key="frame" x="20" y="16" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="BDa-Yi-l3G"/>
@@ -37,26 +37,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7h-A6-3mI">
-                                <rect key="frame" x="228.5" y="26" width="41.5" height="19.5"/>
+                                <rect key="frame" x="227.5" y="26" width="41.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" red="0.12941176469999999" green="0.15686274510000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXK-Et-erm">
-                                <rect key="frame" x="270" y="47.5" width="0.0" height="0.0"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXK-Et-erm">
+                                <rect key="frame" x="269" y="47.5" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cell_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="7bN-aO-dQb">
+                                <rect key="frame" x="276" y="30" width="6" height="10"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sYM-sH-YYJ" firstAttribute="centerY" secondItem="zzY-A1-Chn" secondAttribute="centerY" id="09T-Eq-Ivz"/>
-                            <constraint firstAttribute="trailing" secondItem="h7h-A6-3mI" secondAttribute="trailing" constant="20" id="6tQ-cW-ula"/>
+                            <constraint firstAttribute="trailing" secondItem="7bN-aO-dQb" secondAttribute="trailing" constant="8" id="60E-Bx-uRX"/>
+                            <constraint firstItem="7bN-aO-dQb" firstAttribute="leading" secondItem="h7h-A6-3mI" secondAttribute="trailing" constant="7" id="Aub-tA-YNn"/>
                             <constraint firstItem="h7h-A6-3mI" firstAttribute="centerY" secondItem="fDq-Cf-M4b" secondAttribute="centerY" id="MKe-xs-Jyu"/>
                             <constraint firstItem="h7h-A6-3mI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sYM-sH-YYJ" secondAttribute="trailing" constant="5" id="MUN-Pa-kyh"/>
                             <constraint firstItem="zXK-Et-erm" firstAttribute="top" secondItem="h7h-A6-3mI" secondAttribute="bottom" constant="2" id="Qq6-qr-H7G"/>
                             <constraint firstItem="zzY-A1-Chn" firstAttribute="centerY" secondItem="fDq-Cf-M4b" secondAttribute="centerY" id="abQ-fw-P1W"/>
+                            <constraint firstItem="7bN-aO-dQb" firstAttribute="centerY" secondItem="fDq-Cf-M4b" secondAttribute="centerY" id="bTg-7Y-sSa"/>
                             <constraint firstItem="zXK-Et-erm" firstAttribute="trailing" secondItem="h7h-A6-3mI" secondAttribute="trailing" id="gdF-nI-bjM"/>
                             <constraint firstItem="zzY-A1-Chn" firstAttribute="leading" secondItem="fDq-Cf-M4b" secondAttribute="leading" constant="20" id="gsj-PZ-mff"/>
                             <constraint firstItem="sYM-sH-YYJ" firstAttribute="leading" secondItem="zzY-A1-Chn" secondAttribute="trailing" constant="13" id="zJK-Ak-ZeA"/>
@@ -65,6 +70,7 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="pcornerRadius">
                                 <real key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="addShadow" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
@@ -87,6 +93,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ic_cell_arrow" width="6" height="10"/>
         <image name="tron_black" width="25" height="26"/>
     </resources>
 </document>

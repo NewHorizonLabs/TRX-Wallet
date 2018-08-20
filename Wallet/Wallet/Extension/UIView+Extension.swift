@@ -438,7 +438,7 @@ extension UIView {
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = self.pcornerRadius
         view.layer.shadowRadius = 4
-        view.layer.shadowColor = UIColor.mainNormalColor.cgColor
+        view.layer.shadowColor = UIColor(hex: "02005b").cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 4)
         view.layer.shadowOpacity = 0.10
         if let superView = self.superview {
