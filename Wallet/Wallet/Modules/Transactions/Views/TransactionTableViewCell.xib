@@ -42,7 +42,7 @@
                                     <constraint firstAttribute="width" constant="80" id="bQm-hh-zuT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.69019607843137254" green="0.72156862745098038" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ena-UZ-H5Q">
@@ -128,6 +128,9 @@
                             <constraint firstAttribute="trailing" secondItem="ena-UZ-H5Q" secondAttribute="trailing" constant="20" id="vhJ-5a-2ml"/>
                             <constraint firstItem="k1L-8r-FuK" firstAttribute="centerY" secondItem="W3Q-9s-eof" secondAttribute="centerY" id="wA5-zX-l9l"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="addShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

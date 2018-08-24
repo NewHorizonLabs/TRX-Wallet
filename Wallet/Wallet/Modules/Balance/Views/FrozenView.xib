@@ -73,31 +73,45 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLq-9x-zpo">
                     <rect key="frame" x="30" y="162" width="278" height="29"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I coinfirm to freeze TRX for at least of 3 days" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="did-Of-9V3">
-                            <rect key="frame" x="40" y="0.0" width="238" height="29"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.52156862745098043" green="0.53333333333333333" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwM-ug-XBM">
-                            <rect key="frame" x="0.0" y="-5.5" width="40" height="40"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ir-Xi-fCg">
+                            <rect key="frame" x="16" y="0.0" width="246" height="29"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I coinfirm to freeze TRX for at least of 3 days" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="did-Of-9V3">
+                                    <rect key="frame" x="30" y="0.0" width="216" height="29"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.52156862745098043" green="0.53333333333333333" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwM-ug-XBM">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="Ta5-VQ-Yii"/>
+                                        <constraint firstAttribute="width" constant="30" id="Vxg-Nj-zEQ"/>
+                                    </constraints>
+                                    <state key="normal" image="ic_check"/>
+                                    <state key="selected" image="ic_check_circle"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="Ta5-VQ-Yii"/>
-                                <constraint firstAttribute="width" constant="40" id="Vxg-Nj-zEQ"/>
+                                <constraint firstItem="did-Of-9V3" firstAttribute="leading" secondItem="qwM-ug-XBM" secondAttribute="trailing" id="4ot-QJ-fDo"/>
+                                <constraint firstItem="did-Of-9V3" firstAttribute="centerY" secondItem="qwM-ug-XBM" secondAttribute="centerY" id="54V-tU-XgH"/>
+                                <constraint firstAttribute="trailing" secondItem="did-Of-9V3" secondAttribute="trailing" id="OPF-eH-WD6"/>
+                                <constraint firstItem="qwM-ug-XBM" firstAttribute="centerY" secondItem="4ir-Xi-fCg" secondAttribute="centerY" id="W7w-Ja-r8a"/>
+                                <constraint firstItem="did-Of-9V3" firstAttribute="top" secondItem="4ir-Xi-fCg" secondAttribute="top" id="cic-Wt-0pe"/>
+                                <constraint firstAttribute="bottom" secondItem="did-Of-9V3" secondAttribute="bottom" id="m9l-Q4-zw5"/>
+                                <constraint firstItem="qwM-ug-XBM" firstAttribute="leading" secondItem="4ir-Xi-fCg" secondAttribute="leading" id="ux1-ZZ-8Yx"/>
                             </constraints>
-                            <state key="normal" image="ic_check"/>
-                            <state key="selected" image="ic_check_circle"/>
-                        </button>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="qwM-ug-XBM" firstAttribute="centerY" secondItem="TLq-9x-zpo" secondAttribute="centerY" id="G45-00-xm1"/>
-                        <constraint firstAttribute="bottom" secondItem="did-Of-9V3" secondAttribute="bottom" id="JXI-Lk-ClE"/>
-                        <constraint firstItem="qwM-ug-XBM" firstAttribute="leading" secondItem="TLq-9x-zpo" secondAttribute="leading" id="KsR-a1-Ug8"/>
-                        <constraint firstItem="did-Of-9V3" firstAttribute="leading" secondItem="qwM-ug-XBM" secondAttribute="trailing" id="LJK-d5-XsF"/>
-                        <constraint firstAttribute="trailing" secondItem="did-Of-9V3" secondAttribute="trailing" id="PuL-VS-bhR"/>
-                        <constraint firstItem="did-Of-9V3" firstAttribute="top" secondItem="TLq-9x-zpo" secondAttribute="top" id="cat-Iv-5gW"/>
-                        <constraint firstItem="did-Of-9V3" firstAttribute="centerY" secondItem="qwM-ug-XBM" secondAttribute="centerY" id="eSx-wD-p26"/>
+                        <constraint firstItem="4ir-Xi-fCg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TLq-9x-zpo" secondAttribute="leading" id="42T-Ge-gkt"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4ir-Xi-fCg" secondAttribute="trailing" id="BH2-wL-anZ"/>
+                        <constraint firstAttribute="bottom" secondItem="4ir-Xi-fCg" secondAttribute="bottom" id="XXG-KW-jia"/>
+                        <constraint firstItem="4ir-Xi-fCg" firstAttribute="top" secondItem="TLq-9x-zpo" secondAttribute="top" id="et1-L3-AGg"/>
+                        <constraint firstItem="4ir-Xi-fCg" firstAttribute="centerX" secondItem="TLq-9x-zpo" secondAttribute="centerX" id="mJT-YS-ear"/>
+                        <constraint firstItem="4ir-Xi-fCg" firstAttribute="centerY" secondItem="TLq-9x-zpo" secondAttribute="centerY" id="nw2-as-O0M"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvh-4m-TO7">
@@ -157,7 +171,7 @@
     </objects>
     <resources>
         <image name="common_close_white" width="12" height="12"/>
-        <image name="ic_check" width="22" height="22"/>
-        <image name="ic_check_circle" width="22" height="22"/>
+        <image name="ic_check" width="12" height="12"/>
+        <image name="ic_check_circle" width="12" height="12"/>
     </resources>
 </document>

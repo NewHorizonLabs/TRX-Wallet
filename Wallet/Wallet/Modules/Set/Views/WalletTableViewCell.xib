@@ -40,14 +40,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_watch" translatesAutoresizingMaskIntoConstraints="NO" id="7XO-Of-p09">
-                                        <rect key="frame" x="200" y="28" width="15" height="15"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-y1-0T2">
-                                        <rect key="frame" x="215" y="25.5" width="60" height="20"/>
+                                        <rect key="frame" x="230" y="25.5" width="45" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="HEf-up-6ME"/>
-                                            <constraint firstAttribute="width" constant="60" id="dvP-lR-STH"/>
+                                            <constraint firstAttribute="width" constant="45" id="dvP-lR-STH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                         <state key="normal" title="导出">
@@ -67,7 +64,7 @@
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubq-UE-EsL">
                                         <rect key="frame" x="5" y="5" width="8" height="8"/>
-                                        <color key="backgroundColor" red="0.27450980390000002" green="0.23529411759999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="8" id="NGM-q8-mPJ"/>
                                             <constraint firstAttribute="width" constant="8" id="hc7-tC-Xeb"/>
@@ -82,10 +79,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="aWt-y1-0T2" secondAttribute="trailing" constant="15" id="EZI-mE-23V"/>
-                                    <constraint firstItem="7XO-Of-p09" firstAttribute="centerY" secondItem="aWt-y1-0T2" secondAttribute="centerY" id="FJd-TF-lKY"/>
                                     <constraint firstItem="zq4-hz-bq1" firstAttribute="leading" secondItem="OJB-id-EJw" secondAttribute="leading" id="JDg-bq-b6m"/>
                                     <constraint firstItem="zq4-hz-bq1" firstAttribute="top" secondItem="OJB-id-EJw" secondAttribute="bottom" constant="8" id="Lmw-ty-IDC"/>
-                                    <constraint firstItem="aWt-y1-0T2" firstAttribute="leading" secondItem="7XO-Of-p09" secondAttribute="trailing" id="Pjw-Hm-zE7"/>
                                     <constraint firstItem="OJB-id-EJw" firstAttribute="leading" secondItem="euU-8u-BWE" secondAttribute="trailing" constant="15" id="WBe-eT-VY8"/>
                                     <constraint firstItem="ubq-UE-EsL" firstAttribute="top" secondItem="rwr-X1-CUa" secondAttribute="top" constant="5" id="ahm-5A-oPJ"/>
                                     <constraint firstItem="ubq-UE-EsL" firstAttribute="leading" secondItem="rwr-X1-CUa" secondAttribute="leading" constant="5" id="eWt-Gy-xoC"/>
@@ -98,8 +93,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPS-tV-Imv">
                                 <rect key="frame" x="0.0" y="71.5" width="290" height="26"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet_hot" translatesAutoresizingMaskIntoConstraints="NO" id="5zy-Wa-jxQ">
+                                        <rect key="frame" x="17" y="5" width="15" height="15"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9z-hd-mbM">
-                                        <rect key="frame" x="15" y="5" width="259.5" height="14.5"/>
+                                        <rect key="frame" x="139" y="5" width="11.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <color key="textColor" red="0.69019607843137254" green="0.72156862745098038" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -108,8 +106,10 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="y9z-hd-mbM" secondAttribute="trailing" constant="15" id="27w-HL-dma"/>
-                                    <constraint firstItem="y9z-hd-mbM" firstAttribute="leading" secondItem="dPS-tV-Imv" secondAttribute="leading" constant="15" id="IY7-us-NJw"/>
+                                    <constraint firstItem="5zy-Wa-jxQ" firstAttribute="centerY" secondItem="dPS-tV-Imv" secondAttribute="centerY" id="Q1x-qf-VzZ"/>
                                     <constraint firstAttribute="height" constant="26" id="UCd-n7-kyf"/>
+                                    <constraint firstItem="5zy-Wa-jxQ" firstAttribute="leading" secondItem="dPS-tV-Imv" secondAttribute="leading" constant="17" id="gMA-fC-BX2"/>
+                                    <constraint firstItem="y9z-hd-mbM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5zy-Wa-jxQ" secondAttribute="trailing" constant="10" id="iGW-qE-Qjn"/>
                                     <constraint firstItem="y9z-hd-mbM" firstAttribute="centerY" secondItem="dPS-tV-Imv" secondAttribute="centerY" id="odM-Ff-ZkV"/>
                                     <constraint firstItem="y9z-hd-mbM" firstAttribute="centerX" secondItem="dPS-tV-Imv" secondAttribute="centerX" id="vGP-Tf-HUb"/>
                                 </constraints>
@@ -154,13 +154,13 @@
                 <outlet property="gradiuentView" destination="PJx-z0-QrQ" id="xEH-Bi-sUn"/>
                 <outlet property="nameLabel" destination="OJB-id-EJw" id="dp0-y5-F4p"/>
                 <outlet property="tipView" destination="ubq-UE-EsL" id="vUM-LM-AxO"/>
-                <outlet property="watchImageView" destination="7XO-Of-p09" id="MZ6-dk-vPM"/>
+                <outlet property="walletTypeImageView" destination="5zy-Wa-jxQ" id="ZrW-zW-VzC"/>
             </connections>
             <point key="canvasLocation" x="-63" y="66"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_watch" width="15" height="15"/>
         <image name="tron_white" width="45" height="47"/>
+        <image name="wallet_hot" width="15" height="15"/>
     </resources>
 </document>

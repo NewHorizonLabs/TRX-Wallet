@@ -35,7 +35,7 @@ class SendTransactionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
+        addressTextField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     
@@ -45,7 +45,7 @@ class SendTransactionViewController: UIViewController {
         nextButton.setTitle(R.string.tron.balanceSendNextButtonTitle(), for: .normal)
         pasteButton.setTitle(R.string.tron.balanceSendPasteButtonTitle(), for: .normal)
         
-        nameButton.setTitleColor(UIColor.disabledTextColor, for: .normal)
+        nameButton.setTitleColor(UIColor(hex: "666666"), for: .normal)
         nameButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         pasteButton.setTitleColor(UIColor(hex: "#333333"), for: .normal)
         
@@ -73,20 +73,19 @@ class SendTransactionViewController: UIViewController {
             return a && b
         }.bind(to: nextButton.rx.isEnabled)
         .disposed(by: disposeBag)
-        
-        (addressTextField.rx.text).orEmpty.map{ return $0.count > 0 }
-        .bind(to: tipLabel.rx.isHidden)
-        .disposed(by: disposeBag)
-        
-        (numberTextField.rx.text).orEmpty.map{ return $0.count > 0 }
-            .bind(to: numberTipLabel.rx.isHidden)
-            .disposed(by: disposeBag)
+    
     }
     
     @objc func pasteButtonClick() {
         self.addressTextField.text = UIPasteboard.general.string
     }
     
+    @IBAction func tapNumber(_ sender: Any) {
+        self.numberTextField.becomeFirstResponder()
+    }
+    @IBAction func tapAddress(_ sender: Any) {
+        self.addressTextField.becomeFirstResponder()
+    }
     @objc func nextButtonClick() {
         guard let account = ServiceHelper.shared.account.value, let addressData = Data(base58CheckDecoding: addressTextField.text ?? ""), let numberText = numberTextField.text, let number = numberText.cgFloat else {
             return

@@ -63,13 +63,13 @@ class TokenListViewController: UIViewController {
 }
 
 extension TokenListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model = data.value[indexPath.row]
-        return tableView.fd_heightForCell(withIdentifier: R.nib.tokenTableViewCell.identifier, configuration: { (cell) in
-            if let cell = cell as? TokenTableViewCell {
-                cell.configure(model: model)
-            }
-        })
-        
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let model = data.value[indexPath.row]
+//        return tableView.fd_heightForCell(withIdentifier: R.nib.tokenTableViewCell.identifier, configuration: { (cell) in
+//            if let cell = cell as? TokenTableViewCell {
+//                cell.configure(model: model)
+//            }
+//        })
+//        
+//    }
 }

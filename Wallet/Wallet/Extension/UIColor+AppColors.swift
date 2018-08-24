@@ -34,7 +34,7 @@ extension UIColor {
     //分割线颜色
     class var lineColor: UIColor {
         //242 242 245
-        return UIColor(white: 0, alpha: 0.05)
+        return UIColor.colorWithHex(hex: "#F3F3F3")
     }
     
     //深色分割线

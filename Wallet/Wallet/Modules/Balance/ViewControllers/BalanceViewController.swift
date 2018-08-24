@@ -13,6 +13,8 @@ import QRCodeReaderViewController
 
 class BalanceViewController: UIViewController {
 
+    @IBOutlet weak var navigationTitleLabel: UILabel!
+    @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var walletNameLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -36,7 +38,14 @@ class BalanceViewController: UIViewController {
     override var hideNavigationBar: Bool {
         return true
     }
-    
+    fileprivate var statusBarShouldLight = true {
+        didSet {
+            guard oldValue != statusBarShouldLight else {
+                return
+            }
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
     let disposeBag = DisposeBag()
     
     var data: Variable<[AccountAsset]> = Variable([])
@@ -247,13 +256,18 @@ class BalanceViewController: UIViewController {
         
         if let address = ServiceHelper.shared.currentWallet?.address.data.addressString,let value = UserDefaults.standard.string(forKey: address) {
             walletNameLabel.text = value
+            navigationTitleLabel.text = value
         } else {
             walletNameLabel.text = R.string.tron.balanceNavTitle()
+            navigationTitleLabel.text = R.string.tron.balanceNavTitle()
         }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        if statusBarShouldLight {
+            return .lightContent
+        }
+        return .default
     }
     
     override func viewDidLayoutSubviews() {
@@ -328,14 +342,38 @@ extension BalanceViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffsetY = scrollView.contentOffset.y
         let height = self.headerView.pheight
+        let showNavBarOffsetY = height/4.0
         print(contentOffsetY)
         if (contentOffsetY > 0) {
-            
+           
         } else {
             let frame = CGRect(x: contentOffsetY, y: contentOffsetY, width: view.frame.size.width + (-contentOffsetY) * 2, height: height + (-contentOffsetY))
             backgroundImageView.frame = frame
             gradientView.frame = frame
             headerView.clipsToBounds = false
         }
+        
+        //导航栏透明度控制
+        if contentOffsetY > showNavBarOffsetY {
+            var navAlpha = (contentOffsetY - (showNavBarOffsetY)) / 40.0
+            if navAlpha > 1 {
+                navAlpha = 1
+            }
+            navigationTitleLabel.alpha = navAlpha
+            self.navigationView.backgroundColor = UIColor(white: 1, alpha: navAlpha)
+            if navAlpha > 0.8 {
+                statusBarShouldLight = false
+                ApplicationHelper.setStatusBar(style: .lightContent)
+            } else {
+                statusBarShouldLight = true
+                ApplicationHelper.setStatusBar(style: .lightContent)
+            }
+        } else {
+            ApplicationHelper.setStatusBar(style: .lightContent)
+            self.navigationView.backgroundColor = UIColor(white: 1, alpha: 0)
+            statusBarShouldLight = true
+            navigationTitleLabel.alpha = 0.0
+        }
     }
 }
+

@@ -43,7 +43,7 @@ enum WalletBackgroundColorType {
 class WalletTableViewCell: SwipeTableViewCell {
 
     @IBOutlet weak var gradiuentView: GradientView!
-    @IBOutlet weak var watchImageView: UIImageView!
+    @IBOutlet weak var walletTypeImageView: UIImageView!
     @IBOutlet weak var exportButton: UIButton!
     @IBOutlet weak var tipView: UIView!
     @IBOutlet weak var balanceLabel: UILabel!
@@ -109,9 +109,9 @@ class WalletTableViewCell: SwipeTableViewCell {
         .disposed(by: disposeBag)
         
         if model.type == .address(model.address) {
-            watchImageView.isHidden = false
+            walletTypeImageView.image = R.image.ic_watch()
         } else {
-            watchImageView.isHidden = true
+            walletTypeImageView.image = R.image.wallet_hot()
         }
         
     }

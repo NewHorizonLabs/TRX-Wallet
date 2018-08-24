@@ -77,7 +77,7 @@ class TokenTableViewCell: UITableViewCell {
         participateButton.setTitle(R.string.tron.tokenParticipateButtonTitle(), for: .normal)
         
         participateButton.setBackgroundColor(UIColor.mainNormalColor, forState: .normal)
-        participateButton.setBackgroundColor(UIColor.disabledBackgroundColor, forState: .disabled)
+        participateButton.setBackgroundColor(UIColor(hex: "d8d8d8"), forState: .disabled)
         participateButton.addTarget(self, action: #selector(participateClick), for: .touchUpInside)
     }
     
