@@ -12,6 +12,7 @@ import RxCocoa
 
 class VoteTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var tipView: VoteTipView!
     @IBOutlet weak var orderView: UIView!
     @IBOutlet weak var redView: UIView!
     @IBOutlet weak var numberLabel: UILabel!
@@ -22,6 +23,7 @@ class VoteTableViewCell: UITableViewCell {
     @IBOutlet weak var voteNumberLabel: UILabel!
     var model: Witness?
     
+    @IBOutlet weak var voteImageView: UIImageView!
     var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
@@ -31,6 +33,8 @@ class VoteTableViewCell: UITableViewCell {
 //            .bind(to: voteButton.rx.isHidden)
 //            .disposed(by: disposeBag)
         configureUI()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapTipImageView(_:)))
+        voteImageView.addGestureRecognizer(tap)
     }
     
     override func prepareForReuse() {
@@ -102,6 +106,20 @@ class VoteTableViewCell: UITableViewCell {
         voteView.successBlock = {[weak self] number in
             self?.votedSuccess(number: number)
         }
+    }
+    
+    @objc func tapTipImageView(_ sender: Any) {
+        self.showTip()
+    }
+    func showTip() {
+        UIView.animateKeyframes(withDuration: 2, delay: 0, options: .calculationModeLinear, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2, animations: {
+                self.tipView.alpha = 1.0
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 1.0, animations: {
+                self.tipView.alpha = 0.0
+            })
+        }, completion: nil)
     }
     
     func votedSuccess(number: Int64) {

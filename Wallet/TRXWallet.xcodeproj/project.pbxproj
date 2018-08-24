@@ -55,6 +55,7 @@
 		3666DB5920A1718100EF7F87 /* Annotations.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666DB4E20A1718100EF7F87 /* Annotations.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3666DB5A20A1718100EF7F87 /* Descriptor.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666DB5120A1718100EF7F87 /* Descriptor.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3666DB5B20A1718100EF7F87 /* Api.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666DB5220A1718100EF7F87 /* Api.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		367FD350212FFA2000D3C73F /* VoteTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FD34F212FFA2000D3C73F /* VoteTipView.swift */; };
 		3682FAFA20FED42B0017BFE6 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3682FAF920FED42B0017BFE6 /* TransactionDetailViewController.swift */; };
 		368A159A20E0F88900D340CF /* VoteConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A159920E0F88900D340CF /* VoteConfirm.swift */; };
 		368A159C20E0F89A00D340CF /* VoteConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368A159B20E0F89A00D340CF /* VoteConfirmView.xib */; };
@@ -494,6 +495,7 @@
 		3666DB5120A1718100EF7F87 /* Descriptor.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Descriptor.pbobjc.m; sourceTree = "<group>"; };
 		3666DB5220A1718100EF7F87 /* Api.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Api.pbobjc.m; sourceTree = "<group>"; };
 		3666DB5320A1718100EF7F87 /* Api.pbrpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Api.pbrpc.h; sourceTree = "<group>"; };
+		367FD34F212FFA2000D3C73F /* VoteTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTipView.swift; sourceTree = "<group>"; };
 		3682FAF920FED42B0017BFE6 /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
 		368A159920E0F88900D340CF /* VoteConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteConfirm.swift; sourceTree = "<group>"; };
 		368A159B20E0F89A00D340CF /* VoteConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteConfirmView.xib; sourceTree = "<group>"; };
@@ -2166,6 +2168,7 @@
 				368A159920E0F88900D340CF /* VoteConfirm.swift */,
 				368A159B20E0F89A00D340CF /* VoteConfirmView.xib */,
 				36A7959C20EA2D50006BBFB2 /* WebsiteLabel.swift */,
+				367FD34F212FFA2000D3C73F /* VoteTipView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2570,6 +2573,7 @@
 				368C84CB209C70180089D906 /* TransferType.swift in Sources */,
 				368C854F209C70180089D906 /* Data.swift in Sources */,
 				36C62A9F20A1AED4005A36DF /* TokenTableViewCell.swift in Sources */,
+				367FD350212FFA2000D3C73F /* VoteTipView.swift in Sources */,
 				368C855D209C70180089D906 /* Double.swift in Sources */,
 				368C8597209C70180089D906 /* EthereumAddressRule.swift in Sources */,
 				368C85E3209C70190089D906 /* ConfigExplorer.swift in Sources */,
