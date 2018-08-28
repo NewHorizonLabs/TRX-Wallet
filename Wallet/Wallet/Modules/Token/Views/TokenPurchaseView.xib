@@ -246,9 +246,9 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the number of" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lSy-eM-bUh">
-                    <rect key="frame" x="60" y="348" width="145" height="19.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="0.27058823529999998" green="0.20000000000000001" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="68" y="349.5" width="129.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOq-qk-ggy">
@@ -318,7 +318,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="dPo-1y-qcd" firstAttribute="top" secondItem="7Aj-LG-S6t" secondAttribute="bottom" constant="14" id="0tb-lm-cRw"/>
-                <constraint firstItem="lSy-eM-bUh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oHf-xr-Lav" secondAttribute="leading" constant="5" id="148-tq-WKv"/>
+                <constraint firstItem="lSy-eM-bUh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oHf-xr-Lav" secondAttribute="leading" constant="15" id="148-tq-WKv"/>
                 <constraint firstItem="Z0a-kJ-sZm" firstAttribute="width" secondItem="imx-hC-m3z" secondAttribute="width" multiplier="235:295" id="1aA-Ll-X5L"/>
                 <constraint firstItem="8AV-1H-lyf" firstAttribute="top" secondItem="Mtp-OD-8dG" secondAttribute="top" constant="20" id="2Pp-ca-PeZ"/>
                 <constraint firstItem="gG6-cV-ooB" firstAttribute="leading" secondItem="oHf-xr-Lav" secondAttribute="trailing" constant="17" id="66U-bb-zef"/>

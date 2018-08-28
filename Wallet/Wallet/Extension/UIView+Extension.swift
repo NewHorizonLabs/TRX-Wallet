@@ -440,7 +440,7 @@ extension UIView {
         view.layer.shadowRadius = 4
         view.layer.shadowColor = UIColor(hex: "02005b").cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 4)
-        view.layer.shadowOpacity = 0.10
+        view.layer.shadowOpacity = 0.05
         if let superView = self.superview {
             superView.insertSubview(view, belowSubview: self)
         }

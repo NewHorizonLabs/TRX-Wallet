@@ -37,25 +37,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7h-A6-3mI">
-                                <rect key="frame" x="227.5" y="26" width="41.5" height="19.5"/>
+                                <rect key="frame" x="220.5" y="26" width="41.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" red="0.12941176469999999" green="0.15686274510000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXK-Et-erm">
-                                <rect key="frame" x="269" y="47.5" width="0.0" height="0.0"/>
+                                <rect key="frame" x="262" y="47.5" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.69019607839999997" green="0.72156862749999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cell_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="7bN-aO-dQb">
-                                <rect key="frame" x="276" y="30" width="6" height="10"/>
+                                <rect key="frame" x="269" y="30" width="6" height="10"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sYM-sH-YYJ" firstAttribute="centerY" secondItem="zzY-A1-Chn" secondAttribute="centerY" id="09T-Eq-Ivz"/>
-                            <constraint firstAttribute="trailing" secondItem="7bN-aO-dQb" secondAttribute="trailing" constant="8" id="60E-Bx-uRX"/>
+                            <constraint firstAttribute="trailing" secondItem="7bN-aO-dQb" secondAttribute="trailing" constant="15" id="60E-Bx-uRX"/>
                             <constraint firstItem="7bN-aO-dQb" firstAttribute="leading" secondItem="h7h-A6-3mI" secondAttribute="trailing" constant="7" id="Aub-tA-YNn"/>
                             <constraint firstItem="h7h-A6-3mI" firstAttribute="centerY" secondItem="fDq-Cf-M4b" secondAttribute="centerY" id="MKe-xs-Jyu"/>
                             <constraint firstItem="h7h-A6-3mI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sYM-sH-YYJ" secondAttribute="trailing" constant="5" id="MUN-Pa-kyh"/>
