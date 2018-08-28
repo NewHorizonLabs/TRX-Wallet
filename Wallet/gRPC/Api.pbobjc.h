@@ -31,10 +31,15 @@ CF_EXTERN_C_BEGIN
 @class Address;
 @class AssetIssueContract;
 @class Block;
+@class BlockExtention;
+@class BlockHeader;
+@class Exchange;
 @class Node;
+@class Proposal;
 @class Return;
 @class TimeMessage;
 @class TronTransaction;
+@class TransactionExtention;
 @class Witness;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -142,6 +147,34 @@ typedef GPB_ENUM(WitnessList_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<Witness*> *witnessesArray;
 /** The number of items in @c witnessesArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger witnessesArray_Count;
+
+@end
+
+#pragma mark - ProposalList
+
+typedef GPB_ENUM(ProposalList_FieldNumber) {
+  ProposalList_FieldNumber_ProposalsArray = 1,
+};
+
+@interface ProposalList : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<Proposal*> *proposalsArray;
+/** The number of items in @c proposalsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger proposalsArray_Count;
+
+@end
+
+#pragma mark - ExchangeList
+
+typedef GPB_ENUM(ExchangeList_FieldNumber) {
+  ExchangeList_FieldNumber_ExchangesArray = 1,
+};
+
+@interface ExchangeList : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<Exchange*> *exchangesArray;
+/** The number of items in @c exchangesArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger exchangesArray_Count;
 
 @end
 
@@ -367,6 +400,9 @@ typedef GPB_ENUM(AccountNetMessage_FieldNumber) {
   AccountNetMessage_FieldNumber_TotalNetWeight = 8,
 };
 
+/**
+ * deprecated
+ **/
 @interface AccountNetMessage : GPBMessage
 
 @property(nonatomic, readwrite) int64_t freeNetUsed;
@@ -388,6 +424,61 @@ typedef GPB_ENUM(AccountNetMessage_FieldNumber) {
 @property(nonatomic, readwrite) int64_t totalNetLimit;
 
 @property(nonatomic, readwrite) int64_t totalNetWeight;
+
+@end
+
+#pragma mark - AccountResourceMessage
+
+typedef GPB_ENUM(AccountResourceMessage_FieldNumber) {
+  AccountResourceMessage_FieldNumber_FreeNetUsed = 1,
+  AccountResourceMessage_FieldNumber_FreeNetLimit = 2,
+  AccountResourceMessage_FieldNumber_NetUsed = 3,
+  AccountResourceMessage_FieldNumber_NetLimit = 4,
+  AccountResourceMessage_FieldNumber_AssetNetUsed = 5,
+  AccountResourceMessage_FieldNumber_AssetNetLimit = 6,
+  AccountResourceMessage_FieldNumber_TotalNetLimit = 7,
+  AccountResourceMessage_FieldNumber_TotalNetWeight = 8,
+  AccountResourceMessage_FieldNumber_EnergyUsed = 13,
+  AccountResourceMessage_FieldNumber_EnergyLimit = 14,
+  AccountResourceMessage_FieldNumber_TotalEnergyLimit = 15,
+  AccountResourceMessage_FieldNumber_TotalEnergyWeight = 16,
+  AccountResourceMessage_FieldNumber_StorageUsed = 21,
+  AccountResourceMessage_FieldNumber_StorageLimit = 22,
+};
+
+@interface AccountResourceMessage : GPBMessage
+
+@property(nonatomic, readwrite) int64_t freeNetUsed;
+
+@property(nonatomic, readwrite) int64_t freeNetLimit;
+
+@property(nonatomic, readwrite) int64_t netUsed;
+
+@property(nonatomic, readwrite) int64_t netLimit;
+
+@property(nonatomic, readwrite, strong, null_resettable) GPBStringInt64Dictionary *assetNetUsed;
+/** The number of items in @c assetNetUsed without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger assetNetUsed_Count;
+
+@property(nonatomic, readwrite, strong, null_resettable) GPBStringInt64Dictionary *assetNetLimit;
+/** The number of items in @c assetNetLimit without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger assetNetLimit_Count;
+
+@property(nonatomic, readwrite) int64_t totalNetLimit;
+
+@property(nonatomic, readwrite) int64_t totalNetWeight;
+
+@property(nonatomic, readwrite) int64_t energyUsed;
+
+@property(nonatomic, readwrite) int64_t energyLimit;
+
+@property(nonatomic, readwrite) int64_t totalEnergyLimit;
+
+@property(nonatomic, readwrite) int64_t totalEnergyWeight;
+
+@property(nonatomic, readwrite) int64_t storageUsed;
+
+@property(nonatomic, readwrite) int64_t storageLimit;
 
 @end
 
@@ -424,11 +515,30 @@ typedef GPB_ENUM(EasyTransferMessage_FieldNumber) {
 
 @end
 
+#pragma mark - EasyTransferByPrivateMessage
+
+typedef GPB_ENUM(EasyTransferByPrivateMessage_FieldNumber) {
+  EasyTransferByPrivateMessage_FieldNumber_PrivateKey = 1,
+  EasyTransferByPrivateMessage_FieldNumber_ToAddress = 2,
+  EasyTransferByPrivateMessage_FieldNumber_Amount = 3,
+};
+
+@interface EasyTransferByPrivateMessage : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *privateKey;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *toAddress;
+
+@property(nonatomic, readwrite) int64_t amount;
+
+@end
+
 #pragma mark - EasyTransferResponse
 
 typedef GPB_ENUM(EasyTransferResponse_FieldNumber) {
   EasyTransferResponse_FieldNumber_Transaction = 1,
   EasyTransferResponse_FieldNumber_Result = 2,
+  EasyTransferResponse_FieldNumber_Txid = 3,
 };
 
 @interface EasyTransferResponse : GPBMessage
@@ -440,6 +550,9 @@ typedef GPB_ENUM(EasyTransferResponse_FieldNumber) {
 @property(nonatomic, readwrite, strong, null_resettable) Return *result;
 /** Test to see if @c result has been set. */
 @property(nonatomic, readwrite) BOOL hasResult;
+
+/** transaction id =  sha256(transaction.rowdata) */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *txid;
 
 @end
 
@@ -455,6 +568,84 @@ typedef GPB_ENUM(AddressPrKeyPairMessage_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSString *address;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *privateKey;
+
+@end
+
+#pragma mark - TransactionExtention
+
+typedef GPB_ENUM(TransactionExtention_FieldNumber) {
+  TransactionExtention_FieldNumber_Transaction = 1,
+  TransactionExtention_FieldNumber_Txid = 2,
+  TransactionExtention_FieldNumber_ConstantResultArray = 3,
+  TransactionExtention_FieldNumber_Result = 4,
+};
+
+@interface TransactionExtention : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) TronTransaction *transaction;
+/** Test to see if @c transaction has been set. */
+@property(nonatomic, readwrite) BOOL hasTransaction;
+
+/** transaction id =  sha256(transaction.rowdata) */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *txid;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *constantResultArray;
+/** The number of items in @c constantResultArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger constantResultArray_Count;
+
+@property(nonatomic, readwrite, strong, null_resettable) Return *result;
+/** Test to see if @c result has been set. */
+@property(nonatomic, readwrite) BOOL hasResult;
+
+@end
+
+#pragma mark - BlockExtention
+
+typedef GPB_ENUM(BlockExtention_FieldNumber) {
+  BlockExtention_FieldNumber_TransactionsArray = 1,
+  BlockExtention_FieldNumber_BlockHeader = 2,
+  BlockExtention_FieldNumber_Blockid = 3,
+};
+
+@interface BlockExtention : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TransactionExtention*> *transactionsArray;
+/** The number of items in @c transactionsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger transactionsArray_Count;
+
+@property(nonatomic, readwrite, strong, null_resettable) BlockHeader *blockHeader;
+/** Test to see if @c blockHeader has been set. */
+@property(nonatomic, readwrite) BOOL hasBlockHeader;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *blockid;
+
+@end
+
+#pragma mark - BlockListExtention
+
+typedef GPB_ENUM(BlockListExtention_FieldNumber) {
+  BlockListExtention_FieldNumber_BlockArray = 1,
+};
+
+@interface BlockListExtention : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<BlockExtention*> *blockArray;
+/** The number of items in @c blockArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger blockArray_Count;
+
+@end
+
+#pragma mark - TransactionListExtention
+
+typedef GPB_ENUM(TransactionListExtention_FieldNumber) {
+  TransactionListExtention_FieldNumber_TransactionArray = 1,
+};
+
+@interface TransactionListExtention : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TransactionExtention*> *transactionArray;
+/** The number of items in @c transactionArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger transactionArray_Count;
 
 @end
 

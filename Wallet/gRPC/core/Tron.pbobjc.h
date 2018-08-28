@@ -28,23 +28,30 @@
 CF_EXTERN_C_BEGIN
 
 @class AccountId;
+@class Account_AccountResource;
 @class Account_Frozen;
 @class Block;
 @class BlockHeader;
 @class BlockHeader_raw;
 @class BlockInventory_BlockId;
 @class ChainInventory_BlockId;
+@class ChainParameters_ChainParameter;
 @class Endpoint;
 @class GPBAny;
 @class HelloMessage_BlockId;
+@class ResourceReceipt;
+@class SmartContract_ABI;
+@class SmartContract_ABI_Entry;
+@class SmartContract_ABI_Entry_Param;
 @class TXInput_raw;
 @class TXOutput;
 @class TronTransaction;
+@class TransactionInfo_Log;
 @class Transaction_Contract;
 @class Transaction_Result;
 @class Transaction_raw;
 @class Vote;
-@class acuthrity;
+@class authority;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -113,6 +120,50 @@ GPBEnumDescriptor *ReasonCode_EnumDescriptor(void);
  **/
 BOOL ReasonCode_IsValidValue(int32_t value);
 
+#pragma mark - Enum Proposal_State
+
+typedef GPB_ENUM(Proposal_State) {
+  /**
+   * Value used if any message's field encounters a value that is not defined
+   * by this enum. The message will also have C functions to get/set the rawValue
+   * of the field.
+   **/
+  Proposal_State_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  Proposal_State_Pending = 0,
+  Proposal_State_Disapproved = 1,
+  Proposal_State_Approved = 2,
+  Proposal_State_Canceled = 3,
+};
+
+GPBEnumDescriptor *Proposal_State_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL Proposal_State_IsValidValue(int32_t value);
+
+#pragma mark - Enum ResourceReceipt_code
+
+typedef GPB_ENUM(ResourceReceipt_code) {
+  /**
+   * Value used if any message's field encounters a value that is not defined
+   * by this enum. The message will also have C functions to get/set the rawValue
+   * of the field.
+   **/
+  ResourceReceipt_code_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  ResourceReceipt_code_Success = 0,
+  ResourceReceipt_code_Failed = 1,
+};
+
+GPBEnumDescriptor *ResourceReceipt_code_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL ResourceReceipt_code_IsValidValue(int32_t value);
+
 #pragma mark - Enum Transaction_Contract_ContractType
 
 typedef GPB_ENUM(Transaction_Contract_ContractType) {
@@ -129,7 +180,6 @@ typedef GPB_ENUM(Transaction_Contract_ContractType) {
   Transaction_Contract_ContractType_VoteWitnessContract = 4,
   Transaction_Contract_ContractType_WitnessCreateContract = 5,
   Transaction_Contract_ContractType_AssetIssueContract = 6,
-  Transaction_Contract_ContractType_DeployContract = 7,
   Transaction_Contract_ContractType_WitnessUpdateContract = 8,
   Transaction_Contract_ContractType_ParticipateAssetIssueContract = 9,
   Transaction_Contract_ContractType_AccountUpdateContract = 10,
@@ -138,7 +188,25 @@ typedef GPB_ENUM(Transaction_Contract_ContractType) {
   Transaction_Contract_ContractType_WithdrawBalanceContract = 13,
   Transaction_Contract_ContractType_UnfreezeAssetContract = 14,
   Transaction_Contract_ContractType_UpdateAssetContract = 15,
+  Transaction_Contract_ContractType_ProposalCreateContract = 16,
+  Transaction_Contract_ContractType_ProposalApproveContract = 17,
+  Transaction_Contract_ContractType_ProposalDeleteContract = 18,
+  Transaction_Contract_ContractType_SetAccountIdContract = 19,
   Transaction_Contract_ContractType_CustomContract = 20,
+
+  /**
+   * BuyStorageContract = 21;
+   * BuyStorageBytesContract = 22;
+   * SellStorageContract = 23;
+   **/
+  Transaction_Contract_ContractType_CreateSmartContract = 30,
+  Transaction_Contract_ContractType_TriggerSmartContract = 31,
+  Transaction_Contract_ContractType_GetContract = 32,
+  Transaction_Contract_ContractType_UpdateSettingContract = 33,
+  Transaction_Contract_ContractType_ExchangeCreateContract = 41,
+  Transaction_Contract_ContractType_ExchangeInjectContract = 42,
+  Transaction_Contract_ContractType_ExchangeWithdrawContract = 43,
+  Transaction_Contract_ContractType_ExchangeTransactionContract = 44,
 };
 
 GPBEnumDescriptor *Transaction_Contract_ContractType_EnumDescriptor(void);
@@ -169,6 +237,27 @@ GPBEnumDescriptor *Transaction_Result_code_EnumDescriptor(void);
  * the time this source was generated.
  **/
 BOOL Transaction_Result_code_IsValidValue(int32_t value);
+
+#pragma mark - Enum TransactionInfo_code
+
+typedef GPB_ENUM(TransactionInfo_code) {
+  /**
+   * Value used if any message's field encounters a value that is not defined
+   * by this enum. The message will also have C functions to get/set the rawValue
+   * of the field.
+   **/
+  TransactionInfo_code_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  TransactionInfo_code_Sucess = 0,
+  TransactionInfo_code_Failed = 1,
+};
+
+GPBEnumDescriptor *TransactionInfo_code_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL TransactionInfo_code_IsValidValue(int32_t value);
 
 #pragma mark - Enum BlockInventory_Type
 
@@ -236,6 +325,54 @@ GPBEnumDescriptor *Items_ItemType_EnumDescriptor(void);
  **/
 BOOL Items_ItemType_IsValidValue(int32_t value);
 
+#pragma mark - Enum SmartContract_ABI_Entry_EntryType
+
+typedef GPB_ENUM(SmartContract_ABI_Entry_EntryType) {
+  /**
+   * Value used if any message's field encounters a value that is not defined
+   * by this enum. The message will also have C functions to get/set the rawValue
+   * of the field.
+   **/
+  SmartContract_ABI_Entry_EntryType_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  SmartContract_ABI_Entry_EntryType_UnknownEntryType = 0,
+  SmartContract_ABI_Entry_EntryType_Constructor = 1,
+  SmartContract_ABI_Entry_EntryType_Function = 2,
+  SmartContract_ABI_Entry_EntryType_Event = 3,
+  SmartContract_ABI_Entry_EntryType_Fallback = 4,
+};
+
+GPBEnumDescriptor *SmartContract_ABI_Entry_EntryType_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL SmartContract_ABI_Entry_EntryType_IsValidValue(int32_t value);
+
+#pragma mark - Enum SmartContract_ABI_Entry_StateMutabilityType
+
+typedef GPB_ENUM(SmartContract_ABI_Entry_StateMutabilityType) {
+  /**
+   * Value used if any message's field encounters a value that is not defined
+   * by this enum. The message will also have C functions to get/set the rawValue
+   * of the field.
+   **/
+  SmartContract_ABI_Entry_StateMutabilityType_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  SmartContract_ABI_Entry_StateMutabilityType_UnknownMutabilityType = 0,
+  SmartContract_ABI_Entry_StateMutabilityType_Pure = 1,
+  SmartContract_ABI_Entry_StateMutabilityType_View = 2,
+  SmartContract_ABI_Entry_StateMutabilityType_Nonpayable = 3,
+  SmartContract_ABI_Entry_StateMutabilityType_Payable = 4,
+};
+
+GPBEnumDescriptor *SmartContract_ABI_Entry_StateMutabilityType_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL SmartContract_ABI_Entry_StateMutabilityType_IsValidValue(int32_t value);
+
 #pragma mark - TronRoot
 
 /**
@@ -289,7 +426,118 @@ typedef GPB_ENUM(Vote_FieldNumber) {
 
 @end
 
-#pragma mark - TronAccount
+#pragma mark - Proposal
+
+typedef GPB_ENUM(Proposal_FieldNumber) {
+  Proposal_FieldNumber_ProposalId = 1,
+  Proposal_FieldNumber_ProposerAddress = 2,
+  Proposal_FieldNumber_Parameters = 3,
+  Proposal_FieldNumber_ExpirationTime = 4,
+  Proposal_FieldNumber_CreateTime = 5,
+  Proposal_FieldNumber_ApprovalsArray = 6,
+  Proposal_FieldNumber_State = 7,
+};
+
+/**
+ * Proposal
+ **/
+@interface Proposal : GPBMessage
+
+@property(nonatomic, readwrite) int64_t proposalId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *proposerAddress;
+
+@property(nonatomic, readwrite, strong, null_resettable) GPBInt64Int64Dictionary *parameters;
+/** The number of items in @c parameters without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger parameters_Count;
+
+@property(nonatomic, readwrite) int64_t expirationTime;
+
+@property(nonatomic, readwrite) int64_t createTime;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *approvalsArray;
+/** The number of items in @c approvalsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger approvalsArray_Count;
+
+@property(nonatomic, readwrite) Proposal_State state;
+
+@end
+
+/**
+ * Fetches the raw value of a @c Proposal's @c state property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t Proposal_State_RawValue(Proposal *message);
+/**
+ * Sets the raw value of an @c Proposal's @c state property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetProposal_State_RawValue(Proposal *message, int32_t value);
+
+#pragma mark - Exchange
+
+typedef GPB_ENUM(Exchange_FieldNumber) {
+  Exchange_FieldNumber_ExchangeId = 1,
+  Exchange_FieldNumber_CreatorAddress = 2,
+  Exchange_FieldNumber_CreateTime = 3,
+  Exchange_FieldNumber_FirstTokenId = 6,
+  Exchange_FieldNumber_FirstTokenBalance = 7,
+  Exchange_FieldNumber_SecondTokenId = 8,
+  Exchange_FieldNumber_SecondTokenBalance = 9,
+};
+
+/**
+ * Exchange
+ **/
+@interface Exchange : GPBMessage
+
+@property(nonatomic, readwrite) int64_t exchangeId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *creatorAddress;
+
+@property(nonatomic, readwrite) int64_t createTime;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *firstTokenId;
+
+@property(nonatomic, readwrite) int64_t firstTokenBalance;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *secondTokenId;
+
+@property(nonatomic, readwrite) int64_t secondTokenBalance;
+
+@end
+
+#pragma mark - ChainParameters
+
+typedef GPB_ENUM(ChainParameters_FieldNumber) {
+  ChainParameters_FieldNumber_ChainParameterArray = 1,
+};
+
+@interface ChainParameters : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<ChainParameters_ChainParameter*> *chainParameterArray;
+/** The number of items in @c chainParameterArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger chainParameterArray_Count;
+
+@end
+
+#pragma mark - ChainParameters_ChainParameter
+
+typedef GPB_ENUM(ChainParameters_ChainParameter_FieldNumber) {
+  ChainParameters_ChainParameter_FieldNumber_Key = 1,
+  ChainParameters_ChainParameter_FieldNumber_Value = 2,
+};
+
+@interface ChainParameters_ChainParameter : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *key;
+
+@property(nonatomic, readwrite) int64_t value;
+
+@end
+
+#pragma mark - Account
 
 typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_AccountName = 1,
@@ -314,6 +562,9 @@ typedef GPB_ENUM(Account_FieldNumber) {
   Account_FieldNumber_FreeAssetNetUsage = 20,
   Account_FieldNumber_LatestConsumeTime = 21,
   Account_FieldNumber_LatestConsumeFreeTime = 22,
+  Account_FieldNumber_AccountId = 23,
+  Account_FieldNumber_AccountResource = 26,
+  Account_FieldNumber_CodeHash = 30,
 };
 
 /**
@@ -341,10 +592,7 @@ typedef GPB_ENUM(Account_FieldNumber) {
 /** The number of items in @c asset without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger asset_Count;
 
-/**
- * latest asset operation time
- * the frozen balance
- **/
+/** the frozen balance */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<Account_Frozen*> *frozenArray;
 /** The number of items in @c frozenArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger frozenArray_Count;
@@ -393,6 +641,14 @@ typedef GPB_ENUM(Account_FieldNumber) {
 
 @property(nonatomic, readwrite) int64_t latestConsumeFreeTime;
 
+@property(nonatomic, readwrite, copy, null_resettable) NSData *accountId;
+
+@property(nonatomic, readwrite, strong, null_resettable) Account_AccountResource *accountResource;
+/** Test to see if @c accountResource has been set. */
+@property(nonatomic, readwrite) BOOL hasAccountResource;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *codeHash;
+
 @end
 
 /**
@@ -427,17 +683,46 @@ typedef GPB_ENUM(Account_Frozen_FieldNumber) {
 
 @end
 
-#pragma mark - acuthrity
+#pragma mark - Account_AccountResource
 
-typedef GPB_ENUM(acuthrity_FieldNumber) {
-  acuthrity_FieldNumber_Account = 1,
-  acuthrity_FieldNumber_PermissionName = 2,
+typedef GPB_ENUM(Account_AccountResource_FieldNumber) {
+  Account_AccountResource_FieldNumber_EnergyUsage = 1,
+  Account_AccountResource_FieldNumber_FrozenBalanceForEnergy = 2,
+  Account_AccountResource_FieldNumber_LatestConsumeTimeForEnergy = 3,
+  Account_AccountResource_FieldNumber_StorageLimit = 6,
+  Account_AccountResource_FieldNumber_StorageUsage = 7,
+  Account_AccountResource_FieldNumber_LatestExchangeStorageTime = 8,
 };
 
-/**
- * FIXME authority?
- **/
-@interface acuthrity : GPBMessage
+@interface Account_AccountResource : GPBMessage
+
+/** energy resource, get from frozen */
+@property(nonatomic, readwrite) int64_t energyUsage;
+
+/** the frozen balance for energy */
+@property(nonatomic, readwrite, strong, null_resettable) Account_Frozen *frozenBalanceForEnergy;
+/** Test to see if @c frozenBalanceForEnergy has been set. */
+@property(nonatomic, readwrite) BOOL hasFrozenBalanceForEnergy;
+
+@property(nonatomic, readwrite) int64_t latestConsumeTimeForEnergy;
+
+/** storage resource, get from market */
+@property(nonatomic, readwrite) int64_t storageLimit;
+
+@property(nonatomic, readwrite) int64_t storageUsage;
+
+@property(nonatomic, readwrite) int64_t latestExchangeStorageTime;
+
+@end
+
+#pragma mark - authority
+
+typedef GPB_ENUM(authority_FieldNumber) {
+  authority_FieldNumber_Account = 1,
+  authority_FieldNumber_PermissionName = 2,
+};
+
+@interface authority : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) AccountId *account;
 /** Test to see if @c account has been set. */
@@ -447,16 +732,13 @@ typedef GPB_ENUM(acuthrity_FieldNumber) {
 
 @end
 
-#pragma mark - permision
+#pragma mark - permission
 
-typedef GPB_ENUM(permision_FieldNumber) {
-  permision_FieldNumber_Account = 1,
+typedef GPB_ENUM(permission_FieldNumber) {
+  permission_FieldNumber_Account = 1,
 };
 
-/**
- * FIXME permission
- **/
-@interface permision : GPBMessage
+@interface permission : GPBMessage
 
 @property(nonatomic, readwrite, strong, null_resettable) AccountId *account;
 /** Test to see if @c account has been set. */
@@ -592,7 +874,34 @@ typedef GPB_ENUM(TXOutputs_FieldNumber) {
 
 @end
 
-#pragma mark - TronTransaction
+#pragma mark - ResourceReceipt
+
+typedef GPB_ENUM(ResourceReceipt_FieldNumber) {
+  ResourceReceipt_FieldNumber_EnergyUsage = 1,
+  ResourceReceipt_FieldNumber_EnergyFee = 2,
+  ResourceReceipt_FieldNumber_OriginEnergyUsage = 3,
+  ResourceReceipt_FieldNumber_EnergyUsageTotal = 4,
+  ResourceReceipt_FieldNumber_NetUsage = 5,
+  ResourceReceipt_FieldNumber_NetFee = 6,
+};
+
+@interface ResourceReceipt : GPBMessage
+
+@property(nonatomic, readwrite) int64_t energyUsage;
+
+@property(nonatomic, readwrite) int64_t energyFee;
+
+@property(nonatomic, readwrite) int64_t originEnergyUsage;
+
+@property(nonatomic, readwrite) int64_t energyUsageTotal;
+
+@property(nonatomic, readwrite) int64_t netUsage;
+
+@property(nonatomic, readwrite) int64_t netFee;
+
+@end
+
+#pragma mark - Transaction
 
 typedef GPB_ENUM(Transaction_FieldNumber) {
   Transaction_FieldNumber_RawData = 1,
@@ -657,6 +966,8 @@ void SetTransaction_Contract_Type_RawValue(Transaction_Contract *message, int32_
 typedef GPB_ENUM(Transaction_Result_FieldNumber) {
   Transaction_Result_FieldNumber_Fee = 1,
   Transaction_Result_FieldNumber_Ret = 2,
+  Transaction_Result_FieldNumber_WithdrawAmount = 15,
+  Transaction_Result_FieldNumber_UnfreezeAmount = 16,
 };
 
 @interface Transaction_Result : GPBMessage
@@ -664,6 +975,10 @@ typedef GPB_ENUM(Transaction_Result_FieldNumber) {
 @property(nonatomic, readwrite) int64_t fee;
 
 @property(nonatomic, readwrite) Transaction_Result_code ret;
+
+@property(nonatomic, readwrite) int64_t withdrawAmount;
+
+@property(nonatomic, readwrite) int64_t unfreezeAmount;
 
 @end
 
@@ -691,6 +1006,7 @@ typedef GPB_ENUM(Transaction_raw_FieldNumber) {
   Transaction_raw_FieldNumber_ContractArray = 11,
   Transaction_raw_FieldNumber_Scripts = 12,
   Transaction_raw_FieldNumber_Timestamp = 14,
+  Transaction_raw_FieldNumber_FeeLimit = 18,
 };
 
 @interface Transaction_raw : GPBMessage
@@ -703,8 +1019,7 @@ typedef GPB_ENUM(Transaction_raw_FieldNumber) {
 
 @property(nonatomic, readwrite) int64_t expiration;
 
-/** FIXME authority */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<acuthrity*> *authsArray;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<authority*> *authsArray;
 /** The number of items in @c authsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger authsArray_Count;
 
@@ -721,6 +1036,8 @@ typedef GPB_ENUM(Transaction_raw_FieldNumber) {
 
 @property(nonatomic, readwrite) int64_t timestamp;
 
+@property(nonatomic, readwrite) int64_t feeLimit;
+
 @end
 
 #pragma mark - TransactionInfo
@@ -730,6 +1047,14 @@ typedef GPB_ENUM(TransactionInfo_FieldNumber) {
   TransactionInfo_FieldNumber_Fee = 2,
   TransactionInfo_FieldNumber_BlockNumber = 3,
   TransactionInfo_FieldNumber_BlockTimeStamp = 4,
+  TransactionInfo_FieldNumber_ContractResultArray = 5,
+  TransactionInfo_FieldNumber_ContractAddress = 6,
+  TransactionInfo_FieldNumber_Receipt = 7,
+  TransactionInfo_FieldNumber_LogArray = 8,
+  TransactionInfo_FieldNumber_Result = 9,
+  TransactionInfo_FieldNumber_ResMessage = 10,
+  TransactionInfo_FieldNumber_WithdrawAmount = 15,
+  TransactionInfo_FieldNumber_UnfreezeAmount = 16,
 };
 
 @interface TransactionInfo : GPBMessage
@@ -742,6 +1067,60 @@ typedef GPB_ENUM(TransactionInfo_FieldNumber) {
 
 @property(nonatomic, readwrite) int64_t blockTimeStamp;
 
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *contractResultArray;
+/** The number of items in @c contractResultArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger contractResultArray_Count;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *contractAddress;
+
+@property(nonatomic, readwrite, strong, null_resettable) ResourceReceipt *receipt;
+/** Test to see if @c receipt has been set. */
+@property(nonatomic, readwrite) BOOL hasReceipt;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TransactionInfo_Log*> *logArray;
+/** The number of items in @c logArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger logArray_Count;
+
+@property(nonatomic, readwrite) TransactionInfo_code result;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *resMessage;
+
+@property(nonatomic, readwrite) int64_t withdrawAmount;
+
+@property(nonatomic, readwrite) int64_t unfreezeAmount;
+
+@end
+
+/**
+ * Fetches the raw value of a @c TransactionInfo's @c result property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t TransactionInfo_Result_RawValue(TransactionInfo *message);
+/**
+ * Sets the raw value of an @c TransactionInfo's @c result property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetTransactionInfo_Result_RawValue(TransactionInfo *message, int32_t value);
+
+#pragma mark - TransactionInfo_Log
+
+typedef GPB_ENUM(TransactionInfo_Log_FieldNumber) {
+  TransactionInfo_Log_FieldNumber_Address = 1,
+  TransactionInfo_Log_FieldNumber_TopicsArray = 2,
+  TransactionInfo_Log_FieldNumber_Data_p = 3,
+};
+
+@interface TransactionInfo_Log : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *address;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *topicsArray;
+/** The number of items in @c topicsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger topicsArray_Count;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *data_p;
+
 @end
 
 #pragma mark - Transactions
@@ -752,7 +1131,7 @@ typedef GPB_ENUM(Transactions_FieldNumber) {
 
 @interface Transactions : GPBMessage
 
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TronTransaction*> *transactionsArray;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TronTransaction *> *transactionsArray;
 /** The number of items in @c transactionsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger transactionsArray_Count;
 
@@ -835,7 +1214,7 @@ typedef GPB_ENUM(Block_FieldNumber) {
  **/
 @interface Block : GPBMessage
 
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TronTransaction*> *transactionsArray;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TronTransaction *> *transactionsArray;
 /** The number of items in @c transactionsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger transactionsArray_Count;
 
@@ -974,7 +1353,7 @@ typedef GPB_ENUM(Items_FieldNumber) {
 /** The number of items in @c blockHeadersArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger blockHeadersArray_Count;
 
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TronTransaction*> *transactionsArray;
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<TronTransaction *> *transactionsArray;
 /** The number of items in @c transactionsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger transactionsArray_Count;
 
@@ -1078,6 +1457,165 @@ typedef GPB_ENUM(HelloMessage_BlockId_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSData *hash_p;
 
 @property(nonatomic, readwrite) int64_t number;
+
+@end
+
+#pragma mark - StorageItem
+
+typedef GPB_ENUM(StorageItem_FieldNumber) {
+  StorageItem_FieldNumber_ContractAddress = 1,
+  StorageItem_FieldNumber_Items = 2,
+};
+
+@interface StorageItem : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *contractAddress;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableDictionary<NSString*, NSData*> *items;
+/** The number of items in @c items without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger items_Count;
+
+@end
+
+#pragma mark - StorageRow
+
+typedef GPB_ENUM(StorageRow_FieldNumber) {
+  StorageRow_FieldNumber_Key = 1,
+  StorageRow_FieldNumber_Value = 2,
+};
+
+@interface StorageRow : GPBMessage
+
+/** composition of contract_address and storage_key */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *key;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *value;
+
+@end
+
+#pragma mark - SmartContract
+
+typedef GPB_ENUM(SmartContract_FieldNumber) {
+  SmartContract_FieldNumber_OriginAddress = 1,
+  SmartContract_FieldNumber_ContractAddress = 2,
+  SmartContract_FieldNumber_Abi = 3,
+  SmartContract_FieldNumber_Bytecode = 4,
+  SmartContract_FieldNumber_CallValue = 5,
+  SmartContract_FieldNumber_ConsumeUserResourcePercent = 6,
+  SmartContract_FieldNumber_Name = 7,
+};
+
+@interface SmartContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *originAddress;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *contractAddress;
+
+@property(nonatomic, readwrite, strong, null_resettable) SmartContract_ABI *abi;
+/** Test to see if @c abi has been set. */
+@property(nonatomic, readwrite) BOOL hasAbi;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *bytecode;
+
+@property(nonatomic, readwrite) int64_t callValue;
+
+@property(nonatomic, readwrite) int64_t consumeUserResourcePercent;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *name;
+
+@end
+
+#pragma mark - SmartContract_ABI
+
+typedef GPB_ENUM(SmartContract_ABI_FieldNumber) {
+  SmartContract_ABI_FieldNumber_EntrysArray = 1,
+};
+
+@interface SmartContract_ABI : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SmartContract_ABI_Entry*> *entrysArray;
+/** The number of items in @c entrysArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger entrysArray_Count;
+
+@end
+
+#pragma mark - SmartContract_ABI_Entry
+
+typedef GPB_ENUM(SmartContract_ABI_Entry_FieldNumber) {
+  SmartContract_ABI_Entry_FieldNumber_Anonymous = 1,
+  SmartContract_ABI_Entry_FieldNumber_Constant = 2,
+  SmartContract_ABI_Entry_FieldNumber_Name = 3,
+  SmartContract_ABI_Entry_FieldNumber_InputsArray = 4,
+  SmartContract_ABI_Entry_FieldNumber_OutputsArray = 5,
+  SmartContract_ABI_Entry_FieldNumber_Type = 6,
+  SmartContract_ABI_Entry_FieldNumber_Payable = 7,
+  SmartContract_ABI_Entry_FieldNumber_StateMutability = 8,
+};
+
+@interface SmartContract_ABI_Entry : GPBMessage
+
+@property(nonatomic, readwrite) BOOL anonymous;
+
+@property(nonatomic, readwrite) BOOL constant;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *name;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SmartContract_ABI_Entry_Param*> *inputsArray;
+/** The number of items in @c inputsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger inputsArray_Count;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SmartContract_ABI_Entry_Param*> *outputsArray;
+/** The number of items in @c outputsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger outputsArray_Count;
+
+@property(nonatomic, readwrite) SmartContract_ABI_Entry_EntryType type;
+
+@property(nonatomic, readwrite) BOOL payable;
+
+@property(nonatomic, readwrite) SmartContract_ABI_Entry_StateMutabilityType stateMutability;
+
+@end
+
+/**
+ * Fetches the raw value of a @c SmartContract_ABI_Entry's @c type property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t SmartContract_ABI_Entry_Type_RawValue(SmartContract_ABI_Entry *message);
+/**
+ * Sets the raw value of an @c SmartContract_ABI_Entry's @c type property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetSmartContract_ABI_Entry_Type_RawValue(SmartContract_ABI_Entry *message, int32_t value);
+
+/**
+ * Fetches the raw value of a @c SmartContract_ABI_Entry's @c stateMutability property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t SmartContract_ABI_Entry_StateMutability_RawValue(SmartContract_ABI_Entry *message);
+/**
+ * Sets the raw value of an @c SmartContract_ABI_Entry's @c stateMutability property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetSmartContract_ABI_Entry_StateMutability_RawValue(SmartContract_ABI_Entry *message, int32_t value);
+
+#pragma mark - SmartContract_ABI_Entry_Param
+
+typedef GPB_ENUM(SmartContract_ABI_Entry_Param_FieldNumber) {
+  SmartContract_ABI_Entry_Param_FieldNumber_Indexed = 1,
+  SmartContract_ABI_Entry_Param_FieldNumber_Name = 2,
+  SmartContract_ABI_Entry_Param_FieldNumber_Type = 3,
+};
+
+@interface SmartContract_ABI_Entry_Param : GPBMessage
+
+@property(nonatomic, readwrite) BOOL indexed;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *name;
+
+/** SolidityType type = 3; */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *type;
 
 @end
 

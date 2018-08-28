@@ -23,7 +23,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDq-Cf-M4b">
                         <rect key="frame" x="15" y="15" width="290" height="71.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tron_black" translatesAutoresizingMaskIntoConstraints="NO" id="zzY-A1-Chn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tron_otherasset_icon" translatesAutoresizingMaskIntoConstraints="NO" id="zzY-A1-Chn">
                                 <rect key="frame" x="20" y="16" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="BDa-Yi-l3G"/>
@@ -94,6 +94,6 @@
     </objects>
     <resources>
         <image name="ic_cell_arrow" width="6" height="10"/>
-        <image name="tron_black" width="25" height="26"/>
+        <image name="tron_otherasset_icon" width="46" height="46"/>
     </resources>
 </document>

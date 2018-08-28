@@ -28,10 +28,32 @@
 CF_EXTERN_C_BEGIN
 
 @class AssetIssueContract_FrozenSupply;
+@class SmartContract;
 @class VoteWitnessContract_Vote;
 GPB_ENUM_FWD_DECLARE(AccountType);
 
 NS_ASSUME_NONNULL_BEGIN
+
+#pragma mark - Enum ResourceCode
+
+typedef GPB_ENUM(ResourceCode) {
+  /**
+   * Value used if any message's field encounters a value that is not defined
+   * by this enum. The message will also have C functions to get/set the rawValue
+   * of the field.
+   **/
+  ResourceCode_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  ResourceCode_Bandwidth = 0,
+  ResourceCode_Energy = 1,
+};
+
+GPBEnumDescriptor *ResourceCode_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL ResourceCode_IsValidValue(int32_t value);
 
 #pragma mark - ContractRoot
 
@@ -86,11 +108,29 @@ typedef GPB_ENUM(AccountUpdateContract_FieldNumber) {
 };
 
 /**
- * update account name if the account has no name.
+ * Update account name. Account name is not unique now.
  **/
 @interface AccountUpdateContract : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *accountName;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@end
+
+#pragma mark - SetAccountIdContract
+
+typedef GPB_ENUM(SetAccountIdContract_FieldNumber) {
+  SetAccountIdContract_FieldNumber_AccountId = 1,
+  SetAccountIdContract_FieldNumber_OwnerAddress = 2,
+};
+
+/**
+ * Set account id if the account has no id. Account id is unique and case insensitive.
+ **/
+@interface SetAccountIdContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *accountId;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
 
@@ -193,6 +233,24 @@ typedef GPB_ENUM(VoteWitnessContract_Vote_FieldNumber) {
 
 @end
 
+#pragma mark - UpdateSettingContract
+
+typedef GPB_ENUM(UpdateSettingContract_FieldNumber) {
+  UpdateSettingContract_FieldNumber_OwnerAddress = 1,
+  UpdateSettingContract_FieldNumber_ContractAddress = 2,
+  UpdateSettingContract_FieldNumber_ConsumeUserResourcePercent = 3,
+};
+
+@interface UpdateSettingContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *contractAddress;
+
+@property(nonatomic, readwrite) int64_t consumeUserResourcePercent;
+
+@end
+
 #pragma mark - WitnessCreateContract
 
 typedef GPB_ENUM(WitnessCreateContract_FieldNumber) {
@@ -235,6 +293,7 @@ typedef GPB_ENUM(AssetIssueContract_FieldNumber) {
   AssetIssueContract_FieldNumber_Num = 8,
   AssetIssueContract_FieldNumber_StartTime = 9,
   AssetIssueContract_FieldNumber_EndTime = 10,
+  AssetIssueContract_FieldNumber_Order = 11,
   AssetIssueContract_FieldNumber_VoteScore = 16,
   AssetIssueContract_FieldNumber_Description_p = 20,
   AssetIssueContract_FieldNumber_URL = 21,
@@ -265,6 +324,9 @@ typedef GPB_ENUM(AssetIssueContract_FieldNumber) {
 @property(nonatomic, readwrite) int64_t startTime;
 
 @property(nonatomic, readwrite) int64_t endTime;
+
+/** the order of tokens of the same name */
+@property(nonatomic, readwrite) int64_t order;
 
 @property(nonatomic, readwrite) int32_t voteScore;
 
@@ -312,26 +374,11 @@ typedef GPB_ENUM(ParticipateAssetIssueContract_FieldNumber) {
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *toAddress;
 
-/** the name of target asset */
+/** the namekey of target asset, include name and order */
 @property(nonatomic, readwrite, copy, null_resettable) NSData *assetName;
 
 /** the amount of drops */
 @property(nonatomic, readwrite) int64_t amount;
-
-@end
-
-#pragma mark - DeployContract
-
-typedef GPB_ENUM(DeployContract_FieldNumber) {
-  DeployContract_FieldNumber_OwnerAddress = 1,
-  DeployContract_FieldNumber_Script = 2,
-};
-
-@interface DeployContract : GPBMessage
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *script;
 
 @end
 
@@ -341,6 +388,7 @@ typedef GPB_ENUM(FreezeBalanceContract_FieldNumber) {
   FreezeBalanceContract_FieldNumber_OwnerAddress = 1,
   FreezeBalanceContract_FieldNumber_FrozenBalance = 2,
   FreezeBalanceContract_FieldNumber_FrozenDuration = 3,
+  FreezeBalanceContract_FieldNumber_Resource = 10,
 };
 
 @interface FreezeBalanceContract : GPBMessage
@@ -351,19 +399,48 @@ typedef GPB_ENUM(FreezeBalanceContract_FieldNumber) {
 
 @property(nonatomic, readwrite) int64_t frozenDuration;
 
+@property(nonatomic, readwrite) ResourceCode resource;
+
 @end
+
+/**
+ * Fetches the raw value of a @c FreezeBalanceContract's @c resource property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t FreezeBalanceContract_Resource_RawValue(FreezeBalanceContract *message);
+/**
+ * Sets the raw value of an @c FreezeBalanceContract's @c resource property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetFreezeBalanceContract_Resource_RawValue(FreezeBalanceContract *message, int32_t value);
 
 #pragma mark - UnfreezeBalanceContract
 
 typedef GPB_ENUM(UnfreezeBalanceContract_FieldNumber) {
   UnfreezeBalanceContract_FieldNumber_OwnerAddress = 1,
+  UnfreezeBalanceContract_FieldNumber_Resource = 10,
 };
 
 @interface UnfreezeBalanceContract : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
 
+@property(nonatomic, readwrite) ResourceCode resource;
+
 @end
+
+/**
+ * Fetches the raw value of a @c UnfreezeBalanceContract's @c resource property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t UnfreezeBalanceContract_Resource_RawValue(UnfreezeBalanceContract *message);
+/**
+ * Sets the raw value of an @c UnfreezeBalanceContract's @c resource property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetUnfreezeBalanceContract_Resource_RawValue(UnfreezeBalanceContract *message, int32_t value);
 
 #pragma mark - UnfreezeAssetContract
 
@@ -410,6 +487,229 @@ typedef GPB_ENUM(UpdateAssetContract_FieldNumber) {
 @property(nonatomic, readwrite) int64_t newLimit;
 
 @property(nonatomic, readwrite) int64_t newPublicLimit;
+
+@end
+
+#pragma mark - ProposalCreateContract
+
+typedef GPB_ENUM(ProposalCreateContract_FieldNumber) {
+  ProposalCreateContract_FieldNumber_OwnerAddress = 1,
+  ProposalCreateContract_FieldNumber_Parameters = 2,
+};
+
+@interface ProposalCreateContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite, strong, null_resettable) GPBInt64Int64Dictionary *parameters;
+/** The number of items in @c parameters without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger parameters_Count;
+
+@end
+
+#pragma mark - ProposalApproveContract
+
+typedef GPB_ENUM(ProposalApproveContract_FieldNumber) {
+  ProposalApproveContract_FieldNumber_OwnerAddress = 1,
+  ProposalApproveContract_FieldNumber_ProposalId = 2,
+  ProposalApproveContract_FieldNumber_IsAddApproval = 3,
+};
+
+@interface ProposalApproveContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite) int64_t proposalId;
+
+/** add or remove approval */
+@property(nonatomic, readwrite) BOOL isAddApproval;
+
+@end
+
+#pragma mark - ProposalDeleteContract
+
+typedef GPB_ENUM(ProposalDeleteContract_FieldNumber) {
+  ProposalDeleteContract_FieldNumber_OwnerAddress = 1,
+  ProposalDeleteContract_FieldNumber_ProposalId = 2,
+};
+
+@interface ProposalDeleteContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite) int64_t proposalId;
+
+@end
+
+#pragma mark - CreateSmartContract
+
+typedef GPB_ENUM(CreateSmartContract_FieldNumber) {
+  CreateSmartContract_FieldNumber_OwnerAddress = 1,
+  CreateSmartContract_FieldNumber_NewContract = 2,
+};
+
+@interface CreateSmartContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite, strong, null_resettable) SmartContract *newContract NS_RETURNS_NOT_RETAINED;
+/** Test to see if @c newContract has been set. */
+@property(nonatomic, readwrite) BOOL hasNewContract;
+
+@end
+
+#pragma mark - TriggerSmartContract
+
+typedef GPB_ENUM(TriggerSmartContract_FieldNumber) {
+  TriggerSmartContract_FieldNumber_OwnerAddress = 1,
+  TriggerSmartContract_FieldNumber_ContractAddress = 2,
+  TriggerSmartContract_FieldNumber_CallValue = 3,
+  TriggerSmartContract_FieldNumber_Data_p = 4,
+};
+
+@interface TriggerSmartContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *contractAddress;
+
+@property(nonatomic, readwrite) int64_t callValue;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *data_p;
+
+@end
+
+#pragma mark - BuyStorageContract
+
+typedef GPB_ENUM(BuyStorageContract_FieldNumber) {
+  BuyStorageContract_FieldNumber_OwnerAddress = 1,
+  BuyStorageContract_FieldNumber_Quant = 2,
+};
+
+@interface BuyStorageContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+/** trx quantity for buy storage (sun) */
+@property(nonatomic, readwrite) int64_t quant;
+
+@end
+
+#pragma mark - BuyStorageBytesContract
+
+typedef GPB_ENUM(BuyStorageBytesContract_FieldNumber) {
+  BuyStorageBytesContract_FieldNumber_OwnerAddress = 1,
+  BuyStorageBytesContract_FieldNumber_Bytes = 2,
+};
+
+@interface BuyStorageBytesContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+/** storage bytes for buy */
+@property(nonatomic, readwrite) int64_t bytes;
+
+@end
+
+#pragma mark - SellStorageContract
+
+typedef GPB_ENUM(SellStorageContract_FieldNumber) {
+  SellStorageContract_FieldNumber_OwnerAddress = 1,
+  SellStorageContract_FieldNumber_StorageBytes = 2,
+};
+
+@interface SellStorageContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite) int64_t storageBytes;
+
+@end
+
+#pragma mark - ExchangeCreateContract
+
+typedef GPB_ENUM(ExchangeCreateContract_FieldNumber) {
+  ExchangeCreateContract_FieldNumber_OwnerAddress = 1,
+  ExchangeCreateContract_FieldNumber_FirstTokenId = 2,
+  ExchangeCreateContract_FieldNumber_FirstTokenBalance = 3,
+  ExchangeCreateContract_FieldNumber_SecondTokenId = 4,
+  ExchangeCreateContract_FieldNumber_SecondTokenBalance = 5,
+};
+
+@interface ExchangeCreateContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *firstTokenId;
+
+@property(nonatomic, readwrite) int64_t firstTokenBalance;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *secondTokenId;
+
+@property(nonatomic, readwrite) int64_t secondTokenBalance;
+
+@end
+
+#pragma mark - ExchangeInjectContract
+
+typedef GPB_ENUM(ExchangeInjectContract_FieldNumber) {
+  ExchangeInjectContract_FieldNumber_OwnerAddress = 1,
+  ExchangeInjectContract_FieldNumber_ExchangeId = 2,
+  ExchangeInjectContract_FieldNumber_TokenId = 3,
+  ExchangeInjectContract_FieldNumber_Quant = 4,
+};
+
+@interface ExchangeInjectContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite) int64_t exchangeId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *tokenId;
+
+@property(nonatomic, readwrite) int64_t quant;
+
+@end
+
+#pragma mark - ExchangeWithdrawContract
+
+typedef GPB_ENUM(ExchangeWithdrawContract_FieldNumber) {
+  ExchangeWithdrawContract_FieldNumber_OwnerAddress = 1,
+  ExchangeWithdrawContract_FieldNumber_ExchangeId = 2,
+  ExchangeWithdrawContract_FieldNumber_TokenId = 3,
+  ExchangeWithdrawContract_FieldNumber_Quant = 4,
+};
+
+@interface ExchangeWithdrawContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite) int64_t exchangeId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *tokenId;
+
+@property(nonatomic, readwrite) int64_t quant;
+
+@end
+
+#pragma mark - ExchangeTransactionContract
+
+typedef GPB_ENUM(ExchangeTransactionContract_FieldNumber) {
+  ExchangeTransactionContract_FieldNumber_OwnerAddress = 1,
+  ExchangeTransactionContract_FieldNumber_ExchangeId = 2,
+  ExchangeTransactionContract_FieldNumber_TokenId = 3,
+  ExchangeTransactionContract_FieldNumber_Quant = 4,
+};
+
+@interface ExchangeTransactionContract : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *ownerAddress;
+
+@property(nonatomic, readwrite) int64_t exchangeId;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *tokenId;
+
+@property(nonatomic, readwrite) int64_t quant;
 
 @end
 

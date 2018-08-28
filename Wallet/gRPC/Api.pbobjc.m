@@ -284,6 +284,92 @@ typedef struct WitnessList__storage_ {
 
 @end
 
+#pragma mark - ProposalList
+
+@implementation ProposalList
+
+@dynamic proposalsArray, proposalsArray_Count;
+
+typedef struct ProposalList__storage_ {
+  uint32_t _has_storage_[1];
+  NSMutableArray *proposalsArray;
+} ProposalList__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "proposalsArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(Proposal),
+        .number = ProposalList_FieldNumber_ProposalsArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(ProposalList__storage_, proposalsArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ProposalList class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ProposalList__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - ExchangeList
+
+@implementation ExchangeList
+
+@dynamic exchangesArray, exchangesArray_Count;
+
+typedef struct ExchangeList__storage_ {
+  uint32_t _has_storage_[1];
+  NSMutableArray *exchangesArray;
+} ExchangeList__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "exchangesArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(Exchange),
+        .number = ExchangeList_FieldNumber_ExchangesArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(ExchangeList__storage_, exchangesArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ExchangeList class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ExchangeList__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 #pragma mark - AssetIssueList
 
 @implementation AssetIssueList
@@ -1111,6 +1197,198 @@ typedef struct AccountNetMessage__storage_ {
 
 @end
 
+#pragma mark - AccountResourceMessage
+
+@implementation AccountResourceMessage
+
+@dynamic freeNetUsed;
+@dynamic freeNetLimit;
+@dynamic netUsed;
+@dynamic netLimit;
+@dynamic assetNetUsed, assetNetUsed_Count;
+@dynamic assetNetLimit, assetNetLimit_Count;
+@dynamic totalNetLimit;
+@dynamic totalNetWeight;
+@dynamic energyUsed;
+@dynamic energyLimit;
+@dynamic totalEnergyLimit;
+@dynamic totalEnergyWeight;
+@dynamic storageUsed;
+@dynamic storageLimit;
+
+typedef struct AccountResourceMessage__storage_ {
+  uint32_t _has_storage_[1];
+  GPBStringInt64Dictionary *assetNetUsed;
+  GPBStringInt64Dictionary *assetNetLimit;
+  int64_t freeNetUsed;
+  int64_t freeNetLimit;
+  int64_t netUsed;
+  int64_t netLimit;
+  int64_t totalNetLimit;
+  int64_t totalNetWeight;
+  int64_t energyUsed;
+  int64_t energyLimit;
+  int64_t totalEnergyLimit;
+  int64_t totalEnergyWeight;
+  int64_t storageUsed;
+  int64_t storageLimit;
+} AccountResourceMessage__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "freeNetUsed",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_FreeNetUsed,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, freeNetUsed),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "freeNetLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_FreeNetLimit,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, freeNetLimit),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "netUsed",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_NetUsed,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, netUsed),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "netLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_NetLimit,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, netLimit),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "assetNetUsed",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_AssetNetUsed,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, assetNetUsed),
+        .flags = (GPBFieldFlags)(GPBFieldMapKeyString | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "assetNetLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_AssetNetLimit,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, assetNetLimit),
+        .flags = (GPBFieldFlags)(GPBFieldMapKeyString | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "totalNetLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_TotalNetLimit,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, totalNetLimit),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "totalNetWeight",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_TotalNetWeight,
+        .hasIndex = 5,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, totalNetWeight),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "energyUsed",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_EnergyUsed,
+        .hasIndex = 6,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, energyUsed),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "energyLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_EnergyLimit,
+        .hasIndex = 7,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, energyLimit),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "totalEnergyLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_TotalEnergyLimit,
+        .hasIndex = 8,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, totalEnergyLimit),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "totalEnergyWeight",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_TotalEnergyWeight,
+        .hasIndex = 9,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, totalEnergyWeight),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "storageUsed",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_StorageUsed,
+        .hasIndex = 10,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, storageUsed),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "storageLimit",
+        .dataTypeSpecific.className = NULL,
+        .number = AccountResourceMessage_FieldNumber_StorageLimit,
+        .hasIndex = 11,
+        .offset = (uint32_t)offsetof(AccountResourceMessage__storage_, storageLimit),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[AccountResourceMessage class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(AccountResourceMessage__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\016\001\013\000\002\014\000\003G\000\004H\000\005\014\000\006\r\000\007M\000\010N\000\rJ\000\016K\000\017P\000\020Q\000\025\013\000"
+        "\026\014\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 #pragma mark - PaginatedMessage
 
 @implementation PaginatedMessage
@@ -1235,17 +1513,89 @@ typedef struct EasyTransferMessage__storage_ {
 
 @end
 
+#pragma mark - EasyTransferByPrivateMessage
+
+@implementation EasyTransferByPrivateMessage
+
+@dynamic privateKey;
+@dynamic toAddress;
+@dynamic amount;
+
+typedef struct EasyTransferByPrivateMessage__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *privateKey;
+  NSData *toAddress;
+  int64_t amount;
+} EasyTransferByPrivateMessage__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "privateKey",
+        .dataTypeSpecific.className = NULL,
+        .number = EasyTransferByPrivateMessage_FieldNumber_PrivateKey,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(EasyTransferByPrivateMessage__storage_, privateKey),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "toAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = EasyTransferByPrivateMessage_FieldNumber_ToAddress,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(EasyTransferByPrivateMessage__storage_, toAddress),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "amount",
+        .dataTypeSpecific.className = NULL,
+        .number = EasyTransferByPrivateMessage_FieldNumber_Amount,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(EasyTransferByPrivateMessage__storage_, amount),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[EasyTransferByPrivateMessage class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(EasyTransferByPrivateMessage__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\002\001\n\000\002\t\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 #pragma mark - EasyTransferResponse
 
 @implementation EasyTransferResponse
 
 @dynamic hasTransaction, transaction;
 @dynamic hasResult, result;
+@dynamic txid;
 
 typedef struct EasyTransferResponse__storage_ {
   uint32_t _has_storage_[1];
   TronTransaction *transaction;
   Return *result;
+  NSData *txid;
 } EasyTransferResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -1271,6 +1621,15 @@ typedef struct EasyTransferResponse__storage_ {
         .offset = (uint32_t)offsetof(EasyTransferResponse__storage_, result),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "txid",
+        .dataTypeSpecific.className = NULL,
+        .number = EasyTransferResponse_FieldNumber_Txid,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(EasyTransferResponse__storage_, txid),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -1340,6 +1699,233 @@ typedef struct AddressPrKeyPairMessage__storage_ {
         "\001\002\n\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - TransactionExtention
+
+@implementation TransactionExtention
+
+@dynamic hasTransaction, transaction;
+@dynamic txid;
+@dynamic constantResultArray, constantResultArray_Count;
+@dynamic hasResult, result;
+
+typedef struct TransactionExtention__storage_ {
+  uint32_t _has_storage_[1];
+  TronTransaction *transaction;
+  NSData *txid;
+  NSMutableArray *constantResultArray;
+  Return *result;
+} TransactionExtention__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "transaction",
+        .dataTypeSpecific.className = GPBStringifySymbol(TronTransaction),
+        .number = TransactionExtention_FieldNumber_Transaction,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(TransactionExtention__storage_, transaction),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "txid",
+        .dataTypeSpecific.className = NULL,
+        .number = TransactionExtention_FieldNumber_Txid,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(TransactionExtention__storage_, txid),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "constantResultArray",
+        .dataTypeSpecific.className = NULL,
+        .number = TransactionExtention_FieldNumber_ConstantResultArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(TransactionExtention__storage_, constantResultArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "result",
+        .dataTypeSpecific.className = GPBStringifySymbol(Return),
+        .number = TransactionExtention_FieldNumber_Result,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(TransactionExtention__storage_, result),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[TransactionExtention class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(TransactionExtention__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - BlockExtention
+
+@implementation BlockExtention
+
+@dynamic transactionsArray, transactionsArray_Count;
+@dynamic hasBlockHeader, blockHeader;
+@dynamic blockid;
+
+typedef struct BlockExtention__storage_ {
+  uint32_t _has_storage_[1];
+  NSMutableArray *transactionsArray;
+  BlockHeader *blockHeader;
+  NSData *blockid;
+} BlockExtention__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "transactionsArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(TransactionExtention),
+        .number = BlockExtention_FieldNumber_TransactionsArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(BlockExtention__storage_, transactionsArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "blockHeader",
+        .dataTypeSpecific.className = GPBStringifySymbol(BlockHeader),
+        .number = BlockExtention_FieldNumber_BlockHeader,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(BlockExtention__storage_, blockHeader),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "blockid",
+        .dataTypeSpecific.className = NULL,
+        .number = BlockExtention_FieldNumber_Blockid,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(BlockExtention__storage_, blockid),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[BlockExtention class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(BlockExtention__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - BlockListExtention
+
+@implementation BlockListExtention
+
+@dynamic blockArray, blockArray_Count;
+
+typedef struct BlockListExtention__storage_ {
+  uint32_t _has_storage_[1];
+  NSMutableArray *blockArray;
+} BlockListExtention__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "blockArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(BlockExtention),
+        .number = BlockListExtention_FieldNumber_BlockArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(BlockListExtention__storage_, blockArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[BlockListExtention class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(BlockListExtention__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - TransactionListExtention
+
+@implementation TransactionListExtention
+
+@dynamic transactionArray, transactionArray_Count;
+
+typedef struct TransactionListExtention__storage_ {
+  uint32_t _has_storage_[1];
+  NSMutableArray *transactionArray;
+} TransactionListExtention__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "transactionArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(TransactionExtention),
+        .number = TransactionListExtention_FieldNumber_TransactionArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(TransactionListExtention__storage_, transactionArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[TransactionListExtention class]
+                                     rootClass:[ApiRoot class]
+                                          file:ApiRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(TransactionListExtention__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }

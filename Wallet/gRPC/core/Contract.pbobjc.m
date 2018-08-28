@@ -43,6 +43,40 @@ static GPBFileDescriptor *ContractRoot_FileDescriptor(void) {
   return descriptor;
 }
 
+#pragma mark - Enum ResourceCode
+
+GPBEnumDescriptor *ResourceCode_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "Bandwidth\000Energy\000";
+    static const int32_t values[] = {
+        ResourceCode_Bandwidth,
+        ResourceCode_Energy,
+    };
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(ResourceCode)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:ResourceCode_IsValidValue];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL ResourceCode_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case ResourceCode_Bandwidth:
+    case ResourceCode_Energy:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
 #pragma mark - AccountCreateContract
 
 @implementation AccountCreateContract
@@ -165,6 +199,60 @@ typedef struct AccountUpdateContract__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(AccountUpdateContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - SetAccountIdContract
+
+@implementation SetAccountIdContract
+
+@dynamic accountId;
+@dynamic ownerAddress;
+
+typedef struct SetAccountIdContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *accountId;
+  NSData *ownerAddress;
+} SetAccountIdContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "accountId",
+        .dataTypeSpecific.className = NULL,
+        .number = SetAccountIdContract_FieldNumber_AccountId,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(SetAccountIdContract__storage_, accountId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = SetAccountIdContract_FieldNumber_OwnerAddress,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(SetAccountIdContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[SetAccountIdContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(SetAccountIdContract__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
@@ -509,6 +597,71 @@ typedef struct VoteWitnessContract_Vote__storage_ {
 
 @end
 
+#pragma mark - UpdateSettingContract
+
+@implementation UpdateSettingContract
+
+@dynamic ownerAddress;
+@dynamic contractAddress;
+@dynamic consumeUserResourcePercent;
+
+typedef struct UpdateSettingContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  NSData *contractAddress;
+  int64_t consumeUserResourcePercent;
+} UpdateSettingContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = UpdateSettingContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(UpdateSettingContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "contractAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = UpdateSettingContract_FieldNumber_ContractAddress,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(UpdateSettingContract__storage_, contractAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "consumeUserResourcePercent",
+        .dataTypeSpecific.className = NULL,
+        .number = UpdateSettingContract_FieldNumber_ConsumeUserResourcePercent,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(UpdateSettingContract__storage_, consumeUserResourcePercent),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[UpdateSettingContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(UpdateSettingContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
 #pragma mark - WitnessCreateContract
 
 @implementation WitnessCreateContract
@@ -640,6 +793,7 @@ typedef struct WitnessUpdateContract__storage_ {
 @dynamic num;
 @dynamic startTime;
 @dynamic endTime;
+@dynamic order;
 @dynamic voteScore;
 @dynamic description_p;
 @dynamic URL;
@@ -662,6 +816,7 @@ typedef struct AssetIssueContract__storage_ {
   int64_t totalSupply;
   int64_t startTime;
   int64_t endTime;
+  int64_t order;
   int64_t freeAssetNetLimit;
   int64_t publicFreeAssetNetLimit;
   int64_t publicFreeAssetNetUsage;
@@ -756,10 +911,19 @@ typedef struct AssetIssueContract__storage_ {
         .dataType = GPBDataTypeInt64,
       },
       {
+        .name = "order",
+        .dataTypeSpecific.className = NULL,
+        .number = AssetIssueContract_FieldNumber_Order,
+        .hasIndex = 8,
+        .offset = (uint32_t)offsetof(AssetIssueContract__storage_, order),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
         .name = "voteScore",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_VoteScore,
-        .hasIndex = 8,
+        .hasIndex = 9,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, voteScore),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt32,
@@ -768,7 +932,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "description_p",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_Description_p,
-        .hasIndex = 9,
+        .hasIndex = 10,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, description_p),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
@@ -777,7 +941,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "URL",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_URL,
-        .hasIndex = 10,
+        .hasIndex = 11,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, URL),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeBytes,
@@ -786,7 +950,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "freeAssetNetLimit",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_FreeAssetNetLimit,
-        .hasIndex = 11,
+        .hasIndex = 12,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, freeAssetNetLimit),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
@@ -795,7 +959,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "publicFreeAssetNetLimit",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_PublicFreeAssetNetLimit,
-        .hasIndex = 12,
+        .hasIndex = 13,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, publicFreeAssetNetLimit),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
@@ -804,7 +968,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "publicFreeAssetNetUsage",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_PublicFreeAssetNetUsage,
-        .hasIndex = 13,
+        .hasIndex = 14,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, publicFreeAssetNetUsage),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
@@ -813,7 +977,7 @@ typedef struct AssetIssueContract__storage_ {
         .name = "publicLatestFreeNetTime",
         .dataTypeSpecific.className = NULL,
         .number = AssetIssueContract_FieldNumber_PublicLatestFreeNetTime,
-        .hasIndex = 14,
+        .hasIndex = 15,
         .offset = (uint32_t)offsetof(AssetIssueContract__storage_, publicLatestFreeNetTime),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
@@ -971,60 +1135,6 @@ typedef struct ParticipateAssetIssueContract__storage_ {
 
 @end
 
-#pragma mark - DeployContract
-
-@implementation DeployContract
-
-@dynamic ownerAddress;
-@dynamic script;
-
-typedef struct DeployContract__storage_ {
-  uint32_t _has_storage_[1];
-  NSData *ownerAddress;
-  NSData *script;
-} DeployContract__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "ownerAddress",
-        .dataTypeSpecific.className = NULL,
-        .number = DeployContract_FieldNumber_OwnerAddress,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(DeployContract__storage_, ownerAddress),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "script",
-        .dataTypeSpecific.className = NULL,
-        .number = DeployContract_FieldNumber_Script,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(DeployContract__storage_, script),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[DeployContract class]
-                                     rootClass:[ContractRoot class]
-                                          file:ContractRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(DeployContract__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
 #pragma mark - FreezeBalanceContract
 
 @implementation FreezeBalanceContract
@@ -1032,9 +1142,11 @@ typedef struct DeployContract__storage_ {
 @dynamic ownerAddress;
 @dynamic frozenBalance;
 @dynamic frozenDuration;
+@dynamic resource;
 
 typedef struct FreezeBalanceContract__storage_ {
   uint32_t _has_storage_[1];
+  ResourceCode resource;
   NSData *ownerAddress;
   int64_t frozenBalance;
   int64_t frozenDuration;
@@ -1073,6 +1185,15 @@ typedef struct FreezeBalanceContract__storage_ {
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
       },
+      {
+        .name = "resource",
+        .dataTypeSpecific.enumDescFunc = ResourceCode_EnumDescriptor,
+        .number = FreezeBalanceContract_FieldNumber_Resource,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(FreezeBalanceContract__storage_, resource),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
+        .dataType = GPBDataTypeEnum,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[FreezeBalanceContract class]
@@ -1090,14 +1211,28 @@ typedef struct FreezeBalanceContract__storage_ {
 
 @end
 
+int32_t FreezeBalanceContract_Resource_RawValue(FreezeBalanceContract *message) {
+  GPBDescriptor *descriptor = [FreezeBalanceContract descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:FreezeBalanceContract_FieldNumber_Resource];
+  return GPBGetMessageInt32Field(message, field);
+}
+
+void SetFreezeBalanceContract_Resource_RawValue(FreezeBalanceContract *message, int32_t value) {
+  GPBDescriptor *descriptor = [FreezeBalanceContract descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:FreezeBalanceContract_FieldNumber_Resource];
+  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+}
+
 #pragma mark - UnfreezeBalanceContract
 
 @implementation UnfreezeBalanceContract
 
 @dynamic ownerAddress;
+@dynamic resource;
 
 typedef struct UnfreezeBalanceContract__storage_ {
   uint32_t _has_storage_[1];
+  ResourceCode resource;
   NSData *ownerAddress;
 } UnfreezeBalanceContract__storage_;
 
@@ -1116,6 +1251,15 @@ typedef struct UnfreezeBalanceContract__storage_ {
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
       },
+      {
+        .name = "resource",
+        .dataTypeSpecific.enumDescFunc = ResourceCode_EnumDescriptor,
+        .number = UnfreezeBalanceContract_FieldNumber_Resource,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(UnfreezeBalanceContract__storage_, resource),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
+        .dataType = GPBDataTypeEnum,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[UnfreezeBalanceContract class]
@@ -1132,6 +1276,18 @@ typedef struct UnfreezeBalanceContract__storage_ {
 }
 
 @end
+
+int32_t UnfreezeBalanceContract_Resource_RawValue(UnfreezeBalanceContract *message) {
+  GPBDescriptor *descriptor = [UnfreezeBalanceContract descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:UnfreezeBalanceContract_FieldNumber_Resource];
+  return GPBGetMessageInt32Field(message, field);
+}
+
+void SetUnfreezeBalanceContract_Resource_RawValue(UnfreezeBalanceContract *message, int32_t value) {
+  GPBDescriptor *descriptor = [UnfreezeBalanceContract descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:UnfreezeBalanceContract_FieldNumber_Resource];
+  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+}
 
 #pragma mark - UnfreezeAssetContract
 
@@ -1303,6 +1459,785 @@ typedef struct UpdateAssetContract__storage_ {
         "\001\003!!!\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - ProposalCreateContract
+
+@implementation ProposalCreateContract
+
+@dynamic ownerAddress;
+@dynamic parameters, parameters_Count;
+
+typedef struct ProposalCreateContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  GPBInt64Int64Dictionary *parameters;
+} ProposalCreateContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = ProposalCreateContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(ProposalCreateContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "parameters",
+        .dataTypeSpecific.className = NULL,
+        .number = ProposalCreateContract_FieldNumber_Parameters,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(ProposalCreateContract__storage_, parameters),
+        .flags = GPBFieldMapKeyInt64,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ProposalCreateContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ProposalCreateContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - ProposalApproveContract
+
+@implementation ProposalApproveContract
+
+@dynamic ownerAddress;
+@dynamic proposalId;
+@dynamic isAddApproval;
+
+typedef struct ProposalApproveContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  int64_t proposalId;
+} ProposalApproveContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = ProposalApproveContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(ProposalApproveContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "proposalId",
+        .dataTypeSpecific.className = NULL,
+        .number = ProposalApproveContract_FieldNumber_ProposalId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(ProposalApproveContract__storage_, proposalId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "isAddApproval",
+        .dataTypeSpecific.className = NULL,
+        .number = ProposalApproveContract_FieldNumber_IsAddApproval,
+        .hasIndex = 2,
+        .offset = 3,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ProposalApproveContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ProposalApproveContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - ProposalDeleteContract
+
+@implementation ProposalDeleteContract
+
+@dynamic ownerAddress;
+@dynamic proposalId;
+
+typedef struct ProposalDeleteContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  int64_t proposalId;
+} ProposalDeleteContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = ProposalDeleteContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(ProposalDeleteContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "proposalId",
+        .dataTypeSpecific.className = NULL,
+        .number = ProposalDeleteContract_FieldNumber_ProposalId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(ProposalDeleteContract__storage_, proposalId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ProposalDeleteContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ProposalDeleteContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - CreateSmartContract
+
+@implementation CreateSmartContract
+
+@dynamic ownerAddress;
+@dynamic hasNewContract, newContract;
+
+typedef struct CreateSmartContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  SmartContract *newContract;
+} CreateSmartContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = CreateSmartContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(CreateSmartContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "newContract",
+        .dataTypeSpecific.className = GPBStringifySymbol(SmartContract),
+        .number = CreateSmartContract_FieldNumber_NewContract,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(CreateSmartContract__storage_, newContract),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[CreateSmartContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(CreateSmartContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - TriggerSmartContract
+
+@implementation TriggerSmartContract
+
+@dynamic ownerAddress;
+@dynamic contractAddress;
+@dynamic callValue;
+@dynamic data_p;
+
+typedef struct TriggerSmartContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  NSData *contractAddress;
+  NSData *data_p;
+  int64_t callValue;
+} TriggerSmartContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = TriggerSmartContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(TriggerSmartContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "contractAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = TriggerSmartContract_FieldNumber_ContractAddress,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(TriggerSmartContract__storage_, contractAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "callValue",
+        .dataTypeSpecific.className = NULL,
+        .number = TriggerSmartContract_FieldNumber_CallValue,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(TriggerSmartContract__storage_, callValue),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "data_p",
+        .dataTypeSpecific.className = NULL,
+        .number = TriggerSmartContract_FieldNumber_Data_p,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(TriggerSmartContract__storage_, data_p),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[TriggerSmartContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(TriggerSmartContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - BuyStorageContract
+
+@implementation BuyStorageContract
+
+@dynamic ownerAddress;
+@dynamic quant;
+
+typedef struct BuyStorageContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  int64_t quant;
+} BuyStorageContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = BuyStorageContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(BuyStorageContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "quant",
+        .dataTypeSpecific.className = NULL,
+        .number = BuyStorageContract_FieldNumber_Quant,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(BuyStorageContract__storage_, quant),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[BuyStorageContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(BuyStorageContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - BuyStorageBytesContract
+
+@implementation BuyStorageBytesContract
+
+@dynamic ownerAddress;
+@dynamic bytes;
+
+typedef struct BuyStorageBytesContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  int64_t bytes;
+} BuyStorageBytesContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = BuyStorageBytesContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(BuyStorageBytesContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "bytes",
+        .dataTypeSpecific.className = NULL,
+        .number = BuyStorageBytesContract_FieldNumber_Bytes,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(BuyStorageBytesContract__storage_, bytes),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[BuyStorageBytesContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(BuyStorageBytesContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - SellStorageContract
+
+@implementation SellStorageContract
+
+@dynamic ownerAddress;
+@dynamic storageBytes;
+
+typedef struct SellStorageContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  int64_t storageBytes;
+} SellStorageContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = SellStorageContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(SellStorageContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "storageBytes",
+        .dataTypeSpecific.className = NULL,
+        .number = SellStorageContract_FieldNumber_StorageBytes,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(SellStorageContract__storage_, storageBytes),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[SellStorageContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(SellStorageContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - ExchangeCreateContract
+
+@implementation ExchangeCreateContract
+
+@dynamic ownerAddress;
+@dynamic firstTokenId;
+@dynamic firstTokenBalance;
+@dynamic secondTokenId;
+@dynamic secondTokenBalance;
+
+typedef struct ExchangeCreateContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  NSData *firstTokenId;
+  NSData *secondTokenId;
+  int64_t firstTokenBalance;
+  int64_t secondTokenBalance;
+} ExchangeCreateContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeCreateContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(ExchangeCreateContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "firstTokenId",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeCreateContract_FieldNumber_FirstTokenId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(ExchangeCreateContract__storage_, firstTokenId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "firstTokenBalance",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeCreateContract_FieldNumber_FirstTokenBalance,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(ExchangeCreateContract__storage_, firstTokenBalance),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "secondTokenId",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeCreateContract_FieldNumber_SecondTokenId,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(ExchangeCreateContract__storage_, secondTokenId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "secondTokenBalance",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeCreateContract_FieldNumber_SecondTokenBalance,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(ExchangeCreateContract__storage_, secondTokenBalance),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ExchangeCreateContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ExchangeCreateContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - ExchangeInjectContract
+
+@implementation ExchangeInjectContract
+
+@dynamic ownerAddress;
+@dynamic exchangeId;
+@dynamic tokenId;
+@dynamic quant;
+
+typedef struct ExchangeInjectContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  NSData *tokenId;
+  int64_t exchangeId;
+  int64_t quant;
+} ExchangeInjectContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeInjectContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(ExchangeInjectContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "exchangeId",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeInjectContract_FieldNumber_ExchangeId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(ExchangeInjectContract__storage_, exchangeId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "tokenId",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeInjectContract_FieldNumber_TokenId,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(ExchangeInjectContract__storage_, tokenId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "quant",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeInjectContract_FieldNumber_Quant,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(ExchangeInjectContract__storage_, quant),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ExchangeInjectContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ExchangeInjectContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - ExchangeWithdrawContract
+
+@implementation ExchangeWithdrawContract
+
+@dynamic ownerAddress;
+@dynamic exchangeId;
+@dynamic tokenId;
+@dynamic quant;
+
+typedef struct ExchangeWithdrawContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  NSData *tokenId;
+  int64_t exchangeId;
+  int64_t quant;
+} ExchangeWithdrawContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeWithdrawContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(ExchangeWithdrawContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "exchangeId",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeWithdrawContract_FieldNumber_ExchangeId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(ExchangeWithdrawContract__storage_, exchangeId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "tokenId",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeWithdrawContract_FieldNumber_TokenId,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(ExchangeWithdrawContract__storage_, tokenId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "quant",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeWithdrawContract_FieldNumber_Quant,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(ExchangeWithdrawContract__storage_, quant),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ExchangeWithdrawContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ExchangeWithdrawContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    NSAssert(descriptor == nil, @"Startup recursed!");
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - ExchangeTransactionContract
+
+@implementation ExchangeTransactionContract
+
+@dynamic ownerAddress;
+@dynamic exchangeId;
+@dynamic tokenId;
+@dynamic quant;
+
+typedef struct ExchangeTransactionContract__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *ownerAddress;
+  NSData *tokenId;
+  int64_t exchangeId;
+  int64_t quant;
+} ExchangeTransactionContract__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ownerAddress",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeTransactionContract_FieldNumber_OwnerAddress,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(ExchangeTransactionContract__storage_, ownerAddress),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "exchangeId",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeTransactionContract_FieldNumber_ExchangeId,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(ExchangeTransactionContract__storage_, exchangeId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+      {
+        .name = "tokenId",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeTransactionContract_FieldNumber_TokenId,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(ExchangeTransactionContract__storage_, tokenId),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "quant",
+        .dataTypeSpecific.className = NULL,
+        .number = ExchangeTransactionContract_FieldNumber_Quant,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(ExchangeTransactionContract__storage_, quant),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[ExchangeTransactionContract class]
+                                     rootClass:[ContractRoot class]
+                                          file:ContractRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(ExchangeTransactionContract__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }
