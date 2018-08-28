@@ -61,7 +61,11 @@ class TransactionDetailViewController: UIViewController {
             configure(model: transaction)
             if let idStirng  = transaction.rawData.data()?.sha256().hexString {
                 print(idStirng)
-                transactionIDLabel.text = idStirng
+                let str1 = NSMutableAttributedString(string: idStirng)
+                let range1 = NSRange(location: 0, length: str1.length)
+                let number = NSNumber(value:NSUnderlineStyle.styleSingle.rawValue)
+                str1.addAttribute(NSAttributedStringKey.underlineStyle, value: number, range: range1)
+                transactionIDLabel.attributedText = str1
                 url = "https://tronscan.org/#/transaction/\(idStirng)"
             }
             
