@@ -52,6 +52,18 @@ class ExportPrivateKeyViewConroller: UIViewController {
         label.numberOfLines = 0
         return label
     }()
+    
+    lazy var privateKeyLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = viewModel.warningText
+        label.textColor = UIColor.titleColor
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
 
     lazy var hud: MBProgressHUD = {
         let hud = MBProgressHUD.showAdded(to: imageView, animated: true)
@@ -77,6 +89,7 @@ class ExportPrivateKeyViewConroller: UIViewController {
             hintLabel,
             imageView,
             warningKeyLabel,
+            privateKeyLabel
         ])
         stackView.axis = .vertical
         stackView.spacing = 30
@@ -108,8 +121,25 @@ class ExportPrivateKeyViewConroller: UIViewController {
             make.width.equalTo(view).multipliedBy(335.0/375.0)
             make.height.equalTo(48)
         }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(copyAddress))
+        privateKeyLabel.isUserInteractionEnabled = true
+        privateKeyLabel.addGestureRecognizer(tap)
     }
 
+    
+    
+    @objc func copyAddress() {
+        guard let string = privateKeyLabel.text?.emptyToNil() else {
+            return
+        }
+        UIPasteboard.general.string = string
+        
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.mode = .text
+        hud.label.text = R.string.tron.hudCopysuccess()
+        hud.hide(animated: true, afterDelay: 1.5)
+    }
 
     func blur(image: UIImageView) {
         let blur = UIBlurEffect(style: .dark)
@@ -136,9 +166,12 @@ class ExportPrivateKeyViewConroller: UIViewController {
             guard let `self` = self else { return }
             let string = self.viewModel.privateKey
             let image = self.generateQRCode(from: string)
+           
             DispatchQueue.main.async {
                 self.imageView.image = image
                 self.hud.hide(animated: true)
+                self.privateKeyLabel.text = string
+                self.privateKeyLabel.isHidden = false
             }
         }
     }
