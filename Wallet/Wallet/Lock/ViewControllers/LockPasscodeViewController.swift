@@ -19,6 +19,17 @@ class LockPasscodeViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.configureInvisiblePasscodeField()
         self.configureLockView()
+        self.addTapGesture()
+        
+    }
+    
+    func addTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapedView))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapedView() {
+        invisiblePasscodeField.becomeFirstResponder()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -35,12 +46,12 @@ class LockPasscodeViewController: UIViewController {
     private func configureInvisiblePasscodeField() {
         invisiblePasscodeField = UITextField()
         invisiblePasscodeField.keyboardType = .numberPad
-        invisiblePasscodeField.isSecureTextEntry = true
+        invisiblePasscodeField.isSecureTextEntry = false
         invisiblePasscodeField.delegate = self
         invisiblePasscodeField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         view.addSubview(invisiblePasscodeField)
     }
-
+    
     private func configureLockView() {
         lockView = LockView(model)
         lockView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +61,7 @@ class LockPasscodeViewController: UIViewController {
         lockView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         lockView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
     }
-
+    
     @objc func enteredPasscode(_ passcode: String) {
         shouldIgnoreTextFieldDelegateCalls = false
         clearPasscode()
@@ -62,7 +73,7 @@ class LockPasscodeViewController: UIViewController {
         }
     }
     func hideKeyboard() {
-         invisiblePasscodeField.resignFirstResponder()
+        invisiblePasscodeField.resignFirstResponder()
     }
     func showKeyboard() {
         invisiblePasscodeField.becomeFirstResponder()
@@ -79,7 +90,7 @@ class LockPasscodeViewController: UIViewController {
         if let userInfo = notification.userInfo {
             if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                   self.lockView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -keyboardSize.height).isActive = true
+                    self.lockView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -keyboardSize.height).isActive = true
                 })
             }
         }
