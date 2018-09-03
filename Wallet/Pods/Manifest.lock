@@ -87,11 +87,15 @@ PODS:
   - Moya/Core (10.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - Moya/RxSwift (10.0.2):
+    - Moya/Core
+    - RxSwift (~> 4.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - ObjectMapper (3.3.0)
   - pop (1.0.10)
   - PromiseKit (6.2.5):
     - PromiseKit/CorePromise (= 6.2.5)
@@ -168,7 +172,9 @@ DEPENDENCIES:
   - Lokalise
   - MBProgressHUD
   - MJRefresh
-  - Moya (~> 10.0.1)
+  - Moya
+  - Moya/RxSwift
+  - ObjectMapper
   - pop
   - PromiseKit (~> 6.0)
   - Protobuf
@@ -228,6 +234,7 @@ SPEC REPOS:
     - MJRefresh
     - Moya
     - nanopb
+    - ObjectMapper
     - pop
     - PromiseKit
     - Protobuf
@@ -311,6 +318,7 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   PromiseKit: a26828b0a8d5874960dfdb575b57a70790ec36f1
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
@@ -339,6 +347,6 @@ SPEC CHECKSUMS:
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: b7bdd352cc07f4f745547807a3ca2a82980a6cea
 
-PODFILE CHECKSUM: 9726b52b5b682318fe26425948695da59cf1052a
+PODFILE CHECKSUM: be8c99201a343c8a086961213a1d54a958d5276c
 
 COCOAPODS: 1.5.3

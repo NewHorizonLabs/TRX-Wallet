@@ -34,6 +34,11 @@ class BalanceViewController: UIViewController {
     @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var headerView: UIView!
+    
+    @IBOutlet weak var usdPriceLabel: UILabel!
+    
+    @IBOutlet weak var rateLabel: UILabel!
+    
     var headerViewHeight: CGFloat = 0.0
     override var hideNavigationBar: Bool {
         return true
@@ -223,6 +228,30 @@ class BalanceViewController: UIViewController {
         super.viewWillAppear(animated)
         //获取用户数据并刷新页面
         ServiceHelper.shared.getAccount()
+        getRate()
+    }
+    
+    func getRate() {
+        TronHelper.shared.getRate()
+        .asObservable()
+            .subscribe(onNext: {[weak self] (result) in
+                guard let value = result.first else { return }
+                self?.updateRate(rate: value)
+            })
+        .disposed(by: disposeBag)
+    }
+    
+    func updateRate(rate: RateResult) {
+        self.usdPriceLabel.text = "$\(rate.price_usd ?? "0.0")"
+        
+        if let rateString = rate.percent_change_24h {
+            self.rateLabel.text = "(\(rateString))"
+            if rateString.contains("-") {
+                self.rateLabel.textColor = UIColor(hex: "36DD2B")
+            } else {
+                self.rateLabel.textColor = UIColor(hex: "FF4242")
+            }
+        }
         
     }
     

@@ -71,6 +71,32 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHb-m4-bJd">
+                                            <rect key="frame" x="167.5" y="141" width="40" height="19.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHf-7Q-GKx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcW-Xy-ogl">
+                                                    <rect key="frame" x="25" y="0.0" width="15" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="YcW-Xy-ogl" firstAttribute="centerY" secondItem="QHf-7Q-GKx" secondAttribute="centerY" id="1q8-PC-AML"/>
+                                                <constraint firstAttribute="bottom" secondItem="QHf-7Q-GKx" secondAttribute="bottom" id="CjP-xP-8II"/>
+                                                <constraint firstItem="YcW-Xy-ogl" firstAttribute="leading" secondItem="QHf-7Q-GKx" secondAttribute="trailing" constant="10" id="EYu-et-acA"/>
+                                                <constraint firstAttribute="trailing" secondItem="YcW-Xy-ogl" secondAttribute="trailing" id="Hep-UT-21k"/>
+                                                <constraint firstItem="QHf-7Q-GKx" firstAttribute="leading" secondItem="LHb-m4-bJd" secondAttribute="leading" id="rzy-HD-A22"/>
+                                                <constraint firstItem="QHf-7Q-GKx" firstAttribute="top" secondItem="LHb-m4-bJd" secondAttribute="top" id="ySv-vA-g30"/>
+                                            </constraints>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfA-ga-qU7">
                                             <rect key="frame" x="15" y="203" width="345" height="80"/>
                                             <subviews>
@@ -210,9 +236,11 @@
                                         <constraint firstItem="jZM-uH-BGp" firstAttribute="leading" secondItem="VHl-gI-wR3" secondAttribute="leading" constant="20" id="dBC-J3-kqW"/>
                                         <constraint firstItem="c45-0l-k1I" firstAttribute="leading" secondItem="VHl-gI-wR3" secondAttribute="leading" id="hI8-Q8-0uV"/>
                                         <constraint firstAttribute="trailing" secondItem="OfA-ga-qU7" secondAttribute="trailing" constant="15" id="hLR-tH-4Yc"/>
+                                        <constraint firstItem="LHb-m4-bJd" firstAttribute="centerX" secondItem="F0r-1o-ADB" secondAttribute="centerX" id="iT5-ol-Cav"/>
                                         <constraint firstAttribute="trailing" secondItem="c45-0l-k1I" secondAttribute="trailing" id="ivK-Ob-3z8"/>
                                         <constraint firstItem="lwr-mb-BuW" firstAttribute="top" secondItem="BOT-2i-Iu8" secondAttribute="bottom" constant="6" id="m4k-ZD-urM"/>
                                         <constraint firstItem="F0r-1o-ADB" firstAttribute="centerX" secondItem="VHl-gI-wR3" secondAttribute="centerX" id="nsR-CU-fpz"/>
+                                        <constraint firstItem="LHb-m4-bJd" firstAttribute="top" secondItem="F0r-1o-ADB" secondAttribute="bottom" constant="8" id="pAW-Lb-jIr"/>
                                         <constraint firstItem="F0r-1o-ADB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VHl-gI-wR3" secondAttribute="leading" constant="30" id="q87-1u-heR"/>
                                         <constraint firstItem="BOT-2i-Iu8" firstAttribute="leading" secondItem="F0r-1o-ADB" secondAttribute="leading" id="rEm-A6-gE8"/>
                                         <constraint firstItem="BOT-2i-Iu8" firstAttribute="top" secondItem="F0r-1o-ADB" secondAttribute="bottom" constant="15" id="wp0-VK-c7r"/>
@@ -323,10 +351,12 @@
                         <outlet property="navigationView" destination="esm-jf-MqZ" id="NUa-hU-o3q"/>
                         <outlet property="powerLabel" destination="oty-vp-bug" id="zgJ-Ie-9xG"/>
                         <outlet property="powerTitleLabel" destination="fnh-Vj-ckj" id="FOv-YE-f0a"/>
+                        <outlet property="rateLabel" destination="YcW-Xy-ogl" id="OIe-eO-Py2"/>
                         <outlet property="receiveButton" destination="wrP-SQ-9yw" id="jLN-0w-sdy"/>
                         <outlet property="sendButton" destination="3Jm-RR-OkV" id="mL0-l3-xS5"/>
                         <outlet property="tableView" destination="5Ci-dA-H19" id="FXp-qF-wiG"/>
                         <outlet property="unfrozenButton" destination="VcQ-vY-3Rz" id="ZWe-cw-YEy"/>
+                        <outlet property="usdPriceLabel" destination="QHf-7Q-GKx" id="awx-yw-dpq"/>
                         <outlet property="walletNameLabel" destination="Flg-n7-deC" id="1og-bV-vzc"/>
                     </connections>
                 </viewController>
