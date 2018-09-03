@@ -36,12 +36,6 @@ class VoteTableViewCell: UITableViewCell {
         configureUI()
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapTipImageView(_:)))
         voteImageView.addGestureRecognizer(tap)
-        
-        let inputSignal = (inputTextField.rx.text).orEmpty.asObservable()
-        inputSignal
-            .map { return $0.count > 0 }
-            .bind(to: votePlaceholderLabel.rx.isHidden)
-            .disposed(by: disposeBag)
     }
     
     override func prepareForReuse() {
@@ -75,21 +69,23 @@ class VoteTableViewCell: UITableViewCell {
             inputTextField.text = vote.voteCount.string
 //            voteNumberTitleLabel.text = R.string.tron.voteYourvoteLabelTitle()
 //            voteNumberTitleLabel.isHidden = false
-           
+//           votePlaceholderLabel.isHidden = true
+            self.votePlaceholderLabel.isHidden = true
         } else {
             inputTextField.text = ""
 //            voteNumberTitleLabel.isHidden = true
-            
+            self.votePlaceholderLabel.isHidden = false
         }
         
         (inputTextField.rx.text).skip(1).map({ (text) -> Int64 in
             return Int64(text ?? "0") ?? 0
         }).asObservable()
-            .subscribe(onNext: { (number) in
+            .subscribe(onNext: {[weak self] (number) in
                 let vote = Vote()
                 vote.voteAddress = model.address
                 vote.voteCount = number
                 ServiceHelper.shared.voteModelChange.onNext(vote)
+                self?.votePlaceholderLabel.isHidden = number > 0
             })
         .disposed(by: disposeBag)
         let a = TronAccount()
