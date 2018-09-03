@@ -39,6 +39,20 @@ class TransactionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(model: TransactionModel) {
+        self.dateLabel.text = model.timestamp?.dateString
+        self.fromAddressLabel.text = model.ownerAddress
+        self.toAddressLabel.text = model.toAddress
+        guard let value = model.contractData?.amount else {
+            return
+        }
+        if let token = model.contractData?.token {
+            self.valueLabel.text = "\(value.toString() ?? "0")" + " \(token)"
+        } else {
+            self.valueLabel.text = "\(value.trxValue.toString() ?? "0")" + " TRX"
+        }
+    }
+    
     func configure(model: TronTransaction) {
         dateLabel.text = model.rawData.expiration.dateString
         if let contract = model.rawData.contractArray.firstObject as? Transaction_Contract {

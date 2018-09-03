@@ -133,6 +133,6 @@ extension digtalTarget {
     }
     
     public func toString() -> String {
-        return "\(self)"
+        return String(format: "%.6f", self as! CVarArg)
     }
 }

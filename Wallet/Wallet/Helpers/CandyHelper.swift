@@ -82,9 +82,15 @@ class TronHelper: CandyNetworkProtocol {
     static let shared: TronHelper = TronHelper()
 
     internal lazy var provider = MoyaProvider<TronAPI>(endpointClosure: self.endpointClosure, plugins: plugins())
+    
+    internal lazy var transactionProvider = MoyaProvider<TronTransactionAPI>(endpointClosure: self.transactionClosure, plugins: plugins())
     static let deleteMissingInternalSeconds: Double = 60.0
     static let deleyedTransactionInternalSeconds: Double = 60.0
     fileprivate var endpointClosure = { (target: TronAPI) -> Endpoint<TronAPI> in
+        return MoyaProvider.defaultEndpointMapping(for: target)
+    }
+    
+    fileprivate var transactionClosure = { (target: TronTransactionAPI) -> Endpoint<TronTransactionAPI> in
         return MoyaProvider.defaultEndpointMapping(for: target)
     }
     
@@ -94,6 +100,14 @@ class TronHelper: CandyNetworkProtocol {
             .mapJSON()
             .asObservable()
             .mapArray(type: RateResult.self)
+    }
+    
+    func getTransactions(address: String, limit: String, start: String) -> Observable<TransactionListModel> {
+        return transactionProvider.rx.request(TronTransactionAPI.getTransactions(address: address, limit: limit, start: start))
+            .filterSuccessfulStatusCodes()
+            .mapJSON()
+            .asObservable()
+            .mapObject(type: TransactionListModel.self)
     }
     
     
@@ -143,5 +157,63 @@ class RateResult: NSObject, Mappable {
         total_supply <- map["total_supply"]
         name <- map["name"]
         percent_change_1h <- map["percent_change_1h"]
+    }
+}
+
+class TransactionListModel: NSObject, Mappable {
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        total <- map["total"]
+        data <- map["data"]
+    }
+    
+    var total: Int?
+    var data: [TransactionModel]?
+}
+
+class TransactionModel: NSObject, Mappable {
+    var hashString: String?
+    var block: String?
+    var data: String?
+    
+    var contractData: ContractModel?
+    var confirmed: String?
+    var toAddress: String?
+    var ownerAddress: String?
+    var timestamp: Int64?
+    var contractType: Int32?
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        hashString <- map["hash"]
+        block <- map["block"]
+        data <- map["data"]
+        contractData <- map["contractData"]
+        confirmed <- map["confirmed"]
+        toAddress <- map["toAddress"]
+        ownerAddress <- map["ownerAddress"]
+        timestamp <- map["timestamp"]
+        contractType <- map["contractType"]
+    }
+}
+
+class ContractModel: NSObject, Mappable {
+    var amount: Double?
+    var to: String?
+    var token: String?
+    var from: String?
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        amount <- map["amount"]
+        to <- map["to"]
+        token <- map["token"]
+        from <- map["from"]
     }
 }

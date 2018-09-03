@@ -239,6 +239,8 @@ class BalanceViewController: UIViewController {
                 self?.updateRate(rate: value)
             })
         .disposed(by: disposeBag)
+        
+        
     }
     
     func updateRate(rate: RateResult) {

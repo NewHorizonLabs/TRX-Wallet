@@ -426,6 +426,7 @@
 		36CF028620BD04230001D0F5 /* FrozenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CF028520BD04230001D0F5 /* FrozenView.xib */; };
 		36D12EBE20480F17007AC3D6 /* TronAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D12EBD20480F17007AC3D6 /* TronAPI.swift */; };
 		36D12EC02048110B007AC3D6 /* CandyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D12EBF2048110B007AC3D6 /* CandyHelper.swift */; };
+		36D12EC2213CFFF4007AC3D6 /* TronTransactionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D12EC1213CFFF4007AC3D6 /* TronTransactionAPI.swift */; };
 		36D56DEE20D38ECA008E1675 /* NodeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D56DED20D38ECA008E1675 /* NodeListViewController.swift */; };
 		36D56DF120D39CB9008E1675 /* NodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D56DEF20D39CB9008E1675 /* NodeTableViewCell.swift */; };
 		36D56DF220D39CB9008E1675 /* NodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D56DF020D39CB9008E1675 /* NodeTableViewCell.xib */; };
@@ -883,6 +884,7 @@
 		36CF028520BD04230001D0F5 /* FrozenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrozenView.xib; sourceTree = "<group>"; };
 		36D12EBD20480F17007AC3D6 /* TronAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TronAPI.swift; sourceTree = "<group>"; };
 		36D12EBF2048110B007AC3D6 /* CandyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandyHelper.swift; sourceTree = "<group>"; };
+		36D12EC1213CFFF4007AC3D6 /* TronTransactionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TronTransactionAPI.swift; sourceTree = "<group>"; };
 		36D56DED20D38ECA008E1675 /* NodeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeListViewController.swift; sourceTree = "<group>"; };
 		36D56DEF20D39CB9008E1675 /* NodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTableViewCell.swift; sourceTree = "<group>"; };
 		36D56DF020D39CB9008E1675 /* NodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NodeTableViewCell.xib; sourceTree = "<group>"; };
@@ -2123,6 +2125,7 @@
 			children = (
 				36D12EBF2048110B007AC3D6 /* CandyHelper.swift */,
 				36D12EBD20480F17007AC3D6 /* TronAPI.swift */,
+				36D12EC1213CFFF4007AC3D6 /* TronTransactionAPI.swift */,
 				36A795F120EF4B04006BBFB2 /* RemoteConfigureHelper.swift */,
 				36A795EF20EF4A5F006BBFB2 /* ApplicationHelper.swift */,
 				36B68B4220CA83C5006E891C /* BrowserHelper.swift */,
@@ -2568,6 +2571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				368C85A1209C70190089D906 /* StateViewModel.swift in Sources */,
+				36D12EC2213CFFF4007AC3D6 /* TronTransactionAPI.swift in Sources */,
 				368C850C209C70180089D906 /* ImageURLFormatter.swift in Sources */,
 				368C85E8209C70190089D906 /* SupportViewController.swift in Sources */,
 				368C8585209C70180089D906 /* LockCreatePasscodeViewController.swift in Sources */,
@@ -3130,7 +3134,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KN2KLW59S5;
+				DEVELOPMENT_TEAM = V657ZKA4KA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3158,7 +3162,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KN2KLW59S5;
+				DEVELOPMENT_TEAM = V657ZKA4KA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

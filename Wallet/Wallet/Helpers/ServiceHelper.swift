@@ -322,6 +322,12 @@ extension Int64 {
     }
 }
 
+extension Double {
+    var trxValue: Double {
+        return self/1000000.0
+    }
+}
+
 extension Return {
     var errorMessage: String {
         let code = self.code

@@ -16,7 +16,7 @@ class TransactionsListViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
-    var data: Variable<[TronTransaction]> = Variable([])
+    var data: Variable<[TransactionModel]> = Variable([])
     var firstLoad: Bool = true
     
     @IBOutlet weak var tableView: UITableView!
@@ -31,7 +31,7 @@ class TransactionsListViewController: UIViewController {
             cell.configure(model: model)
             }.disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(TronTransaction.self).subscribe(onNext: { (model) in
+        tableView.rx.modelSelected(TransactionModel.self).subscribe(onNext: { (model) in
             let vc = R.storyboard.transaction.transactionDetailViewController()!
             CurrentControllerHelper.pushViewController(viewController: vc)
             vc.transaction = model
@@ -54,23 +54,23 @@ class TransactionsListViewController: UIViewController {
     }
     
     func loadData() {
-        guard let account = ServiceHelper.shared.account.value else {
+        guard let account = ServiceHelper.shared.account.value?.address.addressString else {
             return
         }
         displayLoading()
         
-        ServiceHelper.shared.getTransactions(account: account)
-            .subscribe {[weak self] (list) in
+        TronHelper.shared.getTransactions(address: account, limit: "100", start: "0")
+            .asObservable()
+            .subscribe(onNext: {[weak self] (result) in
                 self?.firstLoad = false
-                if let array = list.element {
-                    var value = array.filter({ (action) -> Bool in
-                        if let object = action.rawData.contractArray.firstObject as? Transaction_Contract {
-                            return object.type == Transaction_Contract_ContractType.transferContract || object.type == Transaction_Contract_ContractType.transferAssetContract
-                        }
-                        return false
+                if let array = result.data {
+                    var value = array.filter({ (model) -> Bool in
+                        guard let type = model.contractType else { return true }
+                        return type == Transaction_Contract_ContractType.transferContract.rawValue || type ==  Transaction_Contract_ContractType.transferAssetContract.rawValue
                     })
                     value.sort(by: { (a, b) -> Bool in
-                        return a.rawData.expiration > b.rawData.expiration
+                        guard let value1 = a.timestamp, let value2 = b.timestamp else { return false }
+                        return value1 > value2
                     })
                     self?.data.value = value
                 } else {
@@ -79,8 +79,9 @@ class TransactionsListViewController: UIViewController {
                 self?.hideLoading()
                 
                 self?.tableView.endRefresh()
-                
-        }.disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
+
         
     }
 }

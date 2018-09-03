@@ -18,7 +18,7 @@ class TransactionDetailViewController: UIViewController {
     @IBOutlet weak var transactionIDLabel: WebsiteLabel!
     @IBOutlet weak var codeImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    var transaction: TronTransaction?
+    var transaction: TransactionModel?
     
     var url: String = "" {
         didSet {
@@ -59,7 +59,7 @@ class TransactionDetailViewController: UIViewController {
         self.view.backgroundColor = UIColor.backgroundColor
         if let transaction = transaction {
             configure(model: transaction)
-            if let idStirng  = transaction.rawData.data()?.sha256().hexString {
+            if let idStirng  = transaction.hashString {
                 print(idStirng)
                 let str1 = NSMutableAttributedString(string: idStirng)
                 let range1 = NSRange(location: 0, length: str1.length)
@@ -85,67 +85,19 @@ class TransactionDetailViewController: UIViewController {
         hud.hide(animated: true, afterDelay: 1.5)
     }
     
-    func configure(model: TronTransaction) {
-        dateLabel.text = model.rawData.expiration.dateString
-        if let contract = model.rawData.contractArray.firstObject as? Transaction_Contract {
-            do {
-                if let transferContract = try contract.parameter.unpackMessageClass(TransferContract.self) as? TransferContract {
-                    DispatchQueue.main.async {
-                        if let data = transferContract.ownerAddress {
-                            self.fromAddressLabel.text = String(base58CheckEncoding: data)
-                        }
-                        if let data = transferContract.toAddress {
-                            self.toAddressLabel.text = String(base58CheckEncoding: data)
-                        }
-                        
-                        self.valueLabel.text = transferContract.amount.balanceString + " TRX"
-                    }
-                    
-                }
-                
-            } catch {
-                do {
-                    if let transferContract = try contract.parameter.unpackMessageClass(TransferAssetContract.self) as? TransferAssetContract {
-                        DispatchQueue.main.async {
-                            if let data = transferContract.ownerAddress {
-                                self.fromAddressLabel.text = String(base58CheckEncoding: data)
-                            }
-                            if let data = transferContract.toAddress {
-                                self.toAddressLabel.text = String(base58CheckEncoding: data)
-                            }
-                            if let name = transferContract.assetName.toString() {
-                                self.valueLabel.text = transferContract.amount.string + " " + name
-                            } else {
-                                self.valueLabel.text = transferContract.amount.string
-                            }
-                        }
-                        
-                    }
-                } catch {
-                    do {
-                        if let transferContract = try contract.parameter.unpackMessageClass(FreezeBalanceContract.self) as? FreezeBalanceContract {
-                            DispatchQueue.main.async {
-                                if let data = transferContract.ownerAddress {
-                                    self.fromAddressLabel.text = String(base58CheckEncoding: data)
-                                }
-                                self.toAddressLabel.text = "Frozzen"
-                                self.valueLabel.text = transferContract.frozenBalance.balanceString + " TRX"
-                            }
-                        }
-                        
-                    } catch {
-                        do {
-                            if let transferContract = try contract.parameter.unpackMessageClass(VoteWitnessContract.self) as? VoteWitnessContract {
-                                
-                            }
-                            
-                        } catch {
-                            
-                        }
-                    }
-                }
-            }
+    func configure(model: TransactionModel) {
+        dateLabel.text = model.timestamp?.dateString
+        self.fromAddressLabel.text = model.ownerAddress
+        self.toAddressLabel.text = model.toAddress
+        guard let value = model.contractData?.amount else {
+            return
         }
+        if let token = model.contractData?.token {
+            self.valueLabel.text = "\(value.toString() ?? "0")" + " \(token)"
+        } else {
+            self.valueLabel.text = "\(value.trxValue.toString() ?? "0")" + " TRX"
+        }
+        
     }
 
 }
