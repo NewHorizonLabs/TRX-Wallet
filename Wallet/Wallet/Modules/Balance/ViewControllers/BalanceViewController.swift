@@ -247,11 +247,11 @@ class BalanceViewController: UIViewController {
         self.usdPriceLabel.text = "$\(rate.price_usd ?? "0.0")"
         
         if let rateString = rate.percent_change_24h {
-            self.rateLabel.text = "(\(rateString))"
+            self.rateLabel.text = "(\(rateString)%)"
             if rateString.contains("-") {
-                self.rateLabel.textColor = UIColor(hex: "36DD2B")
-            } else {
                 self.rateLabel.textColor = UIColor(hex: "FF4242")
+            } else {
+                self.rateLabel.textColor = UIColor(hex: "36DD2B")
             }
         }
         
