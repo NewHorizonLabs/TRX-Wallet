@@ -29,7 +29,9 @@ class LockPasscodeViewController: UIViewController {
     }
     
     @objc func tapedView() {
-        invisiblePasscodeField.becomeFirstResponder()
+        if !invisiblePasscodeField.isFirstResponder && !lock.incorrectMaxAttemptTimeIsSet() {
+            invisiblePasscodeField.becomeFirstResponder()
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
