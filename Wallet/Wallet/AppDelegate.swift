@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UserDefaults.Set.set("", forKey: .fullnode)
         let isfirstLoad = !UserDefaults.Appalication.bool(forKey: .haveLoadFirstTime)
         if isfirstLoad {
+            //清除密码锁keychain 数据
             Lock().clear()
+            EtherKeystore.shared.clear()
             UserDefaults.Appalication.set(true, forKey: .haveLoadFirstTime)
         }
         FirebaseApp.configure()
