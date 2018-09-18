@@ -1,6 +1,6 @@
 //
 //  ArrayExtension.swift
-//  TRX Wallet
+//  RayboWallet
 //
 //  Created by yidahis on 2018/1/31.
 //  Copyright © 2018年 Maynard. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  Constants.swift
-//  TRX Wallet
+//  RayboWallet
 //
 //  Created by feiyu on 2017/4/26.
 //  Copyright © 2017年 New Horizon Labs. All rights reserved.

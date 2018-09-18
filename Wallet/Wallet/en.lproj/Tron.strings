@@ -12,7 +12,7 @@
 "Balance.Send.Confirm.sender" = "Sender";
 "Balance.Send.Confirm.to" = "To";
 "Balance.Send.Confirm.total" = "Total";
-"Balance.Receive.addressTip" = "My Public TRX Wallet Address";
+"Balance.Receive.addressTip" = "My Public RayboWallet Address";
 "Balance.Receive.buttonCopy" = "Copy";
 "Transaction.nav.title" = "Transactions";
 "Transaction.from.label.title" = "From";

@@ -1,9 +1,9 @@
 //
 //  Device.swift
-//  TRX Wallet
+//  RayboWallet
 //
-//  Created by TRX Wallet on 2017/12/26.
-//  Copyright © 2017年 TRX Wallet. All rights reserved.
+//  Created by RayboWallet on 2017/12/26.
+//  Copyright © 2017年 RayboWallet. All rights reserved.
 //
 
 import UIKit

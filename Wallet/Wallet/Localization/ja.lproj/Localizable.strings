@@ -132,8 +132,8 @@
 "welldone.share.label.text" = "シェアする";
 "welldone.viewmodel.sharing.text1" = "これは私がETHとERC20トークンを保存するために使用するアプリです。";
 "welldone.viewmodel.sharing.text2" = "Trustをチェックしてください。イーサリアムとERC20トークンを安全に保管できるウォレットです。";
-"welldone.viewmodel.sharing.text3" = "イーサリアムとERC20トークンをTRX Walletに安全に保管します";
-"welldone.viewmodel.sharing.text4" = "私はTRX Wallet で、イーサリアムとERC20トークンを保護します。";
+"welldone.viewmodel.sharing.text3" = "イーサリアムとERC20トークンをRayboWalletに安全に保管します";
+"welldone.viewmodel.sharing.text4" = "私はRayboWallet で、イーサリアムとERC20トークンを保護します。";
 "browser.home.button.title" = "ホーム";
 "browser.reload.button.title" = "再読み込み";
 "configureTransaction.gasPriceGwei.label.title" = "ガス価格（Gwei）";

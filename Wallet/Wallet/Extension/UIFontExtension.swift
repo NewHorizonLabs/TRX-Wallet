@@ -1,17 +1,17 @@
 //
 //  UIFontExtension.swift
-//  TRX Wallet
+//  RayboWallet
 //
-//  Created by TRX Wallet on 2018/1/8.
-//  Copyright © 2018年 TRX Wallet. All rights reserved.
+//  Created by RayboWallet on 2018/1/8.
+//  Copyright © 2018年 RayboWallet. All rights reserved.
 //
 
 //
 //  UIFont+SFUI.swift
-//  TRX Wallet
+//  RayboWallet
 //
 //  Created by Maynard on 2017/5/5.
-//  Copyright © 2017年 TRX Wallet. All rights reserved.
+//  Copyright © 2017年 RayboWallet. All rights reserved.
 //
 
 import UIKit

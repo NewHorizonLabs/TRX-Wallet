@@ -132,8 +132,8 @@
 "welldone.share.label.text" = "Share";
 "welldone.viewmodel.sharing.text1" = "Here is the app I use to store my ETH and ERC20 tokens.";
 "welldone.viewmodel.sharing.text2" = "Check out Trust - the wallet that lets me securely store my Ethereum and ERC20 tokens.";
-"welldone.viewmodel.sharing.text3" = "I securely store Ethereum and ERC20 tokens in the TRX Wallet";
-"welldone.viewmodel.sharing.text4" = "I secure my Ethereum and ERC20 tokens in the TRX Wallet.";
+"welldone.viewmodel.sharing.text3" = "I securely store Ethereum and ERC20 tokens in the RayboWallet";
+"welldone.viewmodel.sharing.text4" = "I secure my Ethereum and ERC20 tokens in the RayboWallet.";
 "browser.home.button.title" = "Home";
 "browser.reload.button.title" = "Reload";
 "configureTransaction.gasPriceGwei.label.title" = "Gas Price (Gwei)";

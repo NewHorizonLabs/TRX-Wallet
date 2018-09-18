@@ -1,6 +1,6 @@
 //
 //  NetworkHelper.swift
-//  TRX Wallet
+//  RayboWallet
 //
 //  Created by Maynard on 2018/2/8.
 //  Copyright © 2018年 Maynard. All rights reserved.

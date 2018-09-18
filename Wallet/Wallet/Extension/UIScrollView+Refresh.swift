@@ -3,7 +3,7 @@
 //  New Horizon Labs
 //
 //  Created by  on 2018/4/22.
-//  Copyright © 2018年 TRX Wallet. All rights reserved.
+//  Copyright © 2018年 RayboWallet. All rights reserved.
 //
 
 import Foundation

@@ -2,8 +2,8 @@
 //  LayoutableButton.swift
 //  Sports
 //
-//  Created by TRX Wallet@126.com on 2017/4/18.
-//  Copyright © 2017年 TRX Wallet@126.com. All rights reserved.
+//  Created by RayboWallet@126.com on 2017/4/18.
+//  Copyright © 2017年 RayboWallet@126.com. All rights reserved.
 //
 
 import UIKit

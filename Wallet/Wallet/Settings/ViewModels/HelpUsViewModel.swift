@@ -21,12 +21,12 @@ struct HelpUsViewModel {
         ),
         NSLocalizedString(
             "welldone.viewmodel.sharing.text3",
-            value: "I securely store Ethereum and ERC20 tokens in the TRX Wallet",
+            value: "I securely store Ethereum and ERC20 tokens in the RayboWallet",
             comment: ""
         ),
         NSLocalizedString(
             "welldone.viewmodel.sharing.text4",
-            value: "I secure my Ethereum and ERC20 tokens in the TRX Wallet.",
+            value: "I secure my Ethereum and ERC20 tokens in the RayboWallet.",
             comment: ""
         ),
     ]

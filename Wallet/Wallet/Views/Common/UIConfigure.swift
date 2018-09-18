@@ -1,5 +1,5 @@
 //  UIConfigure.swift
-//  TRX Wallet
+//  RayboWallet
 //
 //  Created by Maynard on 2017/4/21.
 //  Copyright © 2017年 New Horizon Labs. All rights reserved.

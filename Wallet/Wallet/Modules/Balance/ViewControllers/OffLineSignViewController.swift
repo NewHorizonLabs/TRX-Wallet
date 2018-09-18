@@ -3,7 +3,7 @@
 //  Wallet
 //
 //  Created by Maynard on 2018/5/31.
-//  Copyright © 2018年 TRX Wallet. All rights reserved.
+//  Copyright © 2018年 RayboWallet. All rights reserved.
 //
 
 import UIKit

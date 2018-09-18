@@ -1,6 +1,6 @@
 //
 //  GradientButton.swift
-//  TRX Wallet
+//  RayboWallet
 //
 //  Created by Maynard on 2018/3/15.
 //  Copyright © 2018年 Maynard. All rights reserved.

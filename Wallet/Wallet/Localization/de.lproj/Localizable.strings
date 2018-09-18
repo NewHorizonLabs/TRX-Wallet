@@ -75,7 +75,7 @@
 "wallet.navigation.title" = "Wallet";
 "wallets.backup.alertSheet.title" = "Sicherungsschlüsselspeicher";
 "welcome.createWallet.button.title" = "WALLET ERSTELLEN";
-"welcome.erc20.label.description" = "TRX Wallet unterstützt standardmäßig ERC20-Tokens.";
+"welcome.erc20.label.description" = "RayboWallet unterstützt standardmäßig ERC20-Tokens.";
 "welcome.erc20.label.title" = "ERC20-kompatibel";
 "welcome.fullyTransparent.label.description" = "Der Code ist Open Source (GPL-3.0-Lizenz) und vollständig auditiert.";
 "welcome.fullyTransparent.label.title" = "Völlig transparent";
