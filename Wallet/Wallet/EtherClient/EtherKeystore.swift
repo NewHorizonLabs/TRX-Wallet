@@ -44,6 +44,13 @@ open class EtherKeystore: Keystore {
         return !wallets.isEmpty
     }
 
+    func clear() {
+        keychain.delete(Keys.recentlyUsedAddress)
+        keychain.delete(Keys.recentlyUsedWallet)
+        keychain.delete(Keys.watchAddresses)
+    }
+
+    
     private var watchAddresses: [String] {
         set {
             let data = NSKeyedArchiver.archivedData(withRootObject: newValue)
