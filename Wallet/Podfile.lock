@@ -111,11 +111,11 @@ PODS:
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
-  - Realm (3.5.0):
-    - Realm/Headers (= 3.5.0)
-  - Realm/Headers (3.5.0)
-  - RealmSwift (3.5.0):
-    - Realm (= 3.5.0)
+  - Realm (3.7.5):
+    - Realm/Headers (= 3.7.5)
+  - Realm/Headers (3.7.5)
+  - RealmSwift (3.7.5):
+    - Realm (= 3.7.5)
   - Result (3.2.4)
   - Reveal-SDK (16)
   - Ruler (2.2.0)
@@ -180,7 +180,7 @@ DEPENDENCIES:
   - Protobuf
   - QRCodeReaderViewController (from `https://github.com/yannickl/QRCodeReaderViewController.git`, branch `master`)
   - R.swift
-  - RealmSwift
+  - RealmSwift (~> 3.7.4)
   - Reveal-SDK
   - Ruler
   - RxCocoa
@@ -325,8 +325,8 @@ SPEC CHECKSUMS:
   QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
-  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
-  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
+  Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
+  RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   Reveal-SDK: ed36bdbb3cbf90b94ae5da0dbcb3c7ae6738c51f
   Ruler: 624e0f82bfdf24c15fb0da45fbcc170ec7a4dbff
@@ -347,6 +347,6 @@ SPEC CHECKSUMS:
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   URLNavigator: b7bdd352cc07f4f745547807a3ca2a82980a6cea
 
-PODFILE CHECKSUM: be8c99201a343c8a086961213a1d54a958d5276c
+PODFILE CHECKSUM: bc53beb3a7886e8bc68b05048b08347cee83463b
 
 COCOAPODS: 1.5.3

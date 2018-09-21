@@ -17,7 +17,7 @@ target 'TRXWallet' do
     pod 'KeychainSwift'
     pod 'SwiftLint'
     pod 'SeedStackViewController'
-    pod 'RealmSwift'
+    pod 'RealmSwift', '~> 3.7.4'
     pod 'Lokalise'
     pod 'Moya'
     pod 'Moya/RxSwift'
