@@ -39,6 +39,12 @@ open class EtherKeystore: Keystore {
         self.keyStore = try! KeyStore(keyDirectory: keysDirectory)
         self.userDefaults = userDefaults
     }
+    
+    func clear() {
+        keychain.delete(Keys.recentlyUsedAddress)
+        keychain.delete(Keys.recentlyUsedWallet)
+        keychain.delete(Keys.watchAddresses)
+    }
 
     var hasWallets: Bool {
         return !wallets.isEmpty
